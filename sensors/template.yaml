@@ -20,3 +20,50 @@
       value_template: '{% if is_state("sensor.multi_kontor_burglar_9_10", "0") %}Ingen bevegelse{% else %}Bevegelse!{% endif %}'
       friendly_name: 'Motion kontor'
       icon_template: '{% if is_state("sensor.multi_kontor_burglar_9_10", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+
+
+    ### Smoke sensors
+  
+    # Gang
+    smoke_gang:
+      value_template: '{% if is_state("sensor.smoke_gang_smoke_47_1", "0") %}Ingen brann{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk i gangen'
+      icon_template: '{% if is_state("sensor.smoke_gang_smoke_47_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_gang:
+      value_template: '{% if is_state("sensor.smoke_gang_heat_47_4", "0") %}Normal temperatur{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme i gangen'
+      icon_template: '{% if is_state("sensor.smoke_gang_heat_47_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+
+    # Kontor
+    smoke_kontor:
+      value_template: '{% if is_state("sensor.smoke_kontor_smoke_48_1", "0") %}Ingen brann{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_kontor_smoke_48_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_kontor:
+      value_template: '{% if is_state("sensor.smoke_kontor_heat_48_4", "0") %}Normal temperatur{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_kontor_heat_48_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+
+    # Stue
+    smoke_stue:
+      value_template: '{% if is_state("sensor.smoke_stue_smoke_49_1", "0") %}Ingen brann{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_stue_smoke_49_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_stue:
+      value_template: '{% if is_state("sensor.smoke_stue_heat_49_4", "0") %}Normal temperatur{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_stue_heat_49_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+
+    # Soverom
+    smoke_soverom:
+      value_template: '{% if is_state("sensor.smoke_soverom_smoke_50_1", "0") %}Ingen brann{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_soverom_smoke_50_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_soverom:
+      value_template: '{% if is_state("sensor.smoke_soverom_heat_50_4", "0") %}Normal temperatur{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_soverom_heat_50_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'

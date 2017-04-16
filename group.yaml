@@ -276,18 +276,14 @@ motion_sensors:
 smoke_sensors:
   name: Smoke-sensors
   entities:
-    - sensor.smoke_gang_alarm_level_47_1
-    - sensor.smoke_gang_alarm_type_47_0
-    - sensor.smoke_gang_burglar_47_10
-    - sensor.smoke_gang_general_47_0
-    - sensor.smoke_gang_heat_47_4
-    - sensor.smoke_gang_heat_47_7
-    - sensor.smoke_gang_power_management_47_11
-    - sensor.smoke_gang_smoke_47_1
-    - sensor.smoke_gang_smoke_47_4
-    - sensor.smoke_gang_sourcenodeid_47_2
-    - sensor.smoke_gang_system_47_12
-    - sensor.smoke_gang_temperature_47_1
+    - sensor.smoke_gang
+    - sensor.heat_gang
+    - sensor.smoke_kontor
+    - sensor.heat_kontor
+    - sensor.smoke_soverom
+    - sensor.heat_soverom
+    - sensor.smoke_stue
+    - sensor.heat_stue
 
 #door_sensors:
 #  name: Door-sensors

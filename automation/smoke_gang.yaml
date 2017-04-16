@@ -25,20 +25,24 @@
   action:
     service: notify.ios_lolphone_7
     data:
-      title: 'Smoke entrance: '
-      message: 'No more smoke...'
+      title: 'Alert: '
+      message: 'Røyken er borte fra gangen...'
 
 
 
 # Temperature
-- alias: Heat entrance high
+- alias: Smoke Sensor Entrance Temperature HIGH
   trigger:
     platform: state
     entity_id: sensor.smoke_gang_heat_47_4
   condition:
-    - condition: state
-      entity_id: sensor.smoke_gang_heat_47_4
-      state: '254'
+    - condition: or
+      - condition: state
+        entity_id: sensor.smoke_gang_heat_47_4
+        state: '254'
+      - condition: numeric_state
+        entity_id: sensor.smoke_gang_temperature_47_1
+        above: 35
   action:
     - service: notify.ios_lolphone_7
       data:
@@ -46,7 +50,7 @@
         message: 'Veldig varmt i gangen!'
 
 
-- alias: Heat entrance normal
+- alias: Smoke Sensor Entrance Temperature Normal
   trigger:
     platform: state
     entity_id: sensor.smoke_gang_heat_47_4

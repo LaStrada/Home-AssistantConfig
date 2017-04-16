@@ -1,0 +1,65 @@
+# Smoke
+- alias: Smoke Sensor Livingroom Smoke
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_stue_smoke_49_1
+  condition:
+    - condition: state
+      entity_id: sensor.smoke_stue_smoke_49_1
+      state: '254'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Brann!! '
+        message: 'Røyk i stua!'
+
+
+- alias: Smoke Sensor Livingroom NOSMOKE
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_stue_smoke_49_4
+  condition:
+    - condition: state
+      entity_id: sensor.smoke_stue_smoke_49_4
+      state: '0'
+  action:
+    service: notify.ios_lolphone_7
+    data:
+      title: 'Alert: '
+      message: 'Røyken er borte fra stua...'
+
+
+
+# Temperature
+- alias: Smoke Sensor Livingroom Temperature HIGH
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_stue_heat_49_4
+  condition:
+    - condition: or
+      - condition: state
+        entity_id: sensor.smoke_stue_heat_49_4
+        state: '254'
+      - condition: numeric_state
+        entity_id: sensor.smoke_stue_temperature_49_1
+        above: 40
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Brann!! '
+        message: 'Veldig varmt i stua!'
+
+
+- alias: Smoke Sensor Livingroom Temperature Normal
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_stue_heat_49_4
+  condition:
+    - condition: state
+      entity_id: sensor.smoke_stue_heat_49_4
+      state: '0'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Alert! '
+        message: 'Normal temperatur i stua igjen'
