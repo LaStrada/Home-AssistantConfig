@@ -37,6 +37,7 @@
     entity_id: sensor.smoke_kontor_heat_48_4
   condition:
     - condition: or
+      conditions:
       - condition: state
         entity_id: sensor.smoke_kontor_heat_48_4
         state: '254'
