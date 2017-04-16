@@ -33,7 +33,7 @@
 # Temperature
 - alias: Heat entrance high
   trigger:
-    platform: numeric_state
+    platform: state
     entity_id: sensor.smoke_gang_heat_47_4
   condition:
     - condition: state
@@ -48,7 +48,7 @@
 
 - alias: Heat entrance normal
   trigger:
-    platform: numeric_state
+    platform: state
     entity_id: sensor.smoke_gang_heat_47_4
   condition:
     - condition: state
