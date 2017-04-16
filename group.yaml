@@ -1,0 +1,282 @@
+default_view:
+  name: Alle rom
+  icon: mdi:home 
+  view: yes
+  entities:
+    - group.ute_min
+    - group.stue
+    - group.kitchen
+    - group.soverom
+    - group.kontor
+    - group.gang
+    - group.bad
+
+# Living room
+stue:
+  name: Stue
+  entities:
+    - climate.stue_termostat
+    - sensor.temp_stue_temperature
+    - sensor.temp_stue_humidity
+    - light.stue
+
+
+# Kitchen
+kitchen:
+  name: Kjøkken
+  entities:
+    - sensor.multi_kitchen_temperature_18_1
+    - sensor.multi_kitchen_relative_humidity_18_5
+    - sensor.multi_kitchen_burglar_18_10
+    - light.ktichen_table_dimmer_level_23_0
+    - switch.kitchen_lights_switch_22_0_2
+    - switch.kitchen_lights_switch_22_0_3
+
+
+# Bedroom
+soverom:
+  name: Soverom
+  control: no
+  entities:
+    - climate.soverom_termostat
+    - sensor.temp_soverom_temperature
+    - sensor.temp_soverom_humidity
+    - light.soverom_taklys
+    - light.stale_nattbordslampe
+    - light.tina_nattbordslampe
+
+
+# Office / guestroom
+kontor:
+  name: Kontor
+  entities:
+    - climate.kontor_termostat
+    - sensor.temp_kontor_temperature
+    - sensor.temp_kontor_humidity
+    - sensor.multi_kontor_burglar_9_10
+
+
+guest_mode:
+  name: Gjester
+  control: no
+  entities:
+    - input_boolean.guests
+
+
+# Entrance
+gang:
+  name: Gang
+  control: no
+  entities:
+    - sensor.multi_gang_temperature_17_1
+    - sensor.multi_gang_relative_humidity_17_5
+    - sensor.multi_gang_burglar_17_10
+    - group.lys_gang
+
+
+# Bathroom
+bad:
+  name: Bad
+  entities:
+    - sensor.temp_bad_temperature
+    - sensor.temp_bad_humidity
+
+
+# Outdoor
+ute_min:
+  name: Ute
+  entities:
+    - sensor.temp_ute_temperature
+    - sensor.yr_humidity
+    - sun.sun
+    - sensor.yr_symbol
+    - sensor.yr_precipitation
+    - sensor.yr_wind_speed
+
+ute:
+  name: Ute
+  entities:
+    - sensor.temp_ute_temperature
+    - sensor.yr_humidity
+    - sun.sun
+    - sensor.solar_angle
+    - sensor.yr_symbol
+    - sensor.yr_cloudiness
+    - sensor.yr_dewpoint_temperature
+    - sensor.yr_precipitation
+    - sensor.yr_wind_speed
+    - sun.next_rising
+    - sun.next_setting
+    - sensor.nordlysvarsel_1_time
+
+
+
+
+reise_til_jobb:
+  name: Reise til jobb
+  entities:
+    - sensor.jobbreise_buss
+    - sensor.jobbreise_bil
+
+reise_hjem:
+  name: Reise hjem
+  entities:
+    - sensor.hjemreise_buss
+    - sensor.hjemreise_bil
+
+
+temperatures:
+  name: Temperatur
+  view: yes
+  icon: mdi:thermometer
+  entities:
+    - group.ute
+    - group.temp_stue_kitchen
+    - group.temp_soverom
+    - group.temp_kontor
+    - group.temp_gang
+    - group.temp_bad
+
+temp_stue_kitchen:
+  name: Stue & kjøkken
+  entities:
+    - climate.stue_termostat
+    - sensor.temp_stue_temperature
+    - sensor.temp_stue_humidity
+    - sensor.multi_kitchen_temperature_18_1
+    - sensor.multi_kitchen_relative_humidity_18_5
+
+temp_soverom:
+  name: Soverom
+  entities:
+      - climate.soverom_termostat
+      - sensor.temp_soverom_temperature
+      - sensor.temp_soverom_humidity
+
+temp_kontor:
+  name: Kontor
+  entities:
+    - climate.kontor_termostat
+    - sensor.temp_kontor_temperature
+    - sensor.temp_kontor_humidity
+
+temp_gang:
+  name: Gang
+  entities:
+    - sensor.multi_gang_temperature_17_1
+    - sensor.multi_gang_relative_humidity_17_5
+
+temp_bad:
+  name: Bad
+  entities:
+    - sensor.temp_bad_temperature
+    - sensor.temp_bad_humidity
+
+
+
+
+### Lights
+
+lys:
+  name: Lys
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.lys_stue
+    - group.lys_kitchen
+    - group.lys_soverom
+    - group.lys_gang
+    - group.lys_kontor
+
+
+lys_soverom:
+  name: Soverom
+  entities:
+    - light.soverom_taklys
+    - light.stale_nattbordslampe
+    - light.tina_nattbordslampe
+
+lys_kitchen:
+  name: Kjøkken
+  entities:
+    - light.ktichen_table_dimmer_level_23_0
+    - switch.kitchen_lights_switch_22_0_2
+    - switch.kitchen_lights_switch_22_0_3
+
+lys_stue:
+  name: Stue
+  entities:
+    - light.stue
+
+lys_gang:
+  name: Gang lys
+  entities:
+    - light.gang_dimmer_level_45_0
+    - light.gang_garderobeskap_level_46_0
+
+
+lys_kontor:
+  name: Kontor
+  entities:
+    
+
+
+
+### Diverse
+
+diverse:
+  name: Diverse
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.ferie_stuff
+    - group.rpi_monitor
+    - group.scenes_lys
+    - group.reise_til_jobb
+    - group.reise_hjem
+    - group.heracam
+    - group.guest_mode
+    - group.motion_sensors
+
+heracam:
+  name: HeraCam
+  entities:
+    - camera.heracam
+
+ferie_stuff:
+  name: Ferie
+  entities:
+    - input_boolean.vacation_mode
+    - input_slider.slider_ferie_temperatur
+
+rpi_monitor:
+  name: Raspberry Pi
+  entities:
+    - sensor.cpu_use
+    - sensor.cpu_temp
+    - sensor.ram_free
+    - sensor.ram_use
+    - sensor.disk_use_
+    - sensor.since_last_boot
+
+scenes_lys:
+  name: Lys-scener
+  entities:
+    - scene.hera_alene_hjemme
+    - scene.alle_lys_av
+
+motion_sensors:
+  name: Motion-sensors
+  entities:
+    - sensor.multi_gang_burglar_17_10
+    - sensor.multi_kitchen_burglar_18_10
+    - sensor.multi_kontor_burglar_9_10
+
+#door_sensors:
+#  name: Door-sensors
+#  entities:
+
+alarm_panel:
+  name: Alarm
+  entities:
+    - alarm_control_panel.ha_alarm

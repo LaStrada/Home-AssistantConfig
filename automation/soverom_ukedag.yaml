@@ -1,0 +1,88 @@
+# Soverom ukedag
+
+- alias: Soverom morgen ukedag
+  trigger:
+    platform: time
+    after: "07:30:00"
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.soverom_termostat
+        temperature: 20
+
+
+- alias: Soverom dag ukedag
+  trigger:
+    platform: time
+    after: "10:00:00"
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.soverom_termostat
+        temperature: 17
+
+
+- alias: Soverom kveld ukedag
+  trigger:
+    platform: time
+    after: "20:00:00"
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.soverom_termostat
+        temperature: 19
+
+
+- alias: Soverom natt ukedag
+  trigger:
+    platform: time
+    after: "22:30:00"
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - sun
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.soverom_termostat
+        temperature: 19

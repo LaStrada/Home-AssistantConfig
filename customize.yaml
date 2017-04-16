@@ -1,0 +1,105 @@
+# Kitchen
+sensor.multi_kitchen_temperature_18_1:
+  friendly_name: Temperatur kjøkken
+sensor.multi_kitchen_relative_humidity_18_5:
+  friendly_name: Luftfuktighet kjøkken
+switch.kitchen_lights_switch_22_0_2:
+  friendly_name: Kjøkken lys
+  sensor_class: light
+  icon: mdi:lightbulb
+switch.kitchen_lights_switch_22_0_3:
+  friendly_name: Bardisk lys
+  sensor_class: light
+  icon: mdi:lightbulb
+light.ktichen_table_dimmer_level_23_0:
+  friendly_name: Kjøkkenbord dimmer
+sensor.multi_kitchen_burglar_18_10:
+  friendly_name: Bevegelse kjøkken
+  sensor_class: motion
+  icon: mdi:alert-circle-outline
+
+
+# Living room (stue)
+sensor.temp_stue_temperature:
+  friendly_name: Temperatur stue
+sensor.temp_stue_humidity:
+  friendly_name: Luftfuktighet stue
+
+
+# Outdoor (ute)
+sensor.temp_ute_temperature:
+  friendly_name: Temperatur ute
+sensor.yr_symbol:
+  friendly_name: Været nå
+sensor.yr_cloudiness:
+  friendly_name: Skyer
+  icon: mdi:weather-cloudy
+sensor.yr_dewpoint_temperature:
+  friendly_name: Duggpunkt
+sensor.yr_humidity:
+  friendly_name: Luftfuktighet
+  icon: mdi:percent
+sensor.yr_precipitation:
+  friendly_name: Nedbør
+  icon: mdi:weather-rainy
+sensor.yr_wind_speed:
+  friendly_name: Vind
+
+
+# Guestroom / office (kontor)
+sensor.temp_kontor_temperature:
+  friendly_name: Temperatur kontor
+sensor.temp_kontor_humidity:
+  friendly_name: Luftfuktighet kontor
+sensor.multi_kontor_burglar_9_10:
+  friendly_name: Bevegelse kontor
+  sensor_class: motion
+  icon: mdi:alert-circle-outline
+
+input_boolean.guests:
+  icon: mdi:hotel
+
+
+# Bedroom (soverom)
+sensor.temp_soverom_temperature:
+  friendly_name: Temperatur soverom
+sensor.temp_soverom_humidity:
+  friendly_name: Luftfuktighet soverom
+
+
+# Entrance (gang)
+light.gang_dimmer_level_45_0:
+  friendly_name: Gang dimmer
+  sensor_class: light
+  icon: mdi:lightbulb
+light.gang_garderobeskap_level_46_0:
+  friendly_name: Garderobeskap dimmer
+  sensor_class: light
+  icon: mdi:lightbulb
+sensor.multi_gang_relative_humidity_17_5:
+  friendly_name: Luftfuktighet gang
+sensor.multi_gang_temperature_17_1:
+  friendly_name: Temperatur gang
+sensor.multi_gang_burglar_17_10:
+  friendly_name: Bevegelse gang
+  sensor_class: motion
+  icon: mdi:alert-circle-outline
+
+
+# Bathroom (bad)
+sensor.temp_bad_temperature:
+  friendly_name: Temperatur bad
+sensor.temp_bad_humidity:
+  friendly_name: Luftfuktighet bad
+
+
+# devices
+device_tracker.stalesinapple_watch:
+  hidden: true
+device_tracker.stalesmacbookpro:
+  hidden: true
+device_tracker.lolphone7:
+  hidden: true
+
+device_tracker.androide63cbc6e620053d3lan:
+  friendly_name: Tina Samsung S6 nmap

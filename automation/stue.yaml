@@ -1,0 +1,100 @@
+# Stue
+
+- alias: Stue natt ukedag
+  trigger:
+    platform: time
+    after: "22:00:00"
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.stue_termostat
+        temperature: 18
+
+- alias: Stue natt helg
+  trigger:
+    platform: time
+    after: "01:00:00"
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.stue_termostat
+        temperature: 18
+
+- alias: Stue morgen ukedag
+  trigger:
+    platform: time
+    after: "07:30:00"
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.stue_termostat
+        temperature: 21
+
+- alias: Stue ettermiddag ukedag
+  trigger:
+    platform: time
+    after: "16:00:00"
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.stue_termostat
+        temperature: 22
+
+- alias: Stue morgen helg
+  trigger:
+    platform: time
+    after: "08:30:00"
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.stue_termostat
+        temperature: 22

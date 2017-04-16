@@ -1,0 +1,92 @@
+- alias: HeraCam startup on
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+  action:
+    - service: group.set_visibility
+      entity_id: group.heracam
+      data:
+        visible: False
+
+- alias: HeraCam startup off
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.tina_home
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.stale_home
+        state: 'on'
+  action:
+    - service: group.set_visibility
+      entity_id: group.heracam
+      data:
+        visible: False
+
+- alias: HeraCam On
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.tina_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.heracam_state
+#    - service: shell_command.heracam_on
+    - delay:
+        minutes: 2
+    - service: group.set_visibility
+      entity_id: group.heracam
+      data:
+        visible: True
+
+
+- alias: HeraCam Off
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.tina_home
+      to: 'on'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.heracam_state
+#    - service: shell_command.heracam_off
+    - service: group.set_visibility
+      entity_id: group.heracam
+      data:
+        visible: False
+
+- alias: Tina hjemme
+  trigger:
+    - platform: state
+      entity_id: device_tracker.androide63cbc6e620053d3lan
+      to: 'not_home'
+  condition:
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tina_home

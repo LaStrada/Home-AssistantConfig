@@ -1,0 +1,10 @@
+#device_tracker:
+#  - platform: icloud
+#    username: stale.hauknes@me.com
+#    password: !include device_tracker_pwd
+#    account_name: Ståle iCloud
+
+- platform: nmap_tracker
+  home_interval: 10
+  hosts:
+    - 10.0.0.66

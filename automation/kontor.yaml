@@ -1,0 +1,67 @@
+# Kontor
+
+- alias: Kontor natt
+  trigger:
+    platform: time
+    after: "22:00:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.guests
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.kontor_termostat
+        temperature: 18
+
+- alias: Kontor morgen ukedag
+  trigger:
+    platform: time
+    after: "07:30:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.guests
+    state: 'off'
+
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.kontor_termostat
+        temperature: 21
+
+- alias: Kontor ettermiddag ukedag
+  trigger:
+    platform: time
+    after: "11:00:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.guests
+    state: 'off'
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.kontor_termostat
+        temperature: 18

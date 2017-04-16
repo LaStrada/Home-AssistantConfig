@@ -1,0 +1,6 @@
+slider_ferie_temperatur:
+  name: Ferie temperatur
+  initial: 15
+  min: 10
+  max: 18
+  step: 1

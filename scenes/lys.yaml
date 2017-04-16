@@ -1,0 +1,15 @@
+- name: Hera alene hjemme
+  entities:
+    group.lys_kitchen: off
+    group.lys_stue: off
+    group.lys_kontor: off
+    group.lys_soverom: off
+    group.lys_gang: on
+
+- name: Alle lys av
+  entities:
+    group.lys_kitchen: off
+    group.lys_stue: off
+    group.lys_kontor: off
+    group.lys_soverom: off
+    group.lys_gang: off

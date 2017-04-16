@@ -1,0 +1,7 @@
+- platform: generic
+  name: HeraCam
+  #mjpeg_url: http://10.0.0.31:8080/stream/video/mjpeg
+  still_image_url: http://10.0.0.31:8080/stream/snapshot.jpg
+  authentication: basic
+  username: admin
+  password: RWxpdGVzb2xkYXRlciE=

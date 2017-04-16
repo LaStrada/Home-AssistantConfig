@@ -1,0 +1,48 @@
+- alias: Nordlysvarsel notification 1
+  trigger:
+    platform: state
+    entity_id: sensor.nordlysvarsel_1_time
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "02:00:00"
+        before: sunrise
+        before_offset: "-02:00:00"
+      - condition: or
+        conditions:
+        - condition: and
+          conditions:
+          - condition: numeric_state
+            entity_id: sensor.nordlysvarsel_1_time
+            above: '3.0'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: 'sensor.yr_symbol'
+              state: '1'
+            - condition: state
+              entity_id: 'sensor.yr_symbol'
+              state: '2'
+            - condition: state
+              entity_id: 'sensor.yr_symbol'
+              state: '101'
+            - condition: state
+              entity_id: 'sensor.yr_symbol'
+              state: '102'
+        - condition: and
+          conditions:
+          - condition: numeric_state
+            entity_id: sensor.nordlysvarsel_1_time
+            above: '5'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: 'sensor.yr_symbol'
+              state: '3'
+            - condition: state
+              entity_id: 'sensor.yr_symbol'
+              state: '103'
+  action:
+    - service: shell_command.nordlysvarsel_1

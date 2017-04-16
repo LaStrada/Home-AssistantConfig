@@ -1,0 +1,59 @@
+- alias: Alarm away gang
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.multi_gang_burglar_17_10
+      above: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+  action:
+    - service: notify.notify
+      data:
+        message: 'Alarm!'
+        title: 'Bevegelse i gangen!'
+        attachment:
+          url: https://h0me.no/api/camera_proxy_stream/camera.heracam?token=043bef10ad01d29b7b25df5ca8f980355bd0ee922dbbe1b6c93a9b204c57a5ef
+          content-type: jpeg
+          hide-thumbnail: false
+
+
+- alias: Alarm away kjøkken
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.multi_kitchen_burglar_18_10
+      above: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+  action:
+    - service: notify.notify
+      data:
+        message: 'Alarm!'
+        title: 'Bevegelse på kjøkkenet!'
+
+
+- alias: Alarm away kontor
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.multi_kontor_burglar_9_10
+      above: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+  action:
+    - service: notify.notify
+      data:
+        message: 'Alarm!'
+        title: 'Bevegelse på kjøkkenet!'

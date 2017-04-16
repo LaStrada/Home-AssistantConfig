@@ -1,0 +1,25 @@
+- alias: Ferie modus on
+  trigger:
+    platform: state
+    entity_id: input_boolean.vacation_mode
+    to: 'on'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat
+        temperature: 10
+
+- alias: Ferie modus off
+  trigger:
+    platform: state
+    entity_id: input_boolean.vacation_mode
+    to: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.kontor_termostat, climate.soverom_termostat
+        temperature: 18
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.stue_termostat
+        temperature: 21

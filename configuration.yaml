@@ -1,0 +1,262 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 82
+  unit_system: metric
+  time_zone: Europe/Oslo
+  customize: !include customize.yaml
+
+frontend:
+
+http:
+  api_password: !secret http_password
+  base_url: !secret my_domain
+  server_port: 8123
+  ip_ban_enabled: True
+  login_attempts_threshold: 10
+  use_x_forwarded_for: True
+
+updater:
+
+discovery:
+  ignore:
+    - apple_tv
+
+history:
+
+recorder:
+  db_url: !secret mysql
+  exclude:
+    domains:
+      - automation
+      - sun
+      - camera
+    entities:
+      - sensor.since_last_boot
+      - sensor.ram_free
+      - sensor.ram_use
+      - sensor.cpu_use
+      - sensor.cpu_temp
+      - sensor.panelovn_soverom_luminance_13_3
+      - sensor.panelovn_soverom_exporting_13_32
+      - sensor.kitchen_lights_previous_reading_22_1
+      - sensor.kitchen_lights_energy_22_0
+      - sensor.kitchen_lights_power_22_8
+      - sensor.kitchen_lights_previous_reading_22_1_3
+      - sensor.panelovn_soverom_power_13_4
+      - sensor.kitchen_lights_energy_22_0_3
+      - sensor.kitchen_lights_energy_22_0_2
+      - sensor.kitchen_lights_power_22_8_2
+      - sensor.panelovn_soverom_energy_13_0
+      - sensor.panelovn_soverom_power_13_8
+      - sensor.solar_angle
+      - camera.heracam
+
+logbook:
+  include:
+    entities:
+      - input_boolean.tina_home
+      - input_boolean.stale_home
+      - input_boolean.heracam_state
+      - input_boolean.guests
+
+sun:
+
+mqtt:
+
+ios:
+
+rfxtrx:
+  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Z5XR3V-if00-port0
+
+climate: !include climate.yaml
+automation: !include_dir_merge_list automation/
+#sensor: !include sensors.yaml
+switch: !include switches.yaml
+device_tracker: !include device_tracker.yaml
+group: !include group.yaml
+scene: !include_dir_merge_list scenes/
+camera: !include camera.yaml
+light: !include light.yaml
+
+zwave:
+  usb_path: /dev/ttyAMA0
+  config_path: /srv/homeassistant/src/open-zwave-control-panel/config
+
+zone:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 200
+  icon: mdi:home
+
+zone 2:
+  name: EVRY
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude
+  radius: 200
+  icon: mdi:work
+
+input_boolean:
+  vacation_mode:
+    name: Feriemodus
+    initial: off
+  guests:
+    name: Gjester overnatter
+    initial: off
+  stale_home:
+    name: Ståle hjemme
+    initial: on
+  stale_job:
+    name: Ståle på jobb
+    initial: off
+  tina_home:
+    name: Tina hjemme
+    initial: on
+  heracam_state:
+    name: HeraCam state
+    initial: off
+
+shell_command:
+  vitrineskap_dim: 'python /home/homeassistant/scripts/python/vitrineskap.py >> /home/homeassistant/lys.log'
+  vitrineskap_default: echo 3 > /var/tmp/ramdisk/phue_dim_var.txt
+  vitrineskap_4: echo 4 > /var/tmp/ramdisk/phue_dim_var.txt
+  vitrineskap_5: echo 5 > /var/tmp/ramdisk/phue_dim_var.txt
+  vitrineskap_6: echo 6 > /var/tmp/ramdisk/phue_dim_var.txt
+  vitrineskap_7: echo 7 > /var/tmp/ramdisk/phue_dim_var.txt
+  vitrineskap_off: echo 8 > /var/tmp/ramdisk/phue_dim_var.txt
+  nordlysvarsel_1: echo `date -u` >> /var/tmp/ramdisk/nordlys.txt
+  heracam_on: bash /home/homeassistant/scripts/bash/heracam_on.sh
+  heracam_off: bash /home/homeassistant/scripts/bash/heracam_off.sh
+
+input_slider:
+  slider_ferie_temperatur:
+    name: Temperatur i ferien
+    initial: 15
+    min: 10
+    max: 18
+    step: 1
+
+
+sensor 2:
+  - platform: google_travel_time
+    api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+    name: Jobbreise buss
+    origin: Romolslia 78, Trondheim, Norway
+    destination: Sluppenvegen 17A, Trondheim, Norway
+    options:
+      mode: transit
+      departure_time: now
+
+  - platform: google_travel_time
+    api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+    name: Jobbreise bil
+    origin: Romolslia 78, Trondheim, Norway
+    destination: Sluppenvegen 17A, Trondheim, Norway
+    options:
+      departure_time: now
+
+  - platform: google_travel_time
+    api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+    name: Hjemreise buss
+    origin: Sluppenvegen 17A, Trondheim, Norway
+    destination: Romolslia 78, Trondheim, Norway
+    options:
+      mode: transit
+      departure_time: now
+
+  - platform: google_travel_time
+    api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+    name: Hjemreise bil
+    origin: Sluppenvegen 17A, Trondheim, Norway
+    destination: Romolslia 78, Trondheim, Norway
+    options:
+      departure_time: now
+
+sensor 4:
+  - platform: moon
+
+sensor 5:
+  - platform: command_line
+    name: Nordlysvarsel 1 time
+    unit_of_measurement: KP
+    scan_interval: 900
+    command: python3 /home/homeassistant/scripts/python/nordlys_1_time.py
+
+sensor 6:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_free
+      - type: memory_use_percent
+      - type: processor_use
+
+sensor 7:
+  - platform: command_line
+    name: CPU Temp
+    command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "ºC"
+    value_template: '{{ value | multiply(0.001) | round(2) }}'
+#    value_template: '{{ value | multiply(0.001) }}'
+    scan_interval: 120
+
+sensor 8:
+  - platform: yr
+    monitored_conditions:
+      - symbol
+      - windSpeed
+      - fog
+      - humidity
+      - dewpointTemperature
+      - precipitation
+      - cloudiness
+
+sensor 9:
+  - platform: rfxtrx
+    automatic_add: True
+    devices:
+      085007028800000269:
+        name: temp_ute
+      0a520905970000f9240289:
+        name: temp_stue
+        data_type:
+         - Humidity
+         - Temperature
+      0a520900a7000104280179:
+        name: temp_bad
+        data_type:
+         - Humidity
+         - Temperature
+      0a520800030300ba220259:
+        name: temp_kontor
+        data_type:
+         - Humidity
+         - Temperature
+      0a520901b70000b82b0169:
+        name: temp_soverom
+        data_type:
+         - Humidity
+         - Temperature
+
+sensor 10:
+  - platform: template
+    sensors:
+      solar_angle:
+        value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.azimuth) }}'
+        friendly_name: 'Solvinkel'
+        unit_of_measurement: '°'
+
+binary_sensor:
+  - platform: workday
+    country: 'NO'
+
+alarm_control_panel:
+  - platform: manual
+    code: !secret alarm_code
+
+notify:
+  - name: h0meBOT
+    platform: facebook
+    page_access_token: !secret fb_homebot
