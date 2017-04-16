@@ -1,0 +1,33 @@
+- platform: google_travel_time
+  api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+  name: Jobbreise buss
+  origin: Romolslia 78, Trondheim, Norway
+  destination: Sluppenvegen 17A, Trondheim, Norway
+  options:
+    mode: transit
+    departure_time: now
+
+- platform: google_travel_time
+  api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+  name: Jobbreise bil
+  origin: Romolslia 78, Trondheim, Norway
+  destination: Sluppenvegen 17A, Trondheim, Norway
+  options:
+    departure_time: now
+
+- platform: google_travel_time
+  api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+  name: Hjemreise buss
+  origin: Sluppenvegen 17A, Trondheim, Norway
+  destination: Romolslia 78, Trondheim, Norway
+  options:
+    mode: transit
+    departure_time: now
+
+- platform: google_travel_time
+  api_key: AIzaSyCbl2E-CWztlU60GI5Qfm546mQbUtcYU7g
+  name: Hjemreise bil
+  origin: Sluppenvegen 17A, Trondheim, Norway
+  destination: Romolslia 78, Trondheim, Norway
+  options:
+    departure_time: now

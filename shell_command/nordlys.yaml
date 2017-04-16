@@ -1,0 +1,1 @@
+nordlysvarsel_1: echo `date -u` >> /var/tmp/ramdisk/nordlys.txt

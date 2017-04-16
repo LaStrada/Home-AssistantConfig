@@ -1,0 +1,26 @@
+db_url: !secret mysql
+exclude:
+  domains:
+    - automation
+    - sun
+    - camera
+  entities:
+    - sensor.since_last_boot
+    - sensor.ram_free
+    - sensor.ram_use
+    - sensor.cpu_use
+    - sensor.cpu_temp
+    - sensor.panelovn_soverom_luminance_13_3
+    - sensor.panelovn_soverom_exporting_13_32
+    - sensor.kitchen_lights_previous_reading_22_1
+    - sensor.kitchen_lights_energy_22_0
+    - sensor.kitchen_lights_power_22_8
+    - sensor.kitchen_lights_previous_reading_22_1_3
+    - sensor.panelovn_soverom_power_13_4
+    - sensor.kitchen_lights_energy_22_0_3
+    - sensor.kitchen_lights_energy_22_0_2
+    - sensor.kitchen_lights_power_22_8_2
+    - sensor.panelovn_soverom_energy_13_0
+    - sensor.panelovn_soverom_power_13_8
+    - sensor.solar_angle
+    - camera.heracam

@@ -1,0 +1,12 @@
+- platform: command_line
+  name: CPU Temp
+  command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "ºC"
+  value_template: '{{ value | multiply(0.001) | round(2) }}'
+  scan_interval: 120
+
+- platform: command_line
+  name: Nordlysvarsel 1 time
+  unit_of_measurement: KP
+  scan_interval: 900
+  command: python3 /home/homeassistant/scripts/python/nordlys_1_time.py

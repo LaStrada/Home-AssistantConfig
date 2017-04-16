@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    solar_angle:
+      value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.azimuth) }}'
+      friendly_name: 'Solvinkel'
+      unit_of_measurement: '°'

@@ -1,5 +1,5 @@
 slider_ferie_temperatur:
-  name: Ferie temperatur
+  name: Temperatur i ferien
   initial: 15
   min: 10
   max: 18

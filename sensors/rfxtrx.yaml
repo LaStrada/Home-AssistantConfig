@@ -1,0 +1,25 @@
+- platform: rfxtrx
+  automatic_add: True
+  devices:
+    085007028800000269:
+      name: temp_ute
+    0a520905970000f9240289:
+      name: temp_stue
+      data_type:
+       - Humidity
+       - Temperature
+    0a520900a7000104280179:
+      name: temp_bad
+      data_type:
+       - Humidity
+       - Temperature
+    0a520800030300ba220259:
+      name: temp_kontor
+      data_type:
+       - Humidity
+       - Temperature
+    0a520901b70000b82b0169:
+      name: temp_soverom
+      data_type:
+       - Humidity
+       - Temperature
