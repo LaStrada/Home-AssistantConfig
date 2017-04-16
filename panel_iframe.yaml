@@ -1,0 +1,12 @@
+from_romolslia:
+  title: 'AtB til sentrum'
+  url: 'http://st.atb.no/New/minskjerm/FST.aspx?visMode=1&cTit=&c1=1&s1=16011399&sv1=&cn1=Sk%E5rgangen&template=1&cmhb=03A9F4&cmhc=FFFFFF&cshb=FFFFFF&cshc=000000&arb=808080&rows=6&period=&'
+  icon: mdi:bus
+to_romolslia:
+  title: 'AtB fra sentrum'
+  url: 'http://st.atb.no/New/minskjerm/FST.aspx?visMode=1&cTit=&c1=1&s1=16010015&sv1=7&cn1=Prisenkrysset%20P1&template=1&cmhb=03A9F4&cmhc=FFFFFF&cshb=FFFFFF&cshc=000000&arb=808080&rows=6&period=&'
+  icon: mdi:home
+from_work:
+  title: 'AtB fra Sluppen'
+  url: 'http://st.atb.no/New/minskjerm/FST.aspx?visMode=1&cTit=&c1=1&s1=16010452&sv1=&cn1=Sluppenvegen&template=1&cmhb=03A9F4&cmhc=FFFFFF&cshb=FFFFFF&cshc=000000&arb=808080&rows=6&period=&'
+  icon: mdi:laptop-mac
