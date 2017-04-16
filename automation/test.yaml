@@ -5,21 +5,8 @@
   action:
     service: notify.ios_lolphone_7
     data:
+      title: 'Title.'
       message: 'Update for Home Assistant is available.'
-
-# - alias: Notify iOS app
-#   trigger:
-#     - platform: state
-#       entity_id: group.guest_mode
-#   action:
-#     service: notify.notify_all_important
-#     data:
-#       message: "Gjestemodus aktivert"
-#       data:
-#         attachment:
-#           url: https://i.giphy.com/3o7ZeEWP82muS6eEUw.gif
-#           content-type: gif
-#           hide-thumbnail: false
 
 
 #    service: notify.h0mebot

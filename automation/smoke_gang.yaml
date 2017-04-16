@@ -27,7 +27,7 @@
     service: notify.notify_all_important
     data:
       title: 'Alert: '
-      message: 'Røyken er borte fra gangen...'
+      message: 'Røyken er borte fra gangen.'
 
 
 
@@ -65,4 +65,4 @@
     - service: notify.notify_all_important
       data:
         title: 'Alert! '
-        message: 'Normal temperatur i gangen igjen'
+        message: 'Normal temperatur i gangen igjen.'
