@@ -92,7 +92,7 @@ zone:
   icon: mdi:home
 
 zone 2:
-  name: EVRY
+  name: !secret stale_work
   latitude: !secret work_latitude
   longitude: !secret work_longitude
   radius: 200
