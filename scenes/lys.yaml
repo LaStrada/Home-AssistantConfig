@@ -4,7 +4,9 @@
     group.lys_stue: off
     group.lys_kontor: off
     group.lys_soverom: off
-    group.lys_gang: on
+    group.lys_gang:
+      state: on
+      brightness: 255
 
 - name: Alle lys av
   entities:
