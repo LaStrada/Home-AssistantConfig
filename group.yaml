@@ -268,9 +268,9 @@ scenes_lys:
 motion_sensors:
   name: Motion-sensors
   entities:
-    - sensor.multi_gang_burglar_17_10
-    - sensor.multi_kitchen_burglar_18_10
-    - sensor.multi_kontor_burglar_9_10
+    - sensor.motion_gang
+    - sensor.motion_kitchen
+    - sensor.motion_kontor
 
 #door_sensors:
 #  name: Door-sensors
