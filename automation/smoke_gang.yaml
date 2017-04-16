@@ -2,7 +2,7 @@
 - alias: Smoke Sensor Entrance Smoke
   trigger:
     platform: state
-    entity_id: sensor.sensor.smoke_gang_smoke_47_4
+    entity_id: sensor.smoke_gang_smoke_47_4
     state: '2'
   action:
     - service: notify.ios_lolphone_7
@@ -14,7 +14,7 @@
 - alias: Smoke Sensor Entrance NOSMOKE
   trigger:
     platform: state
-    entity_id: sensor.sensor.smoke_gang_smoke_47_4
+    entity_id: sensor.smoke_gang_smoke_47_4
     from: '255'
   action:
     service: notify.ios_lolphone_7
