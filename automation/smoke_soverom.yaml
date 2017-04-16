@@ -18,6 +18,7 @@
   trigger:
     platform: state
     entity_id: sensor.smoke_soverom_smoke_50_1
+    from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_soverom_smoke_50_1
@@ -55,6 +56,7 @@
   trigger:
     platform: state
     entity_id: sensor.smoke_soverom_heat_50_4
+    from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_soverom_heat_50_4
