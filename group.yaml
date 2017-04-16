@@ -237,6 +237,7 @@ diverse:
     - group.heracam
     - group.guest_mode
     - group.motion_sensors
+    - group.smoke_sensors
 
 heracam:
   name: HeraCam
@@ -271,6 +272,22 @@ motion_sensors:
     - sensor.motion_gang
     - sensor.motion_kitchen
     - sensor.motion_kontor
+
+smoke_sensors:
+  name: Smoke-sensors
+  entities:
+    - sensor.smoke_gang_alarm_level_47_1
+    - sensor.smoke_gang_alarm_type_47_0
+    - sensor.smoke_gang_burglar_47_10
+    - sensor.smoke_gang_general_47_0
+    - sensor.smoke_gang_heat_47_4
+    - sensor.smoke_gang_heat_47_7
+    - sensor.smoke_gang_power_management_47_11
+    - sensor.smoke_gang_smoke_47_1
+    - sensor.smoke_gang_smoke_47_4
+    - sensor.smoke_gang_sourcenodeid_47_2
+    - sensor.smoke_gang_system_47_12
+    - sensor.smoke_gang_temperature_47_1
 
 #door_sensors:
 #  name: Door-sensors

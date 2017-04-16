@@ -1,0 +1,89 @@
+# Smoke
+- alias: Smoke Sensor Entrance Smoke
+  trigger:
+    platform: state
+    entity_id: sensor.sensor.smoke_gang_smoke_47_4
+    state: '2'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Brann!! '
+        message: 'Gang'
+
+
+- alias: Smoke Sensor Entrance NOSMOKE
+  trigger:
+    platform: state
+    entity_id: sensor.sensor.smoke_gang_smoke_47_4
+    from: '255'
+  action:
+    service: notify.ios_lolphone_7
+    data:
+      title: 'Smoke entrance: '
+      message: 'No more smoke...'
+
+
+
+# Temperature
+- alias: Heat entrance high
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.smoke_gang_temperature_47_1
+    above: 32
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Brann!! '
+        message: 'Over 30 grader i gangen!'
+
+- alias: Heat entrance normal
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.smoke_gang_temperature_47_1
+    below: 30
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Alert! '
+        message: 'Under 30 grader i gangen igjen'
+
+
+
+# Smoke lid
+- alias: Entrance Smoke Sensor Open
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_gang_sourcenodeid_47_2
+  condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.smoke_gang_sourcenodeid_47_2
+          state: '3'
+        - condition: state
+          entity_id: sensor.smoke_gang_sourcenodeid_47_2
+          state: '8'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Alert! '
+        message: 'Entrance smoke sensor opened'
+
+- alias: Entrance Smoke Sensor Closed
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_gang_sourcenodeid_47_2
+  condition:
+    - condition: state
+      entity_id: sensor.smoke_gang_sourcenodeid_47_2
+      state: '0'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'Smoke Sensor: '
+        message: 'Entrance smoke sensor is closed'
+
+
+# - sensor.smoke_kontor_sourcenodeid_48_2
+# - sensor.smoke_stue_sourcenodeid_49_2
+# - sensor.smoke_soverom_sourcenodeid_50_2
