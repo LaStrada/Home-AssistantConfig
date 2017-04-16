@@ -1,0 +1,40 @@
+- name: fb_h0me
+  platform: facebook
+  page_access_token: !secret fb_homebot
+
+- name: gmail_stale
+  platform: smtp
+  server: smtp.gmail.com
+  port: 587
+  timeout: 20
+  sender: !secret gmail_username
+  starttls: true
+  username: !secret gmail_username
+  password: !secret gmail_password
+  recipient: !secret stale_email
+
+# - name: gmail_tina
+#   platform: smtp
+#   server: smtp.gmail.com
+#   port: 587
+#   timeout: 20
+#   sender: !secret gmail_username
+#   starttls: true
+#   username: !secret gmail_username
+#   password: !secret gmail_password
+#   recipient: !secret tina_email
+
+
+# groups
+
+- name: notify_all_important
+  platform: group
+  services:
+    # - service: gmail_tina
+    - service: gmail_stale
+    - service: ios_lolphone_7
+    - service: fb_h0me
+      data:
+        target:
+          - !secret stale_phone
+          # - !secret tina_phone

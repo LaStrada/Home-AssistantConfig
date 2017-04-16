@@ -8,7 +8,7 @@
       entity_id: sensor.smoke_gang_smoke_47_1
       state: '254'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Røyk i gangen!'
@@ -18,12 +18,13 @@
   trigger:
     platform: state
     entity_id: sensor.smoke_gang_smoke_47_1
+    from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_gang_smoke_47_1
       state: '0'
   action:
-    service: notify.ios_lolphone_7
+    service: notify.notify_all_important
     data:
       title: 'Alert: '
       message: 'Røyken er borte fra gangen...'
@@ -45,7 +46,7 @@
         entity_id: sensor.smoke_gang_temperature_47_1
         above: 35
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Veldig varmt i gangen!'
@@ -55,12 +56,13 @@
   trigger:
     platform: state
     entity_id: sensor.smoke_gang_heat_47_4
+    from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_gang_heat_47_4
       state: '0'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Alert! '
         message: 'Normal temperatur i gangen igjen'

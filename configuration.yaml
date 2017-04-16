@@ -63,7 +63,4 @@ alarm_control_panel:
   - platform: manual
     code: !secret alarm_code
 
-notify:
-  - name: h0meBOT
-    platform: facebook
-    page_access_token: !secret fb_homebot
+notify: !include notify.yaml
