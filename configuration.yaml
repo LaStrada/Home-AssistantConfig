@@ -44,7 +44,7 @@ rfxtrx:
 
 climate: !include climate.yaml
 automation: !include_dir_merge_list automation/
-sensor: !include_dir_merge_list sensors.yaml
+sensor: !include_dir_merge_list sensors/
 device_tracker: !include device_tracker.yaml
 group: !include group.yaml
 scene: !include_dir_merge_list scenes/
