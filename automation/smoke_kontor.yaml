@@ -8,7 +8,7 @@
       entity_id: sensor.smoke_kontor_smoke_48_1
       state: '254'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Røyk på kontoret!'
@@ -24,7 +24,7 @@
       entity_id: sensor.smoke_kontor_smoke_48_1
       state: '0'
   action:
-    service: notify.ios_lolphone_7
+    service: notify.notify_all_important
     data:
       title: 'Alert: '
       message: 'Røyken er borte på kontoret...'
@@ -46,7 +46,7 @@
         entity_id: sensor.smoke_kontor_temperature_48_1
         above: 35
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Veldig varmt på kontoret!'
@@ -62,7 +62,7 @@
       entity_id: sensor.smoke_kontor_heat_48_4
       state: '0'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Alert! '
         message: 'Normal temperatur på kontoret igjen'

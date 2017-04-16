@@ -8,7 +8,7 @@
       entity_id: sensor.smoke_stue_smoke_49_1
       state: '254'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Røyk i stua!'
@@ -24,7 +24,7 @@
       entity_id: sensor.smoke_stue_smoke_49_1
       state: '0'
   action:
-    service: notify.ios_lolphone_7
+    service: notify.notify_all_important
     data:
       title: 'Alert: '
       message: 'Røyken er borte fra stua...'
@@ -46,7 +46,7 @@
         entity_id: sensor.smoke_stue_temperature_49_1
         above: 40
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Veldig varmt i stua!'
@@ -62,7 +62,7 @@
       entity_id: sensor.smoke_stue_heat_49_4
       state: '0'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Alert! '
         message: 'Normal temperatur i stua igjen'

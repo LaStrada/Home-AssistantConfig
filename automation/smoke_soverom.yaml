@@ -8,7 +8,7 @@
       entity_id: sensor.smoke_soverom_smoke_50_1
       state: '254'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Røyk på soverommet!'
@@ -24,7 +24,7 @@
       entity_id: sensor.smoke_soverom_smoke_50_1
       state: '0'
   action:
-    service: notify.ios_lolphone_7
+    service: notify.notify_all_important
     data:
       title: 'Alert: '
       message: 'Røyken er borte på soverommet...'
@@ -46,7 +46,7 @@
         entity_id: sensor.smoke_soverom_temperature_50_1
         above: 35
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Brann!! '
         message: 'Veldig varmt på soverommet!'
@@ -62,7 +62,7 @@
       entity_id: sensor.smoke_soverom_heat_50_4
       state: '0'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
         title: 'Alert! '
         message: 'Normal temperatur på soverommet igjen'
