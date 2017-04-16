@@ -22,6 +22,7 @@ updater:
 discovery:
   ignore:
     - apple_tv
+    - plex_mediaserver
 
 history:
 
