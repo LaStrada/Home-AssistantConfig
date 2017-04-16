@@ -17,10 +17,10 @@
 - alias: Smoke Sensor Livingroom NOSMOKE
   trigger:
     platform: state
-    entity_id: sensor.smoke_stue_smoke_49_4
+    entity_id: sensor.smoke_stue_smoke_49_1
   condition:
     - condition: state
-      entity_id: sensor.smoke_stue_smoke_49_4
+      entity_id: sensor.smoke_stue_smoke_49_1
       state: '0'
   action:
     service: notify.ios_lolphone_7
