@@ -27,7 +27,6 @@ kitchen:
   entities:
     - sensor.multi_kitchen_temperature_18_1
     - sensor.multi_kitchen_relative_humidity_18_5
-    - sensor.multi_kitchen_burglar_18_10
     - light.ktichen_table_dimmer_level_23_0
     - switch.kitchen_lights_switch_22_0_2
     - switch.kitchen_lights_switch_22_0_3
@@ -53,7 +52,6 @@ kontor:
     - climate.kontor_termostat
     - sensor.temp_kontor_temperature
     - sensor.temp_kontor_humidity
-    - sensor.multi_kontor_burglar_9_10
 
 
 guest_mode:
@@ -70,7 +68,6 @@ gang:
   entities:
     - sensor.multi_gang_temperature_17_1
     - sensor.multi_gang_relative_humidity_17_5
-    - sensor.multi_gang_burglar_17_10
     - group.lys_gang
 
 
