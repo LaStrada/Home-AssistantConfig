@@ -5,44 +5,29 @@
   condition:
     condition: and
     conditions:
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'off'
       - condition: sun
         after: sunset
         after_offset: "02:00:00"
         before: sunrise
         before_offset: "-02:00:00"
+      - condition: numeric_state
+        entity_id: sensor.nordlysvarsel_1_time
+        above: 3.5
       - condition: or
         conditions:
-        - condition: and
-          conditions:
-          - condition: numeric_state
-            entity_id: sensor.nordlysvarsel_1_time
-            above: '3.0'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: 'sensor.yr_symbol'
-              state: '1'
-            - condition: state
-              entity_id: 'sensor.yr_symbol'
-              state: '2'
-            - condition: state
-              entity_id: 'sensor.yr_symbol'
-              state: '101'
-            - condition: state
-              entity_id: 'sensor.yr_symbol'
-              state: '102'
-        - condition: and
-          conditions:
-          - condition: numeric_state
-            entity_id: sensor.nordlysvarsel_1_time
-            above: '5'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: 'sensor.yr_symbol'
-              state: '3'
-            - condition: state
-              entity_id: 'sensor.yr_symbol'
-              state: '103'
+        - condition: numeric_state
+          entity_id: 'sensor.yr_symbol'
+          above: 1
+          below: 3
+        - condition: numeric_state
+          entity_id: 'sensor.yr_symbol'
+          above: 101
+          below: 103
   action:
-    - service: shell_command.nordlysvarsel_1
+    service: notify.ios_lolphone_7
+    data:
+      title: 'Nordlysvarsel'
+      message: 'Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen.'
