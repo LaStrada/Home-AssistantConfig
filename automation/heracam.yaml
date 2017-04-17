@@ -52,7 +52,7 @@
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.heracam_state
-   - service: shell_command.heracam_on
+    - service: shell_command.heracam_on
     - delay:
         minutes: 2
     - service: group.set_visibility
@@ -72,7 +72,7 @@
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.heracam_state
-   - service: shell_command.heracam_off
+    - service: shell_command.heracam_off
     - service: group.set_visibility
       entity_id: group.heracam
       data:
