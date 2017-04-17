@@ -30,4 +30,4 @@
     service: notify.ios_lolphone_7
     data:
       title: 'Nordlysvarsel'
-      message: 'Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen.'
+      message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen."
