@@ -1,7 +1,57 @@
-# 05:00 - Skru på reisetider morgen
+- alias: Vise reise morgen
+  trigger:
+    - platform: time
+      after: '06:00:00'
+    - platform: state
+      entity_id: input_boolean.stale_home
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '18:00:00'
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.stale_job
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+  action:
+    - service: group.set_visibility
+      entity_id: group.reise_til_jobb
+      data:
+        visible: True
+    - service: group.set_visibility
+      entity_id: group.reise_hjem
+      data:
+        visible: False
 
-# Ankommer jobb
-
-# Ankommer hjem
-
-# 20:00 - Fjern alle reisetider
+- alias: Vise reise hjem ettermiddag
+  trigger:
+    - platform: time
+      after: '12:00:00'
+    - platform: state
+      entity_id: input_boolean.stale_job
+  condition:
+    - condition: time
+      after: '12:00:00'
+      before: '23:30:00'
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.stale_job
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+  action:
+    - service: group.set_visibility
+      entity_id: group.reise_til_jobb
+      data:
+        visible: False
+    - service: group.set_visibility
+      entity_id: group.reise_hjem
+      data:
+        visible: True
