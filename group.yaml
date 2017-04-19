@@ -264,14 +264,14 @@ scenes_lys:
     - scene.alle_lys_av
 
 motion_sensors:
-  name: Motion-sensors
+  name: Bevegelse
   entities:
     - sensor.motion_gang
     - sensor.motion_kitchen
     - sensor.motion_kontor
 
 smoke_sensors:
-  name: Smoke-sensors
+  name: Røykvarslere
   entities:
     - sensor.smoke_gang
     - sensor.heat_gang
