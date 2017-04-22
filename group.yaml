@@ -182,7 +182,7 @@ lys:
     - group.lys_stue
     - group.lys_kitchen
     - group.lys_soverom
-    - group.lys_gang_wrapper
+    - group.lys_gang
     - group.lys_kontor
     - group.scenes_lys
 
@@ -205,11 +205,6 @@ lys_stue:
   name: Stue
   entities:
     - light.stue
-
-lys_gang_wrapper:
-  name: Gang
-  entities:
-    - group.gang_lys
 
 lys_gang:
   name: Gang lys
