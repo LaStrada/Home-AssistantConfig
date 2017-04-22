@@ -81,7 +81,7 @@
 - alias: Tina hjemme
   trigger:
     - platform: state
-      entity_id: device_tracker.androide63cbc6e620053d3lan
+      entity_id: device_tracker.android89bc5926ba332e4flan
       to: 'not_home'
   condition:
     - condition: state
