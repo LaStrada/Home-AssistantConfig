@@ -10,6 +10,7 @@ default_view:
     - group.kontor
     - group.gang
     - group.bad
+    - media_player.pioneer_avr
 
 # Living room
 stue:
