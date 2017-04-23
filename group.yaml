@@ -10,7 +10,7 @@ default_view:
     - group.kontor
     - group.gang
     - group.bad
-    - media_player.pioneer_avr
+
 
 # Living room
 stue:
@@ -217,7 +217,18 @@ lys_gang:
 lys_kontor:
   name: Kontor
   entities:
-    
+
+
+
+### Media
+
+media:
+  name: Media
+  icon: mdi:play-pause
+  view: yes
+  entities:
+    - media_player.spotify
+    - media_player.pioneer_avr    
 
 
 
