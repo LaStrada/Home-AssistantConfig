@@ -5,7 +5,8 @@
 #    account_name: Ståle iCloud
 
 - platform: nmap_tracker
-  interval_seconds: 300
+  consider_home: 300
+  interval_seconds: 180
   home_interval: 15
   hosts:
     - 10.0.0.66

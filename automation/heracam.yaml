@@ -78,15 +78,15 @@
       data:
         visible: False
 
-- alias: Tina hjemme
-  trigger:
-    - platform: state
-      entity_id: device_tracker.android89bc5926ba332e4flan
-      to: 'not_home'
-  condition:
-    - condition: state
-      entity_id: input_boolean.tina_home
-      state: 'off'
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.tina_home
+#- alias: Tina hjemme
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.android89bc5926ba332e4flan
+#      to: 'home'
+#  condition:
+#    - condition: state
+#      entity_id: input_boolean.tina_home
+#      state: 'off'
+#  action:
+#    - service: input_boolean.turn_on
+#      entity_id: input_boolean.tina_home
