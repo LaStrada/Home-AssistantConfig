@@ -42,6 +42,9 @@
     - platform: state
       entity_id: input_boolean.tina_home
       to: 'off'
+    - platform: state
+      entity_id: device_tracker.android89bc5926ba332e4flan
+      to: 'not_home'
   condition:
     - condition: state
       entity_id: input_boolean.tina_home
@@ -49,6 +52,9 @@
     - condition: state
       entity_id: input_boolean.stale_home
       state: 'off'
+    - platform: state
+      entity_id: device_tracker.android89bc5926ba332e4flan
+      state: 'not_home'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.heracam_state
@@ -69,6 +75,9 @@
     - platform: state
       entity_id: input_boolean.tina_home
       to: 'on'
+    - platform: state
+      entity_id: device_tracker.android89bc5926ba332e4flan
+      to: 'home'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.heracam_state
