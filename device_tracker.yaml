@@ -1,12 +1,9 @@
-#device_tracker:
-#  - platform: icloud
-#    username: stale.hauknes@me.com
-#    password: !include device_tracker_pwd
-#    account_name: Ståle iCloud
-
 - platform: nmap_tracker
-  consider_home: 300
-  interval_seconds: 180
-  home_interval: 15
+  # Seconds to wait till marking someone as not home after not being seen
+  consider_home: 600
+  # Seconds between each scan for new devices
+  interval_seconds: 300
+  # The number of minutes nmap will not scan this device, assuming it is home
+  home_interval: 10
   hosts:
     - 10.0.0.66
