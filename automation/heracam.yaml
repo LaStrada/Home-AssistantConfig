@@ -9,6 +9,9 @@
     - condition: state
       entity_id: input_boolean.stale_home
       state: 'off'
+    - condition: state
+      entity_id: device_tracker.android89bc5926ba332e4flan
+      state: 'not_home'
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -28,6 +31,9 @@
       - condition: state
         entity_id: input_boolean.stale_home
         state: 'on'
+      - condition: state
+        entity_id: device_tracker.android89bc5926ba332e4flan
+        state: 'home'
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -38,13 +44,10 @@
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
-      to: 'off'
     - platform: state
       entity_id: input_boolean.tina_home
-      to: 'off'
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
-      to: 'not_home'
   condition:
     - condition: state
       entity_id: input_boolean.tina_home
@@ -52,7 +55,7 @@
     - condition: state
       entity_id: input_boolean.stale_home
       state: 'off'
-    - platform: state
+    - condition: state
       entity_id: device_tracker.android89bc5926ba332e4flan
       state: 'not_home'
   action:
