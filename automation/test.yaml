@@ -5,7 +5,7 @@
   action:
     service: notify.ios_lolphone_7
     data:
-      title: 'Title.'
+      title: 'New version!'
       message: 'Update for Home Assistant is available.'
 
 
