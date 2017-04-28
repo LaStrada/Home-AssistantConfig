@@ -30,11 +30,11 @@
 - name: notify_all_important
   platform: group
   services:
-    # - service: gmail_tina
+    - service: gmail_tina
     - service: gmail_stale
     - service: ios_lolphone_7
     - service: fb_h0me
       data:
         target:
           - !secret stale_phone
-          # - !secret tina_phone
+          - !secret tina_phone
