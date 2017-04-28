@@ -58,7 +58,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 21
+        temperature: 20
 
 - alias: Stue ettermiddag ukedag
   trigger:
@@ -79,7 +79,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 23
+        temperature: 22
 
 - alias: Stue morgen helg
   trigger:
@@ -97,4 +97,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 23
+        temperature: 22
