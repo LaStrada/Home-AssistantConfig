@@ -1,9 +1,9 @@
 - platform: nmap_tracker
   # Seconds to wait till marking someone as not home after not being seen
-  consider_home: 600
+  consider_home: 900
   # Seconds between each scan for new devices
-  interval_seconds: 300
+  interval_seconds: 120
   # The number of minutes nmap will not scan this device, assuming it is home
-  home_interval: 10
+  home_interval: 5
   hosts:
     - 10.0.0.66
