@@ -63,7 +63,10 @@
   trigger:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
-      to: 'off'
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
   action:
     - service: group.set_visibility
       entity_id: group.reise_til_jobb
