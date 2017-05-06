@@ -11,11 +11,14 @@
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'
+    - condition: state
+      entity_id: input_boolean.soverom_wakeup_heat
+      state: 'on'
   action:
     - service: climate.set_temperature
       data:
         entity_id: climate.soverom_termostat
-        temperature: 20
+        temperature: '{{ input_slider.slider_soverom_wakeup_temperatur }}'
 
 
 - alias: Soverom dag helg
@@ -33,4 +36,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.soverom_termostat
-        temperature: 17
+        temperature: '{{ input_slider.slider_soverom_dagtid_temperatur }}'

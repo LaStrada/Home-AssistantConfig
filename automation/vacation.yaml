@@ -7,7 +7,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat
-        temperature: 10
+        temperature: '{{ input_slider.ferie_temperatur }}'
 
 - alias: Ferie modus off
   trigger:
@@ -17,9 +17,13 @@
   action:
     - service: climate.set_temperature
       data:
-        entity_id: climate.kontor_termostat, climate.soverom_termostat
-        temperature: 18
+        entity_id: climate.kontor_termostat
+        temperature: '{{ input_slider.kontor_temperatur }}'
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.soverom_termostat
+        temperature: '{{ input_slider.soverom_natt_temperatur }}'
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 21
+        temperature: '{{ input_slider.stue_dagtid_temperatur }}'

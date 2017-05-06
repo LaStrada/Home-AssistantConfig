@@ -19,7 +19,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 18
+        temperature: '{{ input_slider.slider_stue_natt_temperatur }}'
 
 - alias: Stue natt helg
   trigger:
@@ -36,7 +36,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 18
+        temperature: '{{ input_slider.slider_stue_natt_temperatur }}'
 
 - alias: Stue morgen ukedag
   trigger:
@@ -53,7 +53,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 20
+        temperature: '{{ input_slider.slider_stue_morgen_temperatur }}'
 
 - alias: Stue ettermiddag ukedag
   trigger:
@@ -70,7 +70,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 23
+        temperature: '{{ input_slider.slider_stue_dagtid_temperatur }}'
 
 - alias: Stue morgen helg
   trigger:
@@ -87,4 +87,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 22
+        temperature: '{{ input_slider.slider_stue_dagtid_temperatur }}'

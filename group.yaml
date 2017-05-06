@@ -247,6 +247,7 @@ diverse:
     - group.guest_mode
     - group.motion_sensors
     - group.smoke_sensors
+    - group.temperature_control_panel
 
 heracam:
   name: HeraCam
@@ -302,3 +303,16 @@ alarm_panel:
   name: Alarm
   entities:
     - alarm_control_panel.ha_alarm
+
+temperature_control_panel:
+  name: Temperaturkontroll
+  control: no
+  entities:
+    - input_boolean.soverom_wakeup_heat
+    - input_slider.soverom_natt_temperatur
+    - input_slider.soverom_wakeup_temperatur
+    - input_slider.soverom_dagtid_temperatur
+    - input_slider.stue_morgen_temperatur
+    - input_slider.stue_dagtid_temperatur
+    - input_slider.stue_natt_temperatur
+    - input_slider.kontor_temperatur

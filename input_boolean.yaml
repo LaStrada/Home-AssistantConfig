@@ -21,3 +21,7 @@ tina_home:
 heracam_state:
   name: HeraCam state
   initial: off
+
+soverom_wakeup_heat:
+  name: Soverom wakeup heat
+  initial: on
