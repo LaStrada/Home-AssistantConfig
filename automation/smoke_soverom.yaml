@@ -24,10 +24,10 @@
       entity_id: sensor.smoke_soverom_smoke_50_1
       state: '0'
   action:
-    service: notify.notify_all_important
-    data:
-      title: 'Alert: '
-      message: 'Røyken er borte på soverommet.'
+    - service: notify.notify_all_important
+      data:
+        title: 'Alert: '
+        message: 'Røyken er borte på soverommet.'
 
 
 
@@ -54,9 +54,9 @@
 
 - alias: Smoke Sensor Bedroom Temperature Normal
   trigger:
-    platform: state
-    entity_id: sensor.smoke_soverom_heat_50_4
-    from: '254'
+    - platform: state
+      entity_id: sensor.smoke_soverom_heat_50_4
+      from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_soverom_heat_50_4

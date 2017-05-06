@@ -54,9 +54,9 @@
 
 - alias: Smoke Sensor Office Temperature Normal
   trigger:
-    platform: state
-    entity_id: sensor.smoke_kontor_heat_48_4
-    from: '254'
+    - platform: state
+      entity_id: sensor.smoke_kontor_heat_48_4
+      from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_kontor_heat_48_4
