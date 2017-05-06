@@ -1,8 +1,8 @@
 # Smoke
 - alias: Smoke Sensor Livingroom Smoke
   trigger:
-    platform: state
-    entity_id: sensor.smoke_stue_smoke_49_1
+    - platform: state
+      entity_id: sensor.smoke_stue_smoke_49_1
   condition:
     - condition: state
       entity_id: sensor.smoke_stue_smoke_49_1
@@ -16,26 +16,26 @@
 
 - alias: Smoke Sensor Livingroom NOSMOKE
   trigger:
-    platform: state
-    entity_id: sensor.smoke_stue_smoke_49_1
-    from: '254'
+    - platform: state
+      entity_id: sensor.smoke_stue_smoke_49_1
+      from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_stue_smoke_49_1
       state: '0'
   action:
-    service: notify.notify_all_important
-    data:
-      title: 'Alert: '
-      message: 'Røyken er borte fra stua.'
+    - service: notify.notify_all_important
+      data:
+        title: 'Alert: '
+        message: 'Røyken er borte fra stua.'
 
 
 
 # Temperature
 - alias: Smoke Sensor Livingroom Temperature HIGH
   trigger:
-    platform: state
-    entity_id: sensor.smoke_stue_heat_49_4
+    - platform: state
+      entity_id: sensor.smoke_stue_heat_49_4
   condition:
     - condition: or
       conditions:

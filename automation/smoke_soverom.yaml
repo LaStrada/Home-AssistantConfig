@@ -1,8 +1,8 @@
 # Smoke
 - alias: Smoke Sensor Bedroom Smoke
   trigger:
-    platform: state
-    entity_id: sensor.smoke_soverom_smoke_50_1
+    - platform: state
+      entity_id: sensor.smoke_soverom_smoke_50_1
   condition:
     - condition: state
       entity_id: sensor.smoke_soverom_smoke_50_1
@@ -16,9 +16,9 @@
 
 - alias: Smoke Sensor Bedroom NOSMOKE
   trigger:
-    platform: state
-    entity_id: sensor.smoke_soverom_smoke_50_1
-    from: '254'
+    - platform: state
+      entity_id: sensor.smoke_soverom_smoke_50_1
+      from: '254'
   condition:
     - condition: state
       entity_id: sensor.smoke_soverom_smoke_50_1
@@ -34,8 +34,8 @@
 # Temperature
 - alias: Smoke Sensor Bedroom Temperature HIGH
   trigger:
-    platform: state
-    entity_id: sensor.smoke_soverom_heat_50_4
+    - platform: state
+      entity_id: sensor.smoke_soverom_heat_50_4
   condition:
     - condition: or
       conditions:

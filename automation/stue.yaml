@@ -2,8 +2,8 @@
 
 - alias: Stue natt ukedag
   trigger:
-    platform: time
-    after: "22:00:00"
+    - platform: time
+      after: "22:00:00"
   condition:
     - condition: time
       weekday:
@@ -23,8 +23,8 @@
 
 - alias: Stue natt helg
   trigger:
-    platform: time
-    after: "01:00:00"
+    - platform: time
+      after: "01:00:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
@@ -40,8 +40,8 @@
 
 - alias: Stue morgen ukedag
   trigger:
-    platform: time
-    after: "07:30:00"
+    - platform: time
+      after: "07:30:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
@@ -57,8 +57,8 @@
 
 - alias: Stue ettermiddag ukedag
   trigger:
-    platform: time
-    after: "16:00:00"
+    - platform: time
+      after: "16:00:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'

@@ -3,9 +3,9 @@
 # 60 min after sunrise
 - alias: Vitrineskap soloppgang 1
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "01:00:00"
+    - platform: sun
+      event: sunrise
+      offset: "01:00:00"
   action:
     - service: shell_command.vitrineskap_4
     - service: shell_command.vitrineskap_dim
@@ -13,9 +13,9 @@
 # 90 min after sunrise
 - alias: Vitrineskap soloppgang 2
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "02:00:00"
+    - platform: sun
+      event: sunrise
+      offset: "02:00:00"
   action:
     - service: shell_command.vitrineskap_5
     - service: shell_command.vitrineskap_dim
@@ -23,9 +23,9 @@
 # 120 min after sunrise
 - alias: Vitrineskap soloppgang 3
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "02:30:00"
+    - platform: sun
+      event: sunrise
+      offset: "02:30:00"
   action:
     - service: shell_command.vitrineskap_6
     - service: shell_command.vitrineskap_dim
@@ -33,9 +33,9 @@
 # 150 min after sunrise
 - alias: Vitrineskap soloppgang 4
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "03:00:00"
+    - platform: sun
+      event: sunrise
+      offset: "03:00:00"
   action:
     - service: shell_command.vitrineskap_7
     - service: shell_command.vitrineskap_dim
@@ -43,9 +43,9 @@
 # 180 min after sunrise
 - alias: Vitrineskap soloppgang 5
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "04:00:00"
+    - platform: sun
+      event: sunrise
+      offset: "04:00:00"
   action:
     - service: shell_command.vitrineskap_off
     - service: shell_command.vitrineskap_dim
@@ -56,8 +56,8 @@
 
 - alias: Vitrineskap solnedgang
   trigger:
-    platform: sun
-    event: sunset
+    - platform: sun
+      event: sunset
   action:
     - service: shell_command.vitrineskap_default
     - service: shell_command.vitrineskap_dim
@@ -65,9 +65,9 @@
 # 60 min before sunset
 - alias: Vitrineskap solnedgang 1
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-01:00:00"
+    - platform: sun
+      event: sunset
+      offset: "-01:00:00"
   action:
     - service: shell_command.vitrineskap_4
     - service: shell_command.vitrineskap_dim
@@ -75,9 +75,9 @@
 # 90 min before sunset
 - alias: Vitrineskap solnedgang 2
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-02:00:00"
+    - platform: sun
+      event: sunset
+      offset: "-02:00:00"
   action:
     - service: shell_command.vitrineskap_5
     - service: shell_command.vitrineskap_dim
@@ -85,9 +85,9 @@
 # 120 min before sunset
 - alias: Vitrineskap solnedgang 3
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-02:30:00"
+    - platform: sun
+      event: sunset
+      offset: "-02:30:00"
   action:
     - service: shell_command.vitrineskap_6
     - service: shell_command.vitrineskap_dim
@@ -95,9 +95,9 @@
 # 150 min before sunset
 - alias: Vitrineskap solnedgang 4
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-03:00:00"
+    - platform: sun
+      event: sunset
+      offset: "-03:00:00"
   action:
     - service: shell_command.vitrineskap_7
     - service: shell_command.vitrineskap_dim
@@ -105,9 +105,9 @@
 # 180 min before sunset
 - alias: Vitrineskap solnedgang 5
   trigger:
-    platform: sun
-    event: sunset
-    offset: "-04:00:00"
+    - platform: sun
+      event: sunset
+      offset: "-04:00:00"
   action:
     - service: shell_command.vitrineskap_off
     - service: shell_command.vitrineskap_dim
@@ -117,7 +117,7 @@
 
 - alias: Taklys endringer
   trigger:
-    platform: state
-    entity_id: light.stue
+    - platform: state
+      entity_id: light.stue
   action:
-    service: shell_command.vitrineskap_dim
+    - service: shell_command.vitrineskap_dim

@@ -1,8 +1,8 @@
 - alias: Ferie modus on
   trigger:
-    platform: state
-    entity_id: input_boolean.vacation_mode
-    to: 'on'
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+      to: 'on'
   action:
     - service: climate.set_temperature
       data:
@@ -11,9 +11,9 @@
 
 - alias: Ferie modus off
   trigger:
-    platform: state
-    entity_id: input_boolean.vacation_mode
-    to: 'off'
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+      to: 'off'
   action:
     - service: climate.set_temperature
       data:

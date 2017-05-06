@@ -3,10 +3,10 @@
     - platform: state
       entity_id: updater.updater
   action:
-    service: notify.ios_lolphone_7
-    data:
-      title: 'New version!'
-      message: 'Update for Home Assistant is available.'
+    - service: notify.ios_lolphone_7
+      data:
+        title: 'New version!'
+        message: 'Update for Home Assistant is available.'
 
 
 #    service: notify.h0mebot

@@ -2,8 +2,8 @@
 
 - alias: Soverom morgen ukedag
   trigger:
-    platform: time
-    after: "07:30:00"
+    - platform: time
+      after: "07:30:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
@@ -20,8 +20,8 @@
 
 - alias: Soverom dag ukedag
   trigger:
-    platform: time
-    after: "10:00:00"
+    - platform: time
+      after: "10:00:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
@@ -38,8 +38,8 @@
 
 - alias: Soverom kveld hver dag
   trigger:
-    platform: time
-    after: "20:00:00"
+    - platform: time
+      after: "20:00:00"
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode

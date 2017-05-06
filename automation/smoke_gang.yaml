@@ -1,8 +1,8 @@
 # Smoke
 - alias: Smoke Sensor Entrance Smoke
   trigger:
-    platform: state
-    entity_id: sensor.smoke_gang_smoke_47_1
+    - platform: state
+      entity_id: sensor.smoke_gang_smoke_47_1
   condition:
     - condition: state
       entity_id: sensor.smoke_gang_smoke_47_1
@@ -16,8 +16,8 @@
 
 - alias: Smoke Sensor Entrance NOSMOKE
   trigger:
-    platform: state
-    entity_id: sensor.smoke_gang_smoke_47_1
+    - platform: state
+      entity_id: sensor.smoke_gang_smoke_47_1
     from: '254'
   condition:
     - condition: state
@@ -34,8 +34,8 @@
 # Temperature
 - alias: Smoke Sensor Entrance Temperature HIGH
   trigger:
-    platform: state
-    entity_id: sensor.smoke_gang_heat_47_4
+    - platform: state
+      entity_id: sensor.smoke_gang_heat_47_4
   condition:
     - condition: or
       conditions:
