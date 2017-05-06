@@ -61,11 +61,11 @@
 
 - alias: Fjerne reiser
   trigger:
-    - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+    - platform: state
+      entity_id: binary_sensor.workday_sensor
   condition:
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: binary_sensor.workday_sensor
       state: 'off'
   action:
     - service: group.set_visibility
