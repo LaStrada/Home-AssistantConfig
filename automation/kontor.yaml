@@ -28,14 +28,9 @@
   - condition: state
     entity_id: input_boolean.guests
     state: 'off'
-
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   action:
     - service: climate.set_temperature
       data:
@@ -53,13 +48,9 @@
   - condition: state
     entity_id: input_boolean.guests
     state: 'off'
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   action:
     - service: climate.set_temperature
       data:

@@ -5,6 +5,9 @@
     - platform: state
       entity_id: input_boolean.stale_home
   condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
     - condition: time
       after: '06:00:00'
       before: '18:00:00'
@@ -34,6 +37,9 @@
     - platform: state
       entity_id: input_boolean.stale_job
   condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
     - condition: time
       after: '12:00:00'
       before: '23:30:00'
@@ -55,3 +61,18 @@
       entity_id: group.reise_hjem
       data:
         visible: True
+
+- alias: Fjerne reiser
+  trigger:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      to: 'off'
+  action:
+    - service: group.set_visibility
+      entity_id: group.reise_til_jobb
+      data:
+        visible: False
+    - service: group.set_visibility
+      entity_id: group.reise_hjem
+      data:
+        visible: False

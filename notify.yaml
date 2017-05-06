@@ -13,16 +13,16 @@
   password: !secret gmail_password
   recipient: !secret stale_email
 
-# - name: gmail_tina
-#   platform: smtp
-#   server: smtp.gmail.com
-#   port: 587
-#   timeout: 20
-#   sender: !secret gmail_username
-#   starttls: true
-#   username: !secret gmail_username
-#   password: !secret gmail_password
-#   recipient: !secret tina_email
+- name: gmail_tina
+  platform: smtp
+  server: smtp.gmail.com
+  port: 587
+  timeout: 20
+  sender: !secret gmail_username
+  starttls: true
+  username: !secret gmail_username
+  password: !secret gmail_password
+  recipient: !secret tina_email
 
 
 # groups

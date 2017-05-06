@@ -5,13 +5,9 @@
     platform: time
     after: "07:30:00"
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'
@@ -27,13 +23,9 @@
     platform: time
     after: "10:00:00"
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'
@@ -44,40 +36,11 @@
         temperature: 17
 
 
-- alias: Soverom kveld ukedag
+- alias: Soverom kveld hver dag
   trigger:
     platform: time
     after: "20:00:00"
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.soverom_termostat
-        temperature: 19
-
-
-- alias: Soverom natt ukedag
-  trigger:
-    platform: time
-    after: "22:30:00"
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - sun
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'

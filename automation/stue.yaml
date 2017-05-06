@@ -26,10 +26,9 @@
     platform: time
     after: "01:00:00"
   condition:
-  - condition: time
-    weekday:
-    - sat
-    - sun
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'off'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'
@@ -44,13 +43,9 @@
     platform: time
     after: "07:30:00"
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'
@@ -65,13 +60,9 @@
     platform: time
     after: "16:00:00"
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'
@@ -79,17 +70,16 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.stue_termostat
-        temperature: 22
+        temperature: 23
 
 - alias: Stue morgen helg
   trigger:
     platform: time
     after: "08:30:00"
   condition:
-  - condition: time
-    weekday:
-    - sat
-    - sun
+  - condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'off'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'
