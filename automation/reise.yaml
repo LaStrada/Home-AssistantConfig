@@ -17,9 +17,6 @@
     - condition: state
       entity_id: input_boolean.stale_job
       state: 'off'
-    - condition: state
-      entity_id: binary_sensor.workday_sensor
-      state: 'on'
   action:
     - service: group.set_visibility
       entity_id: group.reise_til_jobb
