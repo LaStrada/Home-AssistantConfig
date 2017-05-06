@@ -5,16 +5,16 @@
     platform: time
     after: "22:00:00"
   condition:
-  - condition: time
-    weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
+    - condition: time
+      weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: climate.set_temperature
       data:
@@ -26,12 +26,12 @@
     platform: time
     after: "01:00:00"
   condition:
-  - condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: climate.set_temperature
       data:
@@ -43,12 +43,12 @@
     platform: time
     after: "07:30:00"
   condition:
-  - condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: climate.set_temperature
       data:
@@ -60,12 +60,12 @@
     platform: time
     after: "16:00:00"
   condition:
-  - condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: climate.set_temperature
       data:
@@ -77,12 +77,12 @@
     platform: time
     after: "08:30:00"
   condition:
-  - condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: climate.set_temperature
       data:

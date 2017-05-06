@@ -5,12 +5,12 @@
     platform: time
     after: "22:00:00"
   condition:
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.guests
-    state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.guests
+      state: 'off'
   action:
     - service: climate.set_temperature
       data:
@@ -22,15 +22,15 @@
     platform: time
     after: "07:30:00"
   condition:
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.guests
-    state: 'off'
-  - condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.guests
+      state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
   action:
     - service: climate.set_temperature
       data:
@@ -42,15 +42,15 @@
     platform: time
     after: "11:00:00"
   condition:
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.guests
-    state: 'off'
-  - condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.guests
+      state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
   action:
     - service: climate.set_temperature
       data:
