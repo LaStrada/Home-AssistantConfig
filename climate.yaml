@@ -3,7 +3,7 @@
   heater: switch.panelovn_stue_switch_11_0
   target_sensor: sensor.temp_stue_temperature
   min_temp: 10
-  max_temp: 24
+  max_temp: 25
   target_temp: 23
   tolerance: 0.1
   min_cycle_duration:
