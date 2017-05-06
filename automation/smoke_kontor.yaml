@@ -15,8 +15,8 @@
 
 
 - alias: Smoke Sensor Office NOSMOKE
-  - trigger:
-      platform: state
+  trigger:
+    - platform: state
       entity_id: sensor.smoke_kontor_smoke_48_1
       from: '254'
   condition:
@@ -24,10 +24,10 @@
       entity_id: sensor.smoke_kontor_smoke_48_1
       state: '0'
   action:
-    service: notify.notify_all_important
-    data:
-      title: 'Alert: '
-      message: 'Røyken er borte på kontoret.'
+    - service: notify.notify_all_important
+      data:
+        title: 'Alert: '
+        message: 'Røyken er borte på kontoret.'
 
 
 
