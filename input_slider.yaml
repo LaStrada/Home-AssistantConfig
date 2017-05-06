@@ -55,7 +55,7 @@ soverom_wakeup_temperatur:
   name: Soverom wakeup temperatur
   initial: 20
   min: 15
-  max: 18
+  max: 20
   step: 1
 
 soverom_dagtid_temperatur:
