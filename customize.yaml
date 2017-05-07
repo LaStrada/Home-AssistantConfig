@@ -106,3 +106,10 @@ device_tracker.android89bc5926ba332e4flan:
 
 device_tracker.androide63cbc6e620053d3lan:
   friendly_name: Tina Samsung S6 nmap
+
+
+# Diverse
+sensor.ssl_certificate_expiry:
+  friendly_name: !secret main_domain
+sensor.ssl_certificate_expiry_2:
+  friendly_name: !secret ping_domain

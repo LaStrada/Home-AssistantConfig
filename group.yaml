@@ -108,21 +108,6 @@ ute:
     - sensor.nordlysvarsel_1_time
 
 
-
-
-reise_til_jobb:
-  name: Reise til jobb
-  entities:
-    - sensor.jobbreise_buss
-    - sensor.jobbreise_bil
-
-reise_hjem:
-  name: Reise hjem
-  entities:
-    - sensor.hjemreise_buss
-    - sensor.hjemreise_bil
-
-
 temperatures:
   name: Temperatur
   view: yes
@@ -246,13 +231,13 @@ diverse:
   entities:
     - group.ferie_stuff
     - group.rpi_monitor
-    - group.reise_til_jobb
-    - group.reise_hjem
     - group.heracam
     - group.guest_mode
     - group.motion_sensors
     - group.smoke_sensors
     - group.temperature_control_panel
+    - sensor.ssl_certificate_expiry
+    - sensor.ssl_certificate_expiry_2
 
 heracam:
   name: HeraCam
