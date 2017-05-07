@@ -1,0 +1,54 @@
+- alias: Leaving home alert
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.tina_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+    - condition: or
+      conditions:
+        # Door sensor main
+        # - condition: state
+        #   entity_id: 
+        #   state: 'on'
+        #   
+        # Door sensor front
+        # - condition: state
+        #   entity_id: 
+        #   state: 'on'
+        #   
+        # Door sensor back
+        # - condition: state
+        #   entity_id: 
+        #   state: 'on'
+        #   
+        # Refrigerator
+        # - condition: state
+        #   entity_id: 
+        #   state: 'on'
+        #   
+        # Freezer kitchen
+        # - condition: state
+        #   entity_id: 
+        #   state: 'on'
+        #   
+        # Freezer storage room
+        # - condition: state
+        #   entity_id: 
+        #   state: 'on'
+  action:
+    - service: notify.notify
+      data:
+        title: 'Dører åpne!'
+        message: >
+          Hoveddør: {{ sensor.door_main }}
+          Balkongdør foran: {{ sensor_door_front }}
+          Balkongdør bak: {{ sensor_door_behind }}

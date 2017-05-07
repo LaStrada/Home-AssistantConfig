@@ -227,8 +227,13 @@ media:
   icon: mdi:play-pause
   view: yes
   entities:
-    - media_player.spotify
+    - group.spotify
     - media_player.pioneer_avr    
+
+spotify:
+  name: Spotify
+  entities:
+    - media_player.spotify
 
 
 
