@@ -118,4 +118,4 @@ device_tracker.androide63cbc6e620053d3lan:
 sensor.ssl_certificate_expiry:
   friendly_name: !secret main_domain
 sensor.ssl_certificate_expiry_2:
-  friendly_name: !secret ping_domain
+  friendly_name: !secret ping
