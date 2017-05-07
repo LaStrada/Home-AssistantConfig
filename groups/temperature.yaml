@@ -15,7 +15,6 @@ temp_stue_kitchen:
   name: Stue & kjøkken
   entities:
     - climate.stue_termostat
-    - sensor.temp_stue_temperature
     - sensor.temp_stue_humidity
     - sensor.multi_kitchen_temperature_18_1
     - sensor.multi_kitchen_relative_humidity_18_5
@@ -24,14 +23,12 @@ temp_soverom:
   name: Soverom
   entities:
       - climate.soverom_termostat
-      - sensor.temp_soverom_temperature
       - sensor.temp_soverom_humidity
 
 temp_kontor:
   name: Kontor
   entities:
     - climate.kontor_termostat
-    - sensor.temp_kontor_temperature
     - sensor.temp_kontor_humidity
 
 temp_gang:
