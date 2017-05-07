@@ -24,3 +24,9 @@ exclude:
     - sensor.panelovn_soverom_power_13_8
     - sensor.solar_angle
     - camera.heracam
+    - sensor.yr_symbol
+    - sensor.yr_precipitation
+    - sensor.yr_humidity
+    - sensor.yr_fog
+    - sensor.yr_dewpoint_temperature
+    - sensor.yr_cloudiness
