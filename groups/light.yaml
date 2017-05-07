@@ -1,0 +1,28 @@
+lys_soverom:
+  name: Soverom
+  entities:
+    - light.soverom_taklys
+    - light.stale_nattbordslampe
+    - light.tina_nattbordslampe
+
+lys_kitchen:
+  name: Kjøkken
+  entities:
+    - light.ktichen_table_dimmer_level_23_0
+    - switch.kitchen_lights_switch_22_0_2
+    - switch.kitchen_lights_switch_22_0_3
+
+lys_stue:
+  name: Stue
+  entities:
+    - light.stue
+
+lys_gang:
+  name: Gang lys
+  entities:
+    - light.gang_dimmer_level_45_0
+    - light.gang_garderobeskap_level_46_0
+
+lys_kontor:
+  name: Kontor
+  entities:

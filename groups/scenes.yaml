@@ -1,0 +1,5 @@
+scenes_lys:
+  name: Lys-scener
+  entities:
+    - scene.hera_alene_hjemme
+    - scene.alle_lys_av

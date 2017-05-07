@@ -1,0 +1,27 @@
+motion_sensors:
+  name: Bevegelse
+  entities:
+    - sensor.motion_gang
+    - sensor.motion_kitchen
+    - sensor.motion_kontor
+
+smoke_sensors:
+  name: Røykvarslere
+  entities:
+    - sensor.smoke_gang
+    - sensor.heat_gang
+    - sensor.smoke_kontor
+    - sensor.heat_kontor
+    - sensor.smoke_soverom
+    - sensor.heat_soverom
+    - sensor.smoke_stue
+    - sensor.heat_stue
+
+#door_sensors:
+#  name: Door-sensors
+#  entities:
+
+alarm_panel:
+  name: Alarm
+  entities:
+    - alarm_control_panel.ha_alarm

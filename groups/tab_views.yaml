@@ -1,0 +1,64 @@
+### Default view
+default_view:
+  name: Alle rom
+  icon: mdi:home 
+  view: yes
+  entities:
+    - group.ute_min
+    - group.stue
+    - group.kitchen
+    - group.soverom
+    - group.kontor
+    - group.gang
+
+
+### Temperatures
+temperatures:
+  name: Temperatur
+  view: yes
+  icon: mdi:thermometer
+  entities:
+    - group.ute
+    - group.temp_stue_kitchen
+    - group.temp_soverom
+    - group.temp_kontor
+    - group.temp_gang
+    - group.temp_bad
+
+### Lights
+lys:
+  name: Lys
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.lys_stue
+    - group.lys_kitchen
+    - group.lys_soverom
+    - group.lys_gang
+    - group.lys_kontor
+    - group.scenes_lys
+
+### Media
+media:
+  name: Media
+  icon: mdi:play-pause
+  view: yes
+  entities:
+    - group.spotify
+    - media_player.pioneer_avr    
+
+### Diverse
+diverse:
+  name: Diverse
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.ferie_stuff
+    - group.rpi_monitor
+    - group.heracam
+    - group.guest_mode
+    - group.motion_sensors
+    - group.smoke_sensors
+    - group.temperature_control_panel
+    - sensor.ssl_certificate_expiry
+    - sensor.ssl_certificate_expiry_2

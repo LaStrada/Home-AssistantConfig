@@ -1,0 +1,4 @@
+heracam:
+  name: HeraCam
+  entities:
+    - camera.heracam
