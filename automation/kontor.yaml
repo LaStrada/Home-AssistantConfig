@@ -15,7 +15,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.kontor_termostat
-        temperature: '{{ states.input_slider.kontor_temperatur.state | int }}'
+        temperature: "{{ states.input_slider.kontor_temperatur.state | float }}"
 
 - alias: Kontor morgen ukedag
   trigger:
@@ -30,6 +30,9 @@
       state: 'off'
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+    - condition: state
+      entity_id: 'input_boolean.tina_home'
       state: 'on'
   action:
     - service: climate.set_temperature
@@ -55,4 +58,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.kontor_termostat
-        temperature: '{{ states.input_slider.kontor_temperatur.state | int }}'
+        temperature: "{{ states.input_slider.kontor_temperatur.state | float }}"

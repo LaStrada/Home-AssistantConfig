@@ -18,7 +18,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.soverom_termostat
-        temperature: '{{ states.input_slider.soverom_wakeup_temperatur.state | float }}'
+        temperature: "{{ states.input_slider.soverom_wakeup_temperatur.state | float }}"
 
 
 - alias: Soverom dag ukedag
@@ -36,7 +36,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.soverom_termostat
-        temperature: '{{ states.input_slider.soverom_dagtid_temperatur.state | float }}'
+        temperature: "{{ states.input_slider.soverom_dagtid_temperatur.state | float }}"
 
 
 - alias: Soverom kveld hver dag
@@ -51,4 +51,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.soverom_termostat
-        temperature: '{{ states.input_slider.soverom_natt_temperatur.state | float }}'
+        temperature: "{{ states.input_slider.soverom_natt_temperatur.state | float }}"
