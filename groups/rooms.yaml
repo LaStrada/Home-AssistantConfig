@@ -3,7 +3,6 @@ stue:
   name: Stue
   entities:
     - climate.stue_termostat
-    - sensor.temp_stue_temperature
     - sensor.temp_stue_humidity
     - light.stue
 
@@ -23,7 +22,6 @@ soverom:
   control: no
   entities:
     - climate.soverom_termostat
-    - sensor.temp_soverom_temperature
     - sensor.temp_soverom_humidity
     - light.soverom_taklys
     - light.stale_nattbordslampe
