@@ -17,7 +17,7 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
@@ -34,7 +34,7 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
@@ -51,7 +51,7 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
 
@@ -68,7 +68,7 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
 
@@ -85,6 +85,6 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"

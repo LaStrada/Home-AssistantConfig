@@ -16,7 +16,7 @@
       state: 'on'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.soverom_termostat
         temperature: "{{ states.input_slider.soverom_wakeup_temperatur.state | float }}"
 
@@ -34,7 +34,7 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.soverom_termostat
         temperature: "{{ states.input_slider.soverom_dagtid_temperatur.state | float }}"
 
@@ -49,6 +49,6 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.soverom_termostat
         temperature: "{{ states.input_slider.soverom_natt_temperatur.state | float }}"

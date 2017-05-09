@@ -13,7 +13,7 @@
       state: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.kontor_termostat
         temperature: "{{ states.input_slider.kontor_temperatur.state | float }}"
 
@@ -56,6 +56,6 @@
       state: 'on'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.kontor_termostat
         temperature: "{{ states.input_slider.kontor_temperatur.state | float }}"
