@@ -1,14 +1,14 @@
-# Ferie
+# Vacation
 
 ferie_temperatur:
   name: Temperatur i ferien
-  initial: 15
-  min: 10
+  initial: 10
+  min: 8
   max: 18
   step: 1
 
 
-# Stue
+# Living room
 
 stue_morgen_temperatur:
   name: Stue morgen temperatur
@@ -26,13 +26,13 @@ stue_dagtid_temperatur:
 
 stue_natt_temperatur:
   name: Stue natt temperatur
-  initial: 17
+  initial: 18
   min: 15
   max: 25
   step: 1
 
 
-# Kontor
+# Office / guest room
 
 kontor_temperatur:
   name: Kontor temperatur
@@ -42,7 +42,7 @@ kontor_temperatur:
   step: 1
 
 
-# Soverom
+# Bedroom
 
 soverom_natt_temperatur:
   name: Soverom natt temperatur
@@ -62,5 +62,5 @@ soverom_dagtid_temperatur:
   name: Soverom dagtid temperatur
   initial: 17
   min: 15
-  max: 18
+  max: 20
   step: 1
