@@ -12,11 +12,14 @@
     - condition: state
       entity_id: device_tracker.android89bc5926ba332e4flan
       state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: group.set_visibility
       entity_id: group.heracam
       data:
-        visible: False
+        visible: True
 
 - alias: HeraCam startup off
   trigger:
@@ -34,6 +37,9 @@
       - condition: state
         entity_id: device_tracker.android89bc5926ba332e4flan
         state: 'home'
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'on'
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -48,6 +54,8 @@
       entity_id: input_boolean.tina_home
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
+    - platform: state
+      entity_id: input_boolean.vacation_mode
   condition:
     - condition: state
       entity_id: input_boolean.tina_home
@@ -58,6 +66,9 @@
     - condition: state
       entity_id: device_tracker.android89bc5926ba332e4flan
       state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.heracam_state
@@ -81,6 +92,9 @@
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
       to: 'home'
+    - platform: state
+      entity_id: input_boolean.guests
+      to: 'on'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.heracam_state
