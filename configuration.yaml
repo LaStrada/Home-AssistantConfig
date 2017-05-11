@@ -30,8 +30,8 @@ discovery:
 
 history:
 
-recorder: !include recorder.yaml
-logbook: !include logbook.yaml
+#recorder: !include recorder.yaml
+#logbook: !include logbook.yaml
 
 sun:
 
