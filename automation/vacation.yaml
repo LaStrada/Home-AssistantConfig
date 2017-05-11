@@ -5,9 +5,9 @@
       to: 'on'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat
-        temperature: '{{ input_slider.ferie_temperatur }}'
+        temperature: "{{ states.input_slider.ferie_temperatur.state | float }}"
 
 - alias: Ferie modus off
   trigger:
@@ -16,14 +16,14 @@
       to: 'off'
   action:
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.kontor_termostat
         temperature: '{{ input_slider.kontor_temperatur }}'
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.soverom_termostat
         temperature: '{{ input_slider.soverom_natt_temperatur }}'
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.stue_termostat
-        temperature: '{{ input_slider.stue_dagtid_temperatur }}'
+        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
