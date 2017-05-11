@@ -13,7 +13,7 @@
       entity_id: device_tracker.android89bc5926ba332e4flan
       state: 'not_home'
     - condition: state
-      entity_id: input_boolean.vacation_mode
+      entity_id: input_boolean.guests
       state: 'off'
   action:
     - service: group.set_visibility
@@ -38,7 +38,7 @@
         entity_id: device_tracker.android89bc5926ba332e4flan
         state: 'home'
       - condition: state
-        entity_id: input_boolean.vacation_mode
+        entity_id: input_boolean.guests
         state: 'on'
   action:
     - service: group.set_visibility
@@ -55,7 +55,7 @@
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
     - platform: state
-      entity_id: input_boolean.vacation_mode
+      entity_id: input_boolean.guests
   condition:
     - condition: state
       entity_id: input_boolean.tina_home
@@ -67,7 +67,7 @@
       entity_id: device_tracker.android89bc5926ba332e4flan
       state: 'not_home'
     - condition: state
-      entity_id: input_boolean.vacation_mode
+      entity_id: input_boolean.guests
       state: 'off'
   action:
     - service: input_boolean.turn_on
