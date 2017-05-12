@@ -10,6 +10,9 @@
     - condition: state
       entity_id: input_boolean.tina_home
       state: 'off'
+    - condition: state
+      entity_id: input_boolean.guests
+      state: 'off'
   action:
     - service: notify.notify
       data:
@@ -33,6 +36,9 @@
     - condition: state
       entity_id: input_boolean.tina_home
       state: 'off'
+    - condition: state
+      entity_id: input_boolean.guests
+      state: 'off'
   action:
     - service: notify.notify
       data:
@@ -51,6 +57,9 @@
       state: 'off'
     - condition: state
       entity_id: input_boolean.tina_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.guests
       state: 'off'
   action:
     - service: notify.notify
