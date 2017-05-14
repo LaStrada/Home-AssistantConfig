@@ -18,7 +18,7 @@ lys_stue:
     - light.stue
 
 lys_gang:
-  name: Gang lys
+  name: Gang
   entities:
     - light.gang_dimmer_level_45_0
     - light.gang_garderobeskap_level_46_0
