@@ -1,34 +1,34 @@
-- alias: Nordlysvarsel notification 1
-  trigger:
-    - platform: state
-      entity_id: sensor.nordlysvarsel_1_time
-  condition:
-    - condition: state
-      entity_id: input_boolean.vacation_mode
-      state: 'off'
-    - condition: or
-      conditions:
-        - condition: sun
-          after: sunset
-          after_offset: "02:00:00"
-        - condition: sun
-          before: sunrise
-          before_offset: "-02:00:00"
-    - condition: numeric_state
-      entity_id: sensor.nordlysvarsel_1_time
-      above: 3.5
-    - condition: or
-      conditions:
-        - condition: numeric_state
-          entity_id: 'sensor.yr_symbol'
-          above: 1
-          below: 3
-        - condition: numeric_state
-          entity_id: 'sensor.yr_symbol'
-          above: 101
-          below: 103
-  action:
-    - service: notify.ios_lolphone_7
-      data:
-        title: 'Nordlysvarsel'
-        message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen."
+# - alias: Nordlysvarsel notification 1
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.nordlysvarsel_1_time
+#   condition:
+#     - condition: state
+#       entity_id: input_boolean.vacation_mode
+#       state: 'off'
+#     - condition: or
+#       conditions:
+#         - condition: sun
+#           after: sunset
+#           after_offset: "02:00:00"
+#         - condition: sun
+#           before: sunrise
+#           before_offset: "-02:00:00"
+#     - condition: numeric_state
+#       entity_id: sensor.nordlysvarsel_1_time
+#       above: 3.5
+#     - condition: or
+#       conditions:
+#         - condition: numeric_state
+#           entity_id: 'sensor.yr_symbol'
+#           above: 1
+#           below: 3
+#         - condition: numeric_state
+#           entity_id: 'sensor.yr_symbol'
+#           above: 101
+#           below: 103
+#   action:
+#     - service: notify.ios_lolphone_7
+#       data:
+#         title: 'Nordlysvarsel'
+#         message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen."
