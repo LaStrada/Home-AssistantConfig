@@ -15,9 +15,9 @@
         - condition: or
           conditions:
             - condition: template
-              value_template: '{{ {{now().month}} < 5 }}'
+              value_template: '{{ now().month < 5 }}'
             - condition: template
-              value_template: '{{ {{now().month}} > 8 }}'
+              value_template: '{{ now().month > 8 }}'
         - condition: state
           entity_id: input_boolean.vacation_mode
           state: 'off'
