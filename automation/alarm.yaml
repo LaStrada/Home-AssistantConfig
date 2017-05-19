@@ -2,17 +2,11 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.multi_gang_burglar_17_10
-      above: 0
+      above: '0'
   condition:
     - condition: state
-      entity_id: input_boolean.stale_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.tina_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.guests
-      state: 'off'
+      entity_id: sensor.alarm_active
+      state: 'Active'
   action:
     - service: notify.notify
       data:
@@ -28,17 +22,11 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.multi_kitchen_burglar_18_10
-      above: 0
+      above: '0'
   condition:
     - condition: state
-      entity_id: input_boolean.stale_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.tina_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.guests
-      state: 'off'
+      entity_id: sensor.alarm_active
+      state: 'Active'
   action:
     - service: notify.notify
       data:
@@ -50,17 +38,11 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.multi_kontor_burglar_9_10
-      above: 0
+      above: '0'
   condition:
     - condition: state
-      entity_id: input_boolean.stale_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.tina_home
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.guests
-      state: 'off'
+      entity_id: sensor.alarm_active
+      state: 'Active'
   action:
     - service: notify.notify
       data:
