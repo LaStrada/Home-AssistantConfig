@@ -18,6 +18,7 @@
         - input_boolean.stale_home
         - input_boolean.tina_home
         - input_boolean.guests
+        - device_tracker.android89bc5926ba332e4flan
 
     motion_gang:
       value_template: >-
