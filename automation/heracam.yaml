@@ -37,13 +37,9 @@
 - alias: HeraCam On
   trigger:
     - platform: state
-      entity_id: input_boolean.stale_home
-    - platform: state
-      entity_id: input_boolean.tina_home
+      entity_id: sensor.alarm_active
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
-    - platform: state
-      entity_id: input_boolean.guests
   condition:
     - condition: state
       entity_id: sensor.alarm_active
@@ -66,17 +62,11 @@
 - alias: HeraCam Off
   trigger:
     - platform: state
-      entity_id: input_boolean.stale_home
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.tina_home
-      to: 'on'
+      entity_id: sensor.alarm_active
+      to: 'Active'
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
       to: 'home'
-    - platform: state
-      entity_id: input_boolean.guests
-      to: 'on'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.heracam_state
