@@ -23,6 +23,12 @@ door_sensors:
     - binary_sensor.door_front_sensor_52_0
     - binary_sensor.door_back_sensor_53_0
 
+freezers:
+  name: Kjøleskap / frysere
+  entities:
+    - binary_sensor.refrigerator_kitchen_sensor_33_0
+    - binary_sensor.freezer_bod_sensor_36_0
+    - binary_sensor.freezer_kitchen_sensor_38_0
 
 alarm_panel:
   name: Alarm

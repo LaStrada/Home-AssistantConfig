@@ -55,7 +55,8 @@ alarm_status:
   entities:
     - group.motion_sensors
     - group.smoke_sensors
-    - group.door_sensors 
+    - group.door_sensors
+    - group.freezers
 
 ### Diverse
 diverse:
