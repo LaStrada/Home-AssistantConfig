@@ -6,9 +6,6 @@
     - condition: state
       entity_id: sensor.alarm_active
       state: 'Active'
-    - condition: state
-      entity_id: device_tracker.android89bc5926ba332e4flan
-      state: 'not_home'
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -20,33 +17,21 @@
     - platform: homeassistant
       event: start
   condition:
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: sensor.alarm_active
-        state: 'Inactive'
-      - condition: state
-        entity_id: device_tracker.android89bc5926ba332e4flan
-        state: 'home'
+    - condition: state
+      entity_id: sensor.alarm_active
+      state: 'Inactive'
   action:
     - service: group.set_visibility
       entity_id: group.heracam
       data:
         visible: False
 
+
 - alias: HeraCam On
   trigger:
     - platform: state
       entity_id: sensor.alarm_active
-    - platform: state
-      entity_id: device_tracker.android89bc5926ba332e4flan
-  condition:
-    - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Inactive'
-    - condition: state
-      entity_id: device_tracker.android89bc5926ba332e4flan
-      state: 'not_home'
+      to: "Inactive"
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.heracam_state
@@ -58,15 +43,11 @@
       data:
         visible: True
 
-
 - alias: HeraCam Off
   trigger:
     - platform: state
       entity_id: sensor.alarm_active
       to: 'Active'
-    - platform: state
-      entity_id: device_tracker.android89bc5926ba332e4flan
-      to: 'home'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.heracam_state
