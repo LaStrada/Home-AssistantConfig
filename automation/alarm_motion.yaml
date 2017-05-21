@@ -1,16 +1,16 @@
 - alias: Alarm away gang
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.multi_gang_burglar_17_10
-      above: '0'
+    - platform: state
+      entity_id: sensor.motion_gang
+      to: 'Bevegelse!'
   condition:
     - condition: state
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.notify
+    - service: notify.ios_lolphone_7
       data:
-        message: 'Alarm!'
+        message: 'Motion alarm!'
         title: 'Bevegelse i gangen!'
         attachment:
           url: https://h0me.no/api/camera_proxy_stream/camera.heracam?token=043bef10ad01d29b7b25df5ca8f980355bd0ee922dbbe1b6c93a9b204c57a5ef
@@ -20,31 +20,31 @@
 
 - alias: Alarm away kjøkken
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.multi_kitchen_burglar_18_10
-      above: '0'
+    - platform: state
+      entity_id: sensor.motion_kitchen
+      to: 'Bevegelse!'
   condition:
     - condition: state
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.notify
+    - service: notify.ios_lolphone_7
       data:
-        message: 'Alarm!'
+        message: 'Motion alarm!'
         title: 'Bevegelse på kjøkkenet!'
 
 
 - alias: Alarm away kontor
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.multi_kontor_burglar_9_10
-      above: '0'
+    - platform: state
+      entity_id: sensor.motion_kontor
+      to: 'Bevegelse!'
   condition:
     - condition: state
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.notify
+    - service: notify.ios_lolphone_7
       data:
-        message: 'Alarm!'
+        message: 'Motion alarm!'
         title: 'Bevegelse på kjøkkenet!'
