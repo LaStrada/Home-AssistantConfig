@@ -1,4 +1,4 @@
-- alias: Alarm away door kjøkken
+- alias: Alarm away door back
   trigger:
     - platform: state
       entity_id: binary_sensor.door_back_sensor_53_0
@@ -8,13 +8,13 @@
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
-        message: 'Door alarm!'
-        title: 'Døra på baksiden er åpnet!'
+        title: 'Door alarm!'
+        message: 'Døra på baksiden er åpnet!'
 
 
-- alias: Alarm away kontor
+- alias: Alarm away door front
   trigger:
     - platform: state
       entity_id: binary_sensor.door_front_sensor_52_0
@@ -24,7 +24,7 @@
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
-        message: 'Door alarm!'
-        title: 'Døra på framsiden er åpnet!'
+        title: 'Door alarm!'
+        message: 'Døra på framsiden er åpnet!'

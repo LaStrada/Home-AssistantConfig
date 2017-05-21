@@ -8,10 +8,10 @@
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
-        message: 'Motion alarm!'
-        title: 'Bevegelse i gangen!'
+        title: 'Motion alarm!'
+        message: 'Bevegelse i gangen!'
         attachment:
           url: https://h0me.no/api/camera_proxy_stream/camera.heracam?token=043bef10ad01d29b7b25df5ca8f980355bd0ee922dbbe1b6c93a9b204c57a5ef
           content-type: jpeg
@@ -28,10 +28,10 @@
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
-        message: 'Motion alarm!'
-        title: 'Bevegelse på kjøkkenet!'
+        title: 'Motion alarm!'
+        message: 'Bevegelse på kjøkkenet!'
 
 
 - alias: Alarm away kontor
@@ -44,7 +44,7 @@
       entity_id: sensor.alarm_active
       state: 'Active'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.notify_all_important
       data:
-        message: 'Motion alarm!'
-        title: 'Bevegelse på kjøkkenet!'
+        title: 'Motion alarm!'
+        message: 'Bevegelse på kontoret!'

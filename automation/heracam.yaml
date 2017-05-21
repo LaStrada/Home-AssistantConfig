@@ -36,12 +36,22 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.heracam_state
     - service: shell_command.heracam_on
-    - delay:
+
+
+- alias: HeraCam group on
+  trigger:
+    - platform: state
+      entity_id: input_boolean.heracam_state
+      to: 'on'
+      for:
         minutes: 2
+  action:
     - service: group.set_visibility
       entity_id: group.heracam
       data:
         visible: True
+
+
 
 - alias: HeraCam Off
   trigger:
