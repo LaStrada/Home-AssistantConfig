@@ -17,9 +17,12 @@ smoke_sensors:
     - sensor.smoke_stue
     - sensor.heat_stue
 
-#door_sensors:
-#  name: Door-sensors
-#  entities:
+door_sensors:
+  name: Door-sensors
+  entities:
+    - binary_sensor.door_front_sensor_52_0
+    - binary_sensor.door_back_sensor_53_0
+
 
 alarm_panel:
   name: Alarm
