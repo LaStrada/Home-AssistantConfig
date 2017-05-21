@@ -45,7 +45,17 @@ media:
   view: yes
   entities:
     - group.spotify
-    - media_player.pioneer_avr    
+    - media_player.pioneer_avr   
+
+### Alarm status
+alarm_status:
+  name: Alarm
+  icon: mdi:alert-circle-outline
+  view: yes
+  entities:
+    - group.motion_sensors
+    - group.smoke_sensors
+    - group.door_sensors 
 
 ### Diverse
 diverse:
@@ -57,8 +67,6 @@ diverse:
     - group.rpi_monitor
     - group.heracam
     - group.guest_mode
-    - group.motion_sensors
-    - group.smoke_sensors
     - group.temperature_control_panel
     - sensor.ssl_certificate_expiry
     - sensor.ssl_certificate_expiry_2
