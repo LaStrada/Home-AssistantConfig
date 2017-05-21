@@ -8,7 +8,7 @@
     # Motion
     alarm_active:
       value_template: >-
-          {%- if is_state("input_boolean.stale_home", "off") and is_state("input_boolean.tina_home", "off") and is_state("input_boolean.guests", "off") and is_state("device_tracker.android89bc5926ba332e4flan"), "not_home") %}
+          {%- if is_state("input_boolean.stale_home", "off") and is_state("input_boolean.tina_home", "off") and is_state("input_boolean.guests", "off") and is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
             Active
           {% else %}
             Inactive
