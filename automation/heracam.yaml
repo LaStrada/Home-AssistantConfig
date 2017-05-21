@@ -31,7 +31,7 @@
   trigger:
     - platform: state
       entity_id: sensor.alarm_active
-      to: "Inactive"
+      to: "Active"
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.heracam_state
@@ -47,7 +47,7 @@
   trigger:
     - platform: state
       entity_id: sensor.alarm_active
-      to: 'Active'
+      to: 'Inactive'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.heracam_state
