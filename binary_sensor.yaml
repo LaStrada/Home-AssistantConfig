@@ -1,3 +1,5 @@
 - platform: workday
   country: 'NO'
   
+- platform: workday_tomorrow
+  country: 'NO'

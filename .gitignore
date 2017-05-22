@@ -25,3 +25,4 @@ ip_bans.yaml
 /icloud/*
 cert/*.pem
 npm-debug.log
+*.pyc 
