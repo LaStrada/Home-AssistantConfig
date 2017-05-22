@@ -5,13 +5,9 @@
     - platform: time
       after: "22:00:00"
   condition:
-    - condition: time
-      weekday:
-      - sun
-      - mon
-      - tue
-      - wed
-      - thu
+    - condition: state
+      entity_id: binary_sensor.workday_tomorrow
+      state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'
