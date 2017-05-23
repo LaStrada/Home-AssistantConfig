@@ -26,7 +26,7 @@ door_sensors:
 freezers:
   name: Kjøleskap / frysere
   entities:
-    - binary_sensor.refrigerator_kitchen_sensor_33_0
+    - binary_sensor.refrigerator_kitchen_sensor_55_0
     - binary_sensor.freezer_bod_sensor_36_0
     - binary_sensor.freezer_kitchen_sensor_38_0
 
