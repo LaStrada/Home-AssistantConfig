@@ -8,7 +8,7 @@ switch.kitchen_lights_switch_22_0_2:
   friendly_name: Kjøkken lys
   sensor_class: light
   icon: mdi:lightbulb
-switch.kitchen_lights_switch_22_0_3:
+switch.kitchen_lights_switch_58_0_3:
   friendly_name: Bardisk lys
   sensor_class: light
   icon: mdi:lightbulb
@@ -129,7 +129,7 @@ binary_sensor.door_back_sensor_53_0:
   friendly_name: Dør bak
   device_class: opening
 
-binary_sensor.refrigerator_kitchen_sensor_33_0:
+binary_sensor.refrigerator_kitchen_sensor_55_0:
   friendly_name: Kjøleskap
   device_class: opening
 binary_sensor.freezer_bod_sensor_36_0:

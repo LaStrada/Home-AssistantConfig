@@ -9,8 +9,8 @@ lys_kitchen:
   name: Kjøkken
   entities:
     - light.ktichen_table_dimmer_level_23_0
-    - switch.kitchen_lights_switch_22_0_2
-    - switch.kitchen_lights_switch_22_0_3
+    - switch.kitchen_lights_switch_58_0_2
+    - switch.kitchen_lights_switch_58_0_3
 
 lys_stue:
   name: Stue
