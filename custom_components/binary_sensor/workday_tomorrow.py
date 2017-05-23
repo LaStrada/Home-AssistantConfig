@@ -142,7 +142,10 @@ class IsWorkdaySensor(BinarySensorDevice):
         self._state = False
 
         # Get iso day of the week (1 = Monday, 7 = Sunday)
-        day = datetime.datetime.today().isoweekday() - 1
+        date = datetime.datetime.today() + datetime.timedelta(days=1)
+        if (date >= 7):
+            date = 1
+        day = date.isoweekday() - 1
         day_of_week = day_to_string(day)
 
         if self.is_include(day_of_week, dt_util.now()):
@@ -150,4 +153,3 @@ class IsWorkdaySensor(BinarySensorDevice):
 
         if self.is_exclude(day_of_week, dt_util.now()):
             self._state = False
-
