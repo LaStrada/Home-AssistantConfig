@@ -148,8 +148,8 @@ class IsWorkdaySensor(BinarySensorDevice):
             day = 0
         day_of_week = day_to_string(day)
 
-        if self.is_include(day_of_week, dt_util.now()):
+        if self.is_include(day_of_week, dt_util.now().timedelta(days=1)):
             self._state = True
 
-        if self.is_exclude(day_of_week, dt_util.now()):
+        if self.is_exclude(day_of_week, dt_util.now().timedelta(days=1)):
             self._state = False
