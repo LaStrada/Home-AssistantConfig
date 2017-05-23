@@ -2,6 +2,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      to: 'on'
       for:
         minutes: 5
   action:
@@ -14,6 +15,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      to: 'on'
       for:
         minutes: 15
   action:
@@ -26,6 +28,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      to: 'on'
       for:
         minutes: 60
   action:
