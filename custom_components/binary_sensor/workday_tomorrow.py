@@ -99,7 +99,7 @@ def day_to_string(day):
 class IsWorkdayTomorrowSensor(BinarySensorDevice):
     """Implementation of a Workday sensor."""
 
-    def __init__(self, obj_holidays, workdays, excludes, day_offset, name):
+    def __init__(self, obj_holidays, workdays, excludes, name):
         """Initialize the Workday sensor."""
         self._name = name
         self._obj_holidays = obj_holidays
