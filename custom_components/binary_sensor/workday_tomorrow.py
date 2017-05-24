@@ -84,7 +84,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     for date, name in sorted(obj_holidays.items()):
         _LOGGER.debug("%s %s", date, name)
 
-    add_devices([IsWorkdaySensor(
+    add_devices([IsWorkdayTomorrowSensor(
         obj_holidays, workdays, excludes, sensor_name)], True)
 
 
@@ -96,10 +96,10 @@ def day_to_string(day):
         return None
 
 
-class IsWorkdaySensor(BinarySensorDevice):
+class IsWorkdayTomorrowSensor(BinarySensorDevice):
     """Implementation of a Workday sensor."""
 
-    def __init__(self, obj_holidays, workdays, excludes, name):
+    def __init__(self, obj_holidays, workdays, excludes, day_offset, name):
         """Initialize the Workday sensor."""
         self._name = name
         self._obj_holidays = obj_holidays
@@ -144,8 +144,6 @@ class IsWorkdaySensor(BinarySensorDevice):
         # Get iso day of the week (1 = Monday, 7 = Sunday)
         date = datetime.datetime.today() + datetime.timedelta(days=1)
         day = date.isoweekday() - 1
-        if (day >= 6):
-            day = 0
         day_of_week = day_to_string(day)
 
         if self.is_include(day_of_week, dt_util.now().timedelta(days=1)):
