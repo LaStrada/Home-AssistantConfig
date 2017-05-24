@@ -61,7 +61,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     workdays = config.get(CONF_WORKDAYS)
     excludes = config.get(CONF_EXCLUDES)
 
-    year = (datetime.now() + timedelta(days=300)).year
+    year = (datetime.now() + timedelta(days=1)).year
     obj_holidays = getattr(holidays, country)(years=year)
 
     if province:
