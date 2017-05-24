@@ -6,7 +6,7 @@ https://home-assistant.io/components/binary_sensor.workday/
 """
 import asyncio
 import logging
-import datetime
+from datetime import datetime, timedelta
 
 import voluptuous as vol
 
@@ -61,7 +61,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     workdays = config.get(CONF_WORKDAYS)
     excludes = config.get(CONF_EXCLUDES)
 
-    year = datetime.datetime.now().year
+    year = (datetime.now() + timedelta(days=300)).year
     obj_holidays = getattr(holidays, country)(years=year)
 
     if province:
@@ -142,12 +142,12 @@ class IsWorkdayTomorrowSensor(BinarySensorDevice):
         self._state = False
 
         # Get iso day of the week (1 = Monday, 7 = Sunday)
-        date = datetime.datetime.today() + datetime.timedelta(days=1)
+        date = datetime.today() + timedelta(days=1)
         day = date.isoweekday() - 1
         day_of_week = day_to_string(day)
 
-        if self.is_include(day_of_week, dt_util.now().timedelta(days=1)):
+        if self.is_include(day_of_week, date):
             self._state = True
 
-        if self.is_exclude(day_of_week, dt_util.now().timedelta(days=1)):
+        if self.is_exclude(day_of_week, date):
             self._state = False
