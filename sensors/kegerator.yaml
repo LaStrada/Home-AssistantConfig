@@ -1,0 +1,16 @@
+- platform: mqtt
+  state_topic: 'hass/office/kegerator/sensor'
+  name: 'Kegerator temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.temperature }}'
+
+- platform: mqtt
+  state_topic: 'hass/office/kegerator/sensor'
+  name: 'Kegerator humidity'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.humidity }}'
+
+- platform: mqtt
+  state_topic: 'hass/office/kegerator/sensor'
+  name: 'Kegerator door'
+  value_template: '{{ value_json.door }}'

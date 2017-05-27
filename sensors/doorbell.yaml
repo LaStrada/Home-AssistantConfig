@@ -1,0 +1,3 @@
+- platform: mqtt
+  state_topic: 'hass/entrance/door_bell/sensor'
+  name: 'Doorbell'

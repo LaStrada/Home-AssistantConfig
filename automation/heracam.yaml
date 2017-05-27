@@ -12,6 +12,7 @@
       data:
         visible: True
 
+
 - alias: HeraCam startup off
   trigger:
     - platform: homeassistant
@@ -33,24 +34,22 @@
       entity_id: sensor.alarm_active
       to: 'Active'
   action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.heracam_state
-    - service: shell_command.heracam_on
+    - service: switch.turn_on
+      entity_id: switch.heracam
 
 
 - alias: HeraCam group on
   trigger:
     - platform: state
-      entity_id: input_boolean.heracam_state
+      entity_id: switch.heracam
       to: 'on'
       for:
-        minutes: 2
+        minutes: 1
   action:
     - service: group.set_visibility
       entity_id: group.heracam
       data:
         visible: True
-
 
 
 - alias: HeraCam Off
@@ -59,9 +58,8 @@
       entity_id: sensor.alarm_active
       to: 'Inactive'
   action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.heracam_state
-    - service: shell_command.heracam_off
+    - service: switch.turn_off
+      entity_id: switch.heracam
     - service: group.set_visibility
       entity_id: group.heracam
       data:
