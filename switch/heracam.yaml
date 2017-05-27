@@ -2,7 +2,7 @@
   name: 'HeraCam relay'
   state_topic: 'hass/entrance/heracam/switch'
   command_topic: 'hass/entrance/heracam/switch/set'
-  payload_on: 'on'
-  payload_off: 'off'
+  payload_on: '1'
+  payload_off: '0'
   qos: 1
   retain: true
