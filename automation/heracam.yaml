@@ -35,13 +35,13 @@
       to: 'Active'
   action:
     - service: switch.turn_on
-      entity_id: switch.heracam
+      entity_id: switch.heracam_relay
 
 
 - alias: HeraCam group on
   trigger:
     - platform: state
-      entity_id: switch.heracam
+      entity_id: switch.heracam_relay
       to: 'on'
       for:
         minutes: 1
@@ -59,7 +59,7 @@
       to: 'Inactive'
   action:
     - service: switch.turn_off
-      entity_id: switch.heracam
+      entity_id: switch.heracam_relay
     - service: group.set_visibility
       entity_id: group.heracam
       data:
