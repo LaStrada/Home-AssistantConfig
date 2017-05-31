@@ -30,3 +30,4 @@ exclude:
     - sensor.yr_fog
     - sensor.yr_dewpoint_temperature
     - sensor.yr_cloudiness
+    - sensor.panelovn_soverom_power_13_4

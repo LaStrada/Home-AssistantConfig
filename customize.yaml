@@ -138,3 +138,6 @@ binary_sensor.freezer_bod_sensor_36_0:
 binary_sensor.freezer_kitchen_sensor_38_0:
   friendly_name: Fryser i bod
   device_class: opening
+
+sensor.receiver_fan_speed:
+  icon: mdi:fan
