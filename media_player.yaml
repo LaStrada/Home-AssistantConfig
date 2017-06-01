@@ -1,6 +1,2 @@
 - platform: pioneer
   host: 10.0.0.43
-
-- platform: spotify
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret

@@ -1,4 +1,0 @@
-spotify:
-  name: Spotify
-  entities:
-    - media_player.spotify

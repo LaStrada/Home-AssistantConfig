@@ -44,7 +44,6 @@ media:
   icon: mdi:play-pause
   view: yes
   entities:
-    - group.spotify
     - media_player.pioneer_avr   
 
 ### Alarm status
