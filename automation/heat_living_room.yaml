@@ -20,10 +20,10 @@
 - alias: Stue natt helg
   trigger:
     - platform: time
-      after: "00:00:00"
+      after: "23:59:00"
   condition:
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_tomorrow'
       state: 'off'
     - condition: state
       entity_id: input_boolean.vacation_mode

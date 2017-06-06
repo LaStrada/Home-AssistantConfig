@@ -36,12 +36,12 @@
           conditions:
             - condition: numeric_state
               entity_id: 'sensor.yr_symbol'
-              above: 1
-              below: 3
+              above: 0
+              below: 4
             - condition: numeric_state
               entity_id: 'sensor.yr_symbol'
-              above: 101
-              below: 103
+              above: 100
+              below: 104
   action:
     - service: notify.ios_lolphone_7
       data:
