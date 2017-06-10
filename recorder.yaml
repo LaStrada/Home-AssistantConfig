@@ -1,9 +1,5 @@
 db_url: !secret mysql
 include:
-  domains:
-    - climate
-    - input_boolean
-    - device_tracker
   entities:
     # Bedroom
     - sensor.mqtt_bedroom_temperature
@@ -52,6 +48,22 @@ include:
     - sensor.smoke_stue_heat_49_4
     - sensor.smoke_soverom_smoke_50_1
     - sensor.smoke_soverom_heat_50_4
+
+    # Device tracker
+    - device_tracker.android89bc5926ba332e4flan
+
+    # Climate
+    - climate.kontor_termostat
+    - climate.soverom_termostat
+    - climate.stue_termostat
+
+    # Input boolean
+    - input_boolean.guests
+    - input_boolean.soverom_wakeup_heat
+    - input_boolean.stale_home
+    - input_boolean.stale_job
+    - input_boolean.tina_home
+    - input_boolean.vacation_mode
 exclude:
   domains:
     - automation
