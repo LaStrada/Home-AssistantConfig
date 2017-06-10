@@ -112,3 +112,38 @@
       icon_template: '{% if is_state("sensor.smoke_soverom_heat_50_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
         - sensor.smoke_soverom_heat_50_4
+    
+    # Template temperature / humidity sensors with fallback
+    template_temperature_bedroom:
+      value_template: >-
+          {% set mqtt_updated = as_timestamp(states.sensor.bedroom_temperature.last_updated) %}
+          {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_temperature.last_updated) %}
+          {% set now = as_timestamp(utcnow()) %}
+          {% if (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
+            {{ states.sensor.bedroom_temperature.state | float }}
+          {% else %}
+            {{ states.sensor.temp_soverom_temperature.state | float }}
+          {% endif %}
+      friendly_name: Temperatur soverom
+      icon: mdi:thermometer
+      unit_of_measurement: '°C'
+      entity_id:
+        - sensor.bedroom_temperature
+        - sensor.temp_soverom_temperature
+
+    template_himidity_bedroom:
+      value_template: >-
+          {% set mqtt_updated = as_timestamp(states.sensor.bedroom_humidity.last_updated) %}
+          {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_humidity.last_updated) %}
+          {% set now = as_timestamp(utcnow()) %}
+          {% if (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
+            {{ states.sensor.bedroom_humidity.state | float }}
+          {% else %}
+            {{ states.sensor.temp_soverom_humidity.state | float }}
+          {% endif %}
+      friendly_name: Luftfuktighet
+      icon: mdi:percent
+      unit_of_measurement: '%'
+      entity_id:
+        - sensor.bedroom_humidity
+        - sensor.temp_soverom_humidity

@@ -1,11 +1,11 @@
 - platform: mqtt
   state_topic: 'hass/bedroom/sensor'
-  name: 'Bedroom temperature'
+  name: 'MQTT bedroom temperature'
   unit_of_measurement: '°C'
   value_template: '{{ value_json.temperature }}'
 
 - platform: mqtt
   state_topic: 'hass/bedroom/sensor'
-  name: 'Bedroom humidity'
+  name: 'MQTT bedroom humidity'
   unit_of_measurement: '%'
   value_template: '{{ value_json.humidity }}'

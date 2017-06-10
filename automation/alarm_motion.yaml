@@ -1,4 +1,4 @@
-- alias: Alarm away gang
+- alias: Alarm away gang notify
   trigger:
     - platform: state
       entity_id: sensor.motion_gang
@@ -12,12 +12,26 @@
       data:
         title: 'Motion alarm!'
         message: 'Bevegelse i gangen!'
-        attachment:
-          url: https://h0me.no/api/camera_proxy_stream/camera.heracam?token=043bef10ad01d29b7b25df5ca8f980355bd0ee922dbbe1b6c93a9b204c57a5ef
-          content-type: jpeg
-          hide-thumbnail: false
+    - service: shell_command.heracam_store_image
 
+- alias: Alarm away gang store image
+  trigger:
+    - platform: time
+      minutes: '00'
+      seconds: '/10'
+  condition:
+    - condition: state
+      entity_id: sensor.alarm_active
+      state: 'Active'
+    - condition: state
+      entity_id: sensor.motion_gang
+      state: 'Bevegelse!'
+      for:
+        seconds: 10
+  action:
+    - service: shell_command.heracam_store_image
 
+# Kitchen
 - alias: Alarm away kjøkken
   trigger:
     - platform: state
@@ -33,7 +47,7 @@
         title: 'Motion alarm!'
         message: 'Bevegelse på kjøkkenet!'
 
-
+# Office
 - alias: Alarm away kontor
   trigger:
     - platform: state

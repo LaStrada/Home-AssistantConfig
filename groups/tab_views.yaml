@@ -44,7 +44,8 @@ media:
   icon: mdi:play-pause
   view: yes
   entities:
-    - media_player.pioneer_avr   
+    - media_player.pioneer_avr
+    - group.receiver_monitor
 
 ### Alarm status
 alarm_status:
@@ -56,6 +57,7 @@ alarm_status:
     - group.smoke_sensors
     - group.door_sensors
     - group.freezers
+    - group.heracam
 
 ### Diverse
 diverse:
@@ -65,8 +67,6 @@ diverse:
   entities:
     - group.ferie_stuff
     - group.rpi_monitor
-    - group.receiver_monitor
-    - group.heracam
     - group.guest_mode
     - group.temperature_control_panel
     - sensor.ssl_certificate_expiry

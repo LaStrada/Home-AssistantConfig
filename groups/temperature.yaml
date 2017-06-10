@@ -24,7 +24,7 @@ temp_soverom:
   name: Soverom
   entities:
       - climate.soverom_termostat
-      - sensor.temp_soverom_humidity
+      - sensor.template_humidity_bedroom
 
 temp_kontor:
   name: Kontor

@@ -1,2 +1,1 @@
-heracam_on: bash /home/homeassistant/scripts/bash/heracam_on.sh
-heracam_off: bash /home/homeassistant/scripts/bash/heracam_off.sh
+heracam_store_image: !secret store_heracam_image

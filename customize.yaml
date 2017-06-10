@@ -31,21 +31,28 @@ sensor.temp_stue_humidity:
 # Outdoor (ute)
 sensor.temp_ute_temperature:
   friendly_name: Temperatur ute
+  homebridge_hidden: true
 sensor.yr_symbol:
   friendly_name: Været nå
+  homebridge_hidden: true
 sensor.yr_cloudiness:
   friendly_name: Skyer
   icon: mdi:weather-cloudy
+  homebridge_hidden: true
 sensor.yr_dewpoint_temperature:
   friendly_name: Duggpunkt
+  homebridge_hidden: true
 sensor.yr_humidity:
   friendly_name: Luftfuktighet
   icon: mdi:percent
+  homebridge_hidden: true
 sensor.yr_precipitation:
   friendly_name: Nedbør
   icon: mdi:weather-rainy
+  homebridge_hidden: true
 sensor.yr_wind_speed:
   friendly_name: Vind
+  homebridge_hidden: true
 
 
 # Guestroom / office (kontor)
@@ -61,6 +68,7 @@ sensor.multi_kontor_burglar_9_10:
 
 input_boolean.guests:
   icon: mdi:hotel
+  homebridge_hidden: true
 
 
 # Bedroom (soverom)
@@ -76,10 +84,12 @@ light.gang_dimmer_level_45_0:
   friendly_name: Gang dimmer
   sensor_class: light
   icon: mdi:lightbulb
+  homebridge_hidden: true
 light.gang_garderobeskap_level_46_0:
   friendly_name: Garderobeskap dimmer
   sensor_class: light
   icon: mdi:lightbulb
+  homebridge_hidden: true
 sensor.multi_gang_relative_humidity_17_5:
   friendly_name: Luftfuktighet gang
   icon: mdi:percent
