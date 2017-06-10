@@ -116,11 +116,11 @@
     # Template temperature / humidity sensors with fallback
     template_temperature_bedroom:
       value_template: >-
-          {% set mqtt_updated = as_timestamp(states.sensor.bedroom_temperature.last_updated) %}
+          {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_temperature.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_temperature.last_updated) %}
           {% set now = as_timestamp(utcnow()) %}
           {% if (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
-            {{ states.sensor.bedroom_temperature.state | float }}
+            {{ states.sensor.mqtt_bedroom_temperature.state | float }}
           {% else %}
             {{ states.sensor.temp_soverom_temperature.state | float }}
           {% endif %}
@@ -128,8 +128,8 @@
       icon_template: mdi:thermometer
       unit_of_measurement: '°C'
       entity_id:
-        - sensor.bedroom_temperature
         - sensor.temp_soverom_temperature
+        - sensor.mqtt_bedroom_temperature
 
     template_humidity_bedroom:
       value_template: >-
