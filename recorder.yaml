@@ -3,6 +3,7 @@ include:
   domains:
     - climate
     - input_boolean
+    - device_tracker
   entities:
     # Bedroom
     - sensor.bedroom_temperature
