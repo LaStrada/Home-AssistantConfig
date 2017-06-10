@@ -131,7 +131,7 @@
         - sensor.bedroom_temperature
         - sensor.temp_soverom_temperature
 
-    template_himidity_bedroom:
+    template_humidity_bedroom:
       value_template: >-
           {% set mqtt_updated = as_timestamp(states.sensor.bedroom_humidity.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_humidity.last_updated) %}
