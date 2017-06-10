@@ -6,10 +6,10 @@ include:
     - device_tracker
   entities:
     # Bedroom
-    - sensor.bedroom_temperature
+    - sensor.mqtt_bedroom_temperature
     - sensor.temp_soverom_temperature
     - sensor.template_temperature_bedroom
-    - sensor.bedroom_humidity
+    - sensor.mqtt_bedroom_humidity
     - sensor.temp_soverom_humidity
     - sensor.template_humidity_bedroom
     - switch.panelovn_soverom_switch_13_0
