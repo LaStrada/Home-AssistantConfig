@@ -64,6 +64,9 @@ include:
     - input_boolean.stale_job
     - input_boolean.tina_home
     - input_boolean.vacation_mode
+
+    # Other
+    - sensor.nordlysvarsel_1_time
 exclude:
   domains:
     - automation
