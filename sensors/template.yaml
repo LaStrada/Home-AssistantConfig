@@ -133,11 +133,11 @@
 
     template_humidity_bedroom:
       value_template: >-
-          {% set mqtt_updated = as_timestamp(states.sensor.bedroom_humidity.last_updated) %}
+          {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_humidity.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_humidity.last_updated) %}
           {% set now = as_timestamp(utcnow()) %}
           {% if (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
-            {{ states.sensor.bedroom_humidity.state | float }}
+            {{ states.sensor.mqtt_bedroom_humidity.state | float }}
           {% else %}
             {{ states.sensor.temp_soverom_humidity.state | float }}
           {% endif %}
@@ -145,5 +145,5 @@
       icon_template: mdi:percent
       unit_of_measurement: '%'
       entity_id:
-        - sensor.bedroom_humidity
         - sensor.temp_soverom_humidity
+        - sensor.mqtt_bedroom_humidity
