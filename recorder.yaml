@@ -10,7 +10,7 @@ include:
     - sensor.template_temperature_bedroom
     - sensor.bedroom_humidity
     - sensor.temp_soverom_humidity
-    - template_humidity_bedroom
+    - sensor.template_humidity_bedroom
     - switch.panelovn_soverom_switch_13_0
 
     # Office
