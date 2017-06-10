@@ -1,8 +1,8 @@
 # Kitchen
 sensor.multi_kitchen_temperature_18_1:
-  friendly_name: Temperatur kjøkken
+  friendly_name: Temperatur
 sensor.multi_kitchen_relative_humidity_18_5:
-  friendly_name: Luftfuktighet kjøkken
+  friendly_name: Luftfuktighet
   icon: mdi:percent
 switch.kitchen_lights_switch_58_0_2:
   friendly_name: Kjøkken lys
@@ -22,15 +22,15 @@ sensor.multi_kitchen_burglar_18_10:
 
 # Living room (stue)
 sensor.temp_stue_temperature:
-  friendly_name: Temperatur stue
+  friendly_name: Temperatur
 sensor.temp_stue_humidity:
-  friendly_name: Luftfuktighet stue
+  friendly_name: Luftfuktighet
   icon: mdi:percent
 
 
 # Outdoor (ute)
 sensor.temp_ute_temperature:
-  friendly_name: Temperatur ute
+  friendly_name: Temperatur
   homebridge_hidden: true
 sensor.yr_symbol:
   friendly_name: Været nå
@@ -57,9 +57,9 @@ sensor.yr_wind_speed:
 
 # Guestroom / office (kontor)
 sensor.temp_kontor_temperature:
-  friendly_name: Temperatur kontor
+  friendly_name: Temperatur
 sensor.temp_kontor_humidity:
-  friendly_name: Luftfuktighet kontor
+  friendly_name: Luftfuktighet
   icon: mdi:percent
 sensor.multi_kontor_burglar_9_10:
   friendly_name: Bevegelse kontor
@@ -69,14 +69,6 @@ sensor.multi_kontor_burglar_9_10:
 input_boolean.guests:
   icon: mdi:hotel
   homebridge_hidden: true
-
-
-# Bedroom (soverom)
-sensor.temp_soverom_temperature:
-  friendly_name: Temperatur soverom
-sensor.temp_soverom_humidity:
-  friendly_name: Luftfuktighet soverom
-  icon: mdi:percent
 
 
 # Entrance (gang)
@@ -91,10 +83,10 @@ light.gang_garderobeskap_level_46_0:
   icon: mdi:lightbulb
   homebridge_hidden: true
 sensor.multi_gang_relative_humidity_17_5:
-  friendly_name: Luftfuktighet gang
+  friendly_name: Luftfuktighet
   icon: mdi:percent
 sensor.multi_gang_temperature_17_1:
-  friendly_name: Temperatur gang
+  friendly_name: Temperatur
 sensor.multi_gang_burglar_17_10:
   friendly_name: Bevegelse gang
   sensor_class: motion
