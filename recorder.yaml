@@ -32,6 +32,8 @@ include:
 
     # Outside
     - sensor.temp_ute_temperature
+    - sensor.yr_humidity
+    - sensor.yr_wind_speed
 
     # Entrance
     - sensor.multi_gang_temperature_17_1
