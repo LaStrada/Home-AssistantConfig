@@ -22,7 +22,7 @@ soverom:
   control: no
   entities:
     - climate.soverom_termostat
-    - sensor.temp_soverom_humidity
+    - sensor.template_humidity_bedroom
     - light.soverom_taklys
     - light.stale_nattbordslampe
     - light.tina_nattbordslampe
