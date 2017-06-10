@@ -6,7 +6,7 @@
       at: "22:00:00"
   condition:
     - condition: state
-      entity_id: binary_sensor.workday_tomorrow
+      entity_id: binary_sensor.workday_tomorrow_sensor
       state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -20,10 +20,10 @@
 - alias: Stue natt helg
   trigger:
     - platform: time
-      at: "23:59:00"
+      at: "23:30:00"
   condition:
     - condition: state
-      entity_id: 'binary_sensor.workday_tomorrow'
+      entity_id: binary_sensor.workday_tomorrow_sensor
       state: 'off'
     - condition: state
       entity_id: input_boolean.vacation_mode
