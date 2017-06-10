@@ -3,7 +3,7 @@
 - alias: Kontor natt
   trigger:
     - platform: time
-      after: "22:00:00"
+      at: "22:00:00"
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -20,7 +20,7 @@
 - alias: Kontor morgen ukedag
   trigger:
     - platform: time
-      after: "07:30:00"
+      at: "07:30:00"
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -43,7 +43,7 @@
 - alias: Kontor ettermiddag ukedag
   trigger:
     - platform: time
-      after: "11:00:00"
+      at: "11:00:00"
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode

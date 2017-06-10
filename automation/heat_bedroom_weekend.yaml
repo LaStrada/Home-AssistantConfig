@@ -3,7 +3,7 @@
 - alias: Soverom morgen helg
   trigger:
     - platform: time
-      after: "09:30:00"
+      at: "09:30:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
@@ -24,7 +24,7 @@
 - alias: Soverom dag helg
   trigger:
     - platform: time
-      after: "12:00:00"
+      at: "12:00:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'
