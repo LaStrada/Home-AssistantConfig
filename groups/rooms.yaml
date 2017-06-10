@@ -13,8 +13,8 @@ kitchen:
     - sensor.multi_kitchen_temperature_18_1
     - sensor.multi_kitchen_relative_humidity_18_5
     - light.ktichen_table_dimmer_level_23_0
-    - switch.kitchen_lights_switch_22_0_2
-    - switch.kitchen_lights_switch_22_0_3
+    - switch.kitchen_lights_switch_58_0_2
+    - switch.kitchen_lights_switch_58_0_3
 
 # Bedroom
 soverom:
