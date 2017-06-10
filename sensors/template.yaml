@@ -119,7 +119,9 @@
           {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_temperature.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_temperature.last_updated) %}
           {% set now = as_timestamp(utcnow()) %}
-          {% if (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
+          {% if is_state("sensor.sensor.mqtt_bedroom_humidity", "0") or is_state("sensor.mqtt_bedroom_humidity", "unknown") %}
+            {{ states.sensor.temp_soverom_temperature.state | float }}
+          {% elif (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
             {{ states.sensor.mqtt_bedroom_temperature.state | float }}
           {% else %}
             {{ states.sensor.temp_soverom_temperature.state | float }}
@@ -136,7 +138,9 @@
           {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_humidity.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_humidity.last_updated) %}
           {% set now = as_timestamp(utcnow()) %}
-          {% if (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
+          {% if is_state("sensor.sensor.mqtt_bedroom_humidity", "0") or is_state("sensor.mqtt_bedroom_humidity", "unknown") %}
+            {{ states.sensor.temp_soverom_humidity.state | float }}
+          {% elif (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
             {{ states.sensor.mqtt_bedroom_humidity.state | float }}
           {% else %}
             {{ states.sensor.temp_soverom_humidity.state | float }}
