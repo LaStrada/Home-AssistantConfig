@@ -125,7 +125,7 @@
             {{ states.sensor.temp_soverom_temperature.state | float }}
           {% endif %}
       friendly_name: Temperatur soverom
-      icon: mdi:thermometer
+      icon_template: mdi:thermometer
       unit_of_measurement: '°C'
       entity_id:
         - sensor.bedroom_temperature
@@ -142,7 +142,7 @@
             {{ states.sensor.temp_soverom_humidity.state | float }}
           {% endif %}
       friendly_name: Luftfuktighet
-      icon: mdi:percent
+      icon_template: mdi:percent
       unit_of_measurement: '%'
       entity_id:
         - sensor.bedroom_humidity
