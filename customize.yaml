@@ -1,30 +1,26 @@
 # Kitchen
 sensor.multi_kitchen_temperature_18_1:
-  friendly_name: Temperatur
+  friendly_name: Temperatur kjøkken
 sensor.multi_kitchen_relative_humidity_18_5:
-  friendly_name: Luftfuktighet
+  friendly_name: Luftfuktighet kjøkken
   icon: mdi:percent
 switch.kitchen_lights_switch_58_0_2:
-  friendly_name: Kjøkken lys
+  friendly_name: Kjøkken
   sensor_class: light
   icon: mdi:lightbulb
 switch.kitchen_lights_switch_58_0_3:
-  friendly_name: Bardisk lys
+  friendly_name: Bardisk
   sensor_class: light
   icon: mdi:lightbulb
 light.ktichen_table_dimmer_level_23_0:
   friendly_name: Kjøkkenbord dimmer
-sensor.multi_kitchen_burglar_18_10:
-  friendly_name: Bevegelse kjøkken
-  sensor_class: motion
-  icon: mdi:alert-circle-outline
 
 
 # Living room (stue)
 sensor.temp_stue_temperature:
-  friendly_name: Temperatur
+  friendly_name: Temperatur stue
 sensor.temp_stue_humidity:
-  friendly_name: Luftfuktighet
+  friendly_name: Luftfuktighet stue
   icon: mdi:percent
 
 
@@ -61,10 +57,6 @@ sensor.temp_kontor_temperature:
 sensor.temp_kontor_humidity:
   friendly_name: Luftfuktighet
   icon: mdi:percent
-sensor.multi_kontor_burglar_9_10:
-  friendly_name: Bevegelse kontor
-  sensor_class: motion
-  icon: mdi:alert-circle-outline
 
 input_boolean.guests:
   icon: mdi:hotel
@@ -87,10 +79,6 @@ sensor.multi_gang_relative_humidity_17_5:
   icon: mdi:percent
 sensor.multi_gang_temperature_17_1:
   friendly_name: Temperatur
-sensor.multi_gang_burglar_17_10:
-  friendly_name: Bevegelse gang
-  sensor_class: motion
-  icon: mdi:alert-circle-outline
 
 
 # Bathroom (bad)
