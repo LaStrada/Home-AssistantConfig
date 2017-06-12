@@ -19,6 +19,7 @@ include:
     # Kitchen
     - binary_sensor.door_back_sensor_53_0
     - sensor.multi_kitchen_burglar_18_10
+    - sensor.template_water_leak_kitchen
 
     # Living room
     - sensor.temp_stue_temperature

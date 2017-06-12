@@ -1,0 +1,10 @@
+- alias: Alarm away door back
+  trigger:
+    - platform: state
+      entity_id: sensor.kitchen_leak_sensor_flood_32_5
+      to: '255'
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Water leak!'
+        message: 'Vannlekkasje vaskemaskin!'

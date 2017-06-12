@@ -8,7 +8,11 @@
     # Motion
     alarm_active:
       value_template: >-
-          {%- if is_state("input_boolean.stale_home", "off") and is_state("input_boolean.tina_home", "off") and is_state("input_boolean.guests", "off") and is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
+          {% set stale = is_state("input_boolean.stale_home", "off") %}
+          {% set tina = is_state("input_boolean.tina_home", "off") %}
+          {% set guests = is_state("input_boolean.guests", "off") %}
+          {% set android = is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
+          {%- if stale and tina and guests and android %}
             Active
           {% else %}
             Inactive
@@ -151,3 +155,10 @@
       entity_id:
         - sensor.temp_soverom_humidity
         - sensor.mqtt_bedroom_humidity
+
+    template_water_leak_kitchen:
+      value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood_32_5", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
+      icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood_32_5", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      friendly_name: Vannlekkasje
+      entity_id:
+        - sensor.kitchen_leak_sensor_flood_32_5

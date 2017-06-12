@@ -56,6 +56,7 @@ alarm_status:
     - group.motion_sensors
     - group.smoke_sensors
     - group.door_sensors
+    - group.water_leak_sensors
     - group.freezers
     - group.heracam
 

@@ -34,3 +34,8 @@ alarm_panel:
   name: Alarm
   entities:
     - alarm_control_panel.ha_alarm
+
+water_leak_sensors:
+  name: Vannlekkasje
+  entities:
+    - sensor.template_water_leak_kitchen
