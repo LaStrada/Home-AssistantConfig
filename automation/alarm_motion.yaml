@@ -17,7 +17,6 @@
 - alias: Alarm away gang store image
   trigger:
     - platform: time
-      minutes: '00'
       seconds: '/10'
   condition:
     - condition: state
