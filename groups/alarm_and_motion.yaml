@@ -30,11 +30,6 @@ freezers:
     - binary_sensor.freezer_bod_sensor_36_0
     - binary_sensor.freezer_kitchen_sensor_38_0
 
-alarm_panel:
-  name: Alarm
-  entities:
-    - alarm_control_panel.ha_alarm
-
 water_leak_sensors:
   name: Vannlekkasje
   entities:
