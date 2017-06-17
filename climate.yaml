@@ -4,7 +4,7 @@
   target_sensor: sensor.temp_stue_temperature
   min_temp: 10
   max_temp: 25
-  target_temp: 22
+  # target_temp: 22
   tolerance: 0.1
   min_cycle_duration:
     minutes: 1
@@ -18,7 +18,7 @@
   target_sensor: sensor.temp_kontor_temperature
   min_temp: 10
   max_temp: 23
-  target_temp: 18
+  # target_temp: 18
   tolerance: 0.1
   min_cycle_duration:
     minutes: 1
@@ -32,7 +32,7 @@
   target_sensor: sensor.template_temperature_bedroom
   min_temp: 10
   max_temp: 21
-  target_temp: 19
+  # target_temp: 19
   tolerance: 0.1
   min_cycle_duration:
     minutes: 1
