@@ -1,6 +1,6 @@
 temperature_control_panel:
   name: Temperaturkontroll
-  control: no
+  control: hidden
   entities:
     - input_boolean.soverom_wakeup_heat
     - input_slider.soverom_natt_temperatur

@@ -19,7 +19,7 @@ kitchen:
 # Bedroom
 soverom:
   name: Soverom
-  control: no
+  control: hidden
   entities:
     - climate.soverom_termostat
     - sensor.template_humidity_bedroom
@@ -30,7 +30,7 @@ soverom:
 # Entrance
 gang:
   name: Gang
-  control: no
+  control: hidden
   entities:
     - sensor.multi_gang_temperature_17_1
     - sensor.multi_gang_relative_humidity_17_5

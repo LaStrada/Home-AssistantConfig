@@ -7,7 +7,7 @@ kontor:
 
 guest_mode:
   name: Gjester
-  control: no
+  control: hidden
   entities:
     - input_boolean.guests
 
