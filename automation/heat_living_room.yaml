@@ -12,9 +12,9 @@
       entity_id: input_boolean.vacation_mode
       state: 'off'
   action:
-    - service: climate.set_temperature
+    - service: input_slider.select_value
       data_template:
-        entity_id: climate.stue_termostat
+        entity_id: input_slider.stue_thermostat_temperatur
         temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
 - alias: Stue natt helg
@@ -29,9 +29,9 @@
       entity_id: input_boolean.vacation_mode
       state: 'off'
   action:
-    - service: climate.set_temperature
+    - service: input_slider.select_value
       data_template:
-        entity_id: climate.stue_termostat
+        entity_id: input_slider.stue_thermostat_temperatur
         temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
 - alias: Stue morgen ukedag
@@ -46,9 +46,9 @@
       entity_id: input_boolean.vacation_mode
       state: 'off'
   action:
-    - service: climate.set_temperature
+    - service: input_slider.select_value
       data_template:
-        entity_id: climate.stue_termostat
+        entity_id: input_slider.stue_thermostat_temperatur
         temperature: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
 
 - alias: Stue ettermiddag ukedag
@@ -63,9 +63,9 @@
       entity_id: input_boolean.vacation_mode
       state: 'off'
   action:
-    - service: climate.set_temperature
+    - service: input_slider.select_value
       data_template:
-        entity_id: climate.stue_termostat
+        entity_id: input_slider.stue_thermostat_temperatur
         temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
 
 - alias: Stue morgen helg
@@ -92,12 +92,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.door_front_sensor_52_0
-  condition:
-    - condition: state
-      entity_id: binary_sensor.door_front_sensor_52_0
-      state: 'on'
-      for:
-        seconds: 30
+      to: 'on'
   action:
     - service: climate.set_temperature
       data:
@@ -108,12 +103,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.door_front_sensor_52_0
-  condition:
-    - condition: state
-      entity_id: binary_sensor.door_front_sensor_52_0
-      state: 'off'
-      for:
-        minutes: 2
+      to: 'off'
   action:
     - service: climate.set_temperature
       data_template:
