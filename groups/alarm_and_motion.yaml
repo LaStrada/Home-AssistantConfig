@@ -20,15 +20,15 @@ smoke_sensors:
 door_sensors:
   name: Dører
   entities:
-    - binary_sensor.door_front_sensor_52_0
-    - binary_sensor.door_back_sensor_53_0
+    - binary_sensor.door_front_sensor
+    - binary_sensor.door_back_sensor
 
 freezers:
   name: Kjøleskap / frysere
   entities:
-    - binary_sensor.refrigerator_kitchen_sensor_55_0
-    - binary_sensor.freezer_bod_sensor_36_0
-    - binary_sensor.freezer_kitchen_sensor_38_0
+    - binary_sensor.refrigerator_kitchen_sensor
+    - binary_sensor.freezer_bod_sensor
+    - binary_sensor.freezer_kitchen_sensor
 
 water_leak_sensors:
   name: Vannlekkasje

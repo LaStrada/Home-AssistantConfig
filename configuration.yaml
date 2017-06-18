@@ -63,6 +63,7 @@ switch: !include_dir_merge_list switch/
 zwave:
   usb_path: /dev/ttyAMA0
   polling_interval: 1800000
+  new_entity_ids: true
 
 alarm_control_panel:
   - platform: manual

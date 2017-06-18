@@ -1,7 +1,7 @@
 - alias: Refrigerator alarm 5 min
   trigger:
     - platform: state
-      entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      entity_id: binary_sensor.refrigerator_kitchen_sensor
       to: 'on'
       for:
         minutes: 5
@@ -14,7 +14,7 @@
 - alias: Refrigerator alarm 15 min
   trigger:
     - platform: state
-      entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      entity_id: binary_sensor.refrigerator_kitchen_sensor
       to: 'on'
       for:
         minutes: 15
@@ -27,7 +27,7 @@
 - alias: Refrigerator alarm 60 min
   trigger:
     - platform: state
-      entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      entity_id: binary_sensor.refrigerator_kitchen_sensor
       to: 'on'
       for:
         minutes: 60

@@ -8,7 +8,7 @@ lys_soverom:
 lys_kitchen:
   name: Kjøkken
   entities:
-    - light.ktichen_table_dimmer_level_23_0
+    - light.ktichen_table_dimmer_level
     - switch.kitchen_lights_switch_58_0_2
     - switch.kitchen_lights_switch_58_0_3
 

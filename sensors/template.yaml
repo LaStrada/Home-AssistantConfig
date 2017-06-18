@@ -46,13 +46,13 @@
       
     motion_kontor:
       value_template: >-
-          {% if is_state("sensor.multi_kontor_burglar_9_10", "0") %}
-            {{ as_timestamp(states.sensor.multi_kontor_burglar_9_10.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+          {% if is_state("sensor.multi_kontor_burglar", "0") %}
+            {{ as_timestamp(states.sensor.multi_kontor_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kontor'
-      icon_template: '{% if is_state("sensor.multi_kontor_burglar_9_10", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      icon_template: '{% if is_state("sensor.multi_kontor_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       entity_id:
-        - sensor.multi_kontor_burglar_9_10
+        - sensor.multi_kontor_burglar
 
 
     ### Smoke sensors
@@ -157,8 +157,8 @@
         - sensor.mqtt_bedroom_humidity
 
     template_water_leak_kitchen:
-      value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood_32_5", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
-      icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood_32_5", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
+      icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       friendly_name: Vannlekkasje
       entity_id:
-        - sensor.kitchen_leak_sensor_flood_32_5
+        - sensor.kitchen_leak_sensor_flood

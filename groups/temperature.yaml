@@ -17,8 +17,8 @@ temp_stue_kitchen:
   entities:
     - climate.stue_termostat
     - sensor.temp_stue_humidity
-    - sensor.multi_kitchen_temperature_18_1
-    - sensor.multi_kitchen_relative_humidity_18_5
+    - sensor.multi_kitchen_temperature
+    - sensor.multi_kitchen_relative_humidity
 
 temp_soverom:
   name: Soverom
@@ -35,8 +35,8 @@ temp_kontor:
 temp_gang:
   name: Gang
   entities:
-    - sensor.multi_gang_temperature_17_1
-    - sensor.multi_gang_relative_humidity_17_5
+    - sensor.multi_gang_temperature
+    - sensor.multi_gang_relative_humidity
 
 temp_bad:
   name: Bad

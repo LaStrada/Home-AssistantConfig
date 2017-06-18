@@ -10,9 +10,9 @@ stue:
 kitchen:
   name: Kjøkken
   entities:
-    - sensor.multi_kitchen_temperature_18_1
-    - sensor.multi_kitchen_relative_humidity_18_5
-    - light.ktichen_table_dimmer_level_23_0
+    - sensor.multi_kitchen_temperature
+    - sensor.multi_kitchen_relative_humidity
+    - light.ktichen_table_dimmer_level
     - switch.kitchen_lights_switch_58_0_2
     - switch.kitchen_lights_switch_58_0_3
 
@@ -32,6 +32,6 @@ gang:
   name: Gang
   control: hidden
   entities:
-    - sensor.multi_gang_temperature_17_1
-    - sensor.multi_gang_relative_humidity_17_5
+    - sensor.multi_gang_temperature
+    - sensor.multi_gang_relative_humidity
     - group.lys_gang
