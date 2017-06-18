@@ -91,7 +91,7 @@
 - alias: Stue dør åpen
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_back_sensor_53_0
+      entity_id: binary_sensor.door_front_sensor_52_0
       to: 'on'
   action:
     - service: climate.set_temperature
@@ -102,10 +102,10 @@
 - alias: Stue dør lukket
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_back_sensor_53_0
+      entity_id: binary_sensor.door_front_sensor_52_0
   condition:
     - condition: state
-      entity_id: binary_sensor.door_back_sensor_53_0
+      entity_id: binary_sensor.door_front_sensor_52_0
       state: 'off'
       for:
         minutes: 2
