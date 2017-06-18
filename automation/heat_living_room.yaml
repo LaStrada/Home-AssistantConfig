@@ -88,7 +88,7 @@
 
 # Door state changed
 
-- alias: Stue dør åpen
+- alias: Living room door opened
   trigger:
     - platform: state
       entity_id: binary_sensor.door_front_sensor_52_0
@@ -104,7 +104,7 @@
         entity_id: climate.stue_termostat
         temperature: 10.0
 
-- alias: Stue dør lukket
+- alias: Living room door closed
   trigger:
     - platform: state
       entity_id: binary_sensor.door_front_sensor_52_0
