@@ -100,7 +100,7 @@
         seconds: 30
   action:
     - service: climate.set_temperature
-      data_template:
+      data:
         entity_id: climate.stue_termostat
         temperature: 10.0
 
