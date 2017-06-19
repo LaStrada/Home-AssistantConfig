@@ -15,7 +15,7 @@
     - service: input_slider.select_value
       data_template:
         entity_id: input_slider.stue_thermostat_temperatur
-        temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
+        value: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
 - alias: Stue natt helg
   trigger:
@@ -32,7 +32,7 @@
     - service: input_slider.select_value
       data_template:
         entity_id: input_slider.stue_thermostat_temperatur
-        temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
+        value: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
 - alias: Stue morgen ukedag
   trigger:
@@ -49,7 +49,7 @@
     - service: input_slider.select_value
       data_template:
         entity_id: input_slider.stue_thermostat_temperatur
-        temperature: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
+        value: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
 
 - alias: Stue ettermiddag ukedag
   trigger:
@@ -66,7 +66,7 @@
     - service: input_slider.select_value
       data_template:
         entity_id: input_slider.stue_thermostat_temperatur
-        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
+        value: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
 
 - alias: Stue morgen helg
   trigger:
