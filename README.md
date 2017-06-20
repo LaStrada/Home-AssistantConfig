@@ -5,7 +5,7 @@ My Home-Assistant config
 ### [MQTT sensors](https://github.com/LaStrada/MQTT-sensors)
 My MQTT sensors.
 
-### [Template temperature/humidity sensors with fallback sensor](https://github.com/LaStrada/Home-AssistantConfig/blob/master/sensors/template.yaml#L116)
+### [Template temperature/humidity sensors with fallback sensor](https://github.com/LaStrada/Home-AssistantConfig/blob/master/sensors/template.yaml#L120)
 I needed a temperature sensor with a fallback sensor. Many of my temperature sensors is battery powered. I'm changing a lot of them to MQTT now (USB powered), but I wanted a fallback sensor if wifi is down.
 
 ## Custom components
