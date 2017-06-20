@@ -1,0 +1,14 @@
+- alias: Alarm away gang notify
+  trigger:
+    - platform: state
+      entity_id: device_tracker.android89bc5926ba332e4flan
+  condition:
+    - condition: state
+      entity_id: device_tracker.android89bc5926ba332e4flan
+      state: 'home'
+      for:
+        minutes: 30
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.tina_home
