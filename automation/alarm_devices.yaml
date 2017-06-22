@@ -1,13 +1,22 @@
-- alias: Alarm away gang notify
+- alias: Android device tracker
   trigger:
     - platform: state
       entity_id: device_tracker.android89bc5926ba332e4flan
+    - platform: state
+      entity_id: device_tracker.samsunggalaxys7lan
   condition:
-    - condition: state
-      entity_id: device_tracker.android89bc5926ba332e4flan
-      state: 'home'
-      for:
-        minutes: 30
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: device_tracker.android89bc5926ba332e4flan
+        state: 'home'
+        for:
+          minutes: 30
+      - condition: state
+        entity_id: device_tracker.samsunggalaxys7lan
+        state: 'home'
+        for:
+          minutes: 30
   action:
     - service: input_boolean.turn_on
       data:
