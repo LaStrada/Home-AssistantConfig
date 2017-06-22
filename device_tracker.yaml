@@ -6,4 +6,5 @@
   # The number of minutes nmap will not scan this device, assuming it is home
   home_interval: 5
   hosts:
+    - 10.0.0.65
     - 10.0.0.66
