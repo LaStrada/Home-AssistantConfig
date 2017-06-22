@@ -13,7 +13,7 @@
           {% set guests = is_state("input_boolean.guests", "off") %}
           {% set android1 = is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
           {% set android2 = is_state("device_tracker.samsunggalaxys7lan", "not_home") %}
-          {%- if stale and tina and guests and android %}
+          {%- if stale and tina and guests and android1 and android2 %}
             Active
           {% else %}
             Inactive
