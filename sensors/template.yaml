@@ -11,7 +11,8 @@
           {% set stale = is_state("input_boolean.stale_home", "off") %}
           {% set tina = is_state("input_boolean.tina_home", "off") %}
           {% set guests = is_state("input_boolean.guests", "off") %}
-          {% set android = is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
+          {% set android1 = is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
+          {% set android2 = is_state("device_tracker.samsunggalaxys7lan", "not_home") %}
           {%- if stale and tina and guests and android %}
             Active
           {% else %}
@@ -23,6 +24,7 @@
         - input_boolean.tina_home
         - input_boolean.guests
         - device_tracker.android89bc5926ba332e4flan
+        - device_tracker.samsunggalaxys7lan
 
     motion_gang:
       value_template: >-
