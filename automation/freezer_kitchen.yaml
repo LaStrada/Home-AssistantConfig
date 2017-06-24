@@ -75,3 +75,81 @@
       data:
         title: 'Freezer alarm!'
         message: 'Fryseren på kjøkkenet har stått oppe i 60 minutter'
+
+- alias: Freezer kitchen alarm 90 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_kitchen_sensor_38_0
+      to: 'on'
+      for:
+        minutes: 90
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 90 minutter'
+
+- alias: Freezer kitchen alarm 2 timer
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_kitchen_sensor_38_0
+      to: 'on'
+      for:
+        hours: 2
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 2 timer'
+
+- alias: Freezer kitchen alarm 3 timer
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_kitchen_sensor_38_0
+      to: 'on'
+      for:
+        hours: 3
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 3 timer'
+
+- alias: Freezer kitchen alarm 4 timer
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_kitchen_sensor_38_0
+      to: 'on'
+      for:
+        hours: 4
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 4 timer'
+
+- alias: Freezer kitchen alarm 6 timer
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_kitchen_sensor_38_0
+      to: 'on'
+      for:
+        hours: 6
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 6 timer'
+
+- alias: Freezer kitchen alarm 12 timer
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_kitchen_sensor_38_0
+      to: 'on'
+      for:
+        hours: 12
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 12 timer'
