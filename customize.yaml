@@ -123,10 +123,10 @@ binary_sensor.refrigerator_kitchen_sensor_55_0:
   friendly_name: Kjøleskap
   device_class: opening
 binary_sensor.freezer_bod_sensor_36_0:
-  friendly_name: Fryser
+  friendly_name: Fryser (bod)
   device_class: opening
 binary_sensor.freezer_kitchen_sensor_38_0:
-  friendly_name: Fryser i bod
+  friendly_name: Fryser (kjøkken)
   device_class: opening
 
 sensor.receiver_fan_speed:
