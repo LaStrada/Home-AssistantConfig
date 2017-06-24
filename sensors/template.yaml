@@ -119,13 +119,13 @@
       entity_id:
         - sensor.smoke_soverom_heat_50_4
     
-    # Template temperature / humidity sensors with fallback
+    # Template temperature sensor with fallback
     template_temperature_bedroom:
       value_template: >-
           {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_temperature.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_temperature.last_updated) %}
           {% set now = as_timestamp(utcnow()) %}
-          {% if is_state("sensor.sensor.mqtt_bedroom_humidity", "0") or is_state("sensor.mqtt_bedroom_humidity", "unknown") %}
+          {% if is_state("sensor.mqtt_bedroom_temperature", "0") or is_state("sensor.mqtt_bedroom_temperature", "unknown") %}
             {{ states.sensor.temp_soverom_temperature.state | float }}
           {% elif (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
             {{ states.sensor.mqtt_bedroom_temperature.state | float }}
@@ -139,12 +139,13 @@
         - sensor.temp_soverom_temperature
         - sensor.mqtt_bedroom_temperature
 
+    # Template humidity sensor with fallback
     template_humidity_bedroom:
       value_template: >-
           {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_humidity.last_updated) %}
           {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_humidity.last_updated) %}
           {% set now = as_timestamp(utcnow()) %}
-          {% if is_state("sensor.sensor.mqtt_bedroom_humidity", "0") or is_state("sensor.mqtt_bedroom_humidity", "unknown") %}
+          {% if is_state("sensor.mqtt_bedroom_humidity", "0") or is_state("sensor.mqtt_bedroom_humidity", "unknown") %}
             {{ states.sensor.temp_soverom_humidity.state | float }}
           {% elif (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
             {{ states.sensor.mqtt_bedroom_humidity.state | float }}
