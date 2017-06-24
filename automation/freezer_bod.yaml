@@ -11,6 +11,19 @@
         title: 'Freezer alarm!'
         message: 'Fryseren på kjøkkenet har stått oppe i 5 minutter'
 
+- alias: Freezer bod alarm 10 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_bod_sensor_36_0
+      to: 'on'
+      for:
+        minutes: 10
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 10 minutter'
+
 - alias: Freezer bod alarm 15 min
   trigger:
     - platform: state
@@ -23,6 +36,32 @@
       data:
         title: 'Freezer alarm!'
         message: 'Fryseren på kjøkkenet har stått oppe i 15 minutter'
+
+- alias: Freezer bod alarm 20 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_bod_sensor_36_0
+      to: 'on'
+      for:
+        minutes: 20
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 20 minutter'
+
+- alias: Freezer bod alarm 30 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.freezer_bod_sensor_36_0
+      to: 'on'
+      for:
+        minutes: 30
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Freezer alarm!'
+        message: 'Fryseren på kjøkkenet har stått oppe i 30 minutter'
 
 - alias: Freezer bod alarm 60 min
   trigger:

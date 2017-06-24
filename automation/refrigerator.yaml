@@ -11,6 +11,19 @@
         title: 'Refrigerator alarm!'
         message: 'Kjøleskapsdøra har stått oppe i 5 minutter'
 
+- alias: Refrigerator alarm 10 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      to: 'on'
+      for:
+        minutes: 10
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Refrigerator alarm!'
+        message: 'Kjøleskapsdøra har stått oppe i 10 minutter'
+
 - alias: Refrigerator alarm 15 min
   trigger:
     - platform: state
@@ -23,6 +36,32 @@
       data:
         title: 'Refrigerator alarm!'
         message: 'Kjøleskapsdøra har stått oppe i 15 minutter'
+
+- alias: Refrigerator alarm 20 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      to: 'on'
+      for:
+        minutes: 20
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Refrigerator alarm!'
+        message: 'Kjøleskapsdøra har stått oppe i 20 minutter'
+
+- alias: Refrigerator alarm 30 min
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.refrigerator_kitchen_sensor_55_0
+      to: 'on'
+      for:
+        minutes: 30
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Refrigerator alarm!'
+        message: 'Kjøleskapsdøra har stått oppe i 30 minutter'
 
 - alias: Refrigerator alarm 60 min
   trigger:
