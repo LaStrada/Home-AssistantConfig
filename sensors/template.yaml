@@ -8,20 +8,20 @@
     # Motion
     alarm_active:
       value_template: >-
-          {% set stale = is_state("input_boolean.stale_home", "off") %}
-          {% set tina = is_state("input_boolean.tina_home", "off") %}
-          {% set guests = is_state("input_boolean.guests", "off") %}
-          {% set android1 = is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
-          {% set android2 = is_state("device_tracker.samsunggalaxys7lan", "not_home") %}
-          {%- if stale and tina and guests and android1 and android2 %}
-            Active
-          {% else %}
+          {% set stale = is_state("input_boolean.stale_home", "on") %}
+          {% set tina = is_state("device_tracker.89bc5926ba332e4f", "home") %}
+          {% set guests = is_state("input_boolean.guests", "on") %}
+          {% set android1 = is_state("device_tracker.android89bc5926ba332e4flan", "home") %}
+          {% set android2 = is_state("device_tracker.samsunggalaxys7lan", "home") %}
+          {%- if stale or tina or guests or android1 or android2 %}
             Inactive
+          {% else %}
+            Active
           {% endif %}
       friendly_name: Alarm state
       entity_id:
         - input_boolean.stale_home
-        - input_boolean.tina_home
+        - device_tracker.89bc5926ba332e4f
         - input_boolean.guests
         - device_tracker.android89bc5926ba332e4flan
         - device_tracker.samsunggalaxys7lan
