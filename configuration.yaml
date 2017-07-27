@@ -6,6 +6,9 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Oslo
   customize: !include customize.yaml
+  whitelist_external_dirs:
+    - /home/homeassistant/heracam/fullsize
+    - /home/homeassistant/heracam/thumbnail
 
 frontend:
 
