@@ -1,6 +1,7 @@
-- platform: generic
+- platform: mjpeg
   name: HeraCam
   still_image_url: !secret heracam_url
+  mjpeg_url: !secret heracam_mjpeg
   authentication: basic
   username: !secret heracam_username
   password: !secret heracam_password
