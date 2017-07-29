@@ -1,7 +1,3 @@
-- name: fb_h0me
-  platform: facebook
-  page_access_token: !secret fb_homebot
-
 - name: gmail_all
   platform: smtp
   server: smtp.gmail.com
