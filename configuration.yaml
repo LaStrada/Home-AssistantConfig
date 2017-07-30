@@ -39,6 +39,7 @@ logbook: !include logbook.yaml
 sun:
 
 mqtt:
+  client_id: hass-mqtt-broker
   discovery: true
   discovery_prefix: hass
 
