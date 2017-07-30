@@ -3,7 +3,7 @@
   command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "ºC"
   value_template: '{{ value | multiply(0.001) | round(2) }}'
-  scan_interval: 120
+  scan_interval: 180
 
 - platform: command_line
   name: Nordlysvarsel 1 time

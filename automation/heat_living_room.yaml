@@ -91,7 +91,7 @@
 - alias: Living room door opened
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor_52_0
+      entity_id: binary_sensor.door_front_sensor
       to: 'on'
   action:
     - service: climate.set_temperature
@@ -102,7 +102,7 @@
 - alias: Living room door closed
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor_52_0
+      entity_id: binary_sensor.door_front_sensor
       to: 'off'
   action:
     - service: climate.set_temperature

@@ -1,18 +1,18 @@
 # Kitchen
-sensor.multi_kitchen_temperature_18_1:
+sensor.multi_kitchen_temperature:
   friendly_name: Temperatur kjøkken
-sensor.multi_kitchen_relative_humidity_18_5:
+sensor.multi_kitchen_relative_humidity:
   friendly_name: Luftfuktighet kjøkken
   icon: mdi:percent
-switch.kitchen_lights_switch_58_0_2:
+switch.kitchen_lights_switch_2:
   friendly_name: Kjøkken
   sensor_class: light
   icon: mdi:lightbulb
-switch.kitchen_lights_switch_58_0_3:
+switch.kitchen_lights_switch_3:
   friendly_name: Bardisk
   sensor_class: light
   icon: mdi:lightbulb
-light.ktichen_table_dimmer_level_23_0:
+light.ktichen_table_dimmer_level:
   friendly_name: Kjøkkenbord dimmer
 
 
@@ -64,20 +64,20 @@ input_boolean.guests:
 
 
 # Entrance (gang)
-light.gang_dimmer_level_45_0:
+light.gang_dimmer_level:
   friendly_name: Gang dimmer
   sensor_class: light
   icon: mdi:lightbulb
   homebridge_hidden: true
-light.gang_garderobeskap_level_46_0:
+light.gang_garderobeskap_level:
   friendly_name: Garderobeskap dimmer
   sensor_class: light
   icon: mdi:lightbulb
   homebridge_hidden: true
-sensor.multi_gang_relative_humidity_17_5:
+sensor.multi_gang_relative_humidity:
   friendly_name: Luftfuktighet
   icon: mdi:percent
-sensor.multi_gang_temperature_17_1:
+sensor.multi_gang_temperature:
   friendly_name: Temperatur
 
 
@@ -112,20 +112,20 @@ sensor.ssl_certificate_expiry_2:
 
 
 # Doors
-binary_sensor.door_front_sensor_52_0:
+binary_sensor.door_front_sensor:
   friendly_name: Dør foran
   device_class: opening
-binary_sensor.door_back_sensor_53_0:
+binary_sensor.door_back_sensor:
   friendly_name: Dør bak
   device_class: opening
 
-binary_sensor.refrigerator_kitchen_sensor_55_0:
+binary_sensor.refrigerator_kitchen_sensor:
   friendly_name: Kjøleskap
   device_class: opening
-binary_sensor.freezer_bod_sensor_36_0:
+binary_sensor.freezer_bod_sensor:
   friendly_name: Fryser (bod)
   device_class: opening
-binary_sensor.freezer_kitchen_sensor_38_0:
+binary_sensor.freezer_kitchen_sensor:
   friendly_name: Fryser (kjøkken)
   device_class: opening
 

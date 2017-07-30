@@ -8,24 +8,24 @@ include:
     - sensor.mqtt_bedroom_humidity
     - sensor.temp_soverom_humidity
     - sensor.template_humidity_bedroom
-    - switch.panelovn_soverom_switch_13_0
+    - switch.panelovn_soverom_switch
 
     # Office
     - sensor.temp_kontor_temperature
     - sensor.temp_kontor_humidity
-    - sensor.multi_kontor_burglar_9_10
-    - switch.panelovn_kontor_switch_44_0
+    - sensor.multi_kontor_burglar
+    - switch.panelovn_kontor_switch
 
     # Kitchen
-    - binary_sensor.door_back_sensor_53_0
-    - sensor.multi_kitchen_burglar_18_10
+    - binary_sensor.door_back_sensor
+    - sensor.multi_kitchen_burglar
     - sensor.template_water_leak_kitchen
 
     # Living room
     - sensor.temp_stue_temperature
     - sensor.temp_stue_humidity
-    - binary_sensor.door_front_sensor_52_0
-    - switch.panelovn_stue_switch_11_0
+    - binary_sensor.door_front_sensor
+    - switch.panelovn_stue_switch
 
     # Receiver
     - sensor.receiver_temperature
@@ -37,20 +37,20 @@ include:
     - sensor.yr_wind_speed
 
     # Entrance
-    - sensor.multi_gang_temperature_17_1
-    - sensor.multi_gang_relative_humidity_17_5
-    - sensor.multi_gang_burglar_17_10
+    - sensor.multi_gang_temperature
+    - sensor.multi_gang_relative_humidity
+    - sensor.multi_gang_burglar
     - switch.heracam_relay
 
     # Smoke sensors
-    - sensor.smoke_gang_smoke_47_1
-    - sensor.smoke_gang_heat_47_4
-    - sensor.smoke_kontor_smoke_48_1
-    - sensor.smoke_kontor_heat_48_4
-    - sensor.smoke_stue_smoke_49_1
-    - sensor.smoke_stue_heat_49_4
-    - sensor.smoke_soverom_smoke_50_1
-    - sensor.smoke_soverom_heat_50_4
+    - sensor.smoke_gang_smoke_2
+    - sensor.smoke_gang_heat_2
+    - sensor.smoke_kontor_smoke_2
+    - sensor.smoke_kontor_heat_2
+    - sensor.smoke_stue_smoke_2
+    - sensor.smoke_stue_heat_2
+    - sensor.smoke_soverom_smoke_2
+    - sensor.smoke_soverom_heat_2
 
     # Device tracker
     - device_tracker.android89bc5926ba332e4flan
