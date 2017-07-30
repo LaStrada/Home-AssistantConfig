@@ -1,66 +1,66 @@
 # Kitchen
 sensor.multi_kitchen_temperature:
-  friendly_name: Temperatur kjøkken
+  friendly_name: Temperatur
+  homebridge_hidden: false
 sensor.multi_kitchen_relative_humidity:
-  friendly_name: Luftfuktighet kjøkken
+  friendly_name: Luftfuktighet
   icon: mdi:percent
 switch.kitchen_lights_switch_2:
-  friendly_name: Kjøkken
+  friendly_name: Taklys
   sensor_class: light
   icon: mdi:lightbulb
+  homebridge_hidden: false
 switch.kitchen_lights_switch_3:
   friendly_name: Bardisk
   sensor_class: light
   icon: mdi:lightbulb
+  homebridge_hidden: false
 light.kitchen_table_dimmer_level:
-  friendly_name: Kjøkkenbord dimmer
+  friendly_name: Kjøkkenbord
+  homebridge_hidden: false
 
 
 # Living room (stue)
 sensor.temp_stue_temperature:
-  friendly_name: Temperatur stue
+  friendly_name: Temperatur
+  homebridge_hidden: false
 sensor.temp_stue_humidity:
-  friendly_name: Luftfuktighet stue
+  friendly_name: Luftfuktighet
   icon: mdi:percent
 
 
 # Outdoor (ute)
 sensor.temp_ute_temperature:
   friendly_name: Temperatur
-  homebridge_hidden: true
+  homebridge_hidden: false
 sensor.yr_symbol:
   friendly_name: Været nå
-  homebridge_hidden: true
 sensor.yr_cloudiness:
   friendly_name: Skyer
   icon: mdi:weather-cloudy
-  homebridge_hidden: true
 sensor.yr_dewpoint_temperature:
   friendly_name: Duggpunkt
-  homebridge_hidden: true
 sensor.yr_humidity:
   friendly_name: Luftfuktighet
   icon: mdi:percent
-  homebridge_hidden: true
 sensor.yr_precipitation:
   friendly_name: Nedbør
   icon: mdi:weather-rainy
-  homebridge_hidden: true
 sensor.yr_wind_speed:
   friendly_name: Vind
-  homebridge_hidden: true
 
 
 # Guestroom / office (kontor)
 sensor.temp_kontor_temperature:
   friendly_name: Temperatur
+  homebridge_hidden: false
 sensor.temp_kontor_humidity:
   friendly_name: Luftfuktighet
   icon: mdi:percent
 
 input_boolean.guests:
   icon: mdi:hotel
-  homebridge_hidden: true
+  homebridge_hidden: false
 
 
 # Entrance (gang)
@@ -68,17 +68,18 @@ light.gang_dimmer_level:
   friendly_name: Gang dimmer
   sensor_class: light
   icon: mdi:lightbulb
-  homebridge_hidden: true
+  homebridge_hidden: false
 light.gang_garderobeskap_level:
   friendly_name: Garderobeskap dimmer
   sensor_class: light
   icon: mdi:lightbulb
-  homebridge_hidden: true
+  homebridge_hidden: false
 sensor.multi_gang_relative_humidity:
   friendly_name: Luftfuktighet
   icon: mdi:percent
 sensor.multi_gang_temperature:
   friendly_name: Temperatur
+  homebridge_hidden: false
 
 
 # Bathroom (bad)
@@ -115,19 +116,24 @@ sensor.ssl_certificate_expiry_2:
 binary_sensor.door_front_sensor:
   friendly_name: Dør foran
   device_class: opening
+  homebridge_hidden: false
 binary_sensor.door_back_sensor:
   friendly_name: Dør bak
   device_class: opening
+  homebridge_hidden: false
 
 binary_sensor.refrigerator_kitchen_sensor:
   friendly_name: Kjøleskap
   device_class: opening
+  homebridge_hidden: false
 binary_sensor.freezer_bod_sensor:
   friendly_name: Fryser (bod)
   device_class: opening
+  homebridge_hidden: false
 binary_sensor.freezer_kitchen_sensor:
   friendly_name: Fryser (kjøkken)
   device_class: opening
+  homebridge_hidden: false
 
 sensor.receiver_fan_speed:
   icon: mdi:fan
