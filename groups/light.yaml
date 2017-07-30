@@ -10,7 +10,7 @@ lys_kitchen:
   entities:
     - switch.kitchen_lights_switch_2 # tak
     - switch.kitchen_lights_switch_3 # bardisk
-    - light.ktichen_table_dimmer_level # spisebord
+    - light.kitchen_table_dimmer_level # spisebord
 
 lys_stue:
   name: Stue

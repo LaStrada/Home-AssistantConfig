@@ -12,7 +12,7 @@ kitchen:
   entities:
     - sensor.multi_kitchen_temperature
     - sensor.multi_kitchen_relative_humidity
-    - light.ktichen_table_dimmer_level
+    - light.kitchen_table_dimmer_level
     - switch.kitchen_lights_switch_2
     - switch.kitchen_lights_switch_3
 
