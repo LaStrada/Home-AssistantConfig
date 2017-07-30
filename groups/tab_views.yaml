@@ -46,7 +46,6 @@ media:
   entities:
     - media_player.pioneer_avr
     - group.receiver_monitor
-    - media_player.apple_tv
 
 ### Alarm status
 alarm_status:

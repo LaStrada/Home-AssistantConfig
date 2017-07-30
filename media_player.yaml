@@ -1,7 +1,2 @@
 - platform: pioneer
   host: 10.0.0.43
-
-- platform: apple_tv
-  host: 10.0.0.83
-  login_id: 00000000-4f6a-ccbd-bed3-09259b5e4886
-  start_off: true
