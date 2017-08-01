@@ -18,8 +18,3 @@
   services:
     - service: gmail_all
     - service: ios_lolphone_7
-    - service: fb_h0me
-      data:
-        target:
-          - !secret stale_phone
-          - !secret tina_phone

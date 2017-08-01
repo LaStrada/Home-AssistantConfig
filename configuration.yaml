@@ -62,7 +62,7 @@ scene: !include_dir_merge_list scenes/
 camera: !include camera.yaml
 light: !include light.yaml
 input_boolean: !include input_boolean.yaml
-input_slider: !include_dir_merge_named input_slider.yaml
+input_slider: !include_dir_merge_list input_slider.yaml
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include_dir_merge_named shell_command/
 media_player: !include media_player.yaml
