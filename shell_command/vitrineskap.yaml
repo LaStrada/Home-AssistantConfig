@@ -1,7 +1,0 @@
-vitrineskap_dim: 'python /home/homeassistant/scripts/python/vitrineskap.py >> /home/homeassistant/lys.log'
-vitrineskap_default: echo 3 > /var/tmp/ramdisk/phue_dim_var.txt
-vitrineskap_4: echo 4 > /var/tmp/ramdisk/phue_dim_var.txt
-vitrineskap_5: echo 5 > /var/tmp/ramdisk/phue_dim_var.txt
-vitrineskap_6: echo 6 > /var/tmp/ramdisk/phue_dim_var.txt
-vitrineskap_7: echo 7 > /var/tmp/ramdisk/phue_dim_var.txt
-vitrineskap_off: echo 8 > /var/tmp/ramdisk/phue_dim_var.txt
