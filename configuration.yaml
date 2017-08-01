@@ -18,8 +18,6 @@ homeassistant:
 
 frontend:
 
-#panel_iframe: !include panel_iframe.yaml
-
 http:
   api_password: !secret http_password
   base_url: !secret my_domain
@@ -62,7 +60,7 @@ scene: !include_dir_merge_list scenes/
 camera: !include camera.yaml
 light: !include light.yaml
 input_boolean: !include input_boolean.yaml
-input_slider: !include_dir_merge_list input_slider.yaml
+input_slider: !include_dir_merge_named input_slider/
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include_dir_merge_named shell_command/
 media_player: !include media_player.yaml
