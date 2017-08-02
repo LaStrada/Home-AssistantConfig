@@ -1,7 +1,5 @@
 db_url: !secret mysql
 include:
-  domains:
-    - climate
   entities:
     # Bedroom
     - sensor.mqtt_bedroom_temperature
@@ -64,6 +62,11 @@ include:
     - input_boolean.stale_job
     - input_boolean.tina_home
     - input_boolean.vacation_mode
+
+    # Climate
+    - climate.kontor_thermostat
+    - climate.soverom_thermostat
+    - climate.stue_thermostat
 
     # Other
     - sensor.nordlysvarsel_1_time
