@@ -34,6 +34,7 @@ updater:
 discovery:
   ignore:
     - plex_mediaserver
+    - apple_tv
 
 history:
 recorder: !include recorder.yaml
