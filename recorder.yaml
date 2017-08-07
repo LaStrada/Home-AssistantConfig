@@ -55,11 +55,6 @@ include:
     # Device tracker
     - device_tracker.android89bc5926ba332e4flan
 
-    # Climate
-    - climate.kontor_termostat
-    - climate.soverom_termostat
-    - climate.stue_termostat
-
     # Input boolean
     - input_boolean.guests
     - input_boolean.soverom_wakeup_heat
@@ -68,12 +63,12 @@ include:
     - input_boolean.tina_home
     - input_boolean.vacation_mode
 
+    # Climate
+    - climate.kontor_thermostat
+    - climate.soverom_thermostat
+    - climate.stue_thermostat
+
     # Other
     - sensor.nordlysvarsel_1_time
     - binary_sensor.workday_sensor
     - binary_sensor.workday_tomorrow_sensor
-exclude:
-  domains:
-    - automation
-    - sun
-    - camera

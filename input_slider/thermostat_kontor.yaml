@@ -1,0 +1,13 @@
+kontor_temperatur:
+  name: Kontor temperatur
+  initial: 18
+  min: 15
+  max: 23
+  step: 1
+
+kontor_morning_temperatur:
+  name: Kontor morgen temperatur
+  initial: 20
+  min: 15
+  max: 23
+  step: 1

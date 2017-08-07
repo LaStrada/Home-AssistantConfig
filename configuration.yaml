@@ -5,14 +5,18 @@ homeassistant:
   elevation: 82
   unit_system: metric
   time_zone: Europe/Oslo
+  customize_glob:
+    "*":
+      homebridge_hidden: true
+  customize_domain:
+    climate:
+      homebridge_hidden: false
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize
     - /home/homeassistant/heracam/thumbnail
 
 frontend:
-
-#panel_iframe: !include panel_iframe.yaml
 
 http:
   api_password: !secret http_password
@@ -30,9 +34,9 @@ updater:
 discovery:
   ignore:
     - plex_mediaserver
+    - apple_tv
 
 history:
-
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 
@@ -57,7 +61,7 @@ scene: !include_dir_merge_list scenes/
 camera: !include camera.yaml
 light: !include light.yaml
 input_boolean: !include input_boolean.yaml
-input_slider: !include input_slider.yaml
+input_slider: !include_dir_merge_named input_slider/
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include_dir_merge_named shell_command/
 media_player: !include media_player.yaml
@@ -68,7 +72,9 @@ zwave:
   polling_interval: 1800000
 
 alarm_control_panel:
-  - platform: manual
+  - platform: manual_mqtt
+    state_topic: home/alarm
+    command_topic: home/alarm/set
     code: !secret alarm_code
 
 notify: !include notify.yaml

@@ -1,0 +1,6 @@
+ferie_temperatur:
+  name: Temperatur i ferien
+  initial: 10
+  min: 8
+  max: 18
+  step: 1
