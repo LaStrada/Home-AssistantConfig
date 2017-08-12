@@ -28,4 +28,4 @@
   action:
     - service: frontend.set_theme
       data:
-        name: alarm_active
+        name: alarm_armed

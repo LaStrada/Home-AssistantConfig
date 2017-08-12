@@ -1,7 +1,7 @@
 themes:
   home:
     primary-color: blue
-  alarm_activating:
+  alarm_pending:
     primary-color: orange
-  alarm_active:
+  alarm_armed:
     primary-color: red
