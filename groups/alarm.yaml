@@ -1,4 +1,4 @@
 alarm:
-	name: Alarm
+  name: Alarm
   entities:
     - alarm_control_panel.ha_alarm
