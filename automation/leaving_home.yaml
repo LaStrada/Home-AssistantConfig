@@ -5,7 +5,7 @@
       to: 'off'
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
-      state: armed_away
+      to: armed_away
   condition:
     - condition: state
       entity_id: input_boolean.stale_home
