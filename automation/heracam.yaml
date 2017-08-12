@@ -30,7 +30,7 @@
 
 - alias: HeraCam On
   trigger:
-    - condition: state
+    - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: armed_away
   action:
@@ -40,11 +40,11 @@
 
 - alias: HeraCam group on
   trigger:
-    - condition: state
+    - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: armed_away
       for:
-        minutes: 2
+        minutes: 1
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -54,7 +54,7 @@
 
 - alias: HeraCam Off
   trigger:
-    - condition: state
+    - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: disarmed
   action:
