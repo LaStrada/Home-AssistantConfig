@@ -1,0 +1,7 @@
+themes:
+  home:
+    primary-color: blue
+  alarm_activating:
+    primary-color: orange
+  alarm_active:
+    primary-color: red

@@ -16,7 +16,7 @@ homeassistant:
     - /home/homeassistant/heracam/fullsize
     - /home/homeassistant/heracam/thumbnail
 
-frontend:
+frontend: !include frontend.yaml
 
 http:
   api_password: !secret http_password
