@@ -1,0 +1,6 @@
+freezers:
+  name: Kjøleskap / frysere
+  entities:
+    - binary_sensor.refrigerator_kitchen_sensor
+    - binary_sensor.freezer_bod_sensor
+    - binary_sensor.freezer_kitchen_sensor

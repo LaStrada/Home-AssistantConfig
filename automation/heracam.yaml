@@ -4,8 +4,8 @@
       event: start
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -19,8 +19,8 @@
       event: start
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Inactive'
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -30,9 +30,9 @@
 
 - alias: HeraCam On
   trigger:
-    - platform: state
-      entity_id: sensor.alarm_active
-      to: 'Active'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
     - service: switch.turn_on
       entity_id: switch.heracam_relay
@@ -40,11 +40,9 @@
 
 - alias: HeraCam group on
   trigger:
-    - platform: state
-      entity_id: switch.heracam_relay
-      to: 'on'
-      for:
-        minutes: 1
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
     - service: group.set_visibility
       entity_id: group.heracam
@@ -54,9 +52,9 @@
 
 - alias: HeraCam Off
   trigger:
-    - platform: state
-      entity_id: sensor.alarm_active
-      to: 'Inactive'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
     - service: switch.turn_off
       entity_id: switch.heracam_relay

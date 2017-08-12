@@ -1,0 +1,6 @@
+motion_sensors:
+  name: Bevegelse
+  entities:
+    - sensor.motion_gang
+    - sensor.motion_kitchen
+    - sensor.motion_kontor
