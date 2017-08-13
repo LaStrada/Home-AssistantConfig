@@ -6,7 +6,7 @@
   action:
     - service: frontend.set_theme
       data:
-        name: home
+        name: default
 
 
 - alias: Theme alarm pending

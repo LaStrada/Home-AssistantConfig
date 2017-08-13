@@ -1,6 +1,4 @@
 themes:
-  home:
-    primary-color: "#03A9F4"
   alarm_pending:
     primary-color: "#CC4A14"
   alarm_armed:
