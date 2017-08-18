@@ -1,3 +1,5 @@
+# HASS startup
+
 - alias: HeraCam startup on
   trigger:
     - platform: homeassistant
@@ -28,14 +30,13 @@
         visible: False
 
 
+# Alarm state changed
+
 - alias: HeraCam On
   trigger:
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: pending
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      to: armed_away      
   action:
     - service: switch.turn_on
       entity_id: switch.heracam_relay
@@ -47,6 +48,8 @@
       entity_id: alarm_control_panel.ha_alarm
       to: armed_away
   action:
+    - service: switch.turn_on
+      entity_id: switch.heracam_relay
     - service: group.set_visibility
       entity_id: group.heracam
       data:
@@ -59,9 +62,9 @@
       entity_id: alarm_control_panel.ha_alarm
       to: disarmed
   action:
-    - service: switch.turn_off
-      entity_id: switch.heracam_relay
     - service: group.set_visibility
       entity_id: group.heracam
       data:
         visible: False
+    - service: switch.turn_off
+      entity_id: switch.heracam_relay
