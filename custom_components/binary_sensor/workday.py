@@ -12,7 +12,6 @@ import voluptuous as vol
 
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.const import CONF_NAME, WEEKDAYS
-import homeassistant.util.dt as dt_util
 from homeassistant.components.binary_sensor import BinarySensorDevice
 import homeassistant.helpers.config_validation as cv
 
@@ -37,13 +36,16 @@ DEFAULT_WORKDAYS = ['mon', 'tue', 'wed', 'thu', 'fri']
 CONF_EXCLUDES = 'excludes'
 # By default, public holidays, Saturdays and Sundays are excluded from workdays
 DEFAULT_EXCLUDES = ['sat', 'sun', 'holiday']
-DEFAULT_NAME = 'Workday Tomorrow Sensor'
+DEFAULT_NAME = 'Workday Sensor'
 ALLOWED_DAYS = WEEKDAYS + ['holiday']
+CONF_OFFSET = 'days_offset'
+DEFAULT_OFFSET = 0
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_COUNTRY): vol.In(ALL_COUNTRIES),
     vol.Optional(CONF_PROVINCE, default=None): cv.string,
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+    vol.Optional(CONF_OFFSET, default=DEFAULT_OFFSET): vol.Coerce(int),
     vol.Optional(CONF_WORKDAYS, default=DEFAULT_WORKDAYS):
         vol.All(cv.ensure_list, [vol.In(ALLOWED_DAYS)]),
     vol.Optional(CONF_EXCLUDES, default=DEFAULT_EXCLUDES):
@@ -60,8 +62,9 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     province = config.get(CONF_PROVINCE)
     workdays = config.get(CONF_WORKDAYS)
     excludes = config.get(CONF_EXCLUDES)
+    days_offset = config.get(CONF_OFFSET)
 
-    year = (datetime.now() + timedelta(days=1)).year
+    year = (datetime.now() + timedelta(days=days_offset)).year
     obj_holidays = getattr(holidays, country)(years=year)
 
     if province:
@@ -84,8 +87,8 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     for date, name in sorted(obj_holidays.items()):
         _LOGGER.debug("%s %s", date, name)
 
-    add_devices([IsWorkdayTomorrowSensor(
-        obj_holidays, workdays, excludes, sensor_name)], True)
+    add_devices([IsWorkdaySensor(
+        obj_holidays, workdays, excludes, days_offset, sensor_name)], True)
 
 
 def day_to_string(day):
@@ -96,15 +99,16 @@ def day_to_string(day):
         return None
 
 
-class IsWorkdayTomorrowSensor(BinarySensorDevice):
+class IsWorkdaySensor(BinarySensorDevice):
     """Implementation of a Workday sensor."""
 
-    def __init__(self, obj_holidays, workdays, excludes, name):
+    def __init__(self, obj_holidays, workdays, excludes, days_offset, name):
         """Initialize the Workday sensor."""
         self._name = name
         self._obj_holidays = obj_holidays
         self._workdays = workdays
         self._excludes = excludes
+        self._days_offset = days_offset
         self._state = None
 
     @property
@@ -135,6 +139,16 @@ class IsWorkdayTomorrowSensor(BinarySensorDevice):
 
         return False
 
+    @property
+    def state_attributes(self):
+        """Return the attributes of the entity."""
+        # return self._attributes
+        return {
+            CONF_WORKDAYS: self._workdays,
+            CONF_EXCLUDES: self._excludes,
+            CONF_OFFSET: self._days_offset
+        }
+
     @asyncio.coroutine
     def async_update(self):
         """Get date and look whether it is a holiday."""
@@ -142,7 +156,7 @@ class IsWorkdayTomorrowSensor(BinarySensorDevice):
         self._state = False
 
         # Get iso day of the week (1 = Monday, 7 = Sunday)
-        date = datetime.today() + timedelta(days=1)
+        date = datetime.today() + timedelta(days=self._days_offset)
         day = date.isoweekday() - 1
         day_of_week = day_to_string(day)
 
