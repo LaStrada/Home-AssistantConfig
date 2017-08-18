@@ -4,7 +4,12 @@
   trigger:
     - platform: time
       at: "09:30:00"
+    - platform: homeassistant
+      event: start
   condition:
+    - condition: time
+      after: '09:30:00'
+      before: '12:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
       state: 'off'
@@ -25,6 +30,11 @@
   trigger:
     - platform: time
       at: "12:00:00"
+    - platform: homeassistant
+      event: start
+    - condition: time
+      after: '12:00:00'
+      before: '20:00:00'
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_today'
