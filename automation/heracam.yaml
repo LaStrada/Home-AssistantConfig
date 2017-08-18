@@ -33,8 +33,6 @@
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: pending
-      for:
-        minutes: 1
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: armed_away      
