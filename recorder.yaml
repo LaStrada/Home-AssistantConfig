@@ -70,5 +70,3 @@ include:
 
     # Other
     - sensor.nordlysvarsel_1_time
-    - binary_sensor.workday_sensor
-    - binary_sensor.workday_tomorrow_sensor

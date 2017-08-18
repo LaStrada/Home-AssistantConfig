@@ -29,7 +29,7 @@
       entity_id: input_boolean.guests
       state: 'off'
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'on'
     - condition: state
       entity_id: 'input_boolean.tina_home'
@@ -52,7 +52,7 @@
       entity_id: input_boolean.guests
       state: 'off'
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'on'
   action:
     - service: climate.set_temperature

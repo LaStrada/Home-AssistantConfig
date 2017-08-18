@@ -6,7 +6,7 @@
       at: "22:00:00"
   condition:
     - condition: state
-      entity_id: binary_sensor.workday_tomorrow_sensor
+      entity_id: binary_sensor.workday_tomorrow
       state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -23,7 +23,7 @@
       at: "23:30:00"
   condition:
     - condition: state
-      entity_id: binary_sensor.workday_tomorrow_sensor
+      entity_id: binary_sensor.workday_tomorrow
       state: 'off'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -40,7 +40,7 @@
       at: "07:00:00"
   condition:
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -57,7 +57,7 @@
       at: "16:00:00"
   condition:
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -74,7 +74,7 @@
     at: "08:30:00"
   condition:
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'off'
     - condition: state
       entity_id: input_boolean.vacation_mode
