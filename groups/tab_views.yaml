@@ -5,6 +5,7 @@ default_view:
   view: yes
   entities:
     - group.alarm
+    - group.heracam
     - group.ute_min
 
 
