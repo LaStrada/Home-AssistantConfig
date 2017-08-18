@@ -90,8 +90,8 @@
 
 - alias: Stue morgen helg
   trigger:
-    platform: time
-    at: "08:30:00"
+    - platform: time
+      at: "08:30:00"
     - platform: homeassistant
       event: start
   condition:
