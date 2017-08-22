@@ -18,10 +18,3 @@ stue_natt_temperatur:
   min: 15
   max: 25
   step: 1
-
-stue_thermostat_temperatur:
-  name: Stue thermostat temperatur
-  initial: 22
-  min: 15
-  max: 25
-  step: 1
