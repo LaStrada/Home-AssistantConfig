@@ -19,7 +19,7 @@
   action:
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.soverom_termostat
+        entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
 - alias: Stue natt helg
@@ -41,7 +41,7 @@
   action:
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.soverom_termostat
+        entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
 
 - alias: Stue morgen ukedag
@@ -63,7 +63,7 @@
   action:
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.soverom_termostat
+        entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
 
 - alias: Stue ettermiddag ukedag
@@ -85,7 +85,7 @@
   action:
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.soverom_termostat
+        entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
 
 - alias: Stue morgen helg
@@ -107,7 +107,7 @@
   action:
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.soverom_termostat
+        entity_id: climate.stue_termostat
         temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
 
 
