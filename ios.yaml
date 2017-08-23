@@ -4,16 +4,17 @@ push:
       identifier: 'ALARM_HOME_STALE'
       actions:
         - identifier: 'DISARM_ALARM'
-          title: 'Disarm alarm'
+          title: 'Skru av alarm'
           activationMode: 'background'
           authenticationRequired: yes
           destructive: yes
           behavior: 'default'
+
     - name: Alarm away Ståle
       identifier: 'ALARM_AWAY_STALE'
       actions:
         - identifier: 'ARM_ALARM'
-          title: 'Arm alarm'
+          title: 'Skru på alarm'
           activationMode: 'background'
           authenticationRequired: yes
           destructive: no
