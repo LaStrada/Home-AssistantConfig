@@ -1,0 +1,24 @@
+- alias: Ask if alarm should be armed
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'not_home'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Drar bort"
+        data:
+          push:
+            badge: 2
+            category: "ALARM_AWAY_STALE"
+
+- alias: Disarm alarm from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: ARM_ALARM
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      entity_id: alarm_control_panel.ha_alarm
+      code: !secret alarm_code
