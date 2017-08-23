@@ -2,7 +2,7 @@
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
-      to: 'home'
+      to: 'on'
   action:
     - service: notify.ios_lolphone_7
       data:
