@@ -11,6 +11,8 @@
           push:
             badge: 2
             category: "ALARM_AWAY_STALE"
+          action_data:
+            entity_id: alarm_control_panel.alarm_arm_away
 
 - alias: Disarm alarm from notification
   trigger:
