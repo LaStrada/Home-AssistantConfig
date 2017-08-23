@@ -3,13 +3,17 @@
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
     - service: notify.ios_lolphone_7
       data:
         message: "Kommer hjem"
         data:
           push:
-            badge: 1
+            badge: 0
             category: "ALARM_HOME_STALE"
           action_data:
             entity_id: alarm_control_panel.alarm_arm_away
@@ -21,7 +25,7 @@
       event_data:
         actionName: DISARM_ALARM
   action:
-    - service: alarm_control_panel.alarm_arm_away
+    - service: alarm_control_panel.alarm_arm_home
       entity_id: alarm_control_panel.ha_alarm
       data:
         code: !secret alarm_code

@@ -3,13 +3,17 @@
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'off'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_home
   action:
     - service: notify.ios_lolphone_7
       data:
         message: "Drar bort"
         data:
           push:
-            badge: 2
+            badge: 0
             category: "ALARM_AWAY_STALE"
           action_data:
             entity_id: alarm_control_panel.alarm_arm_away
@@ -21,7 +25,7 @@
       event_data:
         actionName: ARM_ALARM
   action:
-    - service: alarm_control_panel.alarm_arm_home
+    - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.ha_alarm
       data:
         code: !secret alarm_code
