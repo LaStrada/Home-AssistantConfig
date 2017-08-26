@@ -8,9 +8,6 @@ homeassistant:
   customize_glob:
     "*":
       homebridge_hidden: true
-  customize_domain:
-    climate:
-      homebridge_hidden: false
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize

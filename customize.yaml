@@ -137,3 +137,12 @@ binary_sensor.freezer_kitchen_sensor:
 
 sensor.receiver_fan_speed:
   icon: mdi:fan
+
+
+# Climate
+climate.kontor_thermostat:
+  homebridge_hidden: false
+climate.soverom_thermostat:
+  homebridge_hidden: false
+climate.stue_thermostat:
+  homebridge_hidden: false
