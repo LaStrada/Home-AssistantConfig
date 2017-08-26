@@ -1,3 +1,8 @@
+# Bedroom
+sensor.template_temperature_bedroom:
+  homebridge_hidden: false
+
+
 # Kitchen
 sensor.multi_kitchen_temperature:
   friendly_name: Temperatur kjøkken
