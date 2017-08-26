@@ -15,7 +15,7 @@ lys_kitchen:
 lys_stue:
   name: Stue
   entities:
-    - light.stue
+    - light.stua
 
 lys_gang:
   name: Gang
