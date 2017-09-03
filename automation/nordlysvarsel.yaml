@@ -18,20 +18,58 @@
               value_template: '{{ now().month < 5 }}'
             - condition: template
               value_template: '{{ now().month > 8 }}'
+
+        # Only when not on vacation
         - condition: state
           entity_id: input_boolean.vacation_mode
           state: 'off'
+
+        # workday = from 7, else 9
         - condition: or
           conditions:
-            - condition: sun
-              after: sunset
-              after_offset: "02:00:00"
-            - condition: sun
-              before: sunrise
-              before_offset: "-02:00:00"
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: binary_sensor.workday_today
+                state: true
+              - condition: time
+                after: '07:00:00'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: binary_sensor.workday_today
+                state: false
+              - condition: time
+                after: '09:00:00'
+
+        # workday tomorrow = before 23, else 02
+        - condition: or
+          conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: binary_sensor.workday_tomorrow
+                state: true
+              - condition: time
+                before: '23:00:00'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: binary_sensor.workday_tomorrow
+                state: false
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: binary_sensor.workday_today
+                state: false
+              - condition: time
+                before: '02:00:00'
+
         - condition: numeric_state
           entity_id: sensor.nordlysvarsel_1_time
           above: 3.5
+
+        # Need clear sky
         - condition: or
           conditions:
             - condition: numeric_state
