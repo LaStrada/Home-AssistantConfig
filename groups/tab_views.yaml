@@ -4,12 +4,9 @@ default_view:
   icon: mdi:home 
   view: yes
   entities:
+    - group.alarm
+    - group.heracam
     - group.ute_min
-    - group.stue
-    - group.kitchen
-    - group.soverom
-    - group.kontor
-    - group.gang
 
 
 ### Temperatures

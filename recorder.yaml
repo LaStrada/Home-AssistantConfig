@@ -64,11 +64,9 @@ include:
     - input_boolean.vacation_mode
 
     # Climate
-    - climate.kontor_thermostat
-    - climate.soverom_thermostat
-    - climate.stue_thermostat
+    - climate.kontor_termostat
+    - climate.soverom_termostat
+    - climate.stue_termostat
 
     # Other
     - sensor.nordlysvarsel_1_time
-    - binary_sensor.workday_sensor
-    - binary_sensor.workday_tomorrow_sensor

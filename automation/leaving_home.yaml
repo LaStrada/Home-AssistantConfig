@@ -1,11 +1,11 @@
-- alias: Leaving home alert
+- alias: Leaving home alert (doors)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'off'
     - platform: state
-      entity_id: input_boolean.tina_home
-      to: 'off'
+      entity_id: alarm_control_panel.ha_alarm
+      to: armed_away
   condition:
     - condition: state
       entity_id: input_boolean.stale_home
@@ -15,40 +15,60 @@
       state: 'off'
     - condition: or
       conditions:
-        # Door sensor main
-        # - condition: state
-        #   entity_id: 
-        #   state: 'on'
-        #   
         # Door sensor front
-        # - condition: state
-        #   entity_id: 
-        #   state: 'on'
-        #   
+        - condition: state
+          entity_id: binary_sensor.door_front_sensor
+          state: 'on'
+          
         # Door sensor back
-        # - condition: state
-        #   entity_id: 
-        #   state: 'on'
-        #   
-        # Refrigerator
-        # - condition: state
-        #   entity_id: 
-        #   state: 'on'
-        #   
-        # Freezer kitchen
-        # - condition: state
-        #   entity_id: 
-        #   state: 'on'
-        #   
-        # Freezer storage room
-        # - condition: state
-        #   entity_id: 
-        #   state: 'on'
+        - condition: state
+          entity_id: binary_sensor.door_back_sensor
+          state: 'on'
   action:
-    - service: notify.notify
+    - service: notify.notify_all_important
       data:
         title: 'Dører åpne!'
         message: >
-          Hoveddør: {{ sensor.door_main }}
-          Balkongdør foran: {{ sensor_door_front }}
-          Balkongdør bak: {{ sensor_door_behind }}
+          Balkongdør foran: {{ states.binary_sensor.door_front_sensor.state }}
+          Balkongdør bak: {{ states.binary_sensor.door_back_sensor.state }}
+
+
+- alias: Leaving home alert (doors)
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: armed_away
+  condition:
+    - condition: state
+      entity_id: input_boolean.stale_home
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.tina_home
+      state: 'off'
+    - condition: or
+      conditions:
+        # Refrigerator
+        - condition: state
+          entity_id: binary_sensor.refrigerator_kitchen_sensor
+          state: 'on'
+          
+        # Freezer kitchen
+        - condition: state
+          entity_id: binary_sensor.freezer_kitchen_sensor
+          state: 'on'
+          
+        # Freezer storage room
+        - condition: state
+          entity_id: binary_sensor.freezer_bod_sensor
+          state: 'on'
+  action:
+    - service: notify.notify_all_important
+      data:
+        title: 'Dører åpne!'
+        message: >
+          Kjøleskap: {{ states.binary_sensor.refrigerator_kitchen_sensor.state }}
+          Fryser (kjøkken): {{ states.binary_sensor.freezer_kitchen_sensor.state }}
+          Fryser (bod): {{ states.binary_sensor.freezer_bod_sensor.state }}

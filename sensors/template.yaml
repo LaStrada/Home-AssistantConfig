@@ -5,26 +5,7 @@
       friendly_name: 'Solvinkel'
       unit_of_measurement: '°'
 
-    # Motion
-    alarm_active:
-      value_template: >-
-          {% set stale = is_state("input_boolean.stale_home", "on") %}
-          {% set tina = is_state("device_tracker.89bc5926ba332e4f", "home") %}
-          {% set guests = is_state("input_boolean.guests", "on") %}
-          {% set android1 = is_state("device_tracker.android89bc5926ba332e4flan", "home") %}
-          {% set android2 = is_state("device_tracker.samsunggalaxys7lan", "home") %}
-          {%- if stale or tina or guests or android1 or android2 %}
-            Inactive
-          {% else %}
-            Active
-          {% endif %}
-      friendly_name: Alarm state
-      entity_id:
-        - input_boolean.stale_home
-        - device_tracker.89bc5926ba332e4f
-        - input_boolean.guests
-        - device_tracker.android89bc5926ba332e4flan
-        - device_tracker.samsunggalaxys7lan
+    ### Motion
 
     motion_gang:
       value_template: >-

@@ -147,6 +147,6 @@
 - alias: Taklys endringer
   trigger:
     - platform: state
-      entity_id: light.stue
+      entity_id: light.stua
   action:
     - service: shell_command.vitrineskap_dim

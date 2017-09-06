@@ -1,0 +1,4 @@
+water_leak_sensors:
+  name: Vannlekkasje
+  entities:
+    - sensor.template_water_leak_kitchen

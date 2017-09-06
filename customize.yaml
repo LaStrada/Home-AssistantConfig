@@ -1,3 +1,8 @@
+# Bedroom
+sensor.template_temperature_bedroom:
+  homebridge_hidden: false
+
+
 # Kitchen
 sensor.multi_kitchen_temperature:
   friendly_name: Temperatur kjøkken
@@ -106,9 +111,9 @@ device_tracker.androide63cbc6e620053d3lan:
 
 
 # Diverse
-sensor.ssl_certificate_expiry:
+sensor.main_domain:
   friendly_name: !secret main_domain
-sensor.ssl_certificate_expiry_2:
+sensor.ping_domain:
   friendly_name: ping
 
 
@@ -137,3 +142,12 @@ binary_sensor.freezer_kitchen_sensor:
 
 sensor.receiver_fan_speed:
   icon: mdi:fan
+
+
+# Climate
+climate.kontor_thermostat:
+  homebridge_hidden: false
+climate.soverom_thermostat:
+  homebridge_hidden: false
+climate.stue_thermostat:
+  homebridge_hidden: false

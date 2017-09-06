@@ -8,15 +8,12 @@ homeassistant:
   customize_glob:
     "*":
       homebridge_hidden: true
-  customize_domain:
-    climate:
-      homebridge_hidden: false
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize
     - /home/homeassistant/heracam/thumbnail
 
-frontend:
+frontend: !include frontend.yaml
 
 http:
   api_password: !secret http_password
@@ -42,12 +39,8 @@ logbook: !include logbook.yaml
 
 sun:
 
-mqtt:
-  client_id: hass-mqtt-broker
-  discovery: true
-  discovery_prefix: hass
-
-ios:
+mqtt: !include mqtt.yaml
+ios: !include ios.yaml
 
 rfxtrx:
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Z5XR3V-if00-port0
@@ -71,10 +64,6 @@ zwave:
   usb_path: /dev/ttyAMA0
   polling_interval: 1800000
 
-alarm_control_panel:
-  - platform: manual_mqtt
-    state_topic: home/alarm
-    command_topic: home/alarm/set
-    code: !secret alarm_code
+alarm_control_panel: !include alarm.yaml
 
 notify: !include notify.yaml

@@ -4,9 +4,14 @@
   trigger:
     - platform: time
       at: "07:00:00"
+    - platform: homeassistant
+      event: start
   condition:
+    - condition: time
+      after: '07:00:00'
+      before: '10:00:00'
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -25,9 +30,14 @@
   trigger:
     - platform: time
       at: "10:00:00"
+    - platform: homeassistant
+      event: start
   condition:
+    - condition: time
+      after: '10:00:00'
+      before: '20:00:00'
     - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
+      entity_id: 'binary_sensor.workday_today'
       state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -43,7 +53,12 @@
   trigger:
     - platform: time
       at: "20:00:00"
+    - platform: homeassistant
+      event: start
   condition:
+    - condition: time
+      after: '20:00:00'
+      before: '07:00:00'
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'

@@ -1,5 +1,7 @@
 - platform: cert_expiry
   host: !secret main_domain
+  name: main_domain
 
 - platform: cert_expiry
   host: !secret ping_domain
+  name: ping_domain
