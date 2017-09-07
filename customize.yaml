@@ -53,7 +53,7 @@ sensor.yr_precipitation:
 sensor.yr_wind_speed:
   friendly_name: Vind
   icon: mdi:weather-windy
-sensor.nordlysvarsel_1_time
+sensor.nordlysvarsel_1_time:
   icon: mdi:earth
 
 
