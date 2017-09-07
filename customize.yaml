@@ -52,6 +52,9 @@ sensor.yr_precipitation:
   icon: mdi:weather-rainy
 sensor.yr_wind_speed:
   friendly_name: Vind
+  icon: mdi:weather-windy
+sensor.nordlysvarsel_1_time
+  icon: mdi:earth
 
 
 # Guestroom / office (kontor)

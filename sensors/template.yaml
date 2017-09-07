@@ -9,6 +9,7 @@
       value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
       friendly_name: 'Høyde'
       unit_of_measurement: '°'
+      icon_template: mdi:weather-sunset
 
     ### Motion
 
