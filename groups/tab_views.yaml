@@ -16,6 +16,7 @@ temperatures:
   icon: mdi:thermometer
   entities:
     - group.ute
+    - group.ute2
     - group.temp_stue_kitchen
     - group.temp_soverom
     - group.temp_kontor

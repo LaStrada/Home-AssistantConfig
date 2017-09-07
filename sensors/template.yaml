@@ -5,6 +5,11 @@
       friendly_name: 'Solvinkel'
       unit_of_measurement: '°'
 
+    sun_elevation:
+      value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+      friendly_name: 'Høyde'
+      unit_of_measurement: '°'
+
     ### Motion
 
     motion_gang:

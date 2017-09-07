@@ -59,13 +59,17 @@ ute:
   entities:
     - sensor.temp_ute_temperature
     - sensor.yr_humidity
-    - sun.sun
-    - sensor.solar_angle
     - sensor.yr_symbol
     - sensor.yr_cloudiness
     - sensor.yr_dewpoint_temperature
     - sensor.yr_precipitation
     - sensor.yr_wind_speed
-    - sun.next_rising
-    - sun.next_setting
+
+ute2:
+  name: Sol, måne & nordlys
+  entities:
+    - sun.sun
+    - sensor.solar_angle
+    - sensor.sun_elevation
     - sensor.nordlysvarsel_1_time
+    - sensor.moon
