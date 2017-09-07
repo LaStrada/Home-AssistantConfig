@@ -5,119 +5,106 @@
       friendly_name: 'Solvinkel'
       unit_of_measurement: '°'
 
-    # Motion
-    alarm_active:
-      value_template: >-
-          {% set stale = is_state("input_boolean.stale_home", "off") %}
-          {% set tina = is_state("input_boolean.tina_home", "off") %}
-          {% set guests = is_state("input_boolean.guests", "off") %}
-          {% set android1 = is_state("device_tracker.android89bc5926ba332e4flan", "not_home") %}
-          {% set android2 = is_state("device_tracker.samsunggalaxys7lan", "not_home") %}
-          {%- if stale and tina and guests and android1 and android2 %}
-            Active
-          {% else %}
-            Inactive
-          {% endif %}
-      friendly_name: Alarm state
-      entity_id:
-        - input_boolean.stale_home
-        - input_boolean.tina_home
-        - input_boolean.guests
-        - device_tracker.android89bc5926ba332e4flan
-        - device_tracker.samsunggalaxys7lan
+    sun_elevation:
+      value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+      friendly_name: 'Høyde'
+      unit_of_measurement: '°'
+      icon_template: mdi:weather-sunset
+
+    ### Motion
 
     motion_gang:
       value_template: >-
-          {% if is_state("sensor.multi_gang_burglar_17_10", "0") %}
-            {{ as_timestamp(states.sensor.multi_gang_burglar_17_10.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+          {% if is_state("sensor.multi_gang_burglar", "0") %}
+            {{ as_timestamp(states.sensor.multi_gang_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion gang'
-      icon_template: '{% if is_state("sensor.multi_gang_burglar_17_10", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      icon_template: '{% if is_state("sensor.multi_gang_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       entity_id:
-        - sensor.multi_gang_burglar_17_10
+        - sensor.multi_gang_burglar
 
     motion_kitchen:
       value_template: >-
-          {% if is_state("sensor.multi_kitchen_burglar_18_10", "0") %}
-            {{ as_timestamp(states.sensor.multi_kitchen_burglar_18_10.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+          {% if is_state("sensor.multi_kitchen_burglar", "0") %}
+            {{ as_timestamp(states.sensor.multi_kitchen_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kjøkken'
-      icon_template: '{% if is_state("sensor.multi_kitchen_burglar_18_10", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      icon_template: '{% if is_state("sensor.multi_kitchen_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       entity_id:
-        - sensor.multi_kitchen_burglar_18_10
+        - sensor.multi_kitchen_burglar
       
     motion_kontor:
       value_template: >-
-          {% if is_state("sensor.multi_kontor_burglar_9_10", "0") %}
-            {{ as_timestamp(states.sensor.multi_kontor_burglar_9_10.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+          {% if is_state("sensor.multi_kontor_burglar", "0") %}
+            {{ as_timestamp(states.sensor.multi_kontor_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kontor'
-      icon_template: '{% if is_state("sensor.multi_kontor_burglar_9_10", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      icon_template: '{% if is_state("sensor.multi_kontor_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       entity_id:
-        - sensor.multi_kontor_burglar_9_10
+        - sensor.multi_kontor_burglar
 
 
     ### Smoke sensors
   
     # Gang
     smoke_gang:
-      value_template: '{% if is_state("sensor.smoke_gang_smoke_47_1", "0") %}OK{% else %}Brann!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_gang_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk i gangen'
-      icon_template: '{% if is_state("sensor.smoke_gang_smoke_47_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_gang_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_gang_smoke_47_1
+        - sensor.smoke_gang_smoke_2
       
     heat_gang:
-      value_template: '{% if is_state("sensor.smoke_gang_heat_47_4", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_gang_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme i gangen'
-      icon_template: '{% if is_state("sensor.smoke_gang_heat_47_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_gang_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_gang_heat_47_4
+        - sensor.smoke_gang_heat_2
 
     # Kontor
     smoke_kontor:
-      value_template: '{% if is_state("sensor.smoke_kontor_smoke_48_1", "0") %}OK{% else %}Brann!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_kontor_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk på kontoret'
-      icon_template: '{% if is_state("sensor.smoke_kontor_smoke_48_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_kontor_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_kontor_smoke_48_1
+        - sensor.smoke_kontor_smoke_2
       
     heat_kontor:
-      value_template: '{% if is_state("sensor.smoke_kontor_heat_48_4", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_kontor_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme på kontoret'
-      icon_template: '{% if is_state("sensor.smoke_kontor_heat_48_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_kontor_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_kontor_heat_48_4
+        - sensor.smoke_kontor_heat_2
 
     # Stue
     smoke_stue:
-      value_template: '{% if is_state("sensor.smoke_stue_smoke_49_1", "0") %}OK{% else %}Brann!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_stue_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk i stua'
-      icon_template: '{% if is_state("sensor.smoke_stue_smoke_49_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_stue_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_stue_smoke_49_1
+        - sensor.smoke_stue_smoke_2
       
     heat_stue:
-      value_template: '{% if is_state("sensor.smoke_stue_heat_49_4", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_stue_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme i stua'
-      icon_template: '{% if is_state("sensor.smoke_stue_heat_49_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_stue_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_stue_heat_49_4
+        - sensor.smoke_stue_heat_2
 
     # Soverom
     smoke_soverom:
-      value_template: '{% if is_state("sensor.smoke_soverom_smoke_50_1", "0") %}OK{% else %}Brann!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_soverom_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk på soverommet'
-      icon_template: '{% if is_state("sensor.smoke_soverom_smoke_50_1", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_soverom_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_soverom_smoke_50_1
+        - sensor.smoke_soverom_smoke_2
       
     heat_soverom:
-      value_template: '{% if is_state("sensor.smoke_soverom_heat_50_4", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      value_template: '{% if is_state("sensor.smoke_soverom_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme på soverommet'
-      icon_template: '{% if is_state("sensor.smoke_soverom_heat_50_4", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      icon_template: '{% if is_state("sensor.smoke_soverom_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
       entity_id:
-        - sensor.smoke_soverom_heat_50_4
+        - sensor.smoke_soverom_heat_2
     
     # Template temperature sensor with fallback
     template_temperature_bedroom:
@@ -160,8 +147,8 @@
         - sensor.mqtt_bedroom_humidity
 
     template_water_leak_kitchen:
-      value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood_32_5", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
-      icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood_32_5", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
+      icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       friendly_name: Vannlekkasje
       entity_id:
-        - sensor.kitchen_leak_sensor_flood_32_5
+        - sensor.kitchen_leak_sensor_flood

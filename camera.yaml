@@ -1,6 +1,3 @@
 - platform: generic
   name: HeraCam
   still_image_url: !secret heracam_url
-  authentication: basic
-  username: !secret heracam_username
-  password: !secret heracam_password

@@ -1,0 +1,3 @@
+client_id: hass-mqtt-broker
+discovery: true
+discovery_prefix: hass

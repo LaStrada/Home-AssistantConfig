@@ -8,21 +8,17 @@ lys_soverom:
 lys_kitchen:
   name: Kjøkken
   entities:
-    - light.ktichen_table_dimmer_level_23_0
-    - switch.kitchen_lights_switch_58_0_2
-    - switch.kitchen_lights_switch_58_0_3
+    - switch.kitchen_lights_switch_2 # tak
+    - switch.kitchen_lights_switch_3 # bardisk
+    - light.kitchen_table_dimmer_level # spisebord
 
 lys_stue:
   name: Stue
   entities:
-    - light.stue
+    - light.stua
 
 lys_gang:
   name: Gang
   entities:
-    - light.gang_dimmer_level_45_0
-    - light.gang_garderobeskap_level_46_0
-
-lys_kontor:
-  name: Kontor
-  entities:
+    - light.gang_dimmer_level
+    - light.gang_garderobeskap_level

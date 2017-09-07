@@ -1,0 +1,5 @@
+door_sensors:
+  name: Dører
+  entities:
+    - binary_sensor.door_front_sensor
+    - binary_sensor.door_back_sensor

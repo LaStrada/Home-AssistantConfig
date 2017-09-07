@@ -1,0 +1,31 @@
+- alias: Theme home
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: disarmed
+  action:
+    - service: frontend.set_theme
+      data:
+        name: default
+
+
+- alias: Theme alarm pending
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: pending
+  action:
+    - service: frontend.set_theme
+      data:
+        name: alarm_pending
+
+
+- alias: Theme alarm active
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: armed_away
+  action:
+    - service: frontend.set_theme
+      data:
+        name: alarm_armed

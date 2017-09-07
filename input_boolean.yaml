@@ -14,10 +14,6 @@ stale_job:
   name: Ståle på jobb
   initial: off
 
-tina_home:
-  name: Tina hjemme
-  initial: on
-
 soverom_wakeup_heat:
   name: Soverom wakeup heat
   initial: on

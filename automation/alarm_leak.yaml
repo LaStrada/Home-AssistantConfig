@@ -1,7 +1,7 @@
 - alias: Alarm away door back
   trigger:
     - platform: state
-      entity_id: sensor.kitchen_leak_sensor_flood_32_5
+      entity_id: sensor.kitchen_leak_sensor_flood
       to: '255'
   action:
     - service: notify.notify_all_important

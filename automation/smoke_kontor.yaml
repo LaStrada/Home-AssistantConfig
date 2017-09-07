@@ -2,10 +2,10 @@
 - alias: Smoke Sensor Office Smoke
   trigger:
     - platform: state
-      entity_id: sensor.smoke_kontor_smoke_48_1
+      entity_id: sensor.smoke_kontor_smoke_2
   condition:
     - condition: state
-      entity_id: sensor.smoke_kontor_smoke_48_1
+      entity_id: sensor.smoke_kontor_smoke_2
       state: '254'
   action:
     - service: notify.notify_all_important
@@ -17,11 +17,11 @@
 - alias: Smoke Sensor Office NOSMOKE
   trigger:
     - platform: state
-      entity_id: sensor.smoke_kontor_smoke_48_1
+      entity_id: sensor.smoke_kontor_smoke_2
       from: '254'
   condition:
     - condition: state
-      entity_id: sensor.smoke_kontor_smoke_48_1
+      entity_id: sensor.smoke_kontor_smoke_2
       state: '0'
   action:
     - service: notify.notify_all_important
@@ -35,15 +35,15 @@
 - alias: Smoke Sensor Office Temperature HIGH
   trigger:
     - platform: state
-      entity_id: sensor.smoke_kontor_heat_48_4
+      entity_id: sensor.smoke_kontor_heat_2
   condition:
     - condition: or
       conditions:
       - condition: state
-        entity_id: sensor.smoke_kontor_heat_48_4
+        entity_id: sensor.smoke_kontor_heat_2
         state: '254'
       - condition: numeric_state
-        entity_id: sensor.smoke_kontor_temperature_48_1
+        entity_id: sensor.smoke_kontor_temperature
         above: 35
   action:
     - service: notify.notify_all_important
@@ -55,11 +55,11 @@
 - alias: Smoke Sensor Office Temperature Normal
   trigger:
     - platform: state
-      entity_id: sensor.smoke_kontor_heat_48_4
+      entity_id: sensor.smoke_kontor_heat_2
       from: '254'
   condition:
     - condition: state
-      entity_id: sensor.smoke_kontor_heat_48_4
+      entity_id: sensor.smoke_kontor_heat_2
       state: '0'
   action:
     - service: notify.notify_all_important

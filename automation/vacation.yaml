@@ -4,6 +4,10 @@
       entity_id: input_boolean.vacation_mode
       to: 'on'
   action:
+    - service: input_slider.select_value
+      data_template:
+        entity_id: input_slider.stue_thermostat_temperatur
+        value: "{{ states.input_slider.ferie_temperatur.state | float }}"
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat

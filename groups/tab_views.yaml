@@ -4,12 +4,9 @@ default_view:
   icon: mdi:home 
   view: yes
   entities:
+    - group.alarm
+    - group.heracam
     - group.ute_min
-    - group.stue
-    - group.kitchen
-    - group.soverom
-    - group.kontor
-    - group.gang
 
 
 ### Temperatures
@@ -19,6 +16,7 @@ temperatures:
   icon: mdi:thermometer
   entities:
     - group.ute
+    - group.ute2
     - group.temp_stue_kitchen
     - group.temp_soverom
     - group.temp_kontor

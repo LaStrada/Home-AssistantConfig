@@ -1,0 +1,36 @@
+- alias: Ask if alarm should be disarmed
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'on'
+  condition:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: armed_away
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: pending
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Kommer hjem"
+        data:
+          push:
+            badge: 0
+            category: "ALARM_HOME_STALE"
+          action_data:
+            entity_id: alarm_control_panel.alarm_arm_away
+
+- alias: Disarm alarm from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: DISARM_ALARM
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.ha_alarm
+      data:
+        code: !secret alarm_code

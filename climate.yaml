@@ -1,6 +1,6 @@
 - platform: generic_thermostat
   name: Stue termostat
-  heater: switch.panelovn_stue_switch_11_0
+  heater: switch.panelovn_stue_switch
   target_sensor: sensor.temp_stue_temperature
   min_temp: 10
   max_temp: 25
@@ -14,7 +14,7 @@
 
 - platform: generic_thermostat
   name: Kontor termostat
-  heater: switch.panelovn_kontor_switch_44_0
+  heater: switch.panelovn_kontor_switch
   target_sensor: sensor.temp_kontor_temperature
   min_temp: 10
   max_temp: 23
@@ -28,7 +28,7 @@
 
 - platform: generic_thermostat
   name: Soverom termostat
-  heater: switch.panelovn_soverom_switch_13_0
+  heater: switch.panelovn_soverom_switch
   target_sensor: sensor.template_temperature_bedroom
   min_temp: 10
   max_temp: 21

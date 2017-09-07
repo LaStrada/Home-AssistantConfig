@@ -3,45 +3,62 @@
     - platform: state
       entity_id: sensor.nordlysvarsel_1_time
   condition:
-    - condition: and
-      conditions:
-        # sun.elevation < -15
-        - condition: numeric_state
-          entity_id: sun.sun
-          value_template: '{{ state.attributes.elevation }}'
-          below: -15
+    # sun.elevation < -15
+    - condition: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: -15
 
-        # month < may and month > august
-        - condition: or
+    # month < may and month > august
+    - condition: or
+      conditions:
+        - condition: template
+          value_template: '{{ now().month < 5 }}'
+        - condition: template
+          value_template: '{{ now().month > 8 }}'
+
+    # Only when not on vacation
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+
+    - condition: or
+      conditions:
+        - condition: and
           conditions:
-            - condition: template
-              value_template: '{{ now().month < 5 }}'
-            - condition: template
-              value_template: '{{ now().month > 8 }}'
-        - condition: state
-          entity_id: input_boolean.vacation_mode
-          state: 'off'
-        - condition: or
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'off'
+            - condition: or
+              conditions:
+                - condition: time
+                  before: '02:00:00'
+                - condition: time
+                  after: '10:00:00'
+          
+        - condition: and
           conditions:
-            - condition: sun
-              after: sunset
-              after_offset: "02:00:00"
-            - condition: sun
-              before: sunrise
-              before_offset: "-02:00:00"
+          - condition: state
+            entity_id: binary_sensor.workday_today
+            state: 'on'
+          - condition: time
+            after: '10:00:00'
+
+    - condition: numeric_state
+      entity_id: sensor.nordlysvarsel_1_time
+      above: 4.0
+
+    # Need clear sky
+    - condition: or
+      conditions:
         - condition: numeric_state
-          entity_id: sensor.nordlysvarsel_1_time
-          above: 3.5
-        - condition: or
-          conditions:
-            - condition: numeric_state
-              entity_id: 'sensor.yr_symbol'
-              above: 0
-              below: 4
-            - condition: numeric_state
-              entity_id: 'sensor.yr_symbol'
-              above: 100
-              below: 104
+          entity_id: 'sensor.yr_symbol'
+          above: 0
+          below: 4
+        - condition: numeric_state
+          entity_id: 'sensor.yr_symbol'
+          above: 100
+          below: 104
   action:
     - service: notify.ios_lolphone_7
       data:

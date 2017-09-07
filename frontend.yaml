@@ -1,0 +1,5 @@
+themes:
+  alarm_pending:
+    primary-color: "#CC4A14"
+  alarm_armed:
+    primary-color: "#B21212"

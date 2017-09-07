@@ -5,11 +5,11 @@
       to: 'Bevegelse!'
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
-      for:
-        minutes: 2
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
     - service: notify.notify_all_important
       data:
         title: 'Motion alarm!'
@@ -22,10 +22,8 @@
       seconds: '/20'
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
-      for:
-        minutes: 2
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
     - condition: state
       entity_id: sensor.motion_gang
       state: 'Bevegelse!'
@@ -42,9 +40,11 @@
       to: 'Bevegelse!'
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
     - service: notify.notify_all_important
       data:
         title: 'Motion alarm!'
@@ -58,9 +58,11 @@
       to: 'Bevegelse!'
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
     - service: notify.notify_all_important
       data:
         title: 'Motion alarm!'

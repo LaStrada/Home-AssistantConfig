@@ -1,13 +1,15 @@
 - alias: Alarm away door back
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_back_sensor_53_0
+      entity_id: binary_sensor.door_back_sensor
       to: 'on'
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
     - service: notify.notify_all_important
       data:
         title: 'Door alarm!'
@@ -17,13 +19,15 @@
 - alias: Alarm away door front
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor_52_0
+      entity_id: binary_sensor.door_front_sensor
       to: 'on'
   condition:
     - condition: state
-      entity_id: sensor.alarm_active
-      state: 'Active'
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
   action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
     - service: notify.notify_all_important
       data:
         title: 'Door alarm!'
