@@ -1,7 +1,7 @@
 - platform: airvisual
   api_key: gcTHA68wbEEkKFn7h
   monitored_conditions:
-    - 'no'
+    - us
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  radius: 500
+  radius: 1000
