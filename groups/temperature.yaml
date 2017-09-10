@@ -59,7 +59,6 @@ ute:
   entities:
     - sensor.temp_ute_temperature
     - sensor.yr_humidity
-    - sensor.yr_symbol
     - sensor.yr_cloudiness
     - sensor.yr_dewpoint_temperature
     - sensor.yr_precipitation
@@ -68,6 +67,7 @@ ute:
 ute2:
   name: Sol, måne & nordlys
   entities:
+    - sensor.yr_symbol
     - sun.sun
     - sensor.solar_angle
     - sensor.sun_elevation
