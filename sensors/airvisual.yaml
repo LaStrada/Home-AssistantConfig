@@ -2,6 +2,6 @@
   api_key: gcTHA68wbEEkKFn7h
   monitored_conditions:
     - 'no'
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   radius: 500
