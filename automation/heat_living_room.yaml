@@ -116,11 +116,10 @@
 - alias: Living room door opened
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor
+      entity_id: group.door_sensors_living_room_kitchen
       to: 'on'
-    - platform: state
-      entity_id: binary_sensor.door_back_sensor
-      to: 'on'
+      for:
+        seconds: 30
   action:
     - service: climate.set_operation_mode
       data:
@@ -130,18 +129,8 @@
 - alias: Living room door closed
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor
-    - platform: state
-      entity_id: binary_sensor.door_back_sensor
-  condition:
-    - condition: state
-      entity_id: binary_sensor.door_front_sensor
-      state: 'off'
-      for:
-        minutes: 2
-    - condition: state
-      entity_id: binary_sensor.door_back_sensor
-      state: 'off'
+      entity_id: group.door_sensors_living_room_kitchen
+      to: 'off'
       for:
         minutes: 2
   action:
