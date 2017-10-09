@@ -3,7 +3,7 @@
 - alias: Vitrineskap changed
   trigger:
     - platform: state
-      entity_id: input_slider.vitrineskap_dimmer
+      entity_id: input_number.vitrineskap_dimmer
   action:
     - service: shell_command.vitrineskap_dim
 
@@ -14,9 +14,9 @@
       event: sunrise
       offset: "01:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 4
 
 # 90 min after sunrise
@@ -26,9 +26,9 @@
       event: sunrise
       offset: "02:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 5
 
 # 120 min after sunrise
@@ -38,9 +38,9 @@
       event: sunrise
       offset: "02:30:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 6
 
 # 150 min after sunrise
@@ -50,9 +50,9 @@
       event: sunrise
       offset: "03:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 7
 
 # 180 min after sunrise
@@ -62,9 +62,9 @@
       event: sunrise
       offset: "04:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 8
 
 
@@ -76,9 +76,9 @@
     - platform: sun
       event: sunset
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 3
 
 # 60 min before sunset
@@ -88,9 +88,9 @@
       event: sunset
       offset: "-01:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 4
 
 # 90 min before sunset
@@ -100,9 +100,9 @@
       event: sunset
       offset: "-02:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 5
 
 # 120 min before sunset
@@ -112,9 +112,9 @@
       event: sunset
       offset: "-02:30:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 6
 
 # 150 min before sunset
@@ -124,9 +124,9 @@
       event: sunset
       offset: "-03:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 7
 
 # 180 min before sunset
@@ -136,9 +136,9 @@
       event: sunset
       offset: "-04:00:00"
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data:
-        entity_id: input_slider.vitrineskap_dimmer
+        entity_id: input_number.vitrineskap_dimmer
         value: 8
 
 

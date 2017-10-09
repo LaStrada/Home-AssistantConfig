@@ -23,7 +23,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.soverom_termostat
-        temperature: "{{ states.input_slider.soverom_wakeup_temperatur.state | float }}"
+        temperature: "{{ states.input_number.soverom_wakeup_temperatur.state | float }}"
 
 
 - alias: Soverom dag helg
@@ -46,4 +46,4 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.soverom_termostat
-        temperature: "{{ states.input_slider.soverom_dagtid_temperatur.state | float }}"
+        temperature: "{{ states.input_number.soverom_dagtid_temperatur.state | float }}"

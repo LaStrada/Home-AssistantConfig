@@ -20,4 +20,4 @@ Scheduling:
 - [Living room](https://github.com/LaStrada/Home-AssistantConfig/blob/master/automation/heat_living_room.yaml)
 - [Office](https://github.com/LaStrada/Home-AssistantConfig/blob/master/automation/heat_office.yaml)
 
-[Input sliders for dynamic temperatures](https://github.com/LaStrada/Home-AssistantConfig/blob/master/input_slider.yaml)
+[Input sliders for dynamic temperatures](https://github.com/LaStrada/Home-AssistantConfig/tree/master/input_slider)

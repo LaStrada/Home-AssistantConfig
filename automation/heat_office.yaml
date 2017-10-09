@@ -15,7 +15,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat
-        temperature: "{{ states.input_slider.kontor_temperatur.state | float }}"
+        temperature: "{{ states.input_number.kontor_temperatur.state | float }}"
 
 - alias: Kontor morgen ukedag
   trigger:
@@ -38,7 +38,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat
-        temperature: "{{ states.input_slider.kontor_morning_temperatur.state | float }}"
+        temperature: "{{ states.input_number.kontor_morning_temperatur.state | float }}"
 
 - alias: Kontor ettermiddag ukedag
   trigger:
@@ -58,4 +58,4 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat
-        temperature: "{{ states.input_slider.kontor_temperatur.state | float }}"
+        temperature: "{{ states.input_number.kontor_temperatur.state | float }}"

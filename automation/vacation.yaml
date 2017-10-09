@@ -4,14 +4,14 @@
       entity_id: input_boolean.vacation_mode
       to: 'on'
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data_template:
-        entity_id: input_slider.stue_thermostat_temperatur
-        value: "{{ states.input_slider.ferie_temperatur.state | float }}"
+        entity_id: input_number.stue_thermostat_temperatur
+        value: "{{ states.input_number.ferie_temperatur.state | float }}"
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat
-        temperature: "{{ states.input_slider.ferie_temperatur.state | float }}"
+        temperature: "{{ states.input_number.ferie_temperatur.state | float }}"
 
 - alias: Ferie modus off
   trigger:
@@ -22,12 +22,12 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat
-        temperature: '{{ input_slider.kontor_temperatur }}'
+        temperature: '{{ input_number.kontor_temperatur }}'
     - service: climate.set_temperature
       data_template:
         entity_id: climate.soverom_termostat
-        temperature: '{{ input_slider.soverom_natt_temperatur }}'
+        temperature: '{{ input_number.soverom_natt_temperatur }}'
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"

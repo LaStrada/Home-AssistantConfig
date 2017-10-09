@@ -20,7 +20,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
 
 - alias: Stue natt helg
   trigger:
@@ -42,7 +42,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
 
 - alias: Stue morgen ukedag
   trigger:
@@ -64,7 +64,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_morgen_temperatur.state | float }}"
 
 - alias: Stue ettermiddag ukedag
   trigger:
@@ -86,7 +86,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
 
 - alias: Stue morgen helg
   trigger:
@@ -108,7 +108,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
 
 
 # Door state changed

@@ -3,14 +3,14 @@ temperature_control_panel:
   control: hidden
   entities:
     - input_boolean.soverom_wakeup_heat
-    - input_slider.soverom_natt_temperatur
-    - input_slider.soverom_wakeup_temperatur
-    - input_slider.soverom_dagtid_temperatur
-    - input_slider.stue_morgen_temperatur
-    - input_slider.stue_dagtid_temperatur
-    - input_slider.stue_natt_temperatur
-    - input_slider.kontor_temperatur
-    - input_slider.kontor_morning_temperatur
+    - input_number.soverom_natt_temperatur
+    - input_number.soverom_wakeup_temperatur
+    - input_number.soverom_dagtid_temperatur
+    - input_number.stue_morgen_temperatur
+    - input_number.stue_dagtid_temperatur
+    - input_number.stue_natt_temperatur
+    - input_number.kontor_temperatur
+    - input_number.kontor_morning_temperatur
 
 temp_stue_kitchen:
   name: Stue & kjøkken
