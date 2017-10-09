@@ -4,7 +4,7 @@
       entity_id: input_boolean.vacation_mode
       to: 'on'
   action:
-    - service: input_number.select_value
+    - service: input_number.set_value
       data_template:
         entity_id: input_number.stue_thermostat_temperatur
         value: "{{ states.input_number.ferie_temperatur.state | float }}"
