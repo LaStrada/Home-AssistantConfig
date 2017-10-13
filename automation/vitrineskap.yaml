@@ -1,9 +1,13 @@
-# Soloppgang
+# Listen to changes
 
 - alias: Vitrineskap changed
   trigger:
     - platform: state
       entity_id: input_number.vitrineskap_dimmer
+    - platform: state
+      entity_id: light.stua
+    - platform: time
+      minutes: '/2'
   action:
     - service: shell_command.vitrineskap_dim
 
@@ -140,13 +144,3 @@
       data:
         entity_id: input_number.vitrineskap_dimmer
         value: 8
-
-
-# Lytt etter endringer
-
-- alias: Taklys endringer
-  trigger:
-    - platform: state
-      entity_id: light.stua
-  action:
-    - service: shell_command.vitrineskap_dim
