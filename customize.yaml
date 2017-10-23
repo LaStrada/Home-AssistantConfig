@@ -154,3 +154,9 @@ climate.soverom_thermostat:
   homebridge_hidden: false
 climate.stue_thermostat:
   homebridge_hidden: false
+
+
+# Alarm
+alarm_control_panel.ha_alarm:
+  homebridge_hidden: false
+  homebridge_name: Alarm
