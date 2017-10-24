@@ -1,7 +1,7 @@
 push:
   categories:
     - name: Alarm home Ståle
-      identifier: 'ALARM_HOME_STALE'
+      identifier: 'alarm_home_stale'
       actions:
         - identifier: 'DISARM_ALARM'
           title: 'Skru av alarm'
@@ -11,7 +11,7 @@ push:
           behavior: 'default'
 
     - name: Alarm away Ståle
-      identifier: 'ALARM_AWAY_STALE'
+      identifier: 'alarm_away_stale'
       actions:
         - identifier: 'ARM_ALARM'
           title: 'Skru på alarm'

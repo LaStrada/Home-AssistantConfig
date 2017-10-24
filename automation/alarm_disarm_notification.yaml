@@ -19,7 +19,7 @@
         data:
           push:
             badge: 0
-            category: "ALARM_HOME_STALE"
+            category: "alarm_home_stale"
 
 - alias: Disarm alarm from notification
   trigger:
