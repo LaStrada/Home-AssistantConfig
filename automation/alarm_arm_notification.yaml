@@ -1,9 +1,12 @@
-- alias: Ask if alarm should be armed
+- alias: Arm alarm (Ståle)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'off'
   condition:
+    - condition: state
+      entity_id: lock.danalock_locked
+      state: 'locked'
     - condition: or
       conditions:
       - condition: state
@@ -19,8 +22,48 @@
         data:
           push:
             badge: 0
-            category: "alarm_away_stale"
+            category: "arm_alarm_stale"
 
+- alias: Ask if alarm should be armed (Ståle)
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: lock.danalock_locked
+      state: 'unlocked'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: disarmed
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: pending
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Drar bort"
+        data:
+          push:
+            badge: 0
+            category: "arm_alarm_and_lock_door_stale"
+
+# Actional notification: Arm alarm and lock door
+- alias: Arm alarm and lock door from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: ARM_ALARM_AND_LOCK_DOOR
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.ha_alarm
+    - service: lock.lock
+      entity_id: lock.danalock_locked
+
+# Actional notification: arm alarm
 - alias: Disarm alarm from notification
   trigger:
     - platform: event
@@ -30,3 +73,14 @@
   action:
     - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.ha_alarm
+
+# Actional notification: Lock door
+- alias: Disarm alarm from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: LOCK_DOOR
+  action:
+    - service: lock.lock
+      entity_id: lock.danalock_locked
