@@ -1,14 +1,26 @@
-temperature_control_panel:
-  name: Temperaturkontroll
+temperature_control_panel_living_room:
+  name: Stue temperaturinnstillinger
+  control: hidden
+  entities:
+    - input_number.stue_morgen_temperatur
+    - input_number.stue_dagtid_temperatur
+    - input_number.stue_natt_temperatur
+
+temperature_control_panel_bedroom:
+  name: Soverom temperaturinnstillinger
   control: hidden
   entities:
     - input_boolean.soverom_wakeup_heat
     - input_number.soverom_natt_temperatur
     - input_number.soverom_wakeup_temperatur
     - input_number.soverom_dagtid_temperatur
-    - input_number.stue_morgen_temperatur
-    - input_number.stue_dagtid_temperatur
-    - input_number.stue_natt_temperatur
+
+temperature_control_panel_office:
+  name: Kontor temperaturinnstillinger
+  control: hidden
+  entities:
+    - tina_workday_tomorrow
+    - office_force_morning_heat
     - input_number.kontor_temperatur
     - input_number.kontor_morning_temperatur
 

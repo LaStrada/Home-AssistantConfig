@@ -17,3 +17,15 @@ stale_job:
 soverom_wakeup_heat:
   name: Soverom wakeup heat
   initial: on
+
+tina_workday_today:
+  name: Tina jobb i dag
+  initial: off
+
+tina_workday_tomorrow:
+  name: Tina jobb i morgen
+  initial: off
+
+office_force_morning_heat:
+  name: Varme morning kontor
+  initial: off
