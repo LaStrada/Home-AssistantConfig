@@ -78,3 +78,25 @@ push:
           authenticationRequired: yes
           destructive: yes
           behavior: 'default'
+
+    # Lock door (alarm armed)
+    - name: Lock door (Ståle)
+      identifier: 'lock_door_stale'
+      actions:
+        - identifier: 'LOCK_DOOR'
+          title: 'Lås opp dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+
+    # Unlock door (alarm disarmed)
+    - name: Unlock door (Ståle)
+      identifier: 'unlock_door_stale'
+      actions:
+        - identifier: 'UNLOCK_DOOR'
+          title: 'Lås dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'

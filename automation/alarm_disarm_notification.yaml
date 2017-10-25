@@ -11,14 +11,14 @@
       conditions:
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
-        state: armed_away
+        state: 'armed_away'
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
-        state: pending
+        state: 'pending'
   action:
     - service: notify.ios_lolphone_7
       data:
-        message: "Kommer hjem"
+        message: "Kommer hjem: alarm aktivert"
         data:
           push:
             badge: 0
@@ -37,18 +37,39 @@
       conditions:
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
-        state: armed_away
+        state: 'armed_away'
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
-        state: pending
+        state: 'pending'
   action:
     - service: notify.ios_lolphone_7
       data:
-        message: "Kommer hjem"
+        message: "Kommer hjem: dør låst og alarm aktivert"
         data:
           push:
             badge: 0
             category: "disarm_alarm_and_unlock_door_stale"
+
+- alias: Ask if door should be unlocked (Ståle)
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: lock.danalock_locked
+      state: 'locked'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: 'disarmed'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Kommer hjem: dør låst"
+        data:
+          push:
+            badge: 0
+            category: "unlock_door_stale"
 
 # Actional notification: Arm alarm and lock door
 - alias: Arm alarm and lock door from notification
