@@ -17,11 +17,11 @@
   scan_interval: 3600
   payload_on: 'true'
   payload_off: 'false'
-  command: python3 /home/homeassistant/scripts/python/gcal_today.py
+  command: python3 /home/homeassistant/scripts/python/gcal/gcal_today.py
 
 - platform: command_line
   name: Tina jobb i morgen sjekk
   scan_interval: 3600
   payload_on: 'true'
   payload_off: 'false'
-  command: python3 /home/homeassistant/scripts/python/gcal_tomorrow.py
+  command: python3 /home/homeassistant/scripts/python/gcal/gcal_tomorrow.py
