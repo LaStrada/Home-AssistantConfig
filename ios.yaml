@@ -41,7 +41,7 @@ push:
           behavior: 'default'
 
         # Disarm alarm
-        - identifier: 'DISRM_ALARM'
+        - identifier: 'DISARM_ALARM'
           title: 'Skru av alarm'
           activationMode: 'background'
           authenticationRequired: yes
