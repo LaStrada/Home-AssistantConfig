@@ -8,6 +8,7 @@ homeassistant:
   customize_glob:
     "*":
       homebridge_hidden: true
+      custom_ui_state_card: state-card-custom-ui
   customize: !include customize.yaml
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize

@@ -16,7 +16,7 @@
     motion_gang:
       value_template: >-
           {% if is_state("sensor.multi_gang_burglar", "0") %}
-            {{ as_timestamp(states.sensor.multi_gang_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+            Ingen bevegelse
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion gang'
       icon_template: '{% if is_state("sensor.multi_gang_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
@@ -26,7 +26,7 @@
     motion_kitchen:
       value_template: >-
           {% if is_state("sensor.multi_kitchen_burglar", "0") %}
-            {{ as_timestamp(states.sensor.multi_kitchen_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+            Ingen bevegelse
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kjøkken'
       icon_template: '{% if is_state("sensor.multi_kitchen_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
@@ -36,7 +36,7 @@
     motion_kontor:
       value_template: >-
           {% if is_state("sensor.multi_kontor_burglar", "0") %}
-            {{ as_timestamp(states.sensor.multi_kontor_burglar.last_changed) | timestamp_custom("%d.%m.%Y - %H:%M", True) }}
+            Ingen bevegelse
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kontor'
       icon_template: '{% if is_state("sensor.multi_kontor_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
