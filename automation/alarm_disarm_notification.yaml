@@ -18,7 +18,7 @@
   action:
     - service: notify.ios_lolphone_7
       data:
-        message: "Drar bort"
+        message: "Kommer hjem"
         data:
           push:
             badge: 0
@@ -44,7 +44,7 @@
   action:
     - service: notify.ios_lolphone_7
       data:
-        message: "Drar bort"
+        message: "Kommer hjem"
         data:
           push:
             badge: 0

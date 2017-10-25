@@ -49,7 +49,7 @@ push:
           behavior: 'default'
 
         # Disarm alarm and unlock door
-        - identifier: 'ARM_ALARM_AND_UNLOCK_DOOR'
+        - identifier: 'DISARM_ALARM_AND_UNLOCK_DOOR'
           title: 'Skru av alarm og lås opp dør'
           activationMode: 'background'
           authenticationRequired: yes
