@@ -96,7 +96,7 @@
       entity_id: alarm_control_panel.ha_alarm
 
 # Actional notification: Lock door
-- alias: Disarm alarm from notification
+- alias: Unlock door from notification
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
