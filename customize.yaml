@@ -55,6 +55,7 @@ sensor.yr_wind_speed:
   icon: mdi:weather-windy
 sensor.nordlysvarsel_1_time:
   icon: mdi:earth
+  show_last_changed: true
 
 
 # Guestroom / office (kontor)
@@ -125,10 +126,12 @@ binary_sensor.door_front_sensor:
   friendly_name: Dør foran
   device_class: opening
   homebridge_hidden: false
+  show_last_changed: true
 binary_sensor.door_back_sensor:
   friendly_name: Dør bak
   device_class: opening
   homebridge_hidden: false
+  show_last_changed: true
 
 binary_sensor.refrigerator_kitchen_sensor:
   friendly_name: Kjøleskap
@@ -160,3 +163,15 @@ climate.stue_thermostat:
 alarm_control_panel.ha_alarm:
   homebridge_hidden: false
   homebridge_name: Alarm
+lock.danalock_locked:
+  friendly_name: Danalock lås
+  hide_control: true
+
+
+# Motion
+sensor.motion_gang:
+  show_last_changed: true
+sensor.motion_kitchen:
+  show_last_changed: true
+sensor.motion_kontor:
+  show_last_changed: true
