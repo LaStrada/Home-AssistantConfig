@@ -201,7 +201,7 @@
               N/A
           {%- endif %}
       entity_id:
-        - zwave.zwave.smoke_stue
+        - zwave.smoke_stue
 
     battery_smoke_bedroom:
       friendly_name: Røykvarsler soverom
@@ -213,7 +213,7 @@
               N/A
           {%- endif %}
       entity_id:
-        - zwave.zwave.smoke_soverom
+        - zwave.smoke_soverom
 
     battery_smoke_entrance:
       friendly_name: Røykvarsler gang
