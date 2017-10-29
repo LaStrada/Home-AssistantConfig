@@ -39,7 +39,6 @@ battery_smoke_entrance:
     - sensor.battery_smoke_entrance
 
 battery_smoke_office:
-  name:
   entities:
     - sensor.battery_smoke_office
 
