@@ -3,7 +3,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_danalock
+      entity_id: sensor.battery_danalock
   action:
     service: script.group_visibility_battery
     data:
@@ -15,7 +15,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_door_front
+      entity_id: sensor.battery_door_front
   action:
     service: script.group_visibility_battery
     data:
@@ -27,7 +27,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_door_back
+      entity_id: sensor.battery_door_back
   action:
     service: script.group_visibility_battery
     data:
@@ -39,7 +39,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_smoke_living_room
+      entity_id: sensor.battery_smoke_living_room
   action:
     service: script.group_visibility_battery
     data:
@@ -51,7 +51,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_smoke_bedroom
+      entity_id: sensor.battery_smoke_bedroom
   action:
     service: script.group_visibility_battery
     data:
@@ -63,7 +63,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_smoke_entrance
+      entity_id: sensor.battery_smoke_entrance
   action:
     service: script.group_visibility_battery
     data:
@@ -75,7 +75,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_smoke_office
+      entity_id: sensor.battery_smoke_office
   action:
     service: script.group_visibility_battery
     data:
@@ -87,7 +87,7 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_multi_kitchen
+      entity_id: sensor.battery_multi_kitchen
   action:
     service: script.group_visibility_battery
     data:
@@ -99,21 +99,45 @@
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: group.battery_multi_entrance
+      entity_id: sensor.battery_multi_entrance
   action:
     service: script.group_visibility_battery
     data:
       group_to_hide: group.battery_multi_entrance
       device: states.sensor.battery_multi_entrance
 
+- alias: Battery refrigerator
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.battery_refrigerator
+  action:
+    service: script.group_visibility_battery
+    data:
+      group_to_hide: sensor.battery_refrigerator
+      device: states.sensor.battery_refrigerator
 
+- alias: Battery freezer kitchen
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.battery_freezer_kitchen
+  action:
+    service: script.group_visibility_battery
+    data:
+      group_to_hide: sensor.battery_freezer_kitchen
+      device: states.sensor.battery_freezer_kitchen
 
-
-
-
-
-
-
-
-
-
+- alias: Battery freezer bod
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.battery_freezer_bod
+  action:
+    service: script.group_visibility_battery
+    data:
+      group_to_hide: sensor.battery_freezer_bod
+      device: states.sensor.battery_freezer_bod
