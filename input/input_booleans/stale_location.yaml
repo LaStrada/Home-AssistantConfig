@@ -1,0 +1,7 @@
+stale_home:
+  name: Ståle hjemme
+  initial: on
+
+stale_job:
+  name: Ståle på jobb
+  initial: off

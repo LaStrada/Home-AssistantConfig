@@ -1,0 +1,13 @@
+- platform: workday
+  country: 'NO'
+  name: 'workday_today'
+
+- platform: workday
+  country: 'NO'
+  days_offset: 1
+  name: 'workday_tomorrow'
+
+- platform: workday
+  country: 'NO'
+  days_offset: -1
+  name: 'workday_yesterday'

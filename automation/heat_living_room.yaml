@@ -1,5 +1,56 @@
 # Stue
 
+# alarm on 
+# alarm off = home
+
+- alias: Living room away
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+  condition:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: 'armed_away'
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.stue_termostat
+        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
+
+
+- alias: Living room vacation mode
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+  condition:
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.stue_termostat
+        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
+
+
+
+- alias: Living room night
+
+- alias: Living room home
+  trigger:
+    - platform: time
+
+
+
+### OLD
+
 - alias: Stue natt ukedag
   trigger:
     - platform: time
@@ -53,7 +104,7 @@
   condition:
     - condition: time
       after: '07:00:00'
-      before: '16:00:00'
+      before: '15:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
       state: 'on'
@@ -74,7 +125,7 @@
       event: start
   condition:
     - condition: time
-      after: '16:00:00'
+      after: '15:00:00'
       before: '22:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
