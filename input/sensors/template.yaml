@@ -152,3 +152,149 @@
       friendly_name: Vannlekkasje
       entity_id:
         - sensor.kitchen_leak_sensor_flood
+
+
+    # Battery sensors
+    battery_danalock:
+      friendly_name: Danalock
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.danalock.attributes.battery_level %}
+              {{ states.zwave.danalock.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.danalock
+
+    battery_door_front:
+      friendly_name: Dør foran
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.door_front.attributes.battery_level %}
+              {{ states.zwave.door_front.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.door_front
+
+    battery_door_back:
+      friendly_name: Dør bak
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.door_back.attributes.battery_level %}
+              {{ states.zwave.door_back.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.door_back
+
+    battery_smoke_living_room:
+      friendly_name: Røykvarsler stue
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.smoke_stue.attributes.battery_level %}
+              {{ states.zwave.smoke_stue.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.zwave.smoke_stue
+
+    battery_smoke_bedroom:
+      friendly_name: Røykvarsler soverom
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.smoke_soverom.attributes.battery_level %}
+              {{ states.zwave.smoke_soverom.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.zwave.smoke_soverom
+
+    battery_smoke_entrance:
+      friendly_name: Røykvarsler gang
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.smoke_gang.attributes.battery_level %}
+              {{ states.zwave.smoke_gang.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.smoke_gang
+
+    battery_smoke_office:
+      friendly_name: Røykvarsler kontor
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.smoke_kontor.attributes.battery_level %}
+              {{ states.zwave.smoke_kontor.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.smoke_kontor
+
+    battery_multi_kitchen:
+      friendly_name: Multisensor kjøkken
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.multi_kitchen.attributes.battery_level %}
+              {{ states.zwave.multi_kitchen.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.multi_kitchen
+
+    battery_multi_entrance:
+      friendly_name: Multisensor gang
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.multi_gang.attributes.battery_level %}
+              {{ states.zwave.multi_gang.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.multi_gang
+
+    battery_refrigerator:
+      friendly_name: Kjøleskapet på kjøkkenet
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.refrigerator_kitchen.attributes.battery_level %}
+              {{ states.zwave.refrigerator_kitchen.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.refrigerator_kitchen
+
+    battery_freezer_kitchen:
+      friendly_name: Fryser på kjøkkenet
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.freezer_kitchen.attributes.battery_level %}
+              {{ states.zwave.freezer_kitchen.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.freezer_kitchen
+
+    battery_freezer_bod:
+      friendly_name: Fryser i boden
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.zwave.freezer_bod.attributes.battery_level %}
+              {{ states.zwave.freezer_bod.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+      entity_id:
+        - zwave.freezer_bod

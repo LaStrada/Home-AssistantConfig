@@ -70,5 +70,5 @@ diverse:
     - group.temperature_control_panel_living_room
     - group.temperature_control_panel_bedroom
     - group.temperature_control_panel_office
-    - sensor.ssl_certificate_expiry
-    - sensor.ssl_certificate_expiry_2
+    - group.domains
+    - group.battery

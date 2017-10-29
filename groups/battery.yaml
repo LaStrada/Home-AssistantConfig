@@ -1,0 +1,64 @@
+battery:
+  name: Batteri
+  entities:
+    - group.battery_danalock
+    - group.battery_door_front
+    - group.battery_door_back
+    - group.battery_smoke_living_room
+    - group.battery_smoke_bedroom
+    - group.battery_smoke_entrance
+    - group.battery_smoke_office
+    - group.battery_multi_kitchen
+    - group.battery_multi_entrance
+    - group.battery_refrigerator
+    - group.battery_freezer_kitchen
+    - group.battery_freezer_bod
+
+battery_danalock:
+  entities:
+    - sensor.battery_danalock
+
+battery_door_front:
+  entities:
+    - sensor.battery_door_front
+
+battery_door_back:
+  entities:
+    - sensor.battery_door_back
+
+battery_smoke_living_room:
+  entities:
+    - sensor.battery_smoke_living_room
+
+battery_smoke_bedroom:
+  entities:
+    - sensor.battery_smoke_bedroom
+
+battery_smoke_entrance:
+  entities:
+    - sensor.battery_smoke_entrance
+
+battery_smoke_office:
+  name:
+  entities:
+    - sensor.battery_smoke_office
+
+battery_multi_kitchen:
+  entities:
+    - sensor.battery_multi_kitchen
+
+battery_multi_entrance:
+  entities:
+    - sensor.battery_multi_entrance
+
+group.battery_refrigerator:
+  entities:
+    - sensor.battery_refrigerator
+
+group.battery_freezer_kitchen:
+  entities:
+    - sensor.battery_freezer_kitchen
+
+group.battery_freezer_bod:
+  entities:
+    - sensor.battery_freezer_bod

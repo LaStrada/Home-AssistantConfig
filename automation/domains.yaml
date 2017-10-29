@@ -1,0 +1,17 @@
+- alias: Hide domains
+  trigger:
+    - platform: state
+      entity_id: sensor.main_domain
+    - platform: state
+      entity_id: sensor.ping_domain
+  action:
+    - service: group.set_visibility
+      data_template:
+        entity_id: group.domains
+        visible: >-
+            {% if ((states.sensor.main_domain.state | round < 30) or
+              (states.sensor.ping_domain.state | round < 30)) %}
+                true
+            {% else %}
+              false
+            {% endif %}

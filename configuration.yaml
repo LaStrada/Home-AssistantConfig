@@ -77,3 +77,6 @@ zwave:
 
 ### Push
 notify: !include notify.yaml
+
+### Scripts
+script: !include scripts.yaml
