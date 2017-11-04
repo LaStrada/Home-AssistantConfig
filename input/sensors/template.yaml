@@ -303,10 +303,10 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-{%- if states.zwave.freezer_bod.attributes.battery_level is number %}
-    {{ states.zwave.freezer_bod.attributes.battery_level | round }}
-{% else %}
-    N/A
-{%- endif %}
+          {%- if states.zwave.freezer_bod.attributes.battery_level is number %}
+              {{ states.zwave.freezer_bod.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
       entity_id:
         - zwave.freezer_bod
