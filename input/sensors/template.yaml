@@ -158,7 +158,7 @@
     battery_danalock:
       friendly_name: Danalock
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.danalock.attributes.battery_level %}
               {{ states.zwave.danalock.attributes.battery_level | round }}
@@ -171,7 +171,7 @@
     battery_door_front:
       friendly_name: Dør foran
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.door_front.attributes.battery_level %}
               {{ states.zwave.door_front.attributes.battery_level | round }}
@@ -184,7 +184,7 @@
     battery_door_back:
       friendly_name: Dør bak
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.door_back.attributes.battery_level %}
               {{ states.zwave.door_back.attributes.battery_level | round }}
@@ -197,7 +197,7 @@
     battery_smoke_living_room:
       friendly_name: Røykvarsler stue
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.smoke_stue.attributes.battery_level %}
               {{ states.zwave.smoke_stue.attributes.battery_level | round }}
@@ -210,7 +210,7 @@
     battery_smoke_bedroom:
       friendly_name: Røykvarsler soverom
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.smoke_soverom.attributes.battery_level %}
               {{ states.zwave.smoke_soverom.attributes.battery_level | round }}
@@ -223,7 +223,7 @@
     battery_smoke_entrance:
       friendly_name: Røykvarsler gang
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.smoke_gang.attributes.battery_level %}
               {{ states.zwave.smoke_gang.attributes.battery_level | round }}
@@ -236,7 +236,7 @@
     battery_smoke_office:
       friendly_name: Røykvarsler kontor
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.smoke_kontor.attributes.battery_level %}
               {{ states.zwave.smoke_kontor.attributes.battery_level | round }}
@@ -249,7 +249,7 @@
     battery_multi_kitchen:
       friendly_name: Multisensor kjøkken
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.multi_kitchen.attributes.battery_level %}
               {{ states.zwave.multi_kitchen.attributes.battery_level | round }}
@@ -262,7 +262,7 @@
     battery_multi_entrance:
       friendly_name: Multisensor gang
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.multi_gang.attributes.battery_level %}
               {{ states.zwave.multi_gang.attributes.battery_level | round }}
@@ -275,7 +275,7 @@
     battery_refrigerator:
       friendly_name: Kjøleskapet på kjøkkenet
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.refrigerator_kitchen.attributes.battery_level %}
               {{ states.zwave.refrigerator_kitchen.attributes.battery_level | round }}
@@ -288,7 +288,7 @@
     battery_freezer_kitchen:
       friendly_name: Fryser på kjøkkenet
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.freezer_kitchen.attributes.battery_level %}
               {{ states.zwave.freezer_kitchen.attributes.battery_level | round }}
@@ -301,7 +301,7 @@
     battery_freezer_bod:
       friendly_name: Fryser i boden
       unit_of_measurement: '%'
-      icon_template: mdi:battery:10
+      icon_template: mdi:battery-10
       value_template: >-
           {%- if states.zwave.freezer_bod.attributes.battery_level %}
               {{ states.zwave.freezer_bod.attributes.battery_level | round }}

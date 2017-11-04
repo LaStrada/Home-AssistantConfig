@@ -84,7 +84,7 @@ push:
       identifier: 'lock_door_stale'
       actions:
         - identifier: 'LOCK_DOOR'
-          title: 'Lås opp dør'
+          title: 'Lås dør'
           activationMode: 'background'
           authenticationRequired: yes
           destructive: yes
@@ -95,7 +95,7 @@ push:
       identifier: 'unlock_door_stale'
       actions:
         - identifier: 'UNLOCK_DOOR'
-          title: 'Lås dør'
+          title: 'Lås opp dør'
           activationMode: 'background'
           authenticationRequired: yes
           destructive: yes
