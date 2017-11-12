@@ -1,0 +1,32 @@
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.battery_danalock
+        - sensor.battery_door_front
+        - sensor.battery_door_back
+        - sensor.battery_smoke_living_room
+        - sensor.battery_smoke_bedroom
+        - sensor.battery_smoke_entrance
+        - sensor.battery_smoke_office
+        - sensor.battery_multi_kitchen
+        - sensor.battery_multi_entrance
+        - sensor.battery_refrigerator
+        - sensor.battery_freezer_kitchen
+        - sensor.battery_freezer_bod
+  condition:
+    - condition: template
+      value_template: '{{ trigger.from_state | float > 20 and trigger.from_state <= 20 }}'
+    - condition: template
+      value_template: '{{ trigger.from_state | float > 10 and trigger.from_state <= 10 }}'
+    - condition: template
+      value_template: '{{ not is_state("trigger.from_state", "N/A") and trigger.to_state <= 20 }}'
+  action:
+    - service: notify.ios_lolphone_7
+      data_template:
+        message: >
+          '{{ states.sensor.battery_danalock.attributes.friendly_name }} har
+          {{ states.sensor.battery_danalock.state }}% batteri.'
+        data:
+          push:
+            badge: 0
