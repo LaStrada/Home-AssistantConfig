@@ -3,7 +3,7 @@ heracam:
   entities:
     - camera.heracam
 
-romolslia-weather:
-  name: Romolslia vær
+romolslia_weather:
+  name: Romolslia
   entities:
-    - camera.romolslia-weather
+    - camera.romolslia_weather

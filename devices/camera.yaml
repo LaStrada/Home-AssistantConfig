@@ -3,6 +3,6 @@
   still_image_url: !secret heracam_url
 
 - platform: generic
-  name: Romolslia-weather
+  name: romolslia_weather
   still_image_url: https://www.yr.no/place/Norway/Sør-Trøndelag/Trondheim/Romolslia~2826758/meteogram.svg
   content_type: 'image/svg+xml'
