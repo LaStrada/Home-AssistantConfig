@@ -6,7 +6,12 @@ default_view:
   entities:
     - group.alarm
     - group.heracam
-    - group.ute_min
+    - sensor.temp_ute_temperature
+    - sensor.yr_humidity
+    - sun.sun
+    - sensor.yr_symbol
+    - sensor.yr_precipitation
+    - sensor.yr_wind_speed
 
 
 ### Temperatures

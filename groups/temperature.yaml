@@ -55,16 +55,6 @@ temp_bad:
     - sensor.temp_bad_temperature
     - sensor.temp_bad_humidity
 
-ute_min:
-  name: Ute
-  entities:
-    - sensor.temp_ute_temperature
-    - sensor.yr_humidity
-    - sun.sun
-    - sensor.yr_symbol
-    - sensor.yr_precipitation
-    - sensor.yr_wind_speed
-
 ute:
   name: Ute
   entities:

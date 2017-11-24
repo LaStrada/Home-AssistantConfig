@@ -7,10 +7,6 @@
     - service: frontend.set_theme
       data:
         name: default
-    - service: group.set_visibility
-      entity_id: group.ute_min
-      data:
-        visible: True
 
 
 - alias: Theme alarm pending
@@ -22,10 +18,6 @@
     - service: frontend.set_theme
       data:
         name: alarm_pending
-    - service: group.set_visibility
-      entity_id: group.ute_min
-      data:
-        visible: False
 
 
 - alias: Theme alarm active
