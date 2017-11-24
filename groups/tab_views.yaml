@@ -7,7 +7,6 @@ default_view:
     - group.alarm
     - group.heracam
     - group.ute_min
-    - group.romolslia_weather
 
 
 ### Temperatures
