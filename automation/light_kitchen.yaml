@@ -1,0 +1,28 @@
+- alias: Light kitchen off
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_kitchen
+      to: 'Ingen bevegelse'
+      for:
+        minutes: 20
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_lights_switch_2 # taklys kjøkken
+
+- alias: Light kitchen on
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_kitchen
+      to: 'Bevegelse!'
+  condition:
+    - condition: state
+      entity_id: switch.kitchen_lights_switch_3 # bardisk
+      state: on
+    - condition: state
+      entity_id: light.stua
+      state: on
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_lights_switch_2 # taklys kjøkken
