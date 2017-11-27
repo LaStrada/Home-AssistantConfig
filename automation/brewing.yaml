@@ -1,0 +1,26 @@
+- alias: Brewing started
+  trigger:
+    - condition: state
+      entity_id: input_boolean.brewing
+      state: 'on'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat
+        operation_mode: 'off'
+
+- alias: Brewing ended
+  trigger:
+    - condition: state
+      entity_id: input_boolean.brewing
+      state: 'off'
+    - platform: state
+      entity_id: group.door_sensors_living_room_kitchen
+      to: 'on'
+      for:
+        hours: 9
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat
+        operation_mode: 'auto'

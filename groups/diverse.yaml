@@ -16,3 +16,4 @@ ferie_stuff:
   entities:
     - input_boolean.vacation_mode
     - input_number.slider_ferie_temperatur
+    - input_datetime.vacation_end_date

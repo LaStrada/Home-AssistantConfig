@@ -1,3 +1,20 @@
+- alias: Ferie modus off (date trigger)
+  trigger:
+    - platform: time
+      hours: '/2'
+      minutes: 0
+      seconds: 0
+  conditions:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+    - condition: template
+      value_template: '{{ (states.input_datetime.vacation_end_date.attributes.timestamp | int | timestamp_custom("%H:%M", False)) >= now().as_timestamp() }}'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.vacation_mode
+
+
 - alias: Ferie modus on
   trigger:
     - platform: state
@@ -13,6 +30,7 @@
         entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat
         temperature: "{{ states.input_number.ferie_temperatur.state | float }}"
 
+
 - alias: Ferie modus off
   trigger:
     - platform: state
@@ -21,13 +39,28 @@
   action:
     - service: climate.set_temperature
       data_template:
+        entity_id: climate.stue_termostat
+        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
+    - service: climate.set_operation_mode
+      data:
         entity_id: climate.kontor_termostat
-        temperature: '{{ input_number.kontor_temperatur }}'
+        operation_mode: 'off'
+    - delay: 1:00:00
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.gang_termostat
+        temperature: "{{ states.input_number.gang_dagtid_temperatur.state | float }}"
+    - delay: 3:00:00
     - service: climate.set_temperature
       data_template:
         entity_id: climate.soverom_termostat
         temperature: '{{ input_number.soverom_natt_temperatur }}'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.kontor_termostat
+        operation_mode: 'auto'
+    - delay: 2:00:00
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.stue_termostat
-        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
+        entity_id: climate.kontor_termostat
+        temperature: '{{ input_number.kontor_temperatur }}'

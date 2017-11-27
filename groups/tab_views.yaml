@@ -77,3 +77,4 @@ diverse:
     - group.temperature_control_panel_office
     - group.domains
     - group.battery
+    - group.brewing

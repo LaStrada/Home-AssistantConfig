@@ -1,0 +1,5 @@
+brewing:
+  name: Brygging
+  control: hidden
+  entities:
+    - input_boolean.brewing
