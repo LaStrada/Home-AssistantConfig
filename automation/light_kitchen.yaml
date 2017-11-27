@@ -18,10 +18,10 @@
   condition:
     - condition: state
       entity_id: switch.kitchen_lights_switch_3 # bardisk
-      state: on
+      state: 'on'
     - condition: state
       entity_id: light.stua
-      state: on
+      state: 'on'
   action:
     - service: light.turn_on
       data:

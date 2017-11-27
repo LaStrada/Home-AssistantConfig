@@ -3,19 +3,6 @@
     - platform: state
       entity_id: sensor.motion_kitchen
       to: 'Bevegelse!'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '10:00:00'
-    - condition: state
-      entity_id: 'binary_sensor.workday_today'
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.vacation_mode
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.soverom_wakeup_heat
-      state: 'on'
   action:
     - service: climate.set_operation_mode
       data:
