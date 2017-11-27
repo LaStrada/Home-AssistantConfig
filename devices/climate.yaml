@@ -29,7 +29,7 @@
       30
 
 - platform: generic_thermostat
-  name: Soverom termostat
+  name: Soverom thermostat
   heater: switch.panelovn_soverom_switch
   target_sensor: sensor.template_temperature_bedroom
   min_temp: 10

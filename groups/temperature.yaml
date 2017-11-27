@@ -47,7 +47,6 @@ temp_gang:
   name: Gang
   entities:
     - climate.gang_thermostat
-    - sensor.multi_gang_temperature
     - sensor.multi_gang_relative_humidity
 
 temp_bad:
