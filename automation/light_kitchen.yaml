@@ -6,9 +6,9 @@
       for:
         minutes: 20
   action:
-    - service: light.turn_off
+    - service: switch.turn_off
       data:
-        entity_id: light.kitchen_lights_switch_2 # taklys kjøkken
+        entity_id: switch.kitchen_lights_switch_2 # taklys kjøkken
 
 - alias: Light kitchen on
   trigger:
@@ -23,6 +23,6 @@
       entity_id: light.stua
       state: 'on'
   action:
-    - service: light.turn_on
+    - service: switch.turn_on
       data:
-        entity_id: light.kitchen_lights_switch_2 # taklys kjøkken
+        entity_id: switch.kitchen_lights_switch_2 # taklys kjøkken
