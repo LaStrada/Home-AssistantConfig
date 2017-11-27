@@ -4,7 +4,7 @@
       hours: '/2'
       minutes: 0
       seconds: 0
-  conditions:
+  condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'on'
