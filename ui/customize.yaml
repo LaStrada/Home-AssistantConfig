@@ -151,11 +151,13 @@ sensor.receiver_fan_speed:
 
 
 # Climate
-climate.kontor_thermostat:
+climate.kontor_termostat:
   homebridge_hidden: false
-climate.soverom_thermostat:
+climate.soverom_termostat:
   homebridge_hidden: false
-climate.stue_thermostat:
+climate.stue_termostat:
+  homebridge_hidden: false
+climate.gang_termostat:
   homebridge_hidden: false
 
 

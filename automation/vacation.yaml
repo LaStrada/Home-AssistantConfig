@@ -2,7 +2,7 @@
   trigger:
     - platform: time
       hours: '/2'
-      minutes: 0
+      minutes: 5
       seconds: 0
   condition:
     - condition: state
@@ -21,13 +21,9 @@
       entity_id: input_boolean.vacation_mode
       to: 'on'
   action:
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.stue_thermostat_temperatur
-        value: "{{ states.input_number.ferie_temperatur.state | float }}"
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat
+        entity_id: climate.kontor_termostat, climate.soverom_termostat, climate.stue_termostat, climate.gang_termostat
         temperature: "{{ states.input_number.ferie_temperatur.state | float }}"
 
 
@@ -49,7 +45,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.gang_termostat
-        temperature: "{{ states.input_number.gang_dagtid_temperatur.state | float }}"
+        temperature: 21
     - delay: 3:00:00
     - service: climate.set_temperature
       data_template:

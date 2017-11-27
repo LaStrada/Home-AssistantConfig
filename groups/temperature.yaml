@@ -46,7 +46,7 @@ temp_kontor:
 temp_gang:
   name: Gang
   entities:
-    - climate.gang_thermostat
+    - climate.gang_termostat
     - sensor.multi_gang_relative_humidity
 
 temp_bad:

@@ -1,4 +1,4 @@
 vacation_end_date:
   name: Ferie slutt
   has_date: true
-  has_time: true
+  has_time: false

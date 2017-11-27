@@ -57,6 +57,7 @@ scene: !include_dir_merge_list scenes/
 ### Input
 binary_sensor: !include_dir_merge_list input/binary_sensors/
 input_boolean: !include_dir_merge_named input/input_booleans/
+input_datetime: !include_dir_merge_named input/input_datetime/
 input_number: !include_dir_merge_named input/input_numbers/
 media_player: !include devices/media_player.yaml
 shell_command: !include_dir_merge_named devices/shell_commands/

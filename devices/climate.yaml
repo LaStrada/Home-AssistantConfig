@@ -29,7 +29,7 @@
       30
 
 - platform: generic_thermostat
-  name: Soverom thermostat
+  name: Soverom termostat
   heater: switch.panelovn_soverom_switch
   target_sensor: sensor.template_temperature_bedroom
   min_temp: 10
@@ -44,7 +44,7 @@
       30
 
 - platform: generic_thermostat
-  name: Gang thermostat
+  name: Gang termostat
   heater: switch.ovn_gang_switch
   target_sensor: sensor.multi_gang_temperature
   min_temp: 10
