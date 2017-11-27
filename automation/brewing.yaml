@@ -1,6 +1,6 @@
 - alias: Brewing started
   trigger:
-    - condition: state
+    - platform: state
       entity_id: input_boolean.brewing
       state: 'on'
   action:
@@ -11,7 +11,7 @@
 
 - alias: Brewing ended
   trigger:
-    - condition: state
+    - platform: state
       entity_id: input_boolean.brewing
       state: 'off'
     - platform: state
