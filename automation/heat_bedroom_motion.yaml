@@ -1,31 +1,31 @@
-- alias: Gang heat off
+- alias: Soverom heat off
   trigger:
     - platform: state
       entity_id: sensor.motion_kitchen
       to: 'Bevegelse!'
   condition:
-    - condition: state
-      entity_id: input_boolean.brewing
-      state: false
+    - condition: time
+      after: '11:00:00'
+      before: '22:00:00'
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.gang_termostat
+        entity_id: climate.soverom_termostat
         operation_mode: 'off'
 
-- alias: Gang heat on
+- alias: Soverom heat on
   trigger:
     - platform: state
       entity_id: sensor.motion_kitchen
       to: 'Ingen bevegelse'
       for:
-        minutes: 10
+        minutes: 30
   condition:
-    - condition: state
-      entity_id: input_boolean.brewing
-      state: false
+    - condition: time
+      after: '11:00:00'
+      before: '20:00:00'
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.gang_termostat
+        entity_id: climate.soverom_termostat
         operation_mode: 'auto'
