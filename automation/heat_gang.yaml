@@ -6,7 +6,7 @@
   condition:
     - condition: state
       entity_id: input_boolean.brewing
-      state: false
+      state: 'off'
   action:
     - service: climate.set_operation_mode
       data:
@@ -23,7 +23,7 @@
   condition:
     - condition: state
       entity_id: input_boolean.brewing
-      state: false
+      state: 'off'
   action:
     - service: climate.set_operation_mode
       data:
