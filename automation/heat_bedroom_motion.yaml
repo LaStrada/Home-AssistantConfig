@@ -20,6 +20,11 @@
       to: 'Ingen bevegelse'
       for:
         minutes: 30
+    - platform: state
+      entity_id: sensor.motion_kitchen
+      to: 'Ingen bevegelse'
+      for:
+        minutes: 45
   condition:
     - condition: time
       after: '11:00:00'

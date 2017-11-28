@@ -20,6 +20,11 @@
       to: 'Ingen bevegelse'
       for:
         minutes: 10
+    - platform: state
+      entity_id: sensor.motion_kitchen
+      to: 'Ingen bevegelse'
+      for:
+        minutes: 20
   condition:
     - condition: state
       entity_id: input_boolean.brewing
