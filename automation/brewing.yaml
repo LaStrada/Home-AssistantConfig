@@ -22,7 +22,7 @@
   condition:
     - condition: state
       entity_id: sensor.motion_kitchen
-      State: 'Ingen bevegelse'
+      state: 'Ingen bevegelse'
   action:
     - service: climate.set_operation_mode
       data:
