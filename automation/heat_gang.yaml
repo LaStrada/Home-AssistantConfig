@@ -7,6 +7,9 @@
     - condition: state
       entity_id: input_boolean.brewing
       state: 'off'
+    - condition: time
+      after: '12:00:00'
+      before: '21:00:00'
   action:
     - service: climate.set_operation_mode
       data:
@@ -19,12 +22,12 @@
       entity_id: sensor.motion_kitchen
       to: 'Ingen bevegelse'
       for:
-        minutes: 10
+        minutes: 15
     - platform: state
       entity_id: sensor.motion_kitchen
       to: 'Ingen bevegelse'
       for:
-        minutes: 20
+        minutes: 30
   condition:
     - condition: state
       entity_id: input_boolean.brewing

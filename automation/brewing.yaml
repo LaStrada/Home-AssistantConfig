@@ -6,7 +6,7 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.gang_termostat
+        entity_id: climate.gang_termostat, climate.soverom_termostat
         operation_mode: 'off'
 
 - alias: Brewing ended
@@ -15,12 +15,16 @@
       entity_id: input_boolean.brewing
       to: 'off'
     - platform: state
-      entity_id: group.door_sensors_living_room_kitchen
+      entity_id: input_boolean.brewing
       to: 'on'
       for:
         hours: 9
+  condition:
+    - condition: state
+      entity_id: sensor.motion_kitchen
+      State: 'Ingen bevegelse'
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.gang_termostat
+        entity_id: climate.gang_termostat, climate.soverom_termostat
         operation_mode: 'auto'

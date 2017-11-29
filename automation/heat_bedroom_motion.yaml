@@ -5,8 +5,8 @@
       to: 'Bevegelse!'
   condition:
     - condition: time
-      after: '11:00:00'
-      before: '22:00:00'
+      after: '12:00:00'
+      before: '21:00:00'
   action:
     - service: climate.set_operation_mode
       data:
@@ -19,16 +19,12 @@
       entity_id: sensor.motion_kitchen
       to: 'Ingen bevegelse'
       for:
-        minutes: 30
+        minutes: 5
     - platform: state
       entity_id: sensor.motion_kitchen
       to: 'Ingen bevegelse'
       for:
-        minutes: 45
-  condition:
-    - condition: time
-      after: '11:00:00'
-      before: '20:00:00'
+        minutes: 10
   action:
     - service: climate.set_operation_mode
       data:
