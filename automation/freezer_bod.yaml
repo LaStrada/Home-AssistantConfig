@@ -9,7 +9,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 5 minutter'
+        message: 'Fryseren i boden har stått oppe i 5 minutter'
 
 - alias: Freezer bod alarm 10 min
   trigger:
@@ -22,7 +22,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 10 minutter'
+        message: 'Fryseren i boden har stått oppe i 10 minutter'
 
 - alias: Freezer bod alarm 15 min
   trigger:
@@ -35,7 +35,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 15 minutter'
+        message: 'Fryseren i boden har stått oppe i 15 minutter'
 
 - alias: Freezer bod alarm 20 min
   trigger:
@@ -48,7 +48,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 20 minutter'
+        message: 'Fryseren i boden har stått oppe i 20 minutter'
 
 - alias: Freezer bod alarm 30 min
   trigger:
@@ -61,7 +61,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 30 minutter'
+        message: 'Fryseren i boden har stått oppe i 30 minutter'
 
 - alias: Freezer bod alarm 60 min
   trigger:
@@ -74,7 +74,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 60 minutter'
+        message: 'Fryseren i boden har stått oppe i 60 minutter'
 
 - alias: Freezer bod alarm 90 min
   trigger:
@@ -87,7 +87,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 90 minutter'
+        message: 'Fryseren i boden har stått oppe i 90 minutter'
 
 - alias: Freezer bod alarm 2 timer
   trigger:
@@ -100,7 +100,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 2 timer'
+        message: 'Fryseren i boden har stått oppe i 2 timer'
 
 - alias: Freezer bod alarm 3 timer
   trigger:
@@ -113,7 +113,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 3 timer'
+        message: 'Fryseren i boden har stått oppe i 3 timer'
 
 - alias: Freezer bod alarm 4 timer
   trigger:
@@ -126,7 +126,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 4 timer'
+        message: 'Fryseren i boden har stått oppe i 4 timer'
 
 - alias: Freezer bod alarm 6 timer
   trigger:
@@ -139,7 +139,7 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 6 timer'
+        message: 'Fryseren i boden har stått oppe i 6 timer'
 
 - alias: Freezer bod alarm 12 timer
   trigger:
@@ -152,4 +152,4 @@
     - service: notify.notify_all_important
       data:
         title: 'Freezer alarm!'
-        message: 'Fryseren på kjøkkenet har stått oppe i 12 timer'
+        message: 'Fryseren i boden har stått oppe i 12 timer'
