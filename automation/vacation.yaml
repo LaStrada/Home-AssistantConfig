@@ -2,14 +2,17 @@
   trigger:
     - platform: time
       hours: '/2'
-      minutes: 5
+      minutes: 0
       seconds: 0
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'on'
     - condition: template
-      value_template: '{{ (states.input_datetime.vacation_end_date.attributes.timestamp | int) >= now().timestamp() }}'
+      value_template: >-
+          {{ states.input_datetime.vacation_end_date.attributes.year == now().year and
+            states.input_datetime.vacation_end_date.attributes.month == now().month and
+            states.input_datetime.vacation_end_date.attributes.day == 3 }}
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.vacation_mode
