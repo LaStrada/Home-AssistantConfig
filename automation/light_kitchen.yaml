@@ -6,6 +6,9 @@
       for:
         minutes: 10
   action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kitchen_lights_switch_2 # taklys
     - service: light.turn_on
       data:
         entity_id: light.kithcen_ikea
