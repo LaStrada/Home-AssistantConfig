@@ -2,5 +2,12 @@ motion_sensors:
   name: Bevegelse
   entities:
     - sensor.motion_gang
-    - sensor.motion_kitchen
+    - sensor.motion_kitchen_top
+    - sensor.motion_kitchen_bottom
     - sensor.motion_kontor
+
+motion_sensors_kitchen:
+  name: Bevegelse kjøkken
+  entities:
+    - sensor.motion_kitchen_top
+    - sensor.motion_kitchen_bottom

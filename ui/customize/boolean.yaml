@@ -1,0 +1,8 @@
+input_boolean.guests:
+  icon: mdi:hotel
+
+input_boolean.brewing:
+  icon: mdi:beer
+
+input_boolean.vacation_mode:
+  icon: mdi:airplane

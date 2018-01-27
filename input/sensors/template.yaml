@@ -20,8 +20,6 @@
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion gang'
       icon_template: '{% if is_state("sensor.multi_gang_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
-      entity_id:
-        - sensor.multi_gang_burglar
 
     motion_kitchen:
       value_template: >-
@@ -30,8 +28,6 @@
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kjøkken'
       icon_template: '{% if is_state("sensor.multi_kitchen_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
-      entity_id:
-        - sensor.multi_kitchen_burglar
       
     motion_kontor:
       value_template: >-
@@ -40,8 +36,6 @@
           {% else %}Bevegelse!{% endif %}
       friendly_name: 'Motion kontor'
       icon_template: '{% if is_state("sensor.multi_kontor_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
-      entity_id:
-        - sensor.multi_kontor_burglar
 
 
     ### Smoke sensors
@@ -51,60 +45,44 @@
       value_template: '{% if is_state("sensor.smoke_gang_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk i gangen'
       icon_template: '{% if is_state("sensor.smoke_gang_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_gang_smoke_2
       
     heat_gang:
       value_template: '{% if is_state("sensor.smoke_gang_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme i gangen'
       icon_template: '{% if is_state("sensor.smoke_gang_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_gang_heat_2
 
     # Kontor
     smoke_kontor:
       value_template: '{% if is_state("sensor.smoke_kontor_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk på kontoret'
       icon_template: '{% if is_state("sensor.smoke_kontor_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_kontor_smoke_2
       
     heat_kontor:
       value_template: '{% if is_state("sensor.smoke_kontor_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme på kontoret'
       icon_template: '{% if is_state("sensor.smoke_kontor_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_kontor_heat_2
 
     # Stue
     smoke_stue:
       value_template: '{% if is_state("sensor.smoke_stue_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk i stua'
       icon_template: '{% if is_state("sensor.smoke_stue_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_stue_smoke_2
       
     heat_stue:
       value_template: '{% if is_state("sensor.smoke_stue_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme i stua'
       icon_template: '{% if is_state("sensor.smoke_stue_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_stue_heat_2
 
     # Soverom
     smoke_soverom:
       value_template: '{% if is_state("sensor.smoke_soverom_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
       friendly_name: 'Røyk på soverommet'
       icon_template: '{% if is_state("sensor.smoke_soverom_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_soverom_smoke_2
       
     heat_soverom:
       value_template: '{% if is_state("sensor.smoke_soverom_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
       friendly_name: 'Varme på soverommet'
       icon_template: '{% if is_state("sensor.smoke_soverom_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
-      entity_id:
-        - sensor.smoke_soverom_heat_2
     
     # Template temperature sensor with fallback
     template_temperature_bedroom:
@@ -122,9 +100,6 @@
       friendly_name: Temperatur soverom
       icon_template: mdi:thermometer
       unit_of_measurement: '°C'
-      entity_id:
-        - sensor.temp_soverom_temperature
-        - sensor.mqtt_bedroom_temperature
 
     # Template humidity sensor with fallback
     template_humidity_bedroom:
@@ -142,16 +117,11 @@
       friendly_name: Luftfuktighet
       icon_template: mdi:percent
       unit_of_measurement: '%'
-      entity_id:
-        - sensor.temp_soverom_humidity
-        - sensor.mqtt_bedroom_humidity
 
     template_water_leak_kitchen:
       value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
       icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
       friendly_name: Vannlekkasje
-      entity_id:
-        - sensor.kitchen_leak_sensor_flood
 
 
     # Battery sensors
@@ -165,8 +135,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.danalock
 
     battery_door_front:
       friendly_name: Dør foran
@@ -178,8 +146,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.door_front
 
     battery_door_back:
       friendly_name: Dør bak
@@ -191,8 +157,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.door_back
 
     battery_smoke_living_room:
       friendly_name: Røykvarsler stue
@@ -204,8 +168,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.smoke_stue
 
     battery_smoke_bedroom:
       friendly_name: Røykvarsler soverom
@@ -217,8 +179,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.smoke_soverom
 
     battery_smoke_entrance:
       friendly_name: Røykvarsler gang
@@ -230,8 +190,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.smoke_gang
 
     battery_smoke_office:
       friendly_name: Røykvarsler kontor
@@ -243,8 +201,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.smoke_kontor
 
     battery_multi_kitchen:
       friendly_name: Multisensor kjøkken
@@ -256,8 +212,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.multi_kitchen
 
     battery_multi_entrance:
       friendly_name: Multisensor gang
@@ -269,8 +223,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.multi_gang
 
     battery_refrigerator:
       friendly_name: Kjøleskapet på kjøkkenet
@@ -282,8 +234,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.refrigerator_kitchen
 
     battery_freezer_kitchen:
       friendly_name: Fryser på kjøkkenet
@@ -295,8 +245,6 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.freezer_kitchen
 
     battery_freezer_bod:
       friendly_name: Fryser i boden
@@ -308,5 +256,3 @@
           {% else %}
               N/A
           {%- endif %}
-      entity_id:
-        - zwave.freezer_bod

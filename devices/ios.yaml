@@ -1,5 +1,15 @@
 push:
   categories:
+    # Ask to activate vacation mode
+    - name: Ask to activate vacation mode
+      identifier: 'activate_vacation_mode'
+      actions:
+        - identifier: 'ACTIVATE_VACATION_MODE'
+          title: 'Aktiver feriemodus'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+
     # Arm alarm and lock door
     - name: Arm alarm and lock door (Ståle)
       identifier: 'arm_alarm_and_lock_door_stale'

@@ -63,3 +63,98 @@
       data_template:
         entity_id: climate.kontor_termostat
         temperature: '{{ input_number.kontor_temperatur }}'
+
+
+- alias: Ask to activate vacation mode when leaving Trondelag
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_trondelag
+      to: 'off'
+      for:
+        minutes: 30
+  condition:
+    - condition: state
+      entity_id: binary_sensor.vacation_mode_notified
+      state: 'off'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Vil du aktivere feriemodus?"
+        data:
+          push:
+            badge: 0
+            category: "activate_vacation_mode"
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Vil du aktivere feriemodus?"
+        data:
+          push:
+            badge: 0
+            category: "activate_vacation_mode"
+
+
+- alias: Ask to activate vacation mode if away for more than one day
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: input_boolean.stale_work
+      to: 'off'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'amred_away'
+      for:
+        hours: 24
+  condition:
+    - condition: state
+      entity_id: binary_sensor.vacation_mode_notified
+      state: 'off'
+  action:
+    - service: notify.ios_lolphone_7
+      data:
+        message: "Vil du aktivere feriemodus?"
+        data:
+          push:
+            badge: 0
+            category: "activate_vacation_mode"
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacation_mode_notified
+
+
+- alias: Reactivate vacation mode push
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.stale_home
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.stale_work
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.stale_trondelag
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.vacation_mode_notified
+      state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacation_mode_notified
+
+
+- alias: Activate vacation mode from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: ACTIVATE_VACATION_MODE
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacation_mode

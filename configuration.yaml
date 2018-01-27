@@ -9,20 +9,14 @@ homeassistant:
     "*":
       homebridge_hidden: true
       custom_ui_state_card: state-card-custom-ui
-  customize: !include ui/customize.yaml
+  customize: !include_dir_merge_list ui/customize/
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize
     - /home/homeassistant/heracam/thumbnail
 
 frontend: !include ui/frontend.yaml
 
-http:
-  api_password: !secret http_password
-  base_url: !secret my_domain
-  server_port: 8123
-  ip_ban_enabled: True
-  login_attempts_threshold: 10
-  use_x_forwarded_for: True
+http: !include http.yaml
 
 config:
 
@@ -34,6 +28,10 @@ discovery:
     - plex_mediaserver
     - apple_tv
 
+# tradfri:
+#   host: 10.0.0.27
+
+# History
 history:
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
@@ -62,7 +60,6 @@ input_number: !include_dir_merge_named input/input_numbers/
 media_player: !include devices/media_player.yaml
 shell_command: !include_dir_merge_named devices/shell_commands/
 switch: !include_dir_merge_list devices/switch/
-
 sun:
 
 ### Connected devices

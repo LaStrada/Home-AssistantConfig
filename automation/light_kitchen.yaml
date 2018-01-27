@@ -1,28 +1,44 @@
 - alias: Light kitchen off
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
-      to: 'Ingen bevegelse'
+      entity_id: group.motion_sensors_kitchen
+      to: 'off'
       for:
-        minutes: 20
+        minutes: 10
   action:
-    - service: switch.turn_off
+    - service: light.turn_on
       data:
-        entity_id: switch.kitchen_lights_switch_2 # taklys kjøkken
+        entity_id: light.kithcen_ikea
+        brightness: 0
+        transition: 3000
 
-- alias: Light kitchen on
+- alias: Light kitchen dim on
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
-      to: 'Bevegelse!'
+      entity_id: group.motion_kitchen
+      to: 'on'
   condition:
+    - condition: time
+      after: '08:00:00'
+      before: '23:59:00'
     - condition: state
       entity_id: switch.kitchen_lights_switch_3 # bardisk
       state: 'on'
-    - condition: state
-      entity_id: light.stua
-      state: 'on'
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: light.kithcen_ikea
+          below: 253
+          value_template: '{{ states.attributes.brightness }}'
+        - condition: state
+          entity_id: light.kithcen_ikea # taklys
+          state: 'off'
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.kitchen_lights_switch_2 # taklys kjøkken
+        entity_id: switch.kitchen_lights_switch_2 # taklys
+    - service: light.turn_on
+      data:
+        entity_id: light.kithcen_ikea
+        brightness: 254
+        transition: 10

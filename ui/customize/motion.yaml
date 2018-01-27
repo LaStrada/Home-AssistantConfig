@@ -1,0 +1,9 @@
+# Motion
+binary_sensor.multi_gang_sensor:
+  show_last_changed: true
+binary_sensor.multi_kitchen_bottom_sensor:
+  show_last_changed: true
+binary_sensor.multi_kitchen_top_sensor:
+  show_last_changed: true
+binary_sensor.multi_kontor_sensor:
+  show_last_changed: true

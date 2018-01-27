@@ -1,0 +1,13 @@
+# devices
+device_tracker.stalesinapple_watch:
+  hidden: true
+device_tracker.stalesmacbookpro:
+  hidden: true
+device_tracker.lolphone7:
+  hidden: true
+
+device_tracker.android89bc5926ba332e4flan:
+  friendly_name: Tina Samsung S7 nmap
+
+device_tracker.androide63cbc6e620053d3lan:
+  friendly_name: Tina Samsung S6 nmap

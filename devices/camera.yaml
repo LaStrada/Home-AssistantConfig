@@ -1,3 +1,7 @@
 - platform: generic
-  name: HeraCam
-  still_image_url: !secret heracam_url
+  name: HeraCam NC250
+  still_image_url: !secret heracam_url_nc250
+
+- platform: generic
+  name: HeraCam NC260
+  still_image_url: !secret heracam_url_nc260

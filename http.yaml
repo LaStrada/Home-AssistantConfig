@@ -1,0 +1,6 @@
+api_password: !secret http_password
+base_url: !secret my_domain
+server_port: 8123
+ip_ban_enabled: True
+login_attempts_threshold: 10
+use_x_forwarded_for: True

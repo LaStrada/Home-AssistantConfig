@@ -14,7 +14,8 @@
       data:
         title: 'Motion alarm!'
         message: 'Bevegelse i gangen!'
-    - service: shell_command.heracam_store_image
+    - service: shell_command.heracam_nc250_store_image
+    - service: shell_command.heracam_nc260_store_image
 
 - alias: Alarm away gang store image
   trigger:
@@ -30,7 +31,8 @@
       for:
         seconds: 20
   action:
-    - service: shell_command.heracam_store_image
+    - service: shell_command.heracam_nc250_store_image
+    - service: shell_command.heracam_nc260_store_image
 
 # Kitchen
 - alias: Alarm away kjøkken
