@@ -38,7 +38,7 @@
 - alias: Alarm away kjøkken
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Bevegelse!'
   condition:
     - condition: state

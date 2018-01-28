@@ -1,7 +1,7 @@
 - alias: Gang heat off
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Bevegelse!'
   condition:
     - condition: state
@@ -19,12 +19,12 @@
 - alias: Gang heat on
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Ingen bevegelse'
       for:
         minutes: 15
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Ingen bevegelse'
       for:
         minutes: 30

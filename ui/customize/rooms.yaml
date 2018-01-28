@@ -11,11 +11,6 @@ sensor.multi_kitchen_temperature:
 sensor.multi_kitchen_relative_humidity:
   friendly_name: Luftfuktighet kjøkken
   icon: mdi:percent
-switch.kitchen_lights_switch_2:
-  friendly_name: Taklys
-  sensor_class: light
-  icon: mdi:lightbulb
-  homebridge_hidden: false
 switch.kitchen_bardisk_switch:
   friendly_name: Bardisk
   sensor_class: light

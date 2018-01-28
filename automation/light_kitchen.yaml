@@ -6,19 +6,29 @@
       for:
         minutes: 10
   action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.kitchen_lights_switch_2 # taklys
     - service: light.turn_on
       data:
         entity_id: light.kjkkenet
         brightness: 0
         transition: 3000
 
+- alias: Light kitchen zero brightness
+  trigger:
+    - platform: numeric_state
+      entity_id: group.motion_sensors_kitchen
+      value_template: '{{ states.attributes.brightness }}'
+      below: 1
+      for:
+        seconds: 10
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.kjkkenet
+
 - alias: Light kitchen dim on
   trigger:
     - platform: state
-      entity_id: group.motion_kitchen
+      entity_id: group.motion_sensors_kitchen
       to: 'on'
   condition:
     - condition: time

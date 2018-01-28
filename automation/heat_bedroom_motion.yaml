@@ -1,7 +1,7 @@
 - alias: Soverom heat off
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Bevegelse!'
   condition:
     - condition: time
@@ -16,12 +16,12 @@
 - alias: Soverom heat on
   trigger:
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Ingen bevegelse'
       for:
         minutes: 5
     - platform: state
-      entity_id: sensor.motion_kitchen
+      entity_id: sensor.motion_sensors_kitchen
       to: 'Ingen bevegelse'
       for:
         minutes: 10
