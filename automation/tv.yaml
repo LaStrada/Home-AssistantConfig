@@ -11,29 +11,20 @@
       for:
         minutes: 10
     - platform: state
-      entity_id: media_player.philips_tv
-      to: 'on'
+      entity_id: device_tracker.1c5a6b6f1b7a
+      to: 'home'
       for:
-        minutes: 10
+        minutes: 15
   condition:
     - condition: state
       entity_id: media_player.pioneer_avr
       state: 'off'
       for:
         minutes: 5
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: device_tracker.philips_tv
-          state: 'home'
-          for:
-            minutes: 5
-        - condition: state
-          entity_id: media_player.pioneer_avr
-          state: 'on'
-          for:
-            minutes: 5
+    - condition: state
+      entity_id: device_tracker.philips_tv
+      state: 'home'
+      for:
+        minutes: 5
   action:
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.philips_tv
+    - service: shell_command.vitrineskap_dim
