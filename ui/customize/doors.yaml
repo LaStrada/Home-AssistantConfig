@@ -14,11 +14,14 @@ binary_sensor.refrigerator_kitchen_sensor:
   friendly_name: Kjøleskap
   device_class: door
   homebridge_hidden: false
+  show_last_changed: true
 binary_sensor.freezer_bod_sensor:
   friendly_name: Fryser (bod)
   device_class: door
   homebridge_hidden: false
+  show_last_changed: true
 binary_sensor.freezer_kitchen_sensor:
   friendly_name: Fryser (kjøkken)
   device_class: door
   homebridge_hidden: false
+  show_last_changed: true

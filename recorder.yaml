@@ -13,12 +13,13 @@ include:
     # Office
     - sensor.temp_kontor_temperature
     - sensor.temp_kontor_humidity
-    - sensor.multi_kontor_burglar
+    - binary_sensor.multi_kontor_sensor
     - switch.panelovn_kontor_switch
 
     # Kitchen
     - binary_sensor.door_back_sensor
-    - sensor.multi_kitchen_burglar
+    - binary_sensor.multi_kitchen_top_sensor
+    - binary_sensor.multi_kitchen_bottom_sensor
     - sensor.template_water_leak_kitchen
 
     # Living room
@@ -39,7 +40,7 @@ include:
     # Entrance
     - sensor.multi_gang_temperature
     - sensor.multi_gang_relative_humidity
-    - sensor.multi_gang_burglar
+    - binary_sensor.multi_gang_sensor
     - switch.heracam_relay
 
     # Smoke sensors
