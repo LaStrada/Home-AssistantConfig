@@ -1,1 +1,1 @@
-tv_off: 'curl -s -H "Content-Type: application/json" -X POST -d '{"key": "Standby"}' http://10.0.0.82:1925/1/input/key > /dev/null'
+tv_off: 'sh /home/homeassistant/scripts/sh/tv_off.sh'
