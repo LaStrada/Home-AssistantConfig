@@ -16,7 +16,7 @@ switch.kitchen_lights_switch_2:
   sensor_class: light
   icon: mdi:lightbulb
   homebridge_hidden: false
-switch.kitchen_lights_switch_3:
+switch.kitchen_bardisk_switch:
   friendly_name: Bardisk
   sensor_class: light
   icon: mdi:lightbulb

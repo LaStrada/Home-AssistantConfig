@@ -11,7 +11,7 @@
         entity_id: switch.kitchen_lights_switch_2 # taklys
     - service: light.turn_on
       data:
-        entity_id: light.kithcen_ikea
+        entity_id: light.kjkkenet
         brightness: 0
         transition: 3000
 
@@ -25,23 +25,20 @@
       after: '08:00:00'
       before: '23:59:00'
     - condition: state
-      entity_id: switch.kitchen_lights_switch_3 # bardisk
+      entity_id: switch.kitchen_bardisk_switch # bardisk
       state: 'on'
     - condition: or
       conditions:
         - condition: numeric_state
-          entity_id: light.kithcen_ikea
+          entity_id: light.kjkkenet
           below: 253
           value_template: '{{ states.attributes.brightness }}'
         - condition: state
-          entity_id: light.kithcen_ikea # taklys
+          entity_id: light.kjkkenet # taklys
           state: 'off'
   action:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.kitchen_lights_switch_2 # taklys
     - service: light.turn_on
       data:
-        entity_id: light.kithcen_ikea
+        entity_id: light.kjkkenet
         brightness: 254
         transition: 10
