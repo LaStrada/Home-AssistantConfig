@@ -21,8 +21,11 @@
         hours: 9
   condition:
     - condition: state
-      entity_id: sensor.motion_sensors_kitchen
-      state: 'Ingen bevegelse'
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
   action:
     - service: climate.set_operation_mode
       data:

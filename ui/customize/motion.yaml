@@ -11,6 +11,3 @@ binary_sensor.multi_kitchen_top_sensor:
 binary_sensor.multi_kontor_sensor:
   show_last_changed: true
   device_class: motion
-group.motion_sensors_kitchen:
-  show_last_changed: true
-  device_class: motion

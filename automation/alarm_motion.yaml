@@ -1,8 +1,8 @@
 - alias: Alarm away gang notify
   trigger:
     - platform: state
-      entity_id: sensor.motion_gang
-      to: 'Bevegelse!'
+      entity_id: binary_sensor.multi_gang_sensor
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -38,8 +38,11 @@
 - alias: Alarm away kjøkken
   trigger:
     - platform: state
-      entity_id: sensor.motion_sensors_kitchen
-      to: 'Bevegelse!'
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -56,8 +59,8 @@
 - alias: Alarm away kontor
   trigger:
     - platform: state
-      entity_id: sensor.motion_kontor
-      to: 'Bevegelse!'
+      entity_id: binary_sensor.multi_kontor_sensor
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
