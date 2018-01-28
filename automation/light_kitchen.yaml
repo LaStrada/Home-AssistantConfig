@@ -18,7 +18,7 @@
       data:
         entity_id: light.kjkkenet
         brightness: 0
-        transition: 6000
+        transition: 600
 
 - alias: Light kitchen dim on
   trigger:
@@ -43,4 +43,4 @@
       data:
         entity_id: light.kjkkenet
         brightness: 254
-        transition: 10
+        transition: 1
