@@ -6,17 +6,9 @@
     - delay: '2:00'
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.gang_termostat
-        operation_mode: 'auto'
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.soverom_termostat
-        operation_mode: 'auto'
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.stue_termostat
-        operation_mode: 'auto'
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.kontor_termostat
-        operation_mode: 'auto'
+        entity_id:
+          - climate.gang_termostat
+          - climate.soverom_termostat
+          - climate.stue_termostat
+          - climate.kontor_termostat
+        operation_mode: 'heat'

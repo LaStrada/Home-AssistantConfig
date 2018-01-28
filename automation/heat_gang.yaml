@@ -36,4 +36,4 @@
     - service: climate.set_operation_mode
       data:
         entity_id: climate.gang_termostat
-        operation_mode: 'auto'
+        operation_mode: 'heat'
