@@ -40,3 +40,37 @@
         entity_id: light.kjkkenet
         brightness: 254
         transition: 1
+
+- alias: Light kitchen force on
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch_2
+  condition:
+    - condition: state
+      entity_id: light.kjkkenet
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kjkkenet
+        brightness: 254
+        transition: 1
+
+- alias: Light kitchen force off
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch_2
+  condition:
+    - condition: state
+      entity_id: light.kjkkenet
+      state: 'on'
+    - condition: numeric_state
+      entity_id: light.kjkkenet
+      below: 254
+      value_template: '{{ states.attributes.brightness }}'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kjkkenet
+        brightness: 254
+        transition: 1
