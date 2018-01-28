@@ -7,10 +7,10 @@
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
       to: 'off'
   condition:
-    - platform: state
+    - condition: state
       entity_id: binary_sensor.multi_kitchen_top_sensor
       state: 'off'
-    - platform: state
+    - condition: state
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
       state: 'off'
   action:
