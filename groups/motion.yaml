@@ -1,10 +1,10 @@
 motion_sensors:
   name: Bevegelse
   entities:
-    - sensor.motion_gang
-    - sensor.motion_kitchen_top
-    - sensor.motion_kitchen_bottom
-    - sensor.motion_kontor
+    - sensor.motion_gang_sensor
+    - sensor.motion_kitchen_top_sensor
+    - sensor.motion_kitchen_bottom_sensor
+    - sensor.motion_kontor_sensor
 
 motion_sensors_kitchen:
   name: Bevegelse kjøkken

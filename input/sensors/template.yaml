@@ -11,32 +11,6 @@
       unit_of_measurement: '°'
       icon_template: mdi:weather-sunset
 
-    ### Motion
-
-    motion_gang:
-      value_template: >-
-          {% if is_state("sensor.multi_gang_burglar", "0") %}
-            Ingen bevegelse
-          {% else %}Bevegelse!{% endif %}
-      friendly_name: 'Motion gang'
-      icon_template: '{% if is_state("sensor.multi_gang_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
-
-    motion_kitchen:
-      value_template: >-
-          {% if is_state("sensor.multi_kitchen_burglar", "0") %}
-            Ingen bevegelse
-          {% else %}Bevegelse!{% endif %}
-      friendly_name: 'Motion kjøkken'
-      icon_template: '{% if is_state("sensor.multi_kitchen_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
-      
-    motion_kontor:
-      value_template: >-
-          {% if is_state("sensor.multi_kontor_burglar", "0") %}
-            Ingen bevegelse
-          {% else %}Bevegelse!{% endif %}
-      friendly_name: 'Motion kontor'
-      icon_template: '{% if is_state("sensor.multi_kontor_burglar", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
-
 
     ### Smoke sensors
   
