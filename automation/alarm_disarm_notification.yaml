@@ -16,7 +16,7 @@
         entity_id: alarm_control_panel.ha_alarm
         state: 'pending'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         message: "Kommer hjem: alarm aktivert"
         data:
@@ -42,7 +42,7 @@
         entity_id: alarm_control_panel.ha_alarm
         state: 'pending'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         message: "Kommer hjem: dør låst og alarm aktivert"
         data:
@@ -63,7 +63,7 @@
       entity_id: alarm_control_panel.ha_alarm
       state: 'disarmed'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         message: "Kommer hjem: dør låst"
         data:

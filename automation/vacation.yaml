@@ -77,14 +77,14 @@
       entity_id: binary_sensor.vacation_mode_notified
       state: 'off'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         message: "Vil du aktivere feriemodus?"
         data:
           push:
             badge: 0
             category: "activate_vacation_mode"
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         message: "Vil du aktivere feriemodus?"
         data:
@@ -115,7 +115,7 @@
       entity_id: binary_sensor.vacation_mode_notified
       state: 'off'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         message: "Vil du aktivere feriemodus?"
         data:

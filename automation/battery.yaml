@@ -22,7 +22,7 @@ automation:
     - condition: template
       value_template: '{{ not is_state("trigger.from_state", "N/A") and trigger.to_state <= 20 }}'
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data_template:
         message: >
           '{{ states.sensor.battery_danalock.attributes.friendly_name }} har
