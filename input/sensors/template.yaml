@@ -181,8 +181,8 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.multi_kitchen.attributes.battery_level is number %}
-              {{ states.zwave.multi_kitchen.attributes.battery_level | round }}
+          {%- if states.zwave.multi_kitchen_bottom.attributes.battery_level is number %}
+              {{ states.zwave.multi_kitchen_bottom.attributes.battery_level | round }}
           {% else %}
               N/A
           {%- endif %}
