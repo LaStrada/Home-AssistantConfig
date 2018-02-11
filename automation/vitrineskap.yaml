@@ -7,7 +7,7 @@
     - platform: state
       entity_id: light.stua
     - platform: time
-      minutes: '/5'
+      minutes: '/2'
       seconds: 00
   action:
     - service: shell_command.vitrineskap_dim
