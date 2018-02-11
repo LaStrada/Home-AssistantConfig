@@ -48,6 +48,7 @@ ios: !include devices/ios.yaml
 mqtt: !include devices/mqtt.yaml
 light: !include devices/light.yaml
 sensor: !include_dir_merge_list input/sensors/
+apple_tv: !include devices/apple_tv.yaml
 
 ### Scenes
 scene: !include_dir_merge_list scenes/
