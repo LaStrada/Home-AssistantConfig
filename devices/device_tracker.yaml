@@ -16,8 +16,9 @@
   home_interval: 1
   hosts:
     - 10.0.0.43   # pioneer receiver
+    - 10.0.0.82   # philips tv
     - 10.0.0.83   # apple_tv
-    - 10.0.0.102  # philips_hue
+    - 10.0.0.102  # philips hue
 
 - platform: nmap_tracker
   consider_home: 300
