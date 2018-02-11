@@ -12,10 +12,15 @@
 
 - platform: nmap_tracker
   consider_home: 30
-  interval_seconds: 14
+  interval_seconds: 12
   hosts:
-    - 10.0.0.30   # heracam_nc260
-    - 10.0.0.31   # heracam_nc250
     - 10.0.0.82   # pioneer receiver
     - 10.0.0.83   # apple_tv
     - 10.0.0.102  # philips_hue
+
+- platform: nmap_tracker
+  consider_home: 300
+  interval_seconds: 12
+  hosts:
+    - 10.0.0.30   # heracam_nc260
+    - 10.0.0.31   # heracam_nc250
