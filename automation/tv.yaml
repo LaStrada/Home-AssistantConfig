@@ -7,17 +7,17 @@
       entity_id: media_player.pioneer_avr
       to: 'off'
     - platform: state
-      entity_id: device_tracker.1c5a6b6f1b7a # philips tv
+      entity_id: device_tracker.philips_tv
       to: 'home'
       for:
         minutes: 2
     - platform: state
-      entity_id: device_tracker.1c5a6b6f1b7a # philips tv
+      entity_id: device_tracker.philips_tv
       to: 'home'
       for:
         minutes: 5
     - platform: state
-      entity_id: device_tracker.1c5a6b6f1b7a # philips tv
+      entity_id: device_tracker.philips_tv
       to: 'home'
       for:
         minutes: 10
@@ -29,7 +29,7 @@
       entity_id: media_player.pioneer_avr
       state: 'off'
     - condition: state
-      entity_id: device_tracker.1c5a6b6f1b7a # philips tv
+      entity_id: device_tracker.philips_tv
       state: 'home'
   action:
     - service: shell_command.tv_off

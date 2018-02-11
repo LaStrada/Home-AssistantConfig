@@ -6,11 +6,12 @@ input_boolean.soverom_wakeup_heat:
 
 
 # Kitchen
-sensor.multi_kitchen_temperature:
+sensor.multi_kitchen_bottom_temperature:
   friendly_name: Temperatur kjøkken
-sensor.multi_kitchen_relative_humidity:
+sensor.multi_kitchen_bottom_relative_humidity:
   friendly_name: Luftfuktighet kjøkken
   icon: mdi:percent
+  homebridge_hidden: false
 switch.kitchen_bardisk_switch:
   friendly_name: Bardisk
   sensor_class: light
@@ -24,10 +25,10 @@ light.kitchen_table_dimmer_level:
 # Living room (stue)
 sensor.temp_stue_temperature:
   friendly_name: Temperatur stue
-  homebridge_hidden: false
 sensor.temp_stue_humidity:
   friendly_name: Luftfuktighet stue
   icon: mdi:percent
+  homebridge_hidden: false
 
 
 # Outdoor (ute)
@@ -62,6 +63,7 @@ sensor.temp_kontor_temperature:
 sensor.temp_kontor_humidity:
   friendly_name: Luftfuktighet kontor
   icon: mdi:percent
+  homebridge_hidden: false
 
 
 # Entrance (gang)
