@@ -1,5 +1,6 @@
 - platform: pioneer
   host: 10.0.0.43
+  timeout: 60
 
 - platform: philips_js
   host: 10.0.0.82
