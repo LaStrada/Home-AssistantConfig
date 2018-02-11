@@ -1,4 +1,6 @@
 db_url: !secret mysql
+purge_keep_days: 0
+
 include:
   entities:
     # Bedroom
@@ -20,6 +22,10 @@ include:
     - binary_sensor.door_back_sensor
     - binary_sensor.multi_kitchen_top_sensor
     - binary_sensor.multi_kitchen_bottom_sensor
+    - sensor.multi_kitchen_top_relative_humidity
+    - sensor.multi_kitchen_bottom_relative_humidity
+    - sensor.multi_kitchen_top_temperature
+    - sensor.multi_kitchen_bottom_temperature
     - sensor.template_water_leak_kitchen
 
     # Living room

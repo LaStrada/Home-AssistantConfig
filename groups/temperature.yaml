@@ -28,8 +28,8 @@ temp_stue_kitchen:
   entities:
     - climate.stue_termostat
     - sensor.temp_stue_humidity
-    - sensor.multi_kitchen_temperature
-    - sensor.multi_kitchen_relative_humidity
+    - sensor.multi_kitchen_bottom_temperature
+    - sensor.multi_kitchen_bottom_relative_humidity
 
 temp_soverom:
   name: Soverom
