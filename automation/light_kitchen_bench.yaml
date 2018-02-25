@@ -1,0 +1,87 @@
+- alias: Light kitchen bench off
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'off'
+  condition:
+    - condition: template
+      value_template: '{{ states.input_number.kitchen_bench_lights.state != 0 }}'
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.kitchen_bench_lights
+        value: 0
+
+
+- alias: Light kitchen bench on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'on'
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: '{{ states.input_number.kitchen_bench_lights.state != 2 }}'
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.kitchen_bench_lights
+        value: 2
+
+
+- alias: Light kitchen bench dim
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+    - condition: template
+      value_template: '{{ states.input_number.kitchen_bench_lights.state != 1 }}'
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.kitchen_bench_lights
+        value: 1
+
+
+# Detect changes
+
+- alias: Change kitchen bench lights to off
+  trigger:
+    - platform: state
+      entity_id: input_number.kitchen_bench_lights
+      to: 0
+  action:
+    - service: shell_command.kitchen_bench_lights_off
+
+
+- alias: Change kitchen bench lights to off
+  trigger:
+    - platform: state
+      entity_id: input_number.kitchen_bench_lights
+      to: 1
+  action:
+    - service: shell_command.kitchen_bench_lights_dim
+
+
+- alias: Change kitchen bench lights to on
+  trigger:
+    - platform: state
+      entity_id: input_number.kitchen_bench_lights
+      to: 2
+  action:
+    - service: shell_command.kitchen_bench_lights_on
