@@ -5,8 +5,8 @@
       to: 'off'
   condition:
     - condition: template
-      condition: '{{ states.input_number.kitchen_bench_lights.state != 0 }}'
-    - platform: state
+      value_template: "{{ states.input_number.kitchen_bench_lights.state != '0.0' }}"
+    - condition: state
       entity_id: binary_sensor.multi_kitchen_top_sensor
       state: 'off'
     - condition: state
@@ -35,7 +35,7 @@
       entity_id: switch.kitchen_bardisk_switch
       state: 'on'
     - condition: template
-      value_template: '{{ states.input_number.kitchen_bench_lights.state != 2 }}'
+      value_template: "{{ states.input_number.kitchen_bench_lights.state != '2.0' }}"
   action:
     - service: input_number.set_value
       data:
@@ -56,7 +56,7 @@
       to: 'off'
   condition:
     - condition: template
-      value_template: '{{ states.input_number.kitchen_bench_lights.state != 1 }}'
+      value_template: "{{ states.input_number.kitchen_bench_lights.state != '1.0' }}"
     - condition: or
       conditions:
         - condition: and
