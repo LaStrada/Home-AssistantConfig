@@ -5,7 +5,13 @@
       to: 'off'
   condition:
     - condition: template
-      value_template: '{{ states.input_number.kitchen_bench_lights.state != 0 }}'
+      condition: '{{ states.input_number.kitchen_bench_lights.state != 0 }}'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
   action:
     - service: input_number.set_value
       data:
@@ -45,6 +51,9 @@
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
     - platform: state
       entity_id: binary_sensor.multi_gang_sensor
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'off'
   condition:
     - condition: template
       value_template: '{{ states.input_number.kitchen_bench_lights.state != 1 }}'
