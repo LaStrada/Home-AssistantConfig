@@ -1,0 +1,2 @@
+heracam_nc250_store_image: !secret store_heracam_nc250_image
+heracam_nc260_store_image: !secret store_heracam_nc260_image

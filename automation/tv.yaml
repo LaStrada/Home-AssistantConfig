@@ -1,0 +1,39 @@
+- alias: Turn TV off
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pioneer_avr
+      to: 'not_home'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: media_player.pioneer_avr
+      to: 'off'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: device_tracker.philips_tv
+      to: 'home'
+      for:
+        minutes: 3
+    - platform: state
+      entity_id: device_tracker.philips_tv
+      to: 'home'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: device_tracker.philips_tv
+      to: 'home'
+      for:
+        minutes: 10
+  condition:
+    - condition: state
+      entity_id: device_tracker.pioneer_avr
+      state: 'not_home'
+    - condition: state
+      entity_id: media_player.pioneer_avr
+      state: 'off'
+    - condition: state
+      entity_id: device_tracker.philips_tv
+      state: 'home'
+  action:
+    - service: shell_command.tv_off

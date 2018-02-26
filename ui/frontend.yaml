@@ -1,0 +1,8 @@
+extra_html_url:
+  - /local/custom_ui/state-card-custom-ui.html
+
+themes:
+  alarm_pending:
+    primary-color: "#CC4A14"
+  alarm_armed:
+    primary-color: "#B21212"

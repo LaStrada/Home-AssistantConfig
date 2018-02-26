@@ -1,0 +1,150 @@
+- alias: Light kitchen bench off
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'off'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'off'
+      for:
+        minutes: 30
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'off'
+      for:
+        minutes: 30
+    - platform: state
+      entity_id: binary_sensor.multi_gang_sensor
+      to: 'off'
+      for:
+        minutes: 30
+  condition:
+    - condition: template
+      value_template: "{{ states.input_number.kitchen_bench_lights.state != '0.0' }}"
+    - condition: state
+      entity_id: switch.kitchen_bardisk_switch
+      state: 'off'
+      for:
+        minutes: 10
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+      for:
+        minutes: 30
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+      for:
+        minutes: 30
+    - condition: state
+      entity_id: binary_sensor.multi_gang_sensor
+      state: 'off'
+      for:
+        minutes: 30
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.kitchen_bench_lights
+        value: 0
+
+
+- alias: Light kitchen bench on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'on'
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: switch.kitchen_bardisk_switch
+      state: 'on'
+    - condition: template
+      value_template: "{{ states.input_number.kitchen_bench_lights.state != '2.0' }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.kitchen_bench_lights
+        value: 2
+
+
+- alias: Light kitchen bench dim
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+    - platform: state
+      entity_id: binary_sensor.multi_gang_sensor
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'off'
+  condition:
+    - condition: template
+      value_template: "{{ states.input_number.kitchen_bench_lights.state != '1.0' }}"
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: switch.kitchen_bardisk_switch
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.multi_kitchen_top_sensor
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.multi_kitchen_bottom_sensor
+              state: 'off'
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: switch.kitchen_bardisk_switch
+              state: 'off'
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: binary_sensor.multi_kitchen_top_sensor
+                  state: 'on'
+                - condition: state
+                  entity_id: binary_sensor.multi_kitchen_bottom_sensor
+                  state: 'on'
+                - condition: state
+                  entity_id: binary_sensor.multi_gang_sensor
+                  state: 'on'
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.kitchen_bench_lights
+        value: 1
+
+
+# Detect changes
+
+- alias: Change kitchen bench lights to off
+  trigger:
+    - platform: template
+      value_template: "{{ states.input_number.kitchen_bench_lights.state == '0.0' }}"
+  action:
+    - service: shell_command.kitchen_bench_lights_off
+
+
+- alias: Change kitchen bench lights to off
+  trigger:
+    - platform: template
+      value_template: "{{ states.input_number.kitchen_bench_lights.state == '1.0' }}"
+  action:
+    - service: shell_command.kitchen_bench_lights_dim
+
+
+- alias: Change kitchen bench lights to on
+  trigger:
+    - platform: template
+      value_template: "{{ states.input_number.kitchen_bench_lights.state == '2.0' }}"
+  action:
+    - service: shell_command.kitchen_bench_lights_on

@@ -1,5 +1,11 @@
-door_sensors:
+all_door_sensors:
   name: Dører
+  entities:
+    - binary_sensor.door_front_sensor
+    - binary_sensor.door_back_sensor
+
+door_sensors_living_room_kitchen:
+  name: Dører kjøkken og stue
   entities:
     - binary_sensor.door_front_sensor
     - binary_sensor.door_back_sensor

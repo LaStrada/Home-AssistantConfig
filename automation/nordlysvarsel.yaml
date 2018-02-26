@@ -9,14 +9,6 @@
       value_template: '{{ state.attributes.elevation }}'
       below: -15
 
-    # month < may and month > august
-    - condition: or
-      conditions:
-        - condition: template
-          value_template: '{{ now().month < 5 }}'
-        - condition: template
-          value_template: '{{ now().month > 8 }}'
-
     # Only when not on vacation
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -60,7 +52,7 @@
           above: 100
           below: 104
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
         title: 'Nordlysvarsel'
         message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen."

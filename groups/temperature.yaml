@@ -1,24 +1,35 @@
-temperature_control_panel:
-  name: Temperaturkontroll
+temperature_control_panel_living_room:
+  name: Stue temperaturinnstillinger
+  control: hidden
+  entities:
+    - input_number.stue_morgen_temperatur
+    - input_number.stue_dagtid_temperatur
+    - input_number.stue_natt_temperatur
+
+temperature_control_panel_bedroom:
+  name: Soverom temperaturinnstillinger
   control: hidden
   entities:
     - input_boolean.soverom_wakeup_heat
-    - input_slider.soverom_natt_temperatur
-    - input_slider.soverom_wakeup_temperatur
-    - input_slider.soverom_dagtid_temperatur
-    - input_slider.stue_morgen_temperatur
-    - input_slider.stue_dagtid_temperatur
-    - input_slider.stue_natt_temperatur
-    - input_slider.kontor_temperatur
-    - input_slider.kontor_morning_temperatur
+    - input_number.soverom_natt_temperatur
+    - input_number.soverom_wakeup_temperatur
+    - input_number.soverom_dagtid_temperatur
+
+temperature_control_panel_office:
+  name: Kontor temperaturinnstillinger
+  control: hidden
+  entities:
+    - input_boolean.office_force_morning_heat
+    - input_number.kontor_temperatur
+    - input_number.kontor_morning_temperatur
 
 temp_stue_kitchen:
   name: Stue & kjøkken
   entities:
     - climate.stue_termostat
     - sensor.temp_stue_humidity
-    - sensor.multi_kitchen_temperature
-    - sensor.multi_kitchen_relative_humidity
+    - sensor.multi_kitchen_bottom_temperature
+    - sensor.multi_kitchen_bottom_relative_humidity
 
 temp_soverom:
   name: Soverom
@@ -35,7 +46,7 @@ temp_kontor:
 temp_gang:
   name: Gang
   entities:
-    - sensor.multi_gang_temperature
+    - climate.gang_termostat
     - sensor.multi_gang_relative_humidity
 
 temp_bad:
@@ -44,22 +55,11 @@ temp_bad:
     - sensor.temp_bad_temperature
     - sensor.temp_bad_humidity
 
-ute_min:
-  name: Ute
-  entities:
-    - sensor.temp_ute_temperature
-    - sensor.yr_humidity
-    - sun.sun
-    - sensor.yr_symbol
-    - sensor.yr_precipitation
-    - sensor.yr_wind_speed
-
 ute:
   name: Ute
   entities:
     - sensor.temp_ute_temperature
     - sensor.yr_humidity
-    - sensor.yr_symbol
     - sensor.yr_cloudiness
     - sensor.yr_dewpoint_temperature
     - sensor.yr_precipitation
@@ -68,6 +68,7 @@ ute:
 ute2:
   name: Sol, måne & nordlys
   entities:
+    - sensor.yr_symbol
     - sun.sun
     - sensor.solar_angle
     - sensor.sun_elevation

@@ -1,0 +1,6 @@
+kitchen_bench_lights:
+  name: Kjøkkenbenk-belysning
+  initial: 1
+  min: 0
+  max: 2
+  step: 1

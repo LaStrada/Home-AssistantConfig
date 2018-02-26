@@ -1,0 +1,95 @@
+# Bedroom
+sensor.template_temperature_bedroom:
+  homebridge_hidden: false
+input_boolean.soverom_wakeup_heat:
+  icon: mdi:bell-sleep
+
+
+# Kitchen
+sensor.multi_kitchen_bottom_temperature:
+  friendly_name: Temperatur kjøkken
+sensor.multi_kitchen_bottom_relative_humidity:
+  friendly_name: Luftfuktighet kjøkken
+  icon: mdi:percent
+  homebridge_hidden: false
+switch.kitchen_bardisk_switch:
+  friendly_name: Bardisk
+  sensor_class: light
+  icon: mdi:lightbulb
+  homebridge_hidden: false
+light.kitchen_table_dimmer_level:
+  friendly_name: Kjøkkenbord
+  homebridge_hidden: false
+
+
+# Living room (stue)
+sensor.temp_stue_temperature:
+  friendly_name: Temperatur stue
+sensor.temp_stue_humidity:
+  friendly_name: Luftfuktighet stue
+  icon: mdi:percent
+  homebridge_hidden: false
+
+
+# Outdoor (ute)
+sensor.temp_ute_temperature:
+  friendly_name: Temperatur ute
+  homebridge_hidden: false
+sensor.yr_symbol:
+  friendly_name: Været nå
+sensor.yr_cloudiness:
+  friendly_name: Skyer
+  icon: mdi:weather-cloudy
+sensor.yr_dewpoint_temperature:
+  friendly_name: Duggpunkt
+sensor.yr_humidity:
+  friendly_name: Luftfuktighet ute
+  icon: mdi:percent
+sensor.yr_precipitation:
+  friendly_name: Nedbør
+  icon: mdi:weather-rainy
+sensor.yr_wind_speed:
+  friendly_name: Vind
+  icon: mdi:weather-windy
+sensor.nordlysvarsel_1_time:
+  icon: mdi:earth
+  show_last_changed: true
+
+
+# Guestroom / office (kontor)
+sensor.temp_kontor_temperature:
+  friendly_name: Temperatur kontor
+  homebridge_hidden: false
+sensor.temp_kontor_humidity:
+  friendly_name: Luftfuktighet kontor
+  icon: mdi:percent
+  homebridge_hidden: false
+
+
+# Entrance (gang)
+light.gang_dimmer_level:
+  friendly_name: Gang dimmer
+  sensor_class: light
+  icon: mdi:lightbulb
+  homebridge_hidden: false
+light.gang_garderobeskap_level:
+  friendly_name: Garderobeskap dimmer
+  sensor_class: light
+  icon: mdi:lightbulb
+  homebridge_hidden: false
+sensor.multi_gang_relative_humidity:
+  friendly_name: Luftfuktighet gang
+  icon: mdi:percent
+sensor.multi_gang_temperature:
+  friendly_name: Temperatur gang
+  homebridge_hidden: false
+
+
+# Bathroom (bad)
+sensor.temp_bad_temperature:
+  friendly_name: Temperatur bad
+  homebridge_hidden: false
+sensor.temp_bad_humidity:
+  friendly_name: Luftfuktighet bad
+  icon: mdi:percent
+  homebridge_hidden: false

@@ -1,0 +1,17 @@
+# Motion
+binary_sensor.multi_gang_sensor:
+  show_last_changed: true
+  device_class: motion
+  friendly_name: Bevegelse gang
+binary_sensor.multi_kitchen_bottom_sensor:
+  show_last_changed: true
+  device_class: motion
+  friendly_name: Bevegelse kjøkken 1
+binary_sensor.multi_kitchen_top_sensor:
+  show_last_changed: true
+  device_class: motion
+  friendly_name: Bevegelse kjøkken 2
+binary_sensor.multi_kontor_sensor:
+  show_last_changed: true
+  device_class: motion
+  friendly_name: Bevegelse kontor

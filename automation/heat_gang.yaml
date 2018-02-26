@@ -1,0 +1,48 @@
+- alias: Gang heat off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.brewing
+      state: 'off'
+    - condition: time
+      after: '12:00:00'
+      before: '21:00:00'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat
+        operation_mode: 'off'
+
+- alias: Gang heat on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'off'
+      for:
+        minutes: 15
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'off'
+      for:
+        minutes: 15
+  condition:
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.brewing
+      state: 'off'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat
+        operation_mode: 'heat'

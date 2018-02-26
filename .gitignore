@@ -26,3 +26,4 @@ ip_bans.yaml
 cert/*.pem
 npm-debug.log
 *.pyc 
+custom_components/customizer/*

@@ -1,0 +1,7 @@
+vacation_mode:
+  name: Feriemodus
+  initial: off
+
+vacation_mode_notified:
+  name: Feriemodus varslet
+  initial: off

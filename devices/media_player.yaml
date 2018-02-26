@@ -1,0 +1,4 @@
+- platform: pioneer
+  host: 10.0.0.43
+  timeout: 60
+  port: 8102

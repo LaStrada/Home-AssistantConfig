@@ -1,0 +1,17 @@
+- alias: Hue down alert
+  trigger:
+    - platform: state
+      entity_id: device_tracker.philipshuelan
+      to: 'not_home'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: device_tracker.philipshuelan
+      to: 'not_home'
+      for:
+        minutes: 15
+  action:
+    - service: notify.lolphone_x
+      data:
+        title: 'Philips Hue alert!'
+        message: 'Enheten varer ikke'

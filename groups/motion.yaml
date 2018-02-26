@@ -1,6 +1,8 @@
 motion_sensors:
   name: Bevegelse
+  control: hidden
   entities:
-    - sensor.motion_gang
-    - sensor.motion_kitchen
-    - sensor.motion_kontor
+    - binary_sensor.multi_gang_sensor
+    - binary_sensor.multi_kitchen_top_sensor
+    - binary_sensor.multi_kitchen_bottom_sensor
+    - binary_sensor.multi_kontor_sensor
