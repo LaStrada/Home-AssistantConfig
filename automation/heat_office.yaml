@@ -34,10 +34,10 @@
     - condition: or
       conditions:
         - condition: state
-          entity_id: 'input_boolean.tina_workday_today'
+          entity_id: binary_sensor.tina_jobb_i_dag_sjekk
           state: 'on'
         - condition: state
-          entity_id: 'input_boolean.office_force_morning_heat'
+          entity_id: input_boolean.office_force_morning_heat
           state: 'on'
   action:
     - service: climate.set_temperature
