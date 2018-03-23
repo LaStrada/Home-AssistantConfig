@@ -51,7 +51,7 @@
   condition:
     - condition: time
       after: '07:00:00'
-      before: '15:00:00'
+      before: '14:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
       state: 'on'
@@ -67,12 +67,12 @@
 - alias: Stue ettermiddag ukedag
   trigger:
     - platform: time
-      at: "16:00:00"
+      at: "14:00:00"
     - platform: homeassistant
       event: start
   condition:
     - condition: time
-      after: '15:00:00'
+      after: '14:00:00'
       before: '22:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
