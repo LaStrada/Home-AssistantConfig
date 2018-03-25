@@ -1,0 +1,15 @@
+battery:
+  name: Batteri
+  entities:
+    - sensor.battery_danalock
+    - sensor.battery_door_front
+    - sensor.battery_door_back
+    - sensor.battery_smoke_living_room
+    - sensor.battery_smoke_bedroom
+    - sensor.battery_smoke_entrance
+    - sensor.battery_smoke_office
+    - sensor.battery_multi_kitchen
+    - sensor.battery_multi_entrance
+    - sensor.battery_refrigerator
+    - sensor.battery_freezer_kitchen
+    - sensor.battery_freezer_bod

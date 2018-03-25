@@ -1,0 +1,112 @@
+push:
+  categories:
+    # Ask to activate vacation mode
+    - name: Ask to activate vacation mode
+      identifier: 'activate_vacation_mode'
+      actions:
+        - identifier: 'ACTIVATE_VACATION_MODE'
+          title: 'Aktiver feriemodus'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+
+    # Arm alarm and lock door
+    - name: Arm alarm and lock door (Ståle)
+      identifier: 'arm_alarm_and_lock_door_stale'
+      actions:
+        # Lock door
+        - identifier: 'LOCK_DOOR'
+          title: 'Lås dør'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+
+        # Arm alarm
+        - identifier: 'ARM_ALARM'
+          title: 'Skru på alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+
+        # Arm alarm and lock door
+        - identifier: 'ARM_ALARM_AND_LOCK_DOOR'
+          title: 'Skru på alarm og lås dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+
+    # Disarm alarm and unlock door
+    - name: Disarm alarm and unlock door (Ståle)
+      identifier: 'disarm_alarm_and_unlock_door_stale'
+      actions:
+        # Unlock door
+        - identifier: 'UNLOCK_DOOR'
+          title: 'Lås opp dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+
+        # Disarm alarm
+        - identifier: 'DISARM_ALARM'
+          title: 'Skru av alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+
+        # Disarm alarm and unlock door
+        - identifier: 'DISARM_ALARM_AND_UNLOCK_DOOR'
+          title: 'Skru av alarm og lås opp dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+
+    # Arm alarm (door already locked)
+    - name: Arm alarm (Ståle)
+      identifier: 'arm_alarm_stale'
+      actions:
+        # Arm alarm and lock door
+        - identifier: 'ARM_ALARM'
+          title: 'Skru på alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+
+    # Disarm alarm (door already unlocked)
+    - name: Disarm alarm (Ståle)
+      identifier: 'disarm_alarm_stale'
+      actions:
+        - identifier: 'DISARM_ALARM'
+          title: 'Skru av alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+
+    # Lock door (alarm armed)
+    - name: Lock door (Ståle)
+      identifier: 'lock_door_stale'
+      actions:
+        - identifier: 'LOCK_DOOR'
+          title: 'Lås dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+
+    # Unlock door (alarm disarmed)
+    - name: Unlock door (Ståle)
+      identifier: 'unlock_door_stale'
+      actions:
+        - identifier: 'UNLOCK_DOOR'
+          title: 'Lås opp dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'

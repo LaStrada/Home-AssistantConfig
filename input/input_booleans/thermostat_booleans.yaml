@@ -1,0 +1,7 @@
+soverom_wakeup_heat:
+  name: Soverom wakeup heat
+  initial: on
+
+office_force_morning_heat:
+  name: Varme morning kontor
+  initial: off

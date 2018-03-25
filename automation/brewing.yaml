@@ -1,0 +1,33 @@
+- alias: Brewing started
+  trigger:
+    - platform: state
+      entity_id: input_boolean.brewing
+      to: 'on'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat, climate.soverom_termostat
+        operation_mode: 'off'
+
+- alias: Brewing ended
+  trigger:
+    - platform: state
+      entity_id: input_boolean.brewing
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.brewing
+      to: 'on'
+      for:
+        hours: 9
+  condition:
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat, climate.soverom_termostat
+        operation_mode: 'heat'

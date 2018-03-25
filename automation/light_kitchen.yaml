@@ -1,0 +1,74 @@
+- alias: Light kitchen off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.kjkkenet
+        transition: 300
+
+- alias: Light kitchen dim on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'on'
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '23:59:00'
+    - condition: state
+      entity_id: switch.kitchen_bardisk_switch
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kjkkenet
+        brightness: 254
+        transition: 1
+
+- alias: Light kitchen force on
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch_2
+  condition:
+    - condition: state
+      entity_id: light.kjkkenet
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kjkkenet
+        brightness: 254
+        transition: 1
+
+- alias: Light kitchen force off
+  trigger:
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch_2
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: light.kjkkenet
+      state: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.kjkkenet
+        transition: 0

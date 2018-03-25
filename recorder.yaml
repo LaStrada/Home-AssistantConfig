@@ -1,4 +1,5 @@
 db_url: !secret mysql
+purge_interval: 0
 include:
   entities:
     # Bedroom
@@ -13,12 +14,17 @@ include:
     # Office
     - sensor.temp_kontor_temperature
     - sensor.temp_kontor_humidity
-    - sensor.multi_kontor_burglar
+    - binary_sensor.multi_kontor_sensor
     - switch.panelovn_kontor_switch
 
     # Kitchen
     - binary_sensor.door_back_sensor
-    - sensor.multi_kitchen_burglar
+    - binary_sensor.multi_kitchen_top_sensor
+    - binary_sensor.multi_kitchen_bottom_sensor
+    - sensor.multi_kitchen_top_relative_humidity
+    - sensor.multi_kitchen_bottom_relative_humidity
+    - sensor.multi_kitchen_top_temperature
+    - sensor.multi_kitchen_bottom_temperature
     - sensor.template_water_leak_kitchen
 
     # Living room
@@ -39,7 +45,7 @@ include:
     # Entrance
     - sensor.multi_gang_temperature
     - sensor.multi_gang_relative_humidity
-    - sensor.multi_gang_burglar
+    - binary_sensor.multi_gang_sensor
     - switch.heracam_relay
 
     # Smoke sensors
@@ -67,6 +73,7 @@ include:
     - climate.kontor_termostat
     - climate.soverom_termostat
     - climate.stue_termostat
+    - climate.gang_termostat
 
     # Other
     - sensor.nordlysvarsel_1_time

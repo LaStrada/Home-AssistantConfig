@@ -108,7 +108,7 @@
       entity_id: binary_sensor.refrigerator_kitchen_sensor
       to: 'on'
       for:
-        minutes: 3
+        hours: 3
   action:
     - service: notify.notify_all_important
       data:

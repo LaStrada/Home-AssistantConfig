@@ -17,4 +17,4 @@
   platform: group
   services:
     - service: gmail_all
-    - service: ios_lolphone_7
+    - service: ios_lolphone_x

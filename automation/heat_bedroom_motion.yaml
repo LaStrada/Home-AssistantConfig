@@ -1,0 +1,38 @@
+- alias: Soverom heat off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+  condition:
+    - condition: time
+      after: '12:00:00'
+      before: '21:00:00'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.soverom_termostat
+        operation_mode: 'off'
+
+- alias: Soverom heat on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      state: 'off'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.soverom_termostat
+        operation_mode: 'heat'

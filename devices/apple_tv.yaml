@@ -1,0 +1,3 @@
+- host: 10.0.0.83
+  login_id: !secret atv_login_id
+  start_off: true

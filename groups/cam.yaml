@@ -1,4 +1,5 @@
 heracam:
   name: HeraCam
   entities:
-    - camera.heracam
+    - camera.heracam_nc250
+    - camera.heracam_nc260

@@ -1,0 +1,3 @@
+kitchen_bench_lights_off: 'java -jar /home/homeassistant/scripts/java/ansluta-driver.jar 0'
+kitchen_bench_lights_dim: 'java -jar /home/homeassistant/scripts/java/ansluta-driver.jar 1'
+kitchen_bench_lights_on: 'java -jar /home/homeassistant/scripts/java/ansluta-driver.jar 2'

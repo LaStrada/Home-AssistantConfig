@@ -8,20 +8,15 @@ homeassistant:
   customize_glob:
     "*":
       homebridge_hidden: true
-  customize: !include customize.yaml
+      # custom_ui_state_card: state-card-custom-ui
+  customize: !include_dir_merge_named ui/customize/
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize
     - /home/homeassistant/heracam/thumbnail
 
-frontend: !include frontend.yaml
+frontend: !include ui/frontend.yaml
 
-http:
-  api_password: !secret http_password
-  base_url: !secret my_domain
-  server_port: 8123
-  ip_ban_enabled: True
-  login_attempts_threshold: 10
-  use_x_forwarded_for: True
+http: !include http.yaml
 
 config:
 
@@ -33,37 +28,52 @@ discovery:
     - plex_mediaserver
     - apple_tv
 
+# History
 history:
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 
+automation: !include_dir_merge_list automation/
+group: !include_dir_merge_named groups/
+
+### Devices
+alarm_control_panel: !include devices/alarm.yaml
+camera: !include devices/camera.yaml
+climate: !include devices/climate.yaml
+device_tracker: !include devices/device_tracker.yaml
+ios: !include devices/ios.yaml
+mqtt: !include devices/mqtt.yaml
+light: !include devices/light.yaml
+sensor: !include_dir_merge_list input/sensors/
+apple_tv: !include devices/apple_tv.yaml
+
+### Scenes
+scene: !include_dir_merge_list scenes/
+
+### Input
+binary_sensor: !include_dir_merge_list input/binary_sensors/
+input_boolean: !include_dir_merge_named input/input_booleans/
+input_datetime: !include_dir_merge_named input/input_datetime/
+input_number: !include_dir_merge_named input/input_numbers/
+media_player: !include devices/media_player.yaml
+shell_command: !include_dir_merge_named devices/shell_commands/
+switch: !include_dir_merge_list devices/switch/
 sun:
+netatmo: !include devices/netatmo.yaml
 
-mqtt: !include mqtt.yaml
-ios: !include ios.yaml
-
+### Connected devices
+# 433mhz
 rfxtrx:
   device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Z5XR3V-if00-port0
 
-climate: !include climate.yaml
-automation: !include_dir_merge_list automation/
-sensor: !include_dir_merge_list sensors/
-device_tracker: !include device_tracker.yaml
-group: !include_dir_merge_named groups/
-scene: !include_dir_merge_list scenes/
-camera: !include camera.yaml
-light: !include light.yaml
-input_boolean: !include input_boolean.yaml
-input_slider: !include_dir_merge_named input_slider/
-binary_sensor: !include binary_sensor.yaml
-shell_command: !include_dir_merge_named shell_command/
-media_player: !include media_player.yaml
-switch: !include_dir_merge_list switch/
-
+# Z-wave
 zwave:
   usb_path: /dev/ttyAMA0
   polling_interval: 1800000
+  network_key: !secret zwave_key
 
-alarm_control_panel: !include alarm.yaml
-
+### Push
 notify: !include notify.yaml
+
+### Scripts
+script: !include scripts.yaml

@@ -6,7 +6,12 @@ default_view:
   entities:
     - group.alarm
     - group.heracam
-    - group.ute_min
+    - sensor.temp_ute_temperature
+    - sensor.yr_humidity
+    - sun.sun
+    - sensor.yr_symbol
+    - sensor.yr_precipitation
+    - sensor.yr_wind_speed
 
 
 ### Temperatures
@@ -53,7 +58,7 @@ alarm_status:
   entities:
     - group.motion_sensors
     - group.smoke_sensors
-    - group.door_sensors
+    - group.all_door_sensors
     - group.water_leak_sensors
     - group.freezers
     - group.heracam
@@ -67,6 +72,9 @@ diverse:
     - group.ferie_stuff
     - group.rpi_monitor
     - group.guest_mode
-    - group.temperature_control_panel
-    - sensor.ssl_certificate_expiry
-    - sensor.ssl_certificate_expiry_2
+    - group.temperature_control_panel_living_room
+    - group.temperature_control_panel_bedroom
+    - group.temperature_control_panel_office
+    - group.domains
+    - group.battery
+    - group.brewing

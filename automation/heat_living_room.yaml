@@ -1,5 +1,3 @@
-# Stue
-
 - alias: Stue natt ukedag
   trigger:
     - platform: time
@@ -20,7 +18,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
 
 - alias: Stue natt helg
   trigger:
@@ -42,7 +40,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_natt_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
 
 - alias: Stue morgen ukedag
   trigger:
@@ -53,7 +51,7 @@
   condition:
     - condition: time
       after: '07:00:00'
-      before: '16:00:00'
+      before: '14:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
       state: 'on'
@@ -64,17 +62,17 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_morgen_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_morgen_temperatur.state | float }}"
 
 - alias: Stue ettermiddag ukedag
   trigger:
     - platform: time
-      at: "16:00:00"
+      at: "14:00:00"
     - platform: homeassistant
       event: start
   condition:
     - condition: time
-      after: '16:00:00'
+      after: '14:00:00'
       before: '22:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
@@ -86,7 +84,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
 
 - alias: Stue morgen helg
   trigger:
@@ -108,7 +106,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_slider.stue_dagtid_temperatur.state | float }}"
+        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
 
 
 # Door state changed
@@ -116,8 +114,10 @@
 - alias: Living room door opened
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor
+      entity_id: group.door_sensors_living_room_kitchen
       to: 'on'
+      for:
+        seconds: 30
   action:
     - service: climate.set_operation_mode
       data:
@@ -127,10 +127,12 @@
 - alias: Living room door closed
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_front_sensor
+      entity_id: group.door_sensors_living_room_kitchen
       to: 'off'
+      for:
+        minutes: 2
   action:
     - service: climate.set_operation_mode
       data:
         entity_id: climate.stue_termostat
-        operation_mode: 'auto'
+        operation_mode: 'heat'

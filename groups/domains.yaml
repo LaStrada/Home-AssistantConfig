@@ -1,0 +1,5 @@
+domains:
+  name: SSL sertifikater
+  entities:
+    - sensor.main_domain
+    - sensor.ping_domain

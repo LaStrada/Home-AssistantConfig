@@ -1,0 +1,29 @@
+- platform: nmap_tracker
+  # Seconds to wait till marking someone as not home after not being seen
+  consider_home: 900
+  # Seconds between each scan for new devices
+  interval_seconds: 60
+  # The number of minutes nmap will not scan this device, assuming it is home
+  home_interval: 3
+  hosts:
+    - 10.0.0.65   # S7
+    - 10.0.0.66   # S7
+    - 10.0.0.101  # lolPhone X
+
+- platform: nmap_tracker
+  consider_home: 90
+  interval_seconds: 20
+  home_interval: 1
+  hosts:
+    - 10.0.0.43   # pioneer receiver
+    - 10.0.0.82   # philips tv
+    - 10.0.0.83   # apple_tv
+    - 10.0.0.102  # philips hue
+
+- platform: nmap_tracker
+  consider_home: 300
+  interval_seconds: 20
+  home_interval: 2
+  hosts:
+    - 10.0.0.30   # heracam_nc260
+    - 10.0.0.31   # heracam_nc250

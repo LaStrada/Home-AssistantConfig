@@ -1,0 +1,232 @@
+- platform: template
+  sensors:
+    solar_angle:
+      value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.azimuth) }}'
+      friendly_name: 'Solvinkel'
+      unit_of_measurement: '°'
+
+    sun_elevation:
+      value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+      friendly_name: 'Høyde'
+      unit_of_measurement: '°'
+      icon_template: mdi:weather-sunset
+
+
+    ### Smoke sensors
+  
+    # Gang
+    smoke_gang:
+      value_template: '{% if is_state("sensor.smoke_gang_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk i gangen'
+      icon_template: '{% if is_state("sensor.smoke_gang_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_gang:
+      value_template: '{% if is_state("sensor.smoke_gang_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme i gangen'
+      icon_template: '{% if is_state("sensor.smoke_gang_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+
+    # Kontor
+    smoke_kontor:
+      value_template: '{% if is_state("sensor.smoke_kontor_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_kontor_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_kontor:
+      value_template: '{% if is_state("sensor.smoke_kontor_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme på kontoret'
+      icon_template: '{% if is_state("sensor.smoke_kontor_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+
+    # Stue
+    smoke_stue:
+      value_template: '{% if is_state("sensor.smoke_stue_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk i stua'
+      icon_template: '{% if is_state("sensor.smoke_stue_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_stue:
+      value_template: '{% if is_state("sensor.smoke_stue_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme i stua'
+      icon_template: '{% if is_state("sensor.smoke_stue_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+
+    # Soverom
+    smoke_soverom:
+      value_template: '{% if is_state("sensor.smoke_soverom_smoke_2", "0") %}OK{% else %}Brann!!{% endif %}'
+      friendly_name: 'Røyk på soverommet'
+      icon_template: '{% if is_state("sensor.smoke_soverom_smoke_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+      
+    heat_soverom:
+      value_template: '{% if is_state("sensor.smoke_soverom_heat_2", "0") %}OK{% else %}Veldig varmt!!{% endif %}'
+      friendly_name: 'Varme på soverommet'
+      icon_template: '{% if is_state("sensor.smoke_soverom_heat_2", "0") %}mdi:bell-outline{% else %}mdi:bell-ring{% endif %}'
+    
+    # Template temperature sensor with fallback
+    template_temperature_bedroom:
+      value_template: >-
+          {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_temperature.last_updated) %}
+          {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_temperature.last_updated) %}
+          {% set now = as_timestamp(utcnow()) %}
+          {% if is_state("sensor.mqtt_bedroom_temperature", "0") or is_state("sensor.mqtt_bedroom_temperature", "unknown") %}
+            {{ states.sensor.temp_soverom_temperature.state | float }}
+          {% elif (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
+            {{ states.sensor.mqtt_bedroom_temperature.state | float }}
+          {% else %}
+            {{ states.sensor.temp_soverom_temperature.state | float }}
+          {% endif %}
+      friendly_name: Temperatur soverom
+      icon_template: mdi:thermometer
+      unit_of_measurement: '°C'
+
+    # Template humidity sensor with fallback
+    template_humidity_bedroom:
+      value_template: >-
+          {% set mqtt_updated = as_timestamp(states.sensor.mqtt_bedroom_humidity.last_updated) %}
+          {% set rfx433_updated = as_timestamp(states.sensor.temp_soverom_humidity.last_updated) %}
+          {% set now = as_timestamp(utcnow()) %}
+          {% if is_state("sensor.mqtt_bedroom_humidity", "0") or is_state("sensor.mqtt_bedroom_humidity", "unknown") %}
+            {{ states.sensor.temp_soverom_humidity.state | float }}
+          {% elif (now - mqtt_updated) < 1800 or mqtt_updated > rfx433_updated %}
+            {{ states.sensor.mqtt_bedroom_humidity.state | float }}
+          {% else %}
+            {{ states.sensor.temp_soverom_humidity.state | float }}
+          {% endif %}
+      friendly_name: Luftfuktighet
+      icon_template: mdi:percent
+      unit_of_measurement: '%'
+
+    template_water_leak_kitchen:
+      value_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}OK{% else %}Vannlekkasje!{% endif %}'
+      icon_template: '{% if is_state("sensor.kitchen_leak_sensor_flood", "0") %}mdi:alert-circle-outline{% else %}mdi:alert-circle{% endif %}'
+      friendly_name: Vannlekkasje
+
+
+    # Battery sensors
+    battery_danalock:
+      friendly_name: Danalock
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.danalock.attributes.battery_level is number %}
+              {{ states.zwave.danalock.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_door_front:
+      friendly_name: Dør foran
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.door_front.attributes.battery_level is number %}
+              {{ states.zwave.door_front.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_door_back:
+      friendly_name: Dør bak
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.door_back.attributes.battery_level is number %}
+              {{ states.zwave.door_back.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_smoke_living_room:
+      friendly_name: Røykvarsler stue
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.smoke_stue.attributes.battery_level is number %}
+              {{ states.zwave.smoke_stue.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_smoke_bedroom:
+      friendly_name: Røykvarsler soverom
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.smoke_soverom.attributes.battery_level is number %}
+              {{ states.zwave.smoke_soverom.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_smoke_entrance:
+      friendly_name: Røykvarsler gang
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.smoke_gang.attributes.battery_level is number %}
+              {{ states.zwave.smoke_gang.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_smoke_office:
+      friendly_name: Røykvarsler kontor
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.smoke_kontor.attributes.battery_level is number %}
+              {{ states.zwave.smoke_kontor.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_multi_kitchen:
+      friendly_name: Multisensor kjøkken
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.multi_kitchen_bottom.attributes.battery_level is number %}
+              {{ states.zwave.multi_kitchen_bottom.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_multi_entrance:
+      friendly_name: Multisensor gang
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.multi_gang.attributes.battery_level is number %}
+              {{ states.zwave.multi_gang.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_refrigerator:
+      friendly_name: Kjøleskapet på kjøkkenet
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.refrigerator_kitchen.attributes.battery_level is number %}
+              {{ states.zwave.refrigerator_kitchen.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_freezer_kitchen:
+      friendly_name: Fryser på kjøkkenet
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.freezer_kitchen.attributes.battery_level is number %}
+              {{ states.zwave.freezer_kitchen.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}
+
+    battery_freezer_bod:
+      friendly_name: Fryser i boden
+      unit_of_measurement: '%'
+      icon_template: mdi:battery-10
+      value_template: >-
+          {%- if states.zwave.freezer_bod.attributes.battery_level is number %}
+              {{ states.zwave.freezer_bod.attributes.battery_level | round }}
+          {% else %}
+              N/A
+          {%- endif %}

@@ -1,0 +1,5 @@
+# Domains (certs)
+sensor.main_domain:
+  friendly_name: !secret main_domain
+sensor.ping_domain:
+  friendly_name: ping

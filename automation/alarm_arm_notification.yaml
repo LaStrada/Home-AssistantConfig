@@ -1,9 +1,12 @@
-- alias: Ask if alarm should be armed
+- alias: Arm alarm (Ståle)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'off'
   condition:
+    - condition: state
+      entity_id: lock.danalock_locked
+      state: 'locked'
     - condition: or
       conditions:
       - condition: state
@@ -13,16 +16,75 @@
         entity_id: alarm_control_panel.ha_alarm
         state: pending
   action:
-    - service: notify.ios_lolphone_7
+    - service: notify.ios_lolphone_x
       data:
-        message: "Drar bort"
+        message: "Drar bort: alarm ikke aktivert"
         data:
           push:
             badge: 0
-            category: "ALARM_AWAY_STALE"
-          action_data:
-            entity_id: alarm_control_panel.alarm_arm_away
+            category: "arm_alarm_stale"
 
+- alias: Ask if alarm should be armed (Ståle)
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: lock.danalock_locked
+      state: 'unlocked'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: disarmed
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: pending
+  action:
+    - service: notify.ios_lolphone_x
+      data:
+        message: "Drar bort: dør ulåst og alarm ikke aktivert"
+        data:
+          push:
+            badge: 0
+            category: "arm_alarm_and_lock_door_stale"
+
+- alias: Ask if door should be locked (Ståle)
+  trigger:
+    - platform: state
+      entity_id: input_boolean.stale_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: lock.danalock_locked
+      state: 'unlocked'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: 'armed_away'
+  action:
+    - service: notify.ios_lolphone_x
+      data:
+        message: "Drar bort: dør ulåst"
+        data:
+          push:
+            badge: 0
+            category: "lock_door_stale"
+
+# Actional notification: Arm alarm and lock door
+- alias: Arm alarm and lock door from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: ARM_ALARM_AND_LOCK_DOOR
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.ha_alarm
+    - service: lock.lock
+      entity_id: lock.danalock_locked
+
+# Actional notification: arm alarm
 - alias: Disarm alarm from notification
   trigger:
     - platform: event
@@ -32,5 +94,14 @@
   action:
     - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.ha_alarm
-      data:
-        code: !secret alarm_code
+
+# Actional notification: Lock door
+- alias: Lock from notification
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: LOCK_DOOR
+  action:
+    - service: lock.lock
+      entity_id: lock.danalock_locked
