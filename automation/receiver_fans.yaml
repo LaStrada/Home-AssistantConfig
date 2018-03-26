@@ -4,10 +4,11 @@
       entity_id: input_number.receiver_fan_speed_rear
   action:
     - service: mqtt.publish
-      topic: 'hass/living_room/receiver/fan'
-      qos: 1
-      retain: true
-      payload_template: FA,{{ states('input_number.receiver_fan_speed_rear') }}
+      data:
+        topic: 'hass/living_room/receiver/fan'
+        qos: 1
+        retain: true
+        payload_template: FA,{{ states('input_number.receiver_fan_speed_rear') }}
 
 - alias: Adjust receiver fans internal
   trigger:
@@ -15,7 +16,8 @@
       entity_id: input_number.receiver_fan_speed_internal
   action:
     - service: mqtt.publish
-      topic: 'hass/living_room/receiver/fan'
-      qos: 1
-      retain: true
-      payload_template: FA,{{ states('input_number.receiver_fan_speed_internal') }}
+      data:
+        topic: 'hass/living_room/receiver/fan'
+        qos: 1
+        retain: true
+        payload_template: FA,{{ states('input_number.receiver_fan_speed_internal') }}
