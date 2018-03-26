@@ -1,0 +1,13 @@
+receiver_fan_speed_rear:
+  name: Receiver vifter bak
+  initial: 50
+  min: 0
+  max: 100
+  step: 1
+
+receiver_fan_speed_internal:
+  name: Receiver vifter inni
+  initial: 50
+  min: 0
+  max: 100
+  step: 1

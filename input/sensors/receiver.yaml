@@ -6,6 +6,6 @@
 
 - platform: mqtt
   state_topic: 'hass/living_room/receiver/sensor'
-  name: 'Receiver fan speed'
+  name: 'Receiver humidity'
   unit_of_measurement: '%'
-  value_template: '{{ value_json.fan_speed }}'
+  value_template: '{{ value_json.humidity }}'
