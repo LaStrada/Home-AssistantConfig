@@ -35,6 +35,8 @@ discovery:
 history:
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
+logger:
+  default: error
 
 automation: !include_dir_merge_list automation/
 group: !include_dir_merge_named groups/
