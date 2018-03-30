@@ -34,6 +34,10 @@ include:
     - binary_sensor.door_front_sensor
     - switch.panelovn_stue_switch
 
+    # Bad
+    - sensor.temp_bad_humidity
+    - sensor.temp_bad_temperature
+
     # Receiver
     - sensor.receiver_temperature
     - sensor.receiver_fan_speed
@@ -42,12 +46,15 @@ include:
     - sensor.temp_ute_temperature
     - sensor.yr_humidity
     - sensor.yr_wind_speed
+    - sensor.solar_angle
+    - sensor.sun_elevation
 
     # Entrance
     - sensor.multi_gang_temperature
     - sensor.multi_gang_relative_humidity
     - binary_sensor.multi_gang_sensor
     - switch.heracam_relay
+    - lock.danalock_locked
 
     # Smoke sensors
     - sensor.smoke_gang_smoke_2
@@ -78,3 +85,7 @@ include:
 
     # Other
     - sensor.nordlysvarsel_1_time
+
+    # Input boolean
+    - binary_sensor.tina_jobb_i_dag_sjekk
+    - binary_sensor.tina_jobb_i_morgen_sjekk
