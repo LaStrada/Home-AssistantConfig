@@ -10,6 +10,7 @@ include:
     - sensor.temp_soverom_humidity
     - sensor.template_humidity_bedroom
     - switch.panelovn_soverom_switch
+    - sensor.bedroom_netatmo_co2
 
     # Office
     - sensor.temp_kontor_temperature

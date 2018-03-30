@@ -36,6 +36,7 @@ temp_soverom:
   entities:
       - climate.soverom_termostat
       - sensor.template_humidity_bedroom
+      - sensor.bedroom_netatmo_co2
 
 temp_kontor:
   name: Kontor
