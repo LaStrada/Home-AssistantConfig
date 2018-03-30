@@ -11,3 +11,6 @@ device_tracker.android89bc5926ba332e4flan:
 
 device_tracker.androide63cbc6e620053d3lan:
   friendly_name: Tina Samsung S6 nmap
+
+sensor.periodic-table-co2:
+  icon: mdi:periodic-table-co2
