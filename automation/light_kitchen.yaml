@@ -27,13 +27,24 @@
     - platform: state
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
       to: 'on'
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch_2
+      to: 'on'
   condition:
     - condition: time
-      after: '08:00:00'
+      after: '07:00:00'
       before: '23:59:00'
     - condition: state
       entity_id: switch.kitchen_bardisk_switch
       state: 'on'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.multi_kitchen_top_sensor
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.multi_kitchen_bottom_sensor
+          state: 'on'
   action:
     - service: light.turn_on
       data:
