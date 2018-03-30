@@ -28,7 +28,7 @@
       entity_id: device_tracker.philips_tv
     - platform: state
       entity_id: sensor.cpu_temp
-    - platform: numeric_state
+    - platform: state
       entity_id: sensor.receiver_temperature
   action:
     - service: python_script.update_receiver_fans
