@@ -54,7 +54,7 @@ def setSpeed(fan, speed):
 
 
 try:
-    if cpu_temp is not None and receiver_temp is not None:
+    if cpu_temp is not None or receiver_temp is not None:
         raise ValueError('Temperatures cannot be "None"')
     cpu = int(cpu_temp)
     receiver = int(receiver_temp)
