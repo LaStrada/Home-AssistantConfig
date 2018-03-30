@@ -47,7 +47,7 @@ def getInternalSpeed(cpu, receiver):
         
 
 def setSpeed(fan, speed):
-    if speed < 0 || speed > 100:
+    if speed < 0 or speed > 100:
         return
     service_data = {'entity_id': fan, 'value': speed }
     hass.services.call('input_number', 'set_value', service_data)
