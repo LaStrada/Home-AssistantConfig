@@ -5,10 +5,10 @@
   action:
     - service: mqtt.publish
       data:
-        topic: 'hass/living_room/receiver/fan'
+        topic: 'hass/living_room/receiver/fan/rear'
         qos: 1
         retain: true
-        payload_template: FA,{{ states('input_number.receiver_fan_speed_rear') }}
+        payload_template: "{\"speed\": {{ states('input_number.receiver_fan_speed_rear') }}}"
 
 - alias: Adjust receiver fans internal
   trigger:
@@ -17,7 +17,18 @@
   action:
     - service: mqtt.publish
       data:
-        topic: 'hass/living_room/receiver/fan'
+        topic: 'hass/living_room/receiver/fan/internal'
         qos: 1
         retain: true
-        payload_template: FA,{{ states('input_number.receiver_fan_speed_internal') }}
+        payload_template: "{\"speed\": {{ states('input_number.receiver_fan_speed_internal') }}}"
+
+- alias: Adjust receiver fans
+  trigger:
+    - platform: state
+      entity_id: device_tracker.philips_tv
+    - platform: state
+      entity_id: sensor.cpu_temp
+    - platform: numeric_state
+      entity_id: sensor.receiver_temperature
+  action:
+    - service: python_script.update_receiver_fans

@@ -28,6 +28,8 @@ discovery:
     - plex_mediaserver
     - apple_tv
 
+python_script:
+
 # History
 history:
 recorder: !include recorder.yaml

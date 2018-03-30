@@ -40,7 +40,8 @@ include:
 
     # Receiver
     - sensor.receiver_temperature
-    - sensor.receiver_fan_speed
+    - sensor.template_receiver_rear
+    - sensor.template_receiver_internal
 
     # Outside
     - sensor.temp_ute_temperature

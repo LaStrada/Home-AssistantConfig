@@ -230,3 +230,17 @@
           {% else %}
               N/A
           {%- endif %}
+
+
+    # Receiver
+    template_receiver_rear:
+      friendly_name: 'Vifte bak'
+      unit_of_measurement: '%'
+      value_template: '{{ states.input_number.receiver_fan_speed_rear }}'
+      icon_template: '{% if is_state("states.input_number.receiver_fan_speed_rear", "0") %}mdi:fan-off{% else %}mdi:fan{% endif %}'
+
+    template_receiver_internal:
+      friendly_name: 'Vifte intern'
+      unit_of_measurement: '%'
+      value_template: '{{ states.input_number.receiver_fan_speed_internal }}'
+      icon_template: '{% if is_state("states.input_number.receiver_fan_speed_internal", "0") %}mdi:fan-off{% else %}mdi:fan{% endif %}'

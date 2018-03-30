@@ -11,4 +11,5 @@ receiver_monitor:
   name: Receiver
   entities:
     - sensor.receiver_temperature
-    - sensor.receiver_fan_speed
+    - sensor.template_receiver_rear
+    - sensor.template_receiver_internal
