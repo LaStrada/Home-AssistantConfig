@@ -44,7 +44,7 @@ def getInternalSpeed(cpu, receiver):
     elif c > 65 or receiver > 32:
         return 40
     return 0
-        
+
 
 def setSpeed(fan, speed):
     if speed < 0 or speed > 100:
@@ -53,21 +53,14 @@ def setSpeed(fan, speed):
     hass.services.call('input_number', 'set_value', service_data)
 
 
-def setDefaultSpeeds():
+try:
+    if cpu_temp is not None and receiver_temp is not None:
+        raise ValueError('Temperatures cannot be "None"')
+    cpu = int(cpu_temp)
+    receiver = int(receiver_temp)
+except:
     setSpeed(rear_fan, 20)
     setSpeed(internal_fan, 20)
-
-
-if cpu_temp is not None and internal_temp is not None:
-    cpu = 0
-    receiver = 0
-    try:
-        cpu = int(cpu_temp)
-        receiver = int(receiver_temp)
-    except:
-        setDefaultSpeeds()
-        return
+else:
     setSpeed(rear_fan, getRearSpeed(cpu, receiver))
     setSpeed(internal_fan, getRearSpeed(cpu, receiver))
-else:
-    setDefaultSpeeds()
