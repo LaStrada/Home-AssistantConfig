@@ -1,8 +1,9 @@
 - alias: Turn TV off
   trigger:
+    # Receiver
     - platform: state
-      entity_id: device_tracker.pioneer_avr
-      to: 'not_home'
+      entity_id: media_player.pioneer_avr
+      to: 'off'
       for:
         minutes: 5
     - platform: state
@@ -15,6 +16,7 @@
       to: 'home'
       for:
         minutes: 3
+    # TV
     - platform: state
       entity_id: device_tracker.philips_tv
       to: 'home'
@@ -26,14 +28,28 @@
       for:
         minutes: 10
   condition:
-    - condition: state
-      entity_id: device_tracker.pioneer_avr
-      state: 'not_home'
-    - condition: state
-      entity_id: media_player.pioneer_avr
-      state: 'off'
-    - condition: state
-      entity_id: device_tracker.philips_tv
-      state: 'home'
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: media_player.pioneer_avr
+              state: 'off'
+            - condition: state
+              entity_id: device_tracker.philips_tv
+              state: 'home'
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: media_player.pioneer_avr
+              state: 'on'
+            - condition: state
+              entity_id: device_tracker.philips_tv
+              state: 'not_home'
   action:
     - service: shell_command.tv_off
+    - service: notify.ios_lolphone_x
+      data_template:
+        title: "Skrur av TV / receiver"
+        message: >
+          'TV: {{ states.device_tracker.philips_tv }}, AVR: {{ states.media_player.pioneer_avr }}'
