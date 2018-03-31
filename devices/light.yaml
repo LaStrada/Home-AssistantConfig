@@ -1,2 +1,4 @@
 - platform: hue
-  scan_interval: 15
+  bridges:
+    - host: 10.0.0.102
+      filename: phue-001788252011.conf
