@@ -1,9 +1,9 @@
 rear_fan = 'input_number.receiver_fan_speed_rear'
 internal_fan = 'input_number.receiver_fan_speed_internal'
 
-philips_tv = data.get('device_tracker.philips_tv')
-cpu_temp = data.get('sensor.cpu_temp')
-receiver_temp = data.get('sensor.receiver_temperature')
+philips_tv = data.get('philips_tv')
+cpu_temp = data.get('cpu_temp')
+receiver_temp = data.get('receiver_temperature')
 
 
 def getRearSpeed(cpu, receiver):
@@ -46,21 +46,34 @@ def getInternalSpeed(cpu, receiver):
     return 0
 
 
-def setSpeed(fan, speed):
+def generateJSON(fan, speed):
     if speed < 0 or speed > 100:
-        return
+        return None
     service_data = {'entity_id': fan, 'value': speed }
-    hass.services.call('input_number', 'set_value', service_data)
+    return service_data
 
 
-try:
-    if cpu_temp is not None or receiver_temp is not None:
-        raise ValueError('Temperatures cannot be "None"')
-    cpu = int(cpu_temp)
-    receiver = int(receiver_temp)
-except:
-    setSpeed(rear_fan, 20)
-    setSpeed(internal_fan, 20)
+if hass is None:
+    logger.info("Hass not loaded, try again later")
 else:
-    setSpeed(rear_fan, getRearSpeed(cpu, receiver))
-    setSpeed(internal_fan, getRearSpeed(cpu, receiver))
+    try:
+        if cpu_temp is not None or receiver_temp is not None:
+            raise ValueError('Temperatures cannot be "None"')
+        cpu = int(cpu_temp)
+        receiver = int(receiver_temp)
+    except:
+        rear = generateJSON(rear_fan, 20)
+        if rear is not None:
+            hass.services.call('input_number', 'set_value', rear)
+
+        internal = generateJSON(internal_fan, 20)
+        if internal is not None:
+            hass.services.call('input_number', 'set_value', internal)
+    else:
+        rear = generateJSON(rear_fan, getRearSpeed(cpu, receiver))
+        if rear is not None:
+            hass.services.call('input_number', 'set_value', rear)
+
+        internal = generateJSON(internal_fan, getInternalSpeed(cpu, receiver))
+        if internal is not None:
+            hass.services.call('input_number', 'set_value', internal)
