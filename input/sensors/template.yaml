@@ -104,7 +104,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.danalock.attributes.battery_level is number %}
+          {%- if states.zwave.danalock.attributes.battery_level and states.zwave.danalock.attributes.battery_level is number %}
               {{ states.zwave.danalock.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -115,7 +115,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.door_front.attributes.battery_level is number %}
+          {%- if states.zwave.door_front.attributes.battery_level and states.zwave.door_front.attributes.battery_level is number %}
               {{ states.zwave.door_front.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -126,7 +126,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.door_back.attributes.battery_level is number %}
+          {% if states.zwave.door_back.attributes.battery_level and states.zwave.door_back.attributes.battery_level is number %}
               {{ states.zwave.door_back.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -137,7 +137,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.smoke_stue.attributes.battery_level is number %}
+          {%- if states.zwave.smoke_stue.attributes.battery_level and states.zwave.smoke_stue.attributes.battery_level is number %}
               {{ states.zwave.smoke_stue.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -148,7 +148,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.smoke_soverom.attributes.battery_level is number %}
+          {%- if states.zwave.smoke_soverom.attributes.battery_level and states.zwave.smoke_soverom.attributes.battery_level is number %}
               {{ states.zwave.smoke_soverom.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -159,7 +159,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.smoke_gang.attributes.battery_level is number %}
+          {%- if states.zwave.smoke_gang.attributes.battery_level and states.zwave.smoke_gang.attributes.battery_level is number %}
               {{ states.zwave.smoke_gang.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -170,7 +170,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.smoke_kontor.attributes.battery_level is number %}
+          {%- if states.zwave.smoke_kontor.attributes.battery_level and states.zwave.smoke_kontor.attributes.battery_level is number %}
               {{ states.zwave.smoke_kontor.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -181,7 +181,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.multi_kitchen_bottom.attributes.battery_level is number %}
+          {%- if states.zwave.multi_kitchen_bottom.attributes.battery_level and states.zwave.multi_kitchen_bottom.attributes.battery_level is number %}
               {{ states.zwave.multi_kitchen_bottom.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -192,7 +192,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.multi_gang.attributes.battery_level is number %}
+          {%- if states.zwave.multi_gang.attributes.battery_level and states.zwave.multi_gang.attributes.battery_level is number %}
               {{ states.zwave.multi_gang.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -203,7 +203,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.refrigerator_kitchen.attributes.battery_level is number %}
+          {%- if states.zwave.refrigerator_kitchen.attributes.battery_level and states.zwave.refrigerator_kitchen.attributes.battery_level is number %}
               {{ states.zwave.refrigerator_kitchen.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -214,7 +214,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.freezer_kitchen.attributes.battery_level is number %}
+          {%- if states.zwave.freezer_kitchen.attributes.battery_level and states.zwave.freezer_kitchen.attributes.battery_level is number %}
               {{ states.zwave.freezer_kitchen.attributes.battery_level | round }}
           {% else %}
               N/A
@@ -225,7 +225,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {%- if states.zwave.freezer_bod.attributes.battery_level is number %}
+          {%- if states.zwave.freezer_bod.attributes.battery_level and states.zwave.freezer_bod.attributes.battery_level is number %}
               {{ states.zwave.freezer_bod.attributes.battery_level | round }}
           {% else %}
               N/A
