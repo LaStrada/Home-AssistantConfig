@@ -3,11 +3,11 @@ internal_fan = 'input_number.receiver_fan_speed_internal'
 
 philips_tv = data.get('philips_tv')
 cpu_temp = data.get('cpu_temp')
-receiver_temp = data.get('receiver_temperature')
+receiver_temp = data.get('receiver_temp')
 
 
 def getRearSpeed(cpu, receiver):
-    if philips_tv is not None and philips_tv == False:
+    if philips_tv is not None or philips_tv == "not_home":
         receiver = 0
     if c > 75 or receiver > 40:
         return 100
@@ -27,7 +27,7 @@ def getRearSpeed(cpu, receiver):
 
 
 def getInternalSpeed(cpu, receiver):
-    if philips_tv is not None and philips_tv == False:
+    if philips_tv is not None or philips_tv == "not_home":
         receiver = 0
     if c > 80 or receiver > 40:
         return 100
@@ -57,11 +57,14 @@ if hass is None:
     logger.info("Hass not loaded, try again later")
 else:
     try:
-        if cpu_temp is not None or receiver_temp is not None:
+        if cpu_temp is None or receiver_temp is None:
             raise ValueError('Temperatures cannot be "None"')
         cpu = int(cpu_temp)
         receiver = int(receiver_temp)
-    except:
+    except Exception as e:
+        logger.error(e)
+        logger.error(cpu_temp)
+        logger.error(receiver_temp)
         rear = generateJSON(rear_fan, 20)
         if rear is not None:
             hass.services.call('input_number', 'set_value', rear)

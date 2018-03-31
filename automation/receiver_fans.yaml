@@ -34,5 +34,5 @@
     - service: python_script.update_receiver_fans
       data_template:
         philips_tv: "{{ states.device_tracker.philips_tv.state }}"
-        cpu_temp: "{{ states.sensor.cpu_temp.state }}"
-        receiver_temp: "{{ states.sensor.receiver_temp.state }}"
+        cpu_temp: "{{ states.sensor.cpu_temp.state | float}}"
+        receiver_temp: "{{ states.sensor.receiver_temperature.state | float }}"
