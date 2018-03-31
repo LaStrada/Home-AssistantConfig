@@ -242,7 +242,12 @@
         {% else %}
           {{ states.input_number.receiver_fan_speed_rear.state | int }}
         {% endif %}
-      icon_template: '{% if is_state("states.input_number.receiver_fan_speed_rear", "0") %}mdi:fan-off{% else %}mdi:fan{% endif %}'
+      icon_template: >-
+        {% if is_state('input_number.receiver_fan_speed_rear', '0.0') %}
+          mdi:fan-off
+        {% else %}
+          mdi:fan
+        {% endif %}
 
     template_receiver_internal:
       friendly_name: 'Vifte intern'
@@ -253,4 +258,9 @@
         {% else %}
           {{ states.input_number.receiver_fan_speed_internal.state | int }}
         {% endif %}
-      icon_template: '{% if is_state("states.input_number.receiver_fan_speed_internal", "0") %}mdi:fan-off{% else %}mdi:fan{% endif %}'
+      icon_template: >-
+        {% if is_state('input_number.receiver_fan_speed_internal', '0.0') %}
+          mdi:fan-off
+        {% else %}
+          mdi:fan
+        {% endif %}
