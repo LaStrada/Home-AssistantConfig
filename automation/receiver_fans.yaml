@@ -33,6 +33,6 @@
   action:
     - service: python_script.update_receiver_fans
       data_template:
-        philips_tv: "{{ device_tracker.philips_tv }}"
-        cpu_temp: "{{ sensor.cpu_temp }}"
-        receiver_temp: "{{ sensor.receiver_temp }}"
+        philips_tv: "{{ states.device_tracker.philips_tv.state }}"
+        cpu_temp: "{{ states.sensor.cpu_temp.state }}"
+        receiver_temp: "{{ states.sensor.receiver_temp.state }}"
