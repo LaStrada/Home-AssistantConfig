@@ -9,19 +9,19 @@ receiver_temp = data.get('receiver_temp')
 
 
 def getRearSpeed(cpu, receiver):
-    if cpu >= 75 or receiver > 40:
+    if cpu >= 75 or receiver >= 40:
         return 100
-    elif cpu >= 76 or receiver > 38:
+    elif cpu >= 76 or receiver >= 38:
         return 90
-    elif cpu >= 74 or receiver > 36:
+    elif cpu >= 74 or receiver >= 36:
         return 80
-    elif cpu >= 72 or receiver > 35:
+    elif cpu >= 72 or receiver >= 35:
         return 70
-    elif cpu >= 70 or receiver > 34:
+    elif cpu >= 70 or receiver >= 34:
         return 60
-    elif cpu >= 65 or receiver > 33:
+    elif cpu >= 65 or receiver >= 33:
         return 50
-    elif cpu >= 60 or receiver > 32:
+    elif cpu >= 60 or receiver >= 32:
         return 40
     return 0
 
