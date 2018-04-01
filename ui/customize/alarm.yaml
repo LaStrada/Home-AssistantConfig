@@ -1,7 +1,8 @@
 # Alarm
 alarm_control_panel.ha_alarm:
-  homebridge_hidden: false
   homebridge_name: Alarm
 lock.danalock_locked:
   friendly_name: Danalock lås
   hide_control: true
+  confirm_controls_show_lock: true
+  theme: alarm_armed
