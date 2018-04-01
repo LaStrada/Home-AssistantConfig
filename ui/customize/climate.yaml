@@ -1,9 +1,0 @@
-# Climate
-climate.kontor_termostat:
-  homebridge_hidden: false
-climate.soverom_termostat:
-  homebridge_hidden: false
-climate.stue_termostat:
-  homebridge_hidden: false
-climate.gang_termostat:
-  homebridge_hidden: false
