@@ -6,10 +6,10 @@ input_boolean.soverom_wakeup_heat:
 # Kitchen
 sensor.multi_kitchen_bottom_temperature:
   homebridge_visible: true
-  friendly_name: Temperatur kjøkken
+  friendly_name: Temperatur kjøkkenet
 sensor.multi_kitchen_bottom_relative_humidity:
   homebridge_visible: true
-  friendly_name: Luftfuktighet kjøkken
+  friendly_name: Luftfuktighet kjøkkenet
   icon: mdi:percent
 switch.kitchen_bardisk_switch:
   homebridge_visible: true
@@ -21,6 +21,7 @@ light.kitchen_table_dimmer_level:
   friendly_name: Kjøkkenbord
 light.kjkkenet:
   homebridge_visible: true
+  homebridge_name: Taklys kjøkkenet
 
 
 # Living room (stue)
@@ -28,7 +29,7 @@ sensor.temp_stue_temperature:
   friendly_name: Temperatur stue
 sensor.temp_stue_humidity:
   homebridge_visible: true
-  friendly_name: Luftfuktighet stue
+  friendly_name: Luftfuktighet stua
   icon: mdi:percent
 
 
@@ -63,7 +64,7 @@ sensor.temp_kontor_temperature:
   friendly_name: Temperatur kontor
 sensor.temp_kontor_humidity:
   homebridge_visible: true
-  friendly_name: Luftfuktighet kontor
+  friendly_name: Luftfuktighet kontoret
   icon: mdi:percent
 
 
@@ -83,14 +84,14 @@ sensor.multi_gang_relative_humidity:
   friendly_name: Luftfuktighet gang
   icon: mdi:percent
 sensor.multi_gang_temperature:
-  friendly_name: Temperatur gang
+  friendly_name: Temperatur gangen
 
 
 # Bathroom (bad)
 sensor.temp_bad_temperature:
   homebridge_visible: true
-  friendly_name: Temperatur bad
+  friendly_name: Temperatur badet
 sensor.temp_bad_humidity:
   homebridge_visible: true
-  friendly_name: Luftfuktighet bad
+  friendly_name: Luftfuktighet badet
   icon: mdi:percent

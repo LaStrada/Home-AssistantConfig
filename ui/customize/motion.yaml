@@ -3,7 +3,7 @@ binary_sensor.multi_gang_sensor:
   homebridge_visible: true
   show_last_changed: true
   device_class: motion
-  friendly_name: Bevegelse gang
+  friendly_name: Bevegelse gangen
 binary_sensor.multi_kitchen_bottom_sensor:
   homebridge_visible: true
   show_last_changed: true
@@ -18,4 +18,4 @@ binary_sensor.multi_kontor_sensor:
   homebridge_visible: true
   show_last_changed: true
   device_class: motion
-  friendly_name: Bevegelse kontor
+  friendly_name: Bevegelse kontoret

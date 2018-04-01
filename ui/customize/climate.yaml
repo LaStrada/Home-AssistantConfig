@@ -1,0 +1,8 @@
+climate.gang_termostat:
+  homebridge_visible: true
+climate.kontor_termostat:
+  homebridge_visible: true
+climate.soverom_termostat:
+  homebridge_visible: true
+climate.stue_termostat:
+  homebridge_visible: true
