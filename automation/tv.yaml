@@ -48,8 +48,3 @@
               state: 'not_home'
   action:
     - service: shell_command.tv_off
-    - service: notify.ios_lolphone_x
-      data_template:
-        title: "Skrur av TV / receiver"
-        message: >
-          'TV: {{ states.device_tracker.philips_tv }}, AVR: {{ states.media_player.pioneer_avr }}'
