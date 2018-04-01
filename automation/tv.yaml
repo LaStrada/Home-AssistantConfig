@@ -5,12 +5,12 @@
       entity_id: media_player.pioneer_avr
       to: 'off'
       for:
-        minutes: 5
+        minutes: 3
     - platform: state
       entity_id: media_player.pioneer_avr
       to: 'off'
       for:
-        minutes: 3
+        minutes: 5
     - platform: state
       entity_id: device_tracker.philips_tv
       to: 'home'
@@ -19,12 +19,12 @@
     # TV
     - platform: state
       entity_id: device_tracker.philips_tv
-      to: 'home'
+      to: 'not_home'
       for:
         minutes: 5
     - platform: state
       entity_id: device_tracker.philips_tv
-      to: 'home'
+      to: 'not_home'
       for:
         minutes: 10
   condition:
