@@ -5,28 +5,36 @@ input_boolean.soverom_wakeup_heat:
 
 # Kitchen
 sensor.multi_kitchen_bottom_temperature:
+  homebridge_visible: true
   friendly_name: Temperatur kjøkken
 sensor.multi_kitchen_bottom_relative_humidity:
+  homebridge_visible: true
   friendly_name: Luftfuktighet kjøkken
   icon: mdi:percent
 switch.kitchen_bardisk_switch:
+  homebridge_visible: true
   friendly_name: Bardisk
   sensor_class: light
   icon: mdi:lightbulb
 light.kitchen_table_dimmer_level:
+  homebridge_visible: true
   friendly_name: Kjøkkenbord
+light.kjkkenet:
+  homebridge_visible: true
 
 
 # Living room (stue)
 sensor.temp_stue_temperature:
   friendly_name: Temperatur stue
 sensor.temp_stue_humidity:
+  homebridge_visible: true
   friendly_name: Luftfuktighet stue
   icon: mdi:percent
 
 
 # Outdoor (ute)
 sensor.temp_ute_temperature:
+  homebridge_visible: true
   friendly_name: Temperatur ute
 sensor.yr_symbol:
   friendly_name: Været nå
@@ -36,6 +44,7 @@ sensor.yr_cloudiness:
 sensor.yr_dewpoint_temperature:
   friendly_name: Duggpunkt
 sensor.yr_humidity:
+  homebridge_visible: true
   friendly_name: Luftfuktighet ute
   icon: mdi:percent
 sensor.yr_precipitation:
@@ -53,20 +62,24 @@ sensor.nordlysvarsel_1_time:
 sensor.temp_kontor_temperature:
   friendly_name: Temperatur kontor
 sensor.temp_kontor_humidity:
+  homebridge_visible: true
   friendly_name: Luftfuktighet kontor
   icon: mdi:percent
 
 
 # Entrance (gang)
 light.gang_dimmer_level:
+  homebridge_visible: true
   friendly_name: Gang dimmer
   sensor_class: light
   icon: mdi:lightbulb
 light.gang_garderobeskap_level:
+  homebridge_visible: true
   friendly_name: Garderobeskap dimmer
   sensor_class: light
   icon: mdi:lightbulb
 sensor.multi_gang_relative_humidity:
+  homebridge_visible: true
   friendly_name: Luftfuktighet gang
   icon: mdi:percent
 sensor.multi_gang_temperature:
@@ -75,7 +88,9 @@ sensor.multi_gang_temperature:
 
 # Bathroom (bad)
 sensor.temp_bad_temperature:
+  homebridge_visible: true
   friendly_name: Temperatur bad
 sensor.temp_bad_humidity:
+  homebridge_visible: true
   friendly_name: Luftfuktighet bad
   icon: mdi:percent

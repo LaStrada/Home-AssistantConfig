@@ -1,22 +1,27 @@
 # Doors
 binary_sensor.door_front_sensor:
+  homebridge_visible: true
   friendly_name: Dør foran
   device_class: door
   show_last_changed: true
 binary_sensor.door_back_sensor:
+  homebridge_visible: true
   friendly_name: Dør bak
   device_class: door
   show_last_changed: true
 
 binary_sensor.refrigerator_kitchen_sensor:
+  homebridge_visible: true
   friendly_name: Kjøleskap
   device_class: door
   show_last_changed: true
 binary_sensor.freezer_bod_sensor:
+  homebridge_visible: true
   friendly_name: Fryser (bod)
   device_class: door
   show_last_changed: true
 binary_sensor.freezer_kitchen_sensor:
+  homebridge_visible: true
   friendly_name: Fryser (kjøkken)
   device_class: door
   show_last_changed: true

@@ -34,7 +34,7 @@ history:
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 logger:
-  default: error
+  default: warning
 
 automation: !include_dir_merge_list automation/
 group: !include_dir_merge_named groups/
@@ -49,7 +49,6 @@ mqtt: !include devices/mqtt.yaml
 hue: !include devices/hue.yaml
 sensor: !include_dir_merge_list input/sensors/
 apple_tv: !include devices/apple_tv.yaml
-homekit: !include devices/homekit.yaml
 
 ### Scenes
 scene: !include_dir_merge_list scenes/
