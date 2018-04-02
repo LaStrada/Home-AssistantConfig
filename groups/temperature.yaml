@@ -74,4 +74,5 @@ ute2:
     - sensor.solar_angle
     - sensor.sun_elevation
     - sensor.nordlysvarsel_1_time
+    - sensor.nordlysvarsel_4_timer
     - sensor.moon

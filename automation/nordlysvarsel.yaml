@@ -14,27 +14,10 @@
       entity_id: input_boolean.vacation_mode
       state: 'off'
 
-    - condition: or
-      conditions:
-        - condition: and
-          conditions:
-            - condition: state
-              entity_id: binary_sensor.workday_today
-              state: 'off'
-            - condition: or
-              conditions:
-                - condition: time
-                  before: '02:00:00'
-                - condition: time
-                  after: '10:00:00'
-          
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.workday_today
-            state: 'on'
-          - condition: time
-            after: '10:00:00'
+    - condition: time
+      before: '02:00:00'
+    - condition: time
+      after: '10:00:00'
 
     - condition: numeric_state
       entity_id: sensor.nordlysvarsel_1_time
@@ -56,3 +39,46 @@
       data:
         title: 'Nordlysvarsel'
         message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP den neste timen."
+
+
+- alias: Nordlysvarsel notification 4
+  trigger:
+    - platform: state
+      entity_id: sensor.nordlysvarsel_4_timer
+  condition:
+    # sun.elevation < -15
+    - condition: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: -15
+
+    # Only when not on vacation
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+
+    - condition: time
+      before: '02:00:00'
+    - condition: time
+      after: '10:00:00'
+
+    - condition: numeric_state
+      entity_id: sensor.nordlysvarsel_4_timer
+      above: 4.0
+
+    # Need clear sky
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: 'sensor.yr_symbol'
+          above: 0
+          below: 4
+        - condition: numeric_state
+          entity_id: 'sensor.yr_symbol'
+          above: 100
+          below: 104
+  action:
+    - service: notify.ios_lolphone_x
+      data:
+        title: 'Nordlysvarsel'
+        message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP om timer."

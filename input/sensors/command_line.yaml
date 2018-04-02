@@ -10,3 +10,9 @@
   unit_of_measurement: KP
   scan_interval: 900
   command: python3 /home/homeassistant/scripts/python/nordlys_1_time.py
+
+- platform: command_line
+  name: Nordlysvarsel 4 timer
+  unit_of_measurement: KP
+  scan_interval: 1800
+  command: python3 /home/homeassistant/scripts/python/nordlys_4_timer.py
