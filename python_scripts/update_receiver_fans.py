@@ -7,39 +7,46 @@ pioneer_avr = data.get('pioneer_avr')
 cpu_temp = data.get('cpu_temp')
 receiver_temp = data.get('receiver_temp')
 
+current_rear_fan = data.get('current_rear_fan')
+current_internal_fan = data.get('current_internal_fan')
 
-def getRearSpeed(cpu, receiver):
-    if cpu >= 75 or receiver >= 40:
+
+def getRearSpeed(cpu, receiver, rearSpeed):
+    if cpu > 75 or receiver > 40:
         return 100
-    elif cpu >= 76 or receiver >= 38:
+    elif cpu > 76 or receiver > 38:
         return 90
-    elif cpu >= 74 or receiver >= 36:
+    elif cpu > 74 or receiver > 36:
         return 80
-    elif cpu >= 72 or receiver >= 35:
+    elif cpu > 72 or receiver > 35:
         return 70
-    elif cpu >= 70 or receiver >= 34:
+    elif cpu > 70 or receiver > 34:
         return 60
-    elif cpu >= 65 or receiver >= 33:
+    elif cpu > 65 or receiver > 33:
         return 50
-    elif cpu >= 60 or receiver >= 32:
+    elif cpu > 60 or receiver > 32:
+        return 40
+    elif (cpu >= 60 or receiver >= 32) and rearSpeed is not None and rearSpeed > 0:
         return 40
     return 0
 
 
-def getInternalSpeed(cpu, receiver):
-    if cpu >= 80 or receiver >= 42:
+def getInternalSpeed(cpu, receiver, internalSpeed):
+    if cpu > 80 or receiver > 42:
         return 100
-    elif cpu >= 78 or receiver >= 40:
+    elif cpu > 78 or receiver > 40:
         return 90
-    elif cpu >= 76 or receiver >= 38:
+    elif cpu > 76 or receiver > 38:
         return 80
-    elif cpu >= 74 or receiver >= 37:
+    elif cpu > 74 or receiver > 37:
         return 70
-    elif cpu >= 72 or receiver >= 36:
+    elif cpu > 72 or receiver > 36:
         return 60
-    elif cpu >= 70 or receiver >= 35:
+    elif cpu > 70 or receiver > 35:
         return 50
-    elif cpu >= 65 or receiver >= 34:
+    elif cpu > 65 or receiver > 34:
+        return 40
+    elif (cpu >= 65 or receiver >= 34) and internalSpeed is not None and internalSpeed > 0:
         return 40
     return 0
 
@@ -74,10 +81,10 @@ else:
         if internal is not None:
             hass.services.call('input_number', 'set_value', internal)
     else:
-        rear = generateJSON(rear_fan, getRearSpeed(cpu, receiver))
+        rear = generateJSON(rear_fan, getRearSpeed(cpu, receiver, current_rear_fan))
         if rear is not None:
             hass.services.call('input_number', 'set_value', rear)
 
-        internal = generateJSON(internal_fan, getInternalSpeed(cpu, receiver))
+        internal = generateJSON(internal_fan, getInternalSpeed(cpu, receiver, current_internal_fan))
         if internal is not None:
             hass.services.call('input_number', 'set_value', internal)

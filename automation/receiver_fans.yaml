@@ -39,3 +39,5 @@
         pioneer_avr: "{{ states.media_player.pioneer_avr.state }}"
         cpu_temp: "{{ states.sensor.cpu_temp.state | float}}"
         receiver_temp: "{{ states.sensor.receiver_temperature.state | float }}"
+        current_rear_fan: "{{ states.input_number.receiver_fan_speed_rear.state | float }}"
+        current_internal_fan: "{{ states.input_number.receiver_fan_speed_internal.state | float }}"
