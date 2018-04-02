@@ -61,6 +61,10 @@ def generateJSON(fan, speed):
 if hass is None:
     logger.info("Hass not loaded, try again later")
 else:
+    if current_rear_fan is None or isinstance(current_rear_fan, int):
+        current_rear_fan = 0
+    if current_internal_fan is None or isinstance(current_internal_fan, int):
+        current_internal_fan = 0
     try:
         if cpu_temp is None or receiver_temp is None:
             raise ValueError('Temperatures cannot be "None"')
