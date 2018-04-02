@@ -35,8 +35,9 @@ recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 logger:
   default: warning
-  homeassistant.components.media_player: error
-  homeassistant.components.sensor.template: error
+  logs:
+    homeassistant.components.media_player: error
+    homeassistant.components.sensor.template: error
 
 automation: !include_dir_merge_list automation/
 group: !include_dir_merge_named groups/
