@@ -3,18 +3,18 @@ stue_morgen_temperatur:
   initial: 20
   min: 15
   max: 25
-  step: 1
+  step: 0.5
 
 stue_dagtid_temperatur:
   name: Stue dagtid temperatur
-  initial: 23
+  initial: 22
   min: 15
   max: 25
-  step: 1
+  step: 0.5
 
 stue_natt_temperatur:
   name: Stue natt temperatur
   initial: 18
   min: 15
   max: 25
-  step: 1
+  step: 0.5

@@ -1,6 +1,6 @@
 soverom_natt_temperatur:
   name: Soverom natt temperatur
-  initial: 19
+  initial: 18.5
   min: 15
   max: 22
   step: 0.5
