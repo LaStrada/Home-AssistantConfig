@@ -57,6 +57,9 @@ sensor.yr_wind_speed:
 sensor.nordlysvarsel_1_time:
   icon: mdi:earth
   show_last_changed: true
+sensor.nordlysvarsel_4_timer:
+  icon: mdi:earth
+  show_last_changed: true
 
 
 # Guestroom / office (kontor)
