@@ -7,8 +7,8 @@ pioneer_avr = data.get('pioneer_avr')
 cpu_temp = data.get('cpu_temp')
 receiver_temp = data.get('receiver_temp')
 
-current_rear_fan = data.get('current_rear_fan')
-current_internal_fan = data.get('current_internal_fan')
+current_rear_fan = data.get('current_rear_fan', 0)
+current_internal_fan = data.get('current_internal_fan', 0)
 
 
 def getRearSpeed(cpu, receiver, rearSpeed):
