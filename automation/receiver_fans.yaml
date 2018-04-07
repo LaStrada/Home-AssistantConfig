@@ -27,8 +27,6 @@
     - platform: state
       entity_id: device_tracker.philips_tv
     - platform: state
-      entity_id: media_player.pioneer_avr
-    - platform: state
       entity_id: sensor.cpu_temp
     - platform: state
       entity_id: sensor.receiver_temperature
@@ -36,7 +34,6 @@
     - service: python_script.update_receiver_fans
       data_template:
         philips_tv: "{{ states.device_tracker.philips_tv.state }}"
-        pioneer_avr: "{{ states.media_player.pioneer_avr.state }}"
         cpu_temp: "{{ states.sensor.cpu_temp.state | float}}"
         receiver_temp: "{{ states.sensor.receiver_temperature.state | float }}"
         current_rear_fan: "{{ states.input_number.receiver_fan_speed_rear.state | float }}"

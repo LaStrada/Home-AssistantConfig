@@ -1,10 +1,9 @@
 rear_fan = 'input_number.receiver_fan_speed_rear'
 internal_fan = 'input_number.receiver_fan_speed_internal'
 
-philips_tv = data.get('philips_tv')
-pioneer_avr = data.get('pioneer_avr')
+philips_tv = data.get('philips_tv', 'home')
 
-cpu_temp = data.get('cpu_temp')
+cpu_temp = data.get('cpu_temp', 0)
 receiver_temp = data.get('receiver_temp')
 
 current_rear_fan = data.get('current_rear_fan', 0)
@@ -77,15 +76,15 @@ def generateJSON(fan, speed):
 if hass is None:
     logger.info("Hass not loaded, try again later")
 else:
-    if current_rear_fan is None or isinstance(current_rear_fan, int):
+    if current_rear_fan is None or not isinstance(current_rear_fan, int):
         current_rear_fan = 0
-    if current_internal_fan is None or isinstance(current_internal_fan, int):
+    if current_internal_fan is None or not isinstance(current_internal_fan, int):
         current_internal_fan = 0
     try:
         if cpu_temp is None or receiver_temp is None:
             raise ValueError('Temperatures cannot be "None"')
         cpu = float(cpu_temp)
-        if (philips_tv is None or philips_tv == "not_home") and (pioneer_avr is None or pioneer_avr == "off"):
+        if philips_tv is None or philips_tv == "not_home":
             receiver = 0
         else:
             receiver = float(receiver_temp)
