@@ -1,10 +1,10 @@
 rear_fan = 'input_number.receiver_fan_speed_rear'
 internal_fan = 'input_number.receiver_fan_speed_internal'
 
-philips_tv = data.get('philips_tv', 'home')
+philips_tv = data.get('philips_tv', "home")
 
 cpu_temp = data.get('cpu_temp', 0)
-receiver_temp = data.get('receiver_temp')
+receiver_temp = data.get('receiver_temp', 0)
 
 current_rear_fan = data.get('current_rear_fan', 0)
 current_internal_fan = data.get('current_internal_fan', 0)
@@ -80,31 +80,26 @@ else:
         current_rear_fan = 0
     if current_internal_fan is None or not isinstance(current_internal_fan, int):
         current_internal_fan = 0
+
+    cpu = 0
+    receiver = 0
+
     try:
         if cpu_temp is None or receiver_temp is None:
             raise ValueError('Temperatures cannot be "None"')
 
-        try:
-            cpu = float(cpu_temp)
-        except Exception as e:
-            logger.error(e)
-            logger.error("CPU temperature is not float")
-            cpu = 0
+        cpu = float(cpu_temp)
+        receiver = float(receiver_temp)
 
-        try:
-            receiver = float(receiver_temp)
-        except Exception as e:
-            logger.error(e)
-            logger.error("Receiver temperature is not float")
-            receiver = 0
-        else:
-            if philips_tv is None or philips_tv == "not_home":
-                receiver -= 2
+        if philips_tv is None or philips_tv == "not_home":
+            receiver = receiver - 1
 
     except Exception as e:
         logger.error(e)
         logger.error(cpu_temp)
         logger.error(receiver_temp)
+        logger.error(philips_tv)
+
         rear = generateJSON(rear_fan, 20)
         if rear is not None:
             hass.services.call('input_number', 'set_value', rear)
