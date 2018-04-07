@@ -126,10 +126,14 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% if states.zwave.door_back.attributes.battery_level and states.zwave.door_back.attributes.battery_level is number %}
+          {% if states('zwave.door_back') == 'ready' %}
+            {% if states.zwave.door_back.attributes.battery_level and states.zwave.door_back.attributes.battery_level is number %}
               {{ states.zwave.door_back.attributes.battery_level | round }}
-          {% else %}
+            {% else %}
               N/A
+            {%- endif %}
+          {%- else %}
+            N/A
           {%- endif %}
 
     battery_smoke_living_room:
