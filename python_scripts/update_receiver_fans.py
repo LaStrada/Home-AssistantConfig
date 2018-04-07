@@ -84,14 +84,20 @@ else:
         if cpu_temp is None or receiver_temp is None:
             raise ValueError('Temperatures cannot be "None"')
 
-        cpu = 0
-        if isinstance(cpu_temp, float):
+        try:
             cpu = float(cpu_temp)
+        except Exception as e:
+            logger.error(e)
+            logger.error("CPU temperature is not float")
+            cpu = 0
 
-        receiver = 0
-        if isinstance(receiver_temp, float):
+        try:
             receiver = float(receiver_temp)
-
+        except Exception as e:
+            logger.error(e)
+            logger.error("Receiver temperature is not float")
+            receiver = 0
+        else:
             if philips_tv is None or philips_tv == "not_home":
                 receiver -= 2
 
