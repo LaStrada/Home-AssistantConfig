@@ -35,6 +35,7 @@
       data_template:
         philips_tv: "{{ states.device_tracker.philips_tv.state }}"
         cpu_temp: "{{ states.sensor.cpu_temp.state | float}}"
+        retropie_temp: "{{ states.sensor.retropie_cpu_temp.state | float}}"
         receiver_temp: "{{ states.sensor.receiver_temperature.state | float }}"
         current_rear_fan: "{{ states.input_number.receiver_fan_speed_rear.state | int }}"
         current_internal_fan: "{{ states.input_number.receiver_fan_speed_internal.state | int }}"

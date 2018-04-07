@@ -4,6 +4,7 @@ internal_fan = 'input_number.receiver_fan_speed_internal'
 philips_tv = data.get('philips_tv', "home")
 
 cpu_temp = data.get('cpu_temp', 0)
+retropie_temp = data.get('retropie_temp', 0)
 receiver_temp = data.get('receiver_temp', 0)
 
 current_rear_fan = data.get('current_rear_fan', 0)
@@ -82,6 +83,7 @@ else:
         current_internal_fan = 0
 
     cpu = 0
+    retropie = 0
     receiver = 0
 
     try:
@@ -94,9 +96,15 @@ else:
         if philips_tv is None or philips_tv == "not_home":
             receiver = receiver - 1
 
+        try:
+            retropie = float(retropie_temp)
+        except:
+            retropie = 0
+
     except Exception as e:
         logger.error(e)
         logger.error(cpu_temp)
+        logger.error(retropie_temp)
         logger.error(receiver_temp)
         logger.error(philips_tv)
 
@@ -108,10 +116,14 @@ else:
         if internal is not None:
             hass.services.call('input_number', 'set_value', internal)
     else:
-        rear = generateJSON(rear_fan, getRearSpeed(cpu, receiver, current_rear_fan))
+        pi_temp = cpu
+        if retropie > cpu:
+            pi_temp = retropie
+
+        rear = generateJSON(rear_fan, getRearSpeed(pi_temp, receiver, current_rear_fan))
         if rear is not None:
             hass.services.call('input_number', 'set_value', rear)
 
-        internal = generateJSON(internal_fan, getInternalSpeed(cpu, receiver, current_internal_fan))
+        internal = generateJSON(internal_fan, getInternalSpeed(pi_temp, receiver, current_internal_fan))
         if internal is not None:
             hass.services.call('input_number', 'set_value', internal)

@@ -13,3 +13,5 @@ receiver_monitor:
     - sensor.receiver_temperature
     - sensor.template_receiver_rear
     - sensor.template_receiver_internal
+    - sensor.cpu_temp
+    - sensor.retropie_cpu_temp
