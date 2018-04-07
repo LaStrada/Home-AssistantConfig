@@ -32,7 +32,7 @@ def getRearSpeed(cpu, receiver, rearSpeed):
     elif cpu >= 58 or receiver > 30:
         return 40
 
-    elif (cpu >= 56 or receiver >= 30) and rearSpeed is not None and rearSpeed > 0:
+    elif (cpu >= 56 or receiver >= 29) and rearSpeed is not None and rearSpeed > 0:
         return 40
 
     return 0
@@ -83,11 +83,18 @@ else:
     try:
         if cpu_temp is None or receiver_temp is None:
             raise ValueError('Temperatures cannot be "None"')
-        cpu = float(cpu_temp)
-        if philips_tv is None or philips_tv == "not_home":
-            receiver = 0
-        else:
+
+        cpu = 0
+        if isinstance(cpu_temp, float):
+            cpu = float(cpu_temp)
+
+        receiver = 0
+        if isinstance(receiver_temp, float):
             receiver = float(receiver_temp)
+
+            if philips_tv is None or philips_tv == "not_home":
+                receiver -= 2
+
     except Exception as e:
         logger.error(e)
         logger.error(cpu_temp)
