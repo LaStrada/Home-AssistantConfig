@@ -12,28 +12,28 @@ current_internal_fan = data.get('current_internal_fan', 0)
 
 
 def getRearSpeed(cpu, receiver, rearSpeed, tv):
-    if cpu >= 70 or receiver > 40:
+    if cpu >= 76 or receiver > 40:
         return 100
 
-    elif cpu >= 68 or receiver > 38:
+    elif cpu >= 74 or receiver > 38:
         return 90
 
-    elif cpu >= 66 or receiver > 36:
+    elif cpu >= 72 or receiver > 36:
         return 80
 
-    elif cpu >= 64 or receiver > 34:
+    elif cpu >= 70 or receiver > 34:
         return 70
 
-    elif cpu >= 62 or receiver > 32:
+    elif cpu >= 66 or receiver > 32:
         return 60
 
-    elif cpu >= 60 or receiver > 31:
+    elif cpu >= 62 or receiver > 31:
         return 50
 
-    elif cpu >= 58 or receiver >= 30:
+    elif cpu >= 60 or receiver >= 30:
         return 40
 
-    elif (cpu >= 56 or receiver >= 28) and rearSpeed is not None and rearSpeed >= 40:
+    elif (cpu >= 58 or receiver >= 28) and rearSpeed is not None and rearSpeed >= 40:
         return 40
 
     elif tv is not None and tv == 'home':
@@ -43,7 +43,7 @@ def getRearSpeed(cpu, receiver, rearSpeed, tv):
 
 
 def getInternalSpeed(cpu, receiver, internalSpeed, tv):
-    if cpu >= 76 or receiver > 36:
+    if cpu >= 78 or receiver > 36:
         return 100
 
     elif cpu >= 74 or receiver > 35:
