@@ -98,6 +98,8 @@ else:
 
         if philips_tv is None or philips_tv == "not_home":
             receiver = receiver - 1
+        else:
+            philips_tv = "home"
 
         try:
             retropie = float(retropie_temp)
@@ -116,10 +118,10 @@ else:
         if retropie > cpu:
             pi_temp = retropie
 
-        rear = generateJSON(rear_fan, getRearSpeed(pi_temp, receiver, current_rear_fan))
+        rear = generateJSON(rear_fan, getRearSpeed(pi_temp, receiver, current_rear_fan, philips_tv))
         if rear is not None:
             hass.services.call('input_number', 'set_value', rear)
 
-        internal = generateJSON(internal_fan, getInternalSpeed(pi_temp, receiver, current_internal_fan))
+        internal = generateJSON(internal_fan, getInternalSpeed(pi_temp, receiver, current_internal_fan, philips_tv))
         if internal is not None:
             hass.services.call('input_number', 'set_value', internal)
