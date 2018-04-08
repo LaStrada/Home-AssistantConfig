@@ -40,26 +40,23 @@ def getRearSpeed(cpu, receiver, rearSpeed):
 
 
 def getInternalSpeed(cpu, receiver, internalSpeed):
-    if cpu >= 80 or receiver > 38:
+    if cpu >= 76 or receiver > 36:
         return 100
 
-    elif cpu >= 76 or receiver > 36:
+    elif cpu >= 74 or receiver > 35:
         return 90
 
-    elif cpu >= 74 or receiver > 35:
+    elif cpu >= 72 or receiver > 34:
         return 80
 
-    elif cpu >= 72 or receiver > 34:
+    elif cpu >= 70 or receiver > 32:
         return 70
 
-    elif cpu >= 70 or receiver > 32:
+    elif cpu >= 65 or receiver > 30:
         return 60
 
-    elif cpu >= 65 or receiver > 30:
-        return 50
-
     elif cpu >= 62 or receiver > 28:
-        return 40
+        return 50
 
     elif (cpu >= 60 or receiver >= 27) and internalSpeed is not None and internalSpeed > 0:
         return 40

@@ -29,6 +29,8 @@
     - platform: state
       entity_id: sensor.cpu_temp
     - platform: state
+      entity_id: sensor.retropie_cpu_temp
+    - platform: state
       entity_id: sensor.receiver_temperature
   action:
     - service: python_script.update_receiver_fans
