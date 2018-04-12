@@ -1,4 +1,4 @@
-alias: Battery warning
+- alias: Battery warning
   trigger:
     - platform: numeric_state
       entity_id:
