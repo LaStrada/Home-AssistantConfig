@@ -14,11 +14,14 @@
         - sensor.battery_refrigerator
         - sensor.battery_freezer_kitchen
         - sensor.battery_freezer_bod
+      below: 20
+    - platform: time
+      at: '09:00:00'
+    - platform: time
+      at: '18:00:00'
   condition:
     - condition: template
-      value_template: '{{ trigger.from_state | float > 20 and trigger.from_state <= 20 }}'
-    - condition: template
-      value_template: '{{ trigger.from_state | float > 10 and trigger.from_state <= 10 }}'
+      value_template: '{{ trigger.from_state | float > 20 }}'
     - condition: template
       value_template: '{{ not is_state("trigger.from_state", "N/A") and trigger.to_state <= 20 }}'
   action:

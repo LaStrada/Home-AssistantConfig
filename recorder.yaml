@@ -91,3 +91,14 @@ include:
     # Input boolean
     - binary_sensor.tina_jobb_i_dag_sjekk
     - binary_sensor.tina_jobb_i_morgen_sjekk
+
+    # Plants
+    - sensor.plant_1_conductivity
+    - sensor.plant_1_light_intensity
+    - sensor.plant_1_moisture
+    - sensor.plant_1_temperature
+    
+    - sensor.plant_2_conductivity
+    - sensor.plant_2_light_intensity
+    - sensor.plant_2_moisture
+    - sensor.plant_2_temperature
