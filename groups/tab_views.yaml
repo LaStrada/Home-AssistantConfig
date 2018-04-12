@@ -20,6 +20,8 @@ temperatures:
   view: yes
   icon: mdi:thermometer
   entities:
+    - sensor.plant_1_moisture
+    - sensor.plant_2_moisture
     - group.ute
     - group.ute2
     - group.temp_stue_kitchen
