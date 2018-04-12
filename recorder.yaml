@@ -86,6 +86,7 @@ include:
 
     # Other
     - sensor.nordlysvarsel_1_time
+    - sensor.nordlysvarsel_4_timer
 
     # Input boolean
     - binary_sensor.tina_jobb_i_dag_sjekk
