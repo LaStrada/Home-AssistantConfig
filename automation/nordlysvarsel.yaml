@@ -3,11 +3,26 @@
     - platform: state
       entity_id: sensor.nordlysvarsel_1_time
   condition:
-    # sun.elevation < -15
-    - condition: numeric_state
-      entity_id: sun.sun
-      value_template: '{{ state.attributes.elevation }}'
-      below: -15
+    - condition: or
+      conditions:
+        condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sun.sun
+            value_template: '{{ state.attributes.elevation }}'
+            below: -15
+          - condition: numeric_state
+            entity_id: sensor.nordlysvarsel_1_time
+            above: 3.3
+        condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sun.sun
+            value_template: '{{ state.attributes.elevation }}'
+            below: -10
+          - condition: numeric_state
+            entity_id: sensor.nordlysvarsel_1_time
+            above: 4.0
 
     # Only when not on vacation
     - condition: state
@@ -18,10 +33,6 @@
       before: '02:00:00'
     - condition: time
       after: '10:00:00'
-
-    - condition: numeric_state
-      entity_id: sensor.nordlysvarsel_1_time
-      above: 4.0
 
     # Need clear sky
     - condition: or
@@ -46,11 +57,26 @@
     - platform: state
       entity_id: sensor.nordlysvarsel_4_timer
   condition:
-    # sun.elevation < -15
-    - condition: numeric_state
-      entity_id: sun.sun
-      value_template: '{{ state.attributes.elevation }}'
-      below: -15
+    - condition: or
+      conditions:
+        condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sun.sun
+            value_template: '{{ state.attributes.elevation }}'
+            below: -15
+          - condition: numeric_state
+            entity_id: sensor.nordlysvarsel_1_time
+            above: 3.3
+        condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sun.sun
+            value_template: '{{ state.attributes.elevation }}'
+            below: -10
+          - condition: numeric_state
+            entity_id: sensor.nordlysvarsel_1_time
+            above: 4.0
 
     # Only when not on vacation
     - condition: state
@@ -61,10 +87,6 @@
       before: '02:00:00'
     - condition: time
       after: '10:00:00'
-
-    - condition: numeric_state
-      entity_id: sensor.nordlysvarsel_4_timer
-      above: 4.0
 
     # Need clear sky
     - condition: or
@@ -81,4 +103,4 @@
     - service: notify.ios_lolphone_x
       data:
         title: 'Nordlysvarsel'
-        message: "Det er spådd {{ states('sensor.nordlysvarsel_1_time') }} KP om timer."
+        message: "Det er spådd {{ states('sensor.nordlysvarsel_4_timer') }} KP om timer."
