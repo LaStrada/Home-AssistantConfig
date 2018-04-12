@@ -1,4 +1,4 @@
-automation:
+alias: Battery warning
   trigger:
     - platform: numeric_state
       entity_id:
@@ -24,9 +24,10 @@ automation:
   action:
     - service: notify.ios_lolphone_x
       data_template:
+        title: 'Battery warning'
         message: >
-          '{{ states.sensor.battery_danalock.attributes.friendly_name }} har
-          {{ states.sensor.battery_danalock.state }}% batteri.'
+          '{{ trigger.from_state.attributes.friendly_name }} has
+          {{ trigger.from_state.state }}% battery.'
         data:
           push:
             badge: 0
