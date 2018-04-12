@@ -1,0 +1,74 @@
+- alias: Gerd thirsty
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.plant_2_moisture
+      below: 20
+      for:
+        hours: 6
+    - platform: time
+      at: '08:00:00'
+    - platform: time
+      at: '18:00:00'
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '00:00:00'
+    - condition: numeric_state
+      entity_id: sensor.plant_2_moisture
+      below: 20
+    - condition: state
+      entity_id: input_boolean.gerd_notified_today
+      state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.gerd_notified_today
+    - service: notify.notify_all_important
+      data_template:
+        title: 'Gerd er tørst!'
+        message: 'Fuktighet: {{ sensor.plant_2_moisture }} %'
+
+
+- alias: Gerd drowning
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.plant_2_moisture
+      above: 65
+      for:
+        hours: 6
+    - platform: time
+      at: '08:00:00'
+    - platform: time
+      at: '18:00:00'
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '00:00:00'
+    - condition: numeric_state
+      entity_id: sensor.plant_2_moisture
+      above: 65
+    - condition: state
+      entity_id: input_boolean.gerd_notified_today
+      state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.gerd_notified_today
+    - service: notify.notify_all_important
+      data_template:
+        title: 'Gerd drukner!'
+        message: 'Fuktighet: {{ sensor.plant_2_moisture }} %'
+
+
+- alias: Reset Gerd notifications
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.gerd_notified_today
+      state: 'off'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.gerd_notified_today

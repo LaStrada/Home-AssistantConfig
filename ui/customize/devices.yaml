@@ -3,3 +3,9 @@ device_tracker.android89bc5926ba332e4flan:
 
 device_tracker.androide63cbc6e620053d3lan:
   friendly_name: Tina Samsung S6 nmap
+
+sensor.plant_1_moisture:
+  friendly_name: Palme fuktighet
+
+sensor.plant_2_moisture:
+  friendly_name: Gerd fuktighet
