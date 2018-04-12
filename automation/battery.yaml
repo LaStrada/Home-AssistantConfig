@@ -14,6 +14,8 @@
         - sensor.battery_refrigerator
         - sensor.battery_freezer_kitchen
         - sensor.battery_freezer_bod
+        - sensor.plant_1_battery
+        - sensor.plant_2_battery
       below: 20
     - platform: time
       at: '09:00:00'
