@@ -14,6 +14,7 @@
       data:
         title: 'Motion alarm!'
         message: 'Bevegelse i gangen!'
+        critical: 1
     - service: shell_command.heracam_nc250_store_image
     - service: shell_command.heracam_nc260_store_image
 
@@ -54,6 +55,7 @@
       data:
         title: 'Motion alarm!'
         message: 'Bevegelse på kjøkkenet!'
+        critical: 1
 
 # Office
 - alias: Alarm away kontor
@@ -72,3 +74,4 @@
       data:
         title: 'Motion alarm!'
         message: 'Bevegelse på kontoret!'
+        critical: 1
