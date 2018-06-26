@@ -8,3 +8,4 @@
       data:
         title: 'Water leak!'
         message: 'Vannlekkasje vaskemaskin!'
+        critical: 1
