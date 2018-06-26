@@ -3,9 +3,13 @@
     - platform: state
       entity_id: binary_sensor.multi_kitchen_top_sensor
       to: 'off'
+      for:
+        minutes: 10
     - platform: state
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
       to: 'off'
+      for:
+        minutes: 10
   condition:
     - condition: state
       entity_id: binary_sensor.multi_kitchen_top_sensor
@@ -17,9 +21,9 @@
     - service: light.turn_off
       data:
         entity_id: light.kjkkenet
-        transition: 300
+        transition: 600
 
-- alias: Light kitchen dim on
+- alias: Light kitchen dim on (daytime)
   trigger:
     - platform: state
       entity_id: binary_sensor.multi_kitchen_top_sensor
@@ -28,12 +32,12 @@
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
       to: 'on'
     - platform: state
-      entity_id: switch.kitchen_bardisk_switch_2
+      entity_id: switch.kitchen_bardisk_switch
       to: 'on'
   condition:
     - condition: time
       after: '07:00:00'
-      before: '23:59:00'
+      before: '23:59:59'
     - condition: state
       entity_id: switch.kitchen_bardisk_switch
       state: 'on'
@@ -51,6 +55,39 @@
         entity_id: light.kjkkenet
         brightness: 254
         transition: 1
+
+- alias: Light kitchen dim on (night)
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_top_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.multi_kitchen_bottom_sensor
+      to: 'on'
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'on'
+  condition:
+    - condition: time
+      after: '06:59:59'
+      before: '00:00:00'
+    - condition: state
+      entity_id: switch.kitchen_bardisk_switch
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.multi_kitchen_top_sensor
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.multi_kitchen_bottom_sensor
+          state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kjkkenet
+        brightness: 85
+        transition: 2
 
 - alias: Light kitchen force on
   trigger:

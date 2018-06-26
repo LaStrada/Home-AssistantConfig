@@ -16,16 +16,14 @@
         - sensor.battery_freezer_bod
         - sensor.plant_1_battery
         - sensor.plant_2_battery
-      below: 20
+      below: 30
     - platform: time
       at: '09:00:00'
-    - platform: time
-      at: '18:00:00'
   condition:
     - condition: template
-      value_template: '{{ trigger.from_state | float > 20 }}'
+      value_template: '{{ trigger.from_state | float > 30 }}'
     - condition: template
-      value_template: '{{ not is_state("trigger.from_state", "N/A") and trigger.to_state <= 20 }}'
+      value_template: '{{ not is_state("trigger.from_state", "N/A") and trigger.to_state <= 30 }}'
   action:
     - service: notify.ios_lolphone_x
       data_template:
