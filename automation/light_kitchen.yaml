@@ -108,6 +108,9 @@
   trigger:
     - platform: state
       entity_id: switch.kitchen_bardisk_switch_2
+    - platform: state
+      entity_id: switch.kitchen_bardisk_switch
+      to: 'off'
   condition:
     - condition: state
       entity_id: light.kjkkenet
