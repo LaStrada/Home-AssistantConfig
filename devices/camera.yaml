@@ -1,7 +1,14 @@
 - platform: generic
   name: HeraCam NC250
   still_image_url: !secret heracam_url_nc250
+  framerate: 5
 
 - platform: generic
   name: HeraCam NC260
   still_image_url: !secret heracam_url_nc260
+  framerate: 5
+
+- platform: generic
+  name: Weather Trondheim
+  still_image_url: https://www.yr.no/sted/Norge/Trøndelag/Trondheim/Trondheim//meteogram.png
+  content_type: 'image/jpeg'

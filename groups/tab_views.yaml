@@ -1,7 +1,7 @@
 ### Default view
 default_view:
   name: Alle rom
-  icon: mdi:home 
+  icon: mdi:home
   view: yes
   entities:
     - group.alarm

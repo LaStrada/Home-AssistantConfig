@@ -69,8 +69,8 @@
       to: 'on'
   condition:
     - condition: time
-      after: '06:59:59'
-      before: '00:00:00'
+      after: '00:00:00'
+      before: '06:59:59'
     - condition: state
       entity_id: switch.kitchen_bardisk_switch
       state: 'on'
@@ -93,9 +93,6 @@
   trigger:
     - platform: state
       entity_id: switch.kitchen_bardisk_switch_2
-    - platform: state
-      entity_id: switch.kitchen_bardisk_switch
-      to: 'on'
   condition:
     - condition: state
       entity_id: light.kjkkenet
@@ -111,9 +108,6 @@
   trigger:
     - platform: state
       entity_id: switch.kitchen_bardisk_switch_2
-    - platform: state
-      entity_id: switch.kitchen_bardisk_switch
-      to: 'off'
   condition:
     - condition: state
       entity_id: light.kjkkenet
