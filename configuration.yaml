@@ -52,6 +52,7 @@ mqtt: !include devices/mqtt.yaml
 hue: !include devices/hue.yaml
 sensor: !include_dir_merge_list input/sensors/
 apple_tv: !include devices/apple_tv.yaml
+netatmo: !include devices/netatmo.yaml
 
 ### Scenes
 scene: !include_dir_merge_list scenes/
