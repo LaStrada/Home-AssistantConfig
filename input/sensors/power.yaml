@@ -1,4 +1,4 @@
 - platform: nordpool
   currency: 'NOK'
-  region: 'Tr.heim,'
+  region: 'Tr.heim'
   name: 'Elspot kWh'

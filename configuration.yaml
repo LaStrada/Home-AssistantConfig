@@ -12,6 +12,9 @@ homeassistant:
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize
     - /home/homeassistant/heracam/thumbnail
+  auth_providers:
+   - type: homeassistant
+   - type: legacy_api_password
 
 frontend: !include ui/frontend.yaml
 
