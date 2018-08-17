@@ -16,6 +16,8 @@ homeassistant:
    - type: homeassistant
    - type: legacy_api_password
 
+auth:
+
 frontend: !include ui/frontend.yaml
 
 http: !include http.yaml
