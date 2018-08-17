@@ -87,7 +87,7 @@
       data:
         entity_id: light.kjkkenet
         brightness: 85
-        transition: 2
+        transition: 1
 
 - alias: Light kitchen force on
   trigger:
