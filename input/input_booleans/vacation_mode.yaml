@@ -1,3 +1,7 @@
+vacation_mode_settings:
+  name: Vis feriemodus innstillinger
+  initial: off
+
 vacation_mode:
   name: Feriemodus
   initial: off
