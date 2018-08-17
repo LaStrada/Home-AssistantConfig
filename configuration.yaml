@@ -52,7 +52,6 @@ mqtt: !include devices/mqtt.yaml
 hue: !include devices/hue.yaml
 sensor: !include_dir_merge_list input/sensors/
 apple_tv: !include devices/apple_tv.yaml
-netatmo: !include devices/netatmo.yaml
 
 ### Scenes
 scene: !include_dir_merge_list scenes/
@@ -76,15 +75,9 @@ history_graph:
       - sensor.temp_ute_temperature
 
 ### Connected devices
-# 433mhz
-rfxtrx:
-  device: /dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Z5XR3V-if00-port0
-
-# Z-wave
-zwave:
-  usb_path: /dev/ttyAMA0
-  polling_interval: 1800000
-  network_key: !secret zwave_key
+rfxtrx: !include devices/rfxtrx.yaml
+zwave: !include devices/zwave.yaml
+netatmo: !include devices/netatmo.yaml
 
 ### Push
 notify: !include notify.yaml

@@ -1,5 +1,4 @@
-netatmo:
-  api_key: !secret netatmo_client_id
-  secret_key: !secret netatmo_client_secret
-  username: !secret netatmo_username
-  password: !secret netatmo_password
+api_key: !secret netatmo_client_id
+secret_key: !secret netatmo_client_secret
+username: !secret netatmo_username
+password: !secret netatmo_password
