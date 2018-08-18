@@ -944,72 +944,72 @@ sensor.kitchen_bardisk_power_management:
   platform: zwave
   unique_id: 66-72057595151270065
 light.dimmable_light_1:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:0b:57:ff:fe:99:c0:02-01
 light.hue_white_lamp_1:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:2c:a9:38-0b
 light.stale_nattbord:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:02:30:ec:13-0b
 light.dimmable_light_2:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:0b:57:ff:fe:a7:c6:2e-01
 light.dimmable_light_4:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:0b:57:ff:fe:ad:09:18-01
 light.hue_color_spot_2:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:35:81:fa-0b
 light.dimmable_light_3:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:0b:57:ff:fe:ad:2f:a1-01
 light.tina_nattbord:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:02:30:b5:a1-0b
 light.hue_color_spot_4:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:3c:fa:0e-0b
 light.soverom_taklys:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:4f:b9:7f-0b
 light.hue_color_spot_5:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:35:9f:7a-0b
 light.hue_color_spot_1:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:35:df:97-0b
 light.hue_color_spot_3:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:10:3c:f4:78-0b
 light.vitrineskap:
-  config_entry_id:
+  config_entry_id: e293f8d4793d41a08510efd00d292b55
   name:
   platform: hue
   unique_id: 00:17:88:01:01:20:9f:a8-0b
@@ -1163,3 +1163,13 @@ zwave.door_back:
   name:
   platform: zwave
   unique_id: node-67
+light.tradfri_bulb_e27_ws_opal_980lm:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e180d5204400156-65560
+light.kontoret_2:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: group-7e180d5204400156-131077
