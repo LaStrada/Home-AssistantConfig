@@ -1,4 +1,4 @@
-- alias: Leaving home alert (doors)
+- alias: Leaving home alert (doors front and back)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
@@ -33,7 +33,7 @@
           Balkongdør bak: {{ states.binary_sensor.door_back_sensor.state }}
 
 
-- alias: Leaving home alert (doors)
+- alias: Leaving home alert (freezers and refrigerators)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
