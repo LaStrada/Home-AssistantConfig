@@ -22,3 +22,8 @@ lys_gang:
   entities:
     - light.gang_dimmer_level
     - light.gang_garderobeskap_level
+
+lys_kontor:
+  name: Kontoret
+  entities:
+    - light.kontoret_2
