@@ -1,7 +1,7 @@
 - alias: Stue natt ukedag
   trigger:
     - platform: time
-      at: "22:00:00"
+      at: '22:00:00'
     - platform: homeassistant
       event: start
   condition:
@@ -23,7 +23,7 @@
 - alias: Stue natt helg
   trigger:
     - platform: time
-      at: "23:30:00"
+      at: '23:30:00'
     - platform: homeassistant
       event: start
   condition:
@@ -45,7 +45,7 @@
 - alias: Stue morgen ukedag
   trigger:
     - platform: time
-      at: "07:00:00"
+      at: '07:00:00'
     - platform: homeassistant
       event: start
   condition:
@@ -67,7 +67,7 @@
 - alias: Stue ettermiddag ukedag
   trigger:
     - platform: time
-      at: "14:00:00"
+      at: '14:00:00'
     - platform: homeassistant
       event: start
   condition:
@@ -89,7 +89,7 @@
 - alias: Stue morgen helg
   trigger:
     - platform: time
-      at: "08:30:00"
+      at: '08:30:00'
     - platform: homeassistant
       event: start
   condition:

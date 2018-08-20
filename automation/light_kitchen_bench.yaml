@@ -25,7 +25,13 @@
 
 - alias: Change kitchen bench lights to off
   trigger:
-    - platform: template
+    - platform: state
+      entity_id: input_number.kitchen_bench_lights.state
+    - platform: time
+      minutes: '/2'
+      seconds: 00
+  condition:
+    - condition: template
       value_template: "{{ states.input_number.kitchen_bench_lights.state == '0.0' }}"
   action:
     - service: shell_command.kitchen_bench_lights_off
@@ -33,7 +39,13 @@
 
 - alias: Change kitchen bench lights to off
   trigger:
-    - platform: template
+    - platform: state
+      entity_id: input_number.kitchen_bench_lights.state
+    - platform: time
+      minutes: '/2'
+      seconds: 20
+  condition:
+    - condition: template
       value_template: "{{ states.input_number.kitchen_bench_lights.state == '1.0' }}"
   action:
     - service: shell_command.kitchen_bench_lights_dim
@@ -41,7 +53,13 @@
 
 - alias: Change kitchen bench lights to on
   trigger:
-    - platform: template
+    - platform: state
+      entity_id: states.input_number.kitchen_bench_lights.state
+    - platform: time
+      minutes: '/2'
+      seconds: 40
+  condition:
+    - condition: template
       value_template: "{{ states.input_number.kitchen_bench_lights.state == '2.0' }}"
   action:
     - service: shell_command.kitchen_bench_lights_on
