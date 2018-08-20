@@ -1,0 +1,31 @@
+# Median
+
+- platform: median
+  name: median_bedroom_temperature
+  entity_ids:
+    - sensor.temp_soverom_temperature # 433mhz
+    - sensor.mqtt_bedroom_temperature
+    - sensor.bedroom_netatmo_co2.attributes.temperature
+
+- platform: median
+  name: median_bedroom_humidity
+  entity_ids:
+    - sensor.temp_soverom_humidity # 433mhz
+    - sensor.mqtt_bedroom_humidity
+    - sensor.bedroom_netatmo_co2.attributes.humidity
+
+# Min / max / mean
+
+- platform: min_max
+  name: 'average_living_room_humidity'
+  type: mean
+  entity_ids:
+    - sensor.temp_stue_humidity # 433mhz
+    - sensor.netatmo_stue_humidity
+
+- platform: min_max
+  name: 'average_living_room_temerature'
+  type: mean
+  entity_ids:
+    - sensor.temp_stue_temperature # 433mhz
+    - sensor.netatmo_stue_temperature

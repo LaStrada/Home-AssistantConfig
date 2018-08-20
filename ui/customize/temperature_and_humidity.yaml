@@ -1,0 +1,11 @@
+# Living room
+sensor.average_living_room_humidity:
+  friendly_name: 'Luftfuktighet stue'
+  icon_template: mdi:percent
+  unit_of_measurement: '%'
+
+# Bedroom
+sensor.average_living_room_humidity:
+  friendly_name: 'Luftfuktighet'
+  icon_template: mdi:percent
+  unit_of_measurement: '%'

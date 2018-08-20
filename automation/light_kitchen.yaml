@@ -76,7 +76,7 @@
       state: 'on'
     - condition: numeric_state
       entity_id: light.kjkkenet
-      value_template: {{ state.light.kjkkenet.attributes.brightness < 254 }}
+      value_template: {{ states.light.kjkkenet.attributes.brightness < 254 }}
     - condition: or
       conditions:
         - condition: state

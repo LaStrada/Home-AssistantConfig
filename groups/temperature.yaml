@@ -30,6 +30,7 @@ temp_stue_kitchen:
     - sensor.temp_stue_humidity
     - sensor.multi_kitchen_bottom_temperature
     - sensor.multi_kitchen_bottom_relative_humidity
+    - sensor.netatmo_stue_co2
 
 temp_soverom:
   name: Soverom
