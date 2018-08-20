@@ -5,10 +5,12 @@ include:
     # Bedroom
     - sensor.mqtt_bedroom_temperature
     - sensor.temp_soverom_temperature
-    - sensor.template_temperature_bedroom
+    - sensor.median_bedroom_temperature
+    # - sensor.template_temperature_bedroom # TODO: Delete from DB
     - sensor.mqtt_bedroom_humidity
     - sensor.temp_soverom_humidity
-    - sensor.template_humidity_bedroom
+    - sensor.median_bedroom_humidity
+    # - sensor.template_humidity_bedroom # TODO: Delete from DB
     - switch.panelovn_soverom_switch
     - sensor.bedroom_netatmo_co2
 
@@ -29,8 +31,11 @@ include:
     - sensor.template_water_leak_kitchen
 
     # Living room
-    - sensor.temp_stue_temperature
-    - sensor.temp_stue_humidity
+    - sensor.temp_stue_temperature # 433mhz
+    - sensor.temp_stue_humidity # 433mhz
+    - sensor.average_living_room_temperature
+    - sensor.average_living_room_humidity
+    - sensor.netatmo_stue_co2
     - binary_sensor.door_front_sensor
     - switch.panelovn_stue_switch
 

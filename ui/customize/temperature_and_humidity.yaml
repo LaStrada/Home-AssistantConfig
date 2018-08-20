@@ -1,11 +1,14 @@
 # Living room
 sensor.average_living_room_temperature:
   friendly_name: 'Temperatur stue'
-  icon_template: mdi:percent
+  icon: mdi:percent
   unit_of_measurement: '°C'
+
+sensor.netatmo_stue_co2:
+  icon: mdi:periodic-table-co2
 
 # Bedroom
 sensor.average_living_room_humidity:
   friendly_name: 'Luftfuktighet'
-  icon_template: mdi:percent
+  icon: mdi:percent
   unit_of_measurement: '%'

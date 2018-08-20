@@ -36,7 +36,7 @@ temp_soverom:
   name: Soverom
   entities:
       - climate.soverom_termostat
-      - sensor.template_humidity_bedroom
+      - sensor.median_bedroom_humidity
       - sensor.bedroom_netatmo_co2
 
 temp_kontor:
