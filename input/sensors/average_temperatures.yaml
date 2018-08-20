@@ -5,14 +5,14 @@
   entity_ids:
     - sensor.temp_soverom_temperature # 433mhz
     - sensor.mqtt_bedroom_temperature
-    - sensor.bedroom_netatmo_co2.attributes.temperature
+    - sensor.bedroom_netatmo_temperature
 
 - platform: median
   name: median_bedroom_humidity
   entity_ids:
     - sensor.temp_soverom_humidity # 433mhz
     - sensor.mqtt_bedroom_humidity
-    - sensor.bedroom_netatmo_co2.attributes.humidity
+    - sensor.bedroom_netatmo_co2_humidity
 
 # Min / max / mean
 

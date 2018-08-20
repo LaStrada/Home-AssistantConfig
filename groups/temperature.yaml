@@ -27,7 +27,7 @@ temp_stue_kitchen:
   name: Stue & kjøkken
   entities:
     - climate.stue_termostat
-    - sensor.temp_stue_humidity
+    - sensor.average_living_room_humidity
     - sensor.multi_kitchen_bottom_temperature
     - sensor.multi_kitchen_bottom_relative_humidity
     - sensor.netatmo_stue_co2

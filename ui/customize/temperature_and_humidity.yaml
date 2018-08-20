@@ -1,8 +1,8 @@
 # Living room
 sensor.average_living_room_temperature:
-  friendly_name: 'Luftfuktighet stue'
+  friendly_name: 'Temperatur stue'
   icon_template: mdi:percent
-  unit_of_measurement: '%'
+  unit_of_measurement: '°C'
 
 # Bedroom
 sensor.average_living_room_humidity:
