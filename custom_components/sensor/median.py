@@ -96,7 +96,7 @@ class MedianSensor(Entity):
             self._name = name
         else:
             self._name = 'Median Sensor'
-        self._unit_of_measurement = None
+        self._unit_of_measurement = unit_of_measurement
         self.count_sensors = len(self._entity_ids)
         self._state = STATE_UNKNOWN
         self.states = {}
