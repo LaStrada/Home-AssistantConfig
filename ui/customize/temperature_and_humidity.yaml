@@ -1,5 +1,5 @@
 # Living room
-sensor.average_living_room_humidity:
+sensor.average_living_room_temperature:
   friendly_name: 'Luftfuktighet stue'
   icon_template: mdi:percent
   unit_of_measurement: '%'

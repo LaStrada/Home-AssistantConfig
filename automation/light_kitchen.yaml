@@ -74,9 +74,8 @@
     - condition: state
       entity_id: switch.kitchen_bardisk_switch
       state: 'on'
-    - condition: numeric_state
-      entity_id: light.kjkkenet
-      value_template: {{ states.light.kjkkenet.attributes.brightness < 254 }}
+    - condition: template
+      value_template: "{{ states.light.kjkkenet.attributes.brightness | float < 254 }}"
     - condition: or
       conditions:
         - condition: state
