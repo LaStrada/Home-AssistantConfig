@@ -26,7 +26,7 @@
 - alias: Change kitchen bench lights to off
   trigger:
     - platform: state
-      entity_id: input_number.kitchen_bench_lights.state
+      entity_id: input_number.kitchen_bench_lights
     - platform: time
       minutes: '/2'
       seconds: 00
@@ -40,7 +40,7 @@
 - alias: Change kitchen bench lights to off
   trigger:
     - platform: state
-      entity_id: input_number.kitchen_bench_lights.state
+      entity_id: input_number.kitchen_bench_lights
     - platform: time
       minutes: '/2'
       seconds: 20
@@ -54,7 +54,7 @@
 - alias: Change kitchen bench lights to on
   trigger:
     - platform: state
-      entity_id: states.input_number.kitchen_bench_lights.state
+      entity_id: states.input_number.kitchen_bench_lights
     - platform: time
       minutes: '/2'
       seconds: 40
