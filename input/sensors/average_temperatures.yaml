@@ -2,6 +2,7 @@
 
 - platform: median
   name: median_bedroom_temperature
+  unit_of_measurement: '°C'
   entity_ids:
     - sensor.temp_soverom_temperature # 433mhz
     - sensor.mqtt_bedroom_temperature
@@ -9,6 +10,7 @@
 
 - platform: median
   name: median_bedroom_humidity
+  unit_of_measurement: '%'
   entity_ids:
     - sensor.temp_soverom_humidity # 433mhz
     - sensor.mqtt_bedroom_humidity
