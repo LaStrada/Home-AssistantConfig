@@ -4,11 +4,16 @@ sensor.average_living_room_temperature:
   icon: mdi:percent
   unit_of_measurement: '°C'
 
+sensor.average_living_room_humidity:
+  friendly_name: 'Luftfuktighet'
+  icon: mdi:percent
+  unit_of_measurement: '%'
+
 sensor.netatmo_stue_co2:
   icon: mdi:periodic-table-co2
 
 # Bedroom
-sensor.average_living_room_humidity:
+sensor.median_bedroom_humidity:
   friendly_name: 'Luftfuktighet'
   icon: mdi:percent
   unit_of_measurement: '%'
