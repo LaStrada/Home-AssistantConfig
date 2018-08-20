@@ -1,0 +1,1 @@
+host: !secret tradfri_ip_address
