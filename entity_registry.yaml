@@ -610,7 +610,7 @@ binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
   unique_id: 50-72057594881769472
 binary_sensor.door_front_sensor:
   config_entry_id:
-  name:
+  name: Dør bak
   platform: zwave
   unique_id: 52-72057594915323904
 binary_sensor.refrigerator_kitchen_sensor:
