@@ -1,0 +1,10 @@
+- id: 'light_office_guest_mode'
+  alias: Light office guest mode
+  trigger:
+    - trigger: state
+      entity_id: input_boolean.guests
+  action:
+    - service: group.set_visibility
+      data_template:
+        entity_id: lys_kontor
+        visible: "{{ is_state('input_boolean.guests', 'off') and now().hour >= 10 and now().hour <= 22 }}"

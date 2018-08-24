@@ -70,7 +70,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.danalock.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.danalock', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -82,7 +82,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.door_front.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.door_front', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -94,7 +94,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.door_back.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.door_back', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -106,7 +106,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.smoke_stue.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.smoke_stue', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -118,7 +118,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.smoke_soverom.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.smoke_soverom', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -130,7 +130,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.smoke_gang.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.smoke_gang', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -142,7 +142,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.smoke_kontor.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.smoke_kontor', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -154,7 +154,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.multi_kitchen_bottom.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.multi_kitchen_bottom', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -166,7 +166,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.multi_gang.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.multi_gang', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -178,7 +178,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.refrigerator_kitchen.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.refrigerator_kitchen', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -190,7 +190,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.freezer_kitchen.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.freezer_kitchen', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
@@ -202,7 +202,7 @@
       unit_of_measurement: '%'
       icon_template: mdi:battery-10
       value_template: >-
-          {% set battery = state_attr('zwave.freezer_bod.attributes', 'battery_level') %}
+          {% set battery = state_attr('zwave.freezer_bod', 'battery_level') %}
           {% if battery is number %}
               {{ battery | round }}
           {% else %}
