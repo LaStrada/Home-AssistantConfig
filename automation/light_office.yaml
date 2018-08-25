@@ -1,7 +1,7 @@
 - id: 'light_office_guest_mode'
   alias: Light office guest mode
   trigger:
-    - trigger: state
+    - platform: state
       entity_id: input_boolean.guests
   action:
     - service: group.set_visibility
