@@ -3,6 +3,7 @@
     group.lys_kitchen: off
     group.lys_stue: off
     group.lys_soverom: off
+    group.lys_kontor: off
     group.lys_gang:
       state: on
       brightness: 255
@@ -12,4 +13,12 @@
     group.lys_kitchen: off
     group.lys_stue: off
     group.lys_soverom: off
+    group.lys_kontor: off
+    group.lys_gang: off
+
+- name: God natt
+  entities:
+    group.lys_kitchen: off
+    group.lys_stue: off
+    group.lys_kontor: off
     group.lys_gang: off
