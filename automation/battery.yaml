@@ -4,7 +4,7 @@
     platform: time
     at: '20:00:00'
   action:
-    service: notify.notify_all_important
+    service: notify.ios_lolphone_x
     data_template:
       title: 'Battery warning!'
       message: >

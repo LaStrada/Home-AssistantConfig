@@ -1,5 +1,5 @@
-name: Home
+name: !secret stale_region
 latitude: !secret home_latitude
 longitude: !secret home_longitude
-radius: 200
-icon: mdi:home
+radius: 40000
+icon: mdi:work

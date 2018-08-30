@@ -11,8 +11,8 @@
       entity_id: input_boolean.stale_home
       state: 'off'
     - condition: state
-      entity_id: input_boolean.tina_home
-      state: 'off'
+      entity_id: group.tina_home
+      state: 'not_home'
     - condition: or
       conditions:
         # Door sensor front
@@ -39,14 +39,17 @@
       entity_id: input_boolean.stale_home
       to: 'off'
     - platform: state
+      entity_id: group.tina_home
+      to: 'not_home'
+    - platform: state
       entity_id: alarm_control_panel.ha_alarm
-      to: armed_away
+      to: 'armed_away'
   condition:
     - condition: state
       entity_id: input_boolean.stale_home
       state: 'off'
     - condition: state
-      entity_id: input_boolean.tina_home
+      entity_id: group.tina_home
       state: 'off'
     - condition: or
       conditions:

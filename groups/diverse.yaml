@@ -10,6 +10,7 @@ guest_mode:
   control: hidden
   entities:
     - input_boolean.guests
+    - input_boolean.guest_living_room
 
 ferie_stuff:
   name: Ferie
