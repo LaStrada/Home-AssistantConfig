@@ -9,5 +9,5 @@
   action:
     - service: group.set_visibility
       data_template:
-        entity_id: lys_kontor
+        entity_id: group.lys_kontor
         visible: "{{ is_state('input_boolean.guests', 'off') or (now().hour >= 10 and now().hour <= 22) }}"
