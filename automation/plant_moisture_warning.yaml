@@ -8,22 +8,22 @@
       conditions:
         - condition: numeric_state
           entity_id: sensor.plant_1_moisture
-          below: 25
+          below: 15
         - condition: numeric_state
           entity_id: sensor.plant_2_moisture
-          below: 25
+          below: 15
         - condition: numeric_state
           entity_id: sensor.plant_3_moisture
-          below: 25
+          below: 15
         - condition: numeric_state
           entity_id: sensor.plant_4_moisture
-          below: 25
+          below: 15
   action:
     service: notify.notify_all_important
     data_template:
       title: 'Plant warning!'
       message: >
-        {%- set threshold = 25 -%}
+        {%- set threshold = 15 -%}
         {%- set items = ['plant_1', 'plant_2', 'plant_3', 'plant_4'] -%}
         {%- for item in items if ((states('sensor.' + item + '_moisture') | int < threshold) or (states('sensor.' + item + '_moisture') == "unknown")) -%}
         {{ state_attr('sensor.' + item + '_moisture', 'friendly_name') }}: {{ states('sensor.' + item + '_moisture') }}
