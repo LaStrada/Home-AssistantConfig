@@ -1,0 +1,6 @@
+tina_home:
+  name: Tina hjemme
+  entities:
+    - device_tracker.tina_s7_0
+    - device_tracker.tina_s7_1
+    - device_tracker.tina_s7_2

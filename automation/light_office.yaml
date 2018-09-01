@@ -3,8 +3,11 @@
   trigger:
     - platform: state
       entity_id: input_boolean.guests
+    - platform: time
+      minutes: 00
+      seconds: 00
   action:
     - service: group.set_visibility
       data_template:
         entity_id: lys_kontor
-        visible: "{{ is_state('input_boolean.guests', 'off') and now().hour >= 10 and now().hour <= 22 }}"
+        visible: "{{ is_state('input_boolean.guests', 'off') or (now().hour >= 10 and now().hour <= 22) }}"

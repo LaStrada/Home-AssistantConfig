@@ -1,3 +1,7 @@
 guests:
   name: Gjester overnatter
   initial: off
+
+guest_living_room:
+  name: Overnattingsbesøk stua
+  initial: off
