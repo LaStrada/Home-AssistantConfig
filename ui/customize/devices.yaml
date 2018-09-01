@@ -9,3 +9,9 @@ sensor.plant_1_moisture:
 
 sensor.plant_2_moisture:
   friendly_name: Gerd fuktighet
+
+sensor.plant_3_moisture:
+  friendly_name: Tomat fuktighet
+
+sensor.plant_4_moisture:
+  friendly_name: Chili fuktighet

@@ -22,6 +22,8 @@ temperatures:
   entities:
     - sensor.plant_1_moisture
     - sensor.plant_2_moisture
+    - sensor.plant_3_moisture
+    - sensor.plant_4_moisture
     - group.ute
     - group.ute2
     - group.temp_stue_kitchen
