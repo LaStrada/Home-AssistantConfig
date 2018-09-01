@@ -1,6 +1,6 @@
 include:
   entities:
-    - input_boolean.tina_home
+    - group.tina_home
     - input_boolean.stale_home
     - input_boolean.heracam_state
     - input_boolean.guests
