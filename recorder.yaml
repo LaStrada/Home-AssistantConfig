@@ -35,6 +35,10 @@ include:
     - sensor.temp_bad_humidity
     - sensor.temp_bad_temperature
 
+    # Bod (oppe)
+    - sensor.bod_temperature
+    - sensor.bevegelse_motion_bod
+
     # Receiver
     - sensor.receiver_temperature
     - sensor.template_receiver_rear

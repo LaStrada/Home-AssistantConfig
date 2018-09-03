@@ -1,0 +1,3 @@
+- platform: hue
+  ip_address: 10.0.0.102
+  token: !secret hue_username

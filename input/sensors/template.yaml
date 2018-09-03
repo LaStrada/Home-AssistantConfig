@@ -242,3 +242,9 @@
         {% else %}
           mdi:fan
         {% endif %}
+
+    bod_temperature:
+      friendly_name: 'Bod temperatur'
+      unit_of_measurement: '°C'
+      value_template: '{{ states.sensor.bod_temperature.attributes.temperature }}'
+      icon: mdi:thermometer
