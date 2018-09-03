@@ -9,7 +9,7 @@
         value: >-
             {% if is_state('switch.kitchen_bardisk_switch', 'on') %}
               2
-            {% if is_state('input_boolean.guest_living_room', 'off') %}
+            {% elif is_state('input_boolean.guest_living_room', 'off') %}
               1
             {% else %}
               0
@@ -24,10 +24,6 @@
     - platform: time
       minutes: '/2'
       seconds: 00
-  condition:
-    - condition: state
-      entity_id: input_number.kitchen_bench_lights
-      state: '0.0'
   action:
     - service_template: >
         {% if is_state('input_number.kitchen_bench_lights', '2.0') %}
