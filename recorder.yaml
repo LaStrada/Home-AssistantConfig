@@ -111,3 +111,6 @@ include:
     - sensor.plant_4_light_intensity
     - sensor.plant_4_moisture
     - sensor.plant_4_temperature
+
+    # Power
+    - sensor.power_offset
