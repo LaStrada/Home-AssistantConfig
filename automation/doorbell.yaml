@@ -1,0 +1,61 @@
+- id: 'doorbell_logbook'
+  alias: 'Add doorbell to logbook'
+  trigger:
+    - platform: mqtt
+      topic: 'hass/entrance/doorbell/button/pressed'
+      payload: 'on'
+  action:
+    - service: logbook.log
+      data_template:
+        name: 'Doorbell'
+        message: 'ding dong'
+
+- id: 'doorbell_alert_lights'
+  alias: 'Doorbell alert lights'
+  trigger:
+    - platform: mqtt
+      topic: 'hass/entrance/doorbell/button/pressed'
+      payload: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: 'disarmed'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_boolean.stale_home
+          state: 'on'
+        - condition: state
+          entity_id: group.tina_home
+          state: 'home'
+  action:
+    - service_template: >
+      {% if is_state('group.motion_kitchen', 'on') %}script.blink_kitchen_lights_back_to_on
+      {% else %}script.blink_kitchen_lights_back_to_off{% endif %}
+
+- id: 'doorbell_alert_stale'
+  alias: 'Doorbell alert Ståle'
+  trigger:
+    - platform: mqtt
+      topic: 'hass/entrance/doorbell/button/pressed'
+      payload: 'on'
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_boolean.stale_home
+          state: 'on'
+        - condition: state
+          entity_id: group.tina_home
+          state: 'not_home'
+  action:
+    - service: notify.ios_lolphone_x
+      data:
+        message: 'Doorbell'
+        data:
+          push:
+            badge: 0
+            category: doorbell_open_door

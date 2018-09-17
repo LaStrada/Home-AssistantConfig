@@ -204,20 +204,6 @@ class HueSensor(Entity):
                     self._hue_id]['on']
                 self._attributes['reachable'] = self._data.data[
                     self._hue_id]['reachable']
-            elif self._model == 'RWL':
-                self._icon = 'mdi:remote'
-                self._attributes['last_updated'] = self._data.data[
-                    self._hue_id]['last_updated']
-                self._attributes['battery'] = self._data.data[
-                    self._hue_id]['battery']
-                self._attributes['on'] = self._data.data[
-                    self._hue_id]['on']
-                self._attributes['reachable'] = self._data.data[
-                    self._hue_id]['reachable']
-            elif self._model == 'ZGP':
-                self._icon = 'mdi:remote'
-                self._attributes['last_updated'] = self._data.data[
-                    self._hue_id]['last_updated']
             elif self._model == 'Geofence':
                 self._icon = 'mdi:cellphone'
         except:

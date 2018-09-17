@@ -110,3 +110,15 @@ push:
           authenticationRequired: yes
           destructive: yes
           behavior: 'default'
+
+    # Door bell - open door
+    - name: Doorbell open door
+      identifier: 'doorbell_open_door'
+      actions:
+        # Unlock door
+        - identifier: 'UNLOCK_DOOR'
+          title: 'Lås opp dør'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'

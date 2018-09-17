@@ -7,3 +7,10 @@ motion_sensors:
     - binary_sensor.multi_kitchen_bottom_sensor
     - binary_sensor.multi_kontor_sensor
     - sensor.bevegelse_motion_bod
+
+motion_kitchen:
+  name: Bevegelse kjøkken
+  control: hidden
+  entities:
+    - binary_sensor.multi_kitchen_top_sensor
+    - binary_sensor.multi_kitchen_bottom_sensor

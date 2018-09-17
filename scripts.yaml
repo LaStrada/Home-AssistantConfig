@@ -1,0 +1,50 @@
+blink_kitchen_lights_back_to_off:
+  sequence:
+    - service: light.turn_on
+      entity_id: light.kjkkenet
+    - service: light.turn_on
+      entity_id: light.stua
+    - service: delay
+      seconds: 1
+    - service: light.turn_off
+      entity_id: light.kjkkenet
+    - service: light.turn_off
+      entity_id: light.stua
+    - service: delay
+      seconds: 1
+    - service: light.turn_on
+      entity_id: light.kjkkenet
+    - service: light.turn_on
+      entity_id: light.stua
+    - service: delay
+      seconds: 1
+    - service: light.turn_off
+      entity_id: light.kjkkenet
+    - service: light.turn_off
+      entity_id: light.stua
+
+blink_kitchen_lights_back_to_on:
+  sequence:
+    - service: light.turn_off
+      entity_id: light.kjkkenet
+      brightness:
+    - service: light.turn_off
+      entity_id: light.stua
+    - service: delay
+      seconds: 1
+    - service: light.turn_on
+      entity_id: light.kjkkenet
+    - service: light.turn_on
+      entity_id: light.stua
+    - service: delay
+      seconds: 1
+    - service: light.turn_off
+      entity_id: light.kjkkenet
+    - service: light.turn_off
+      entity_id: light.stua
+    - service: delay
+      seconds: 1
+    - service: light.turn_on
+      entity_id: light.kjkkenet
+    - service: light.turn_on
+      entity_id: light.stua
