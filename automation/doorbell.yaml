@@ -10,32 +10,6 @@
         name: 'Doorbell'
         message: 'ding dong'
 
-- id: 'doorbell_alert_lights'
-  alias: 'Doorbell alert lights'
-  trigger:
-    - platform: mqtt
-      topic: 'hass/entrance/doorbell/button/pressed'
-      payload: 'on'
-  condition:
-    - condition: state
-      entity_id: input_boolean.vacation_mode
-      state: 'off'
-    - condition: state
-      entity_id: alarm_control_panel.ha_alarm
-      state: 'disarmed'
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: input_boolean.stale_home
-          state: 'on'
-        - condition: state
-          entity_id: group.tina_home
-          state: 'home'
-  action:
-    - service_template: >
-      {% if is_state('group.motion_kitchen', 'on') %}script.blink_kitchen_lights_back_to_on
-      {% else %}script.blink_kitchen_lights_back_to_off{% endif %}
-
 - id: 'doorbell_alert_stale'
   alias: 'Doorbell alert Ståle'
   trigger:
