@@ -4,12 +4,12 @@
       entity_id: binary_sensor.multi_kitchen_top_sensor
       to: 'off'
       for:
-        minutes: 10
+        minutes: 10 # todo: 5 min if after midnight
     - platform: state
       entity_id: binary_sensor.multi_kitchen_bottom_sensor
       to: 'off'
       for:
-        minutes: 10
+        minutes: 10 # todo: 5 min if after midnight
   condition:
     - condition: state
       entity_id: binary_sensor.multi_kitchen_top_sensor
@@ -37,7 +37,7 @@
   condition:
     - condition: time
       after: '07:00:00'
-      before: '23:59:59'
+      before: '22:59:59'
     - condition: state
       entity_id: switch.kitchen_bardisk_switch
       state: 'on'
@@ -69,7 +69,7 @@
       to: 'on'
   condition:
     - condition: time
-      after: '00:00:00'
+      after: '23:00:00'
       before: '06:59:59'
     - condition: state
       entity_id: switch.kitchen_bardisk_switch
