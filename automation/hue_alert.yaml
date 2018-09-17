@@ -11,7 +11,7 @@
       for:
         minutes: 15
   action:
-    - service: notify.lolphone_x
+    - service: notify.ios_lolphone_x
       data:
         title: 'Philips Hue alert!'
-        message: 'Enheten varer ikke'
+        message: 'Enheten svarer ikke'
