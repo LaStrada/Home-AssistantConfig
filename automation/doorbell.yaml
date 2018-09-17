@@ -32,4 +32,4 @@
         data:
           push:
             badge: 0
-            category: doorbell_open_door
+            category: 'doorbell_open_door'
