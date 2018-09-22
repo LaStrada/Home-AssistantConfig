@@ -9,7 +9,7 @@
       entity_id: alarm_control_panel.ha_alarm
       state: armed_away
   action:
-    - service: switch_turn_off
+    - service: switch.turn_off
       entity_id: switch.doorbell_relay
 
 
@@ -22,7 +22,7 @@
       entity_id: alarm_control_panel.ha_alarm
       state: disarmed
   action:
-    - service: switch_turn_on
+    - service: switch.turn_on
       entity_id: switch.doorbell_relay
 
 
@@ -34,7 +34,7 @@
       entity_id: alarm_control_panel.ha_alarm
       to: pending
   action:
-    - service: switch_turn_off
+    - service: switch.turn_off
       entity_id: switch.doorbell_relay
 
 
@@ -44,7 +44,7 @@
       entity_id: alarm_control_panel.ha_alarm
       to: armed_away
   action:
-    - service: switch_turn_off
+    - service: switch.turn_off
       entity_id: switch.doorbell_relay
 
 
@@ -54,5 +54,5 @@
       entity_id: alarm_control_panel.ha_alarm
       to: disarmed
   action:
-    - service: switch_turn_on
+    - service: switch.turn_on
       entity_id: switch.doorbell_relay

@@ -1,5 +1,5 @@
 - alias: 'Enable alarm notifications'
-  trogger:
+  trigger:
     - platform: state
       entity_id: input_boolean.stale_alarm_notifications
       to: 'off'
@@ -12,7 +12,7 @@
   condition:
     - condition: state
       entity_id: input_boolean.stale_alarm_notifications
-    state: 'off'
+      state: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.stale_alarm_notifications
