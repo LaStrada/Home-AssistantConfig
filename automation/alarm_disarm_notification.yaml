@@ -3,7 +3,14 @@
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'on'
+    - platform: state
+      entity_id: sensor.stale_home_bluetooth
+      from: 'not_home'
+      to: 'home'
   condition:
+    - condition: state
+      entity_id: input_boolean.stale_alarm_notifications
+      state: 'on'
     - condition: state
       entity_id: lock.danalock_locked
       state: 'unlocked'
@@ -23,12 +30,18 @@
           push:
             badge: 0
             category: "disarm_alarm_stale"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.stale_alarm_notifications
 
 - alias: Ask if alarm should be disarmed (Ståle)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'on'
+    - platform: state
+      entity_id: sensor.stale_home_bluetooth
+      from: 'not_home'
+      to: 'home'
   condition:
     - condition: state
       entity_id: lock.danalock_locked
@@ -49,12 +62,18 @@
           push:
             badge: 0
             category: "disarm_alarm_and_unlock_door_stale"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.stale_alarm_notifications
 
 - alias: Ask if door should be unlocked (Ståle)
   trigger:
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'on'
+    - platform: state
+      entity_id: sensor.stale_home_bluetooth
+      from: 'not_home'
+      to: 'home'
   condition:
     - condition: state
       entity_id: lock.danalock_locked
@@ -70,6 +89,8 @@
           push:
             badge: 0
             category: "unlock_door_stale"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.stale_alarm_notifications
 
 # Actional notification: Arm alarm and lock door
 - alias: Arm alarm and lock door from notification
@@ -83,6 +104,12 @@
       entity_id: alarm_control_panel.ha_alarm
     - service: lock.unlock
       entity_id: lock.danalock_locked
+    - service: notify.ios_lolphone_x
+      data:
+        message: "Alarm deaktivert og dør åpnet"
+        data:
+          push:
+            badge: 0
 
 # Actional notification: arm alarm
 - alias: Disarm alarm from notification
@@ -94,6 +121,12 @@
   action:
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.ha_alarm
+    - service: notify.ios_lolphone_x
+      data:
+        message: "Alarm deaktivert"
+        data:
+          push:
+            badge: 0
 
 # Actional notification: Lock door
 - alias: Unlock door from notification
@@ -105,3 +138,9 @@
   action:
     - service: lock.unlock
       entity_id: lock.danalock_locked
+    - service: notify.ios_lolphone_x
+      data:
+        message: "Dør åpnet"
+        data:
+          push:
+            badge: 0

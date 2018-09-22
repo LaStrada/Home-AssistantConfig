@@ -9,3 +9,6 @@ stale_job:
 hjemmekontor:
   name: Hjemmekontor
   initial: off
+
+stale_alarm_notifications:
+  initial: on

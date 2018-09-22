@@ -1,0 +1,27 @@
+# Ståle
+- platform: mqtt
+  state_topic: !secret mqtt_living_room_iphone_tracker
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'lolPhoneX living room'
+
+- platform: mqtt
+  state_topic: !secret mqtt_office_iphone_tracker
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'lolPhoneX office'
+
+- platform: mqtt
+  state_topic: !secret mqtt_bedroom_iphone_tracker
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'lolPhoneX bedroom'
+
+- platform: min_max
+  name: "stale_home_confidence"
+  type: mean
+  round_digits: 0
+  entity_ids:
+    - sensor.lolphonex_living_room
+    - sensor.lolphonex_office
+    - sensor.lolphonex_bedroom
