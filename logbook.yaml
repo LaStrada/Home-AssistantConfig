@@ -4,3 +4,4 @@ include:
     - input_boolean.stale_home
     - input_boolean.heracam_state
     - input_boolean.guests
+    - sensor.stale_home_bluetooth
