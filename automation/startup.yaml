@@ -12,5 +12,5 @@
           - climate.stue_termostat
           - climate.kontor_termostat
         operation_mode: 'heat'
-    - service: switch_turn_on
+    - service: switch.turn_on
       entity_id: switch.doorbell_relay
