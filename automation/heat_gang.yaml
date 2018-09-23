@@ -1,3 +1,74 @@
+- alias: Gang dagtid
+  trigger:
+    - platform: time
+      at: '07:00:00'
+    - platform: time
+      at: '08:00:00'
+    - platform: time
+      at: '09:00:00'
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'disarmed'
+  condition:
+    - condition: time
+      before: '21:00:00'
+    - condition: or
+      conditions:
+        # Weekdays
+        - condition: and
+          conditions:
+            - condition: time
+              after: '07:00:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'on'
+        # Saturday
+        - condition: and
+          conditions:
+            - condition: time
+              after: '08:00:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.tina_jobb_i_dag_sjekk
+              state: 'False'
+        # Sunday
+        - condition: and
+          conditions:
+            - condition: time
+              after: '09:00:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.gang_termostat
+        temperature: 20
+
+- alias: Gang natt
+  trigger:
+    - platform: time
+      at: '22:00:00'
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.gang_termostat
+        temperature: 19
+
+
 - alias: Gang heat off
   trigger:
     - platform: state
@@ -7,9 +78,6 @@
       entity_id: binary_sensor.multi_kitchen_top_sensor
       to: 'on'
   condition:
-    - condition: state
-      entity_id: input_boolean.brewing
-      state: 'off'
     - condition: time
       after: '12:00:00'
       before: '21:00:00'

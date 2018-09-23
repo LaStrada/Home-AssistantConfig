@@ -2,7 +2,7 @@
   trigger:
     - platform: time
       hours: '/2'
-      minutes: 0
+      minutes: 1
       seconds: 0
   condition:
     - condition: state
@@ -12,7 +12,7 @@
       value_template: >-
           {{ states.input_datetime.vacation_end_date.attributes.year == now().year and
             states.input_datetime.vacation_end_date.attributes.month == now().month and
-            states.input_datetime.vacation_end_date.attributes.day == 3 }}
+            states.input_datetime.vacation_end_date.attributes.day == now().day }}
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.vacation_mode
@@ -36,20 +36,16 @@
       entity_id: input_boolean.vacation_mode
       to: 'off'
   action:
+    # Reactivate notifications
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacation_mode_notified
+
+    # 1: Living room and bedroom - disable office and entrance heating
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
         temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.kontor_termostat
-        operation_mode: 'off'
-    - delay: 1:00:00
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.gang_termostat
-        temperature: 21
-    - delay: 3:00:00
     - service: climate.set_temperature
       data_template:
         entity_id: climate.soverom_termostat
@@ -57,8 +53,29 @@
     - service: climate.set_operation_mode
       data:
         entity_id: climate.kontor_termostat
-        operation_mode: 'auto'
-    - delay: 2:00:00
+        operation_mode: 'off'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat
+        operation_mode: 'off'
+
+    # 2: After 3 hours - enable entrance
+    - delay: '3:00:00'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.gang_termostat
+        operation_mode: 'heat'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.gang_termostat
+        temperature: 18
+
+    # 3: After 2 hours (total 5 hours) - enable office
+    - delay: '2:00:00'
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.kontor_termostat
+        operation_mode: 'heat'
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kontor_termostat
@@ -74,7 +91,7 @@
         minutes: 30
   condition:
     - condition: state
-      entity_id: binary_sensor.vacation_mode_notified
+      entity_id: input_boolean.vacation_mode_notified
       state: 'off'
   action:
     - service: notify.ios_lolphone_x
@@ -112,7 +129,7 @@
         hours: 24
   condition:
     - condition: state
-      entity_id: binary_sensor.vacation_mode_notified
+      entity_id: input_boolean.vacation_mode_notified
       state: 'off'
   action:
     - service: notify.ios_lolphone_x
@@ -140,7 +157,7 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: binary_sensor.vacation_mode_notified
+      entity_id: input_boolean.vacation_mode_notified
       state: 'on'
   action:
     - service: input_boolean.turn_off

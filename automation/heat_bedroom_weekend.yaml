@@ -3,7 +3,7 @@
 - alias: Soverom morgen helg
   trigger:
     - platform: time
-      at: "09:30:00"
+      at: '09:30:00'
     - platform: homeassistant
       event: start
   condition:
