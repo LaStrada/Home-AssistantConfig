@@ -82,36 +82,13 @@
         temperature: '{{ input_number.kontor_temperatur }}'
 
 
-- alias: Ask to activate vacation mode when leaving Trondelag
+- alias: Ask to activate vacation mode if away for more than one day
   trigger:
     - platform: state
       entity_id: input_boolean.stale_trondelag
       to: 'off'
       for:
         minutes: 30
-  condition:
-    - condition: state
-      entity_id: input_boolean.vacation_mode_notified
-      state: 'off'
-  action:
-    - service: notify.ios_lolphone_x
-      data:
-        message: "Vil du aktivere feriemodus?"
-        data:
-          push:
-            badge: 0
-            category: "activate_vacation_mode"
-    - service: notify.ios_lolphone_x
-      data:
-        message: "Vil du aktivere feriemodus?"
-        data:
-          push:
-            badge: 0
-            category: "activate_vacation_mode"
-
-
-- alias: Ask to activate vacation mode if away for more than one day
-  trigger:
     - platform: state
       entity_id: input_boolean.stale_home
       to: 'off'
@@ -131,6 +108,30 @@
     - condition: state
       entity_id: input_boolean.vacation_mode_notified
       state: 'off'
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: input_boolean.stale_home
+              state: 'off'
+              for:
+                hours: 24
+            - condition: state
+              entity_id: input_boolean.stale_work
+              state: 'off'
+              for:
+                hours: 24
+        - condition: state
+          entity_id: input_boolean.stale_trondelag
+          state: 'off'
+          for:
+            minutes: 30
+        - condition: state
+          entity_id: alarm_control_panel.ha_alarm
+          state: 'amred_away'
+          for:
+            hours: 24
   action:
     - service: notify.ios_lolphone_x
       data:
@@ -140,6 +141,19 @@
             badge: 0
             category: "activate_vacation_mode"
     - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacation_mode_notified
+
+
+- alias: Reactivate vaction notifications
+  trigger:
+    - platform: state
+      entity_id: input_boolean.vacation_mode_notified
+      to: 'on'
+      for:
+        hours: 24
+  action:
+    - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.vacation_mode_notified
 
