@@ -114,3 +114,8 @@ include:
 
     # Power
     - sensor.power_offset
+
+    - sensor.stale_home_bluetooth
+    - group.tina_home
+    - input_boolean.heracam_state
+    - alarm_control_panel.ha_alarm
