@@ -25,8 +25,10 @@
       message: >
         {%- set threshold = 15 -%}
         {%- set items = ['plant_1', 'plant_2', 'plant_3', 'plant_4'] -%}
-        {%- for item in items if ((states('sensor.' + item + '_moisture') | int < threshold) or (states('sensor.' + item + '_moisture') == "unknown")) -%}
+        {%- for item in items if ((states('sensor.' + item + '_moisture') | int < threshold)
+          and is_state('input_boolean.' + item + '_moisture_notifications', 'on')
+          or (states('sensor.' + item + '_moisture') == "unknown")) -%}
         {{ state_attr('sensor.' + item + '_moisture', 'friendly_name') }}: {{ states('sensor.' + item + '_moisture') }}
-        {%- if not loop.last %},
+        {%- if not loop.last %},\n
         {% endif -%}
         {%- endfor -%}

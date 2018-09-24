@@ -1,0 +1,11 @@
+plant_1_moisture_notifications:
+  name: Plante 1 notifications
+
+plant_2_moisture_notifications:
+  name: Plante 2 notifications
+
+plant_3_moisture_notifications:
+  name: Plante 3 notifications
+
+plant_4_moisture_notifications:
+  name: Plante 4 notifications

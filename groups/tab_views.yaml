@@ -82,3 +82,4 @@ diverse:
     - group.domains
     - group.battery
     - group.brewing
+    - group.plant_notifications

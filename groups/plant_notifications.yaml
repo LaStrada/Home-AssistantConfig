@@ -1,0 +1,7 @@
+plant_notifications:
+  name: 'Plante-varslinger'
+  entities:
+    - input_boolean.plant_1_moisture_notifications
+    - input_boolean.plant_2_moisture_notifications
+    - input_boolean.plant_3_moisture_notifications
+    - input_boolean.plant_4_moisture_notifications

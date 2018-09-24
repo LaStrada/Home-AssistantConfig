@@ -96,21 +96,25 @@ include:
     - sensor.plant_1_light_intensity
     - sensor.plant_1_moisture
     - sensor.plant_1_temperature
+    - input_boolean.plant_1_moisture_notifications
     
     - sensor.plant_2_conductivity
     - sensor.plant_2_light_intensity
     - sensor.plant_2_moisture
     - sensor.plant_2_temperature
+    - input_boolean.plant_2_moisture_notifications
 
     - sensor.plant_3_conductivity
     - sensor.plant_3_light_intensity
     - sensor.plant_3_moisture
     - sensor.plant_3_temperature
+    - input_boolean.plant_3_moisture_notifications
 
     - sensor.plant_4_conductivity
     - sensor.plant_4_light_intensity
     - sensor.plant_4_moisture
     - sensor.plant_4_temperature
+    - input_boolean.plant_4_moisture_notifications
 
     # Power
     - sensor.power_offset
