@@ -1,5 +1,6 @@
 plant_notifications:
   name: 'Plante-varslinger'
+  control: hidden
   entities:
     - input_boolean.plant_1_moisture_notifications
     - input_boolean.plant_2_moisture_notifications
