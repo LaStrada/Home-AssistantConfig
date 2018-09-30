@@ -73,7 +73,7 @@ shell_command: !include_dir_merge_named devices/shell_commands/
 switch: !include_dir_merge_list devices/switch/
 sun:
 wake_on_lan:
-zones: !include zones.yaml
+zone: !include zones.yaml
 
 history_graph:
   temperature_outside:
