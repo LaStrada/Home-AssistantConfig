@@ -89,6 +89,7 @@
         brightness: 85
         transition: 1
 
+# FIXME: This is triggered when 'switch.kitchen_bardisk_switch_2' is initialized
 - alias: Light kitchen force on
   trigger:
     - platform: state

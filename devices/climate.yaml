@@ -46,7 +46,7 @@
 - platform: generic_thermostat
   name: 'Gang termostat'
   heater: switch.panelovn_gang_switch
-  target_sensor: sensor.multi_gang_temperature
+  target_sensor: sensor.temp_gang_temperature
   min_temp: 10
   max_temp: 22
   target_temp: 20

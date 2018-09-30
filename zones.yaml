@@ -1,0 +1,23 @@
+zones:
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    icon: mdi:home
+
+  - name: !secret stale_work_name
+    latitude: !secret stale_work_latitude
+    longitude: !secret stale_work_longitude
+    radius: !secret stale_work_radius
+    icon: mci:laptop-mac
+
+  - name: !secret stale_work_remote_name
+    latitude: !secret stale_work_remote_latitude
+    longitude: !secret stale_work_remote_longitude
+    radius: !secret stale_work_remote_radius
+    icon: mci:remote-desktop
+
+  - name: !secret region_name
+    latitude: !secret region_latitude
+    longitude: !secret region_longitude
+    radius: !secret region_radius
+    icon: mdi:home-map-marker

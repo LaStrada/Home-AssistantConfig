@@ -3,23 +3,28 @@
   devices:
     085007028800000269:
       name: temp_ute
-    0a520905970000f9240289:
+    0a520905970000f9240289: # channel 2
       name: temp_stue
       data_type:
        - Humidity
        - Temperature
-    0a520900a7000104280179:
+    0a520900a7000104280179: # channel 3
       name: temp_bad
       data_type:
        - Humidity
        - Temperature
-    0a520800030300ba220259:
+    0a520800030300ba220259: # channel ?
       name: temp_kontor
       data_type:
        - Humidity
        - Temperature
-    0a520901b70000b82b0169:
+    0a520901b70000b82b0169: # channel 4
       name: temp_soverom
       data_type:
        - Humidity
        - Temperature
+    0a520918f70000da300149: # channel 8
+      name: temp_gang
+      data_type:
+        - Humidity
+        - Temperature

@@ -6,18 +6,49 @@
   condition:
     - condition: or
       conditions:
-        - condition: numeric_state
-          entity_id: sensor.plant_1_moisture
-          below: 15
-        - condition: numeric_state
-          entity_id: sensor.plant_2_moisture
-          below: 15
-        - condition: numeric_state
-          entity_id: sensor.plant_3_moisture
-          below: 15
-        - condition: numeric_state
-          entity_id: sensor.plant_4_moisture
-          below: 15
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.plant_1_moisture
+              below: 15
+              for:
+                hours: 6
+            - condition: state
+              entity_id: input_boolean.plant_1_moisture_notifications
+              state: 'on'
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.plant_2_moisture
+              below: 15
+              below: 15
+              for:
+                hours: 6
+            - condition: state
+              entity_id: input_boolean.plant_2_moisture_notifications
+              state: 'on'
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.plant_3_moisture
+              below: 15
+              below: 15
+              for:
+                hours: 6
+            - condition: state
+              entity_id: input_boolean.plant_3_moisture_notifications
+              state: 'on'
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.plant_4_moisture
+              below: 15
+              below: 15
+              for:
+                hours: 6
+            - condition: state
+              entity_id: input_boolean.plant_4_moisture_notifications
+              state: 'on'
   action:
     service: notify.notify_all_important
     data_template:
@@ -29,6 +60,7 @@
           and is_state('input_boolean.' + item + '_moisture_notifications', 'on')
           or (states('sensor.' + item + '_moisture') == "unknown")) -%}
         {{ state_attr('sensor.' + item + '_moisture', 'friendly_name') }}: {{ states('sensor.' + item + '_moisture') }}
-        {%- if not loop.last %},\n
+        {%- if not loop.last %}
+
         {% endif -%}
         {%- endfor -%}
