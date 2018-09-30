@@ -7,13 +7,13 @@
   latitude: !secret stale_work_latitude
   longitude: !secret stale_work_longitude
   radius: !secret stale_work_radius
-  icon: mci:laptop-mac
+  icon: mdi:laptop-mac
 
 - name: !secret stale_work_remote_name
   latitude: !secret stale_work_remote_latitude
   longitude: !secret stale_work_remote_longitude
   radius: !secret stale_work_remote_radius
-  icon: mci:remote-desktop
+  icon: mdi:remote-desktop
 
 - name: !secret region_name
   latitude: !secret region_latitude
