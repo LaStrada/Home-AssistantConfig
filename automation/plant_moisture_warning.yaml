@@ -11,8 +11,6 @@
             - condition: numeric_state
               entity_id: sensor.plant_1_moisture
               below: 15
-              for:
-                hours: 6
             - condition: state
               entity_id: input_boolean.plant_1_moisture_notifications
               state: 'on'
@@ -21,8 +19,6 @@
             - condition: numeric_state
               entity_id: sensor.plant_2_moisture
               below: 15
-              for:
-                hours: 6
             - condition: state
               entity_id: input_boolean.plant_2_moisture_notifications
               state: 'on'
@@ -31,8 +27,6 @@
             - condition: numeric_state
               entity_id: sensor.plant_3_moisture
               below: 15
-              for:
-                hours: 6
             - condition: state
               entity_id: input_boolean.plant_3_moisture_notifications
               state: 'on'
@@ -41,8 +35,6 @@
             - condition: numeric_state
               entity_id: sensor.plant_4_moisture
               below: 15
-              for:
-                hours: 6
             - condition: state
               entity_id: input_boolean.plant_4_moisture_notifications
               state: 'on'
