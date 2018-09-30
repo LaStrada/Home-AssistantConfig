@@ -21,7 +21,6 @@
             - condition: numeric_state
               entity_id: sensor.plant_2_moisture
               below: 15
-              below: 15
               for:
                 hours: 6
             - condition: state
@@ -32,7 +31,6 @@
             - condition: numeric_state
               entity_id: sensor.plant_3_moisture
               below: 15
-              below: 15
               for:
                 hours: 6
             - condition: state
@@ -42,7 +40,6 @@
           conditions:
             - condition: numeric_state
               entity_id: sensor.plant_4_moisture
-              below: 15
               below: 15
               for:
                 hours: 6
