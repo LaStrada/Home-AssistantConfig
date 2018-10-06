@@ -3,6 +3,7 @@ climate.gang_termostat:
 climate.kontor_termostat:
   homebridge_visible: true
 climate.soverom_termostat:
+  target_temp_step: 0.1
   homebridge_visible: true
 climate.stue_termostat:
   homebridge_visible: true
