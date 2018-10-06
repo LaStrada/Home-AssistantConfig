@@ -120,6 +120,7 @@ include:
     - sensor.power_offset
 
     - sensor.stale_home_bluetooth
+    - sensor.stale_home_confidence
     - group.tina_home
     - input_boolean.heracam_state
     - alarm_control_panel.ha_alarm
