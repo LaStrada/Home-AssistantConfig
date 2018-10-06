@@ -1,6 +1,9 @@
 db_url: !secret mysql
 purge_interval: 0
 include:
+  domains:
+    - input_number
+    - input_boolean
   entities:
     # Bedroom
     - sensor.median_bedroom_temperature
