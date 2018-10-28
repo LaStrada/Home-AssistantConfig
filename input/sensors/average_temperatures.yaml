@@ -1,16 +1,16 @@
 # Median
 
-- platform: median
+- platform: min_max
   name: median_bedroom_temperature
-  unit_of_measurement: '°C'
+  type: mean
   entity_ids:
     - sensor.temp_soverom_temperature # 433mhz
     - sensor.mqtt_bedroom_temperature
     - sensor.bedroom_netatmo_temperature
 
-- platform: median
+- platform: min_max
   name: median_bedroom_humidity
-  unit_of_measurement: '%'
+  type: mean
   entity_ids:
     - sensor.temp_soverom_humidity # 433mhz
     - sensor.mqtt_bedroom_humidity
