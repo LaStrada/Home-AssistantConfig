@@ -1,5 +1,4 @@
 client_id: hass-mqtt-broker
-discovery: true
-discovery_prefix: hass
+discovery: false
 username: hass
 password: !secret http_password

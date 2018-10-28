@@ -78,11 +78,9 @@
             {% set outdoor_temp = states.sensor.temp_ute_temperature.state | float | round(0) %}
             {% if outdoor_temp >= 10 %}
               {{ new_temp }}
-            {% elif outdoor_temp > 0 %}
+            {% elif outdoor_temp > -20 %}
               {{ (new_temp + ((outdoor_temp / 20) - 0.5) * -1) | round(1) }}
-            {% elif outdoor_temp >= -15 %}
-              {{ (new_temp + ((outdoor_temp / 10) - 0.5) * -1) | round(1) }}
             {% else %}
-              {{ (new_temp + 2) | round(1) }}
+              {{ (new_temp + 1.5) | round(1) }}
             {% endif %}
           {% endif %}
