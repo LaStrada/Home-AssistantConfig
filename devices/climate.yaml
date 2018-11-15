@@ -57,3 +57,7 @@
   keep_alive:
     minutes:
       30
+
+- platform: mill
+  username: !secret mill_email
+  password: !secret mill_password

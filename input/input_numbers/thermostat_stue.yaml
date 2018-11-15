@@ -1,6 +1,6 @@
 stue_morgen_temperatur:
   name: Stue morgen temperatur
-  initial: 20
+  initial: 22
   min: 15
   max: 25
   step: 0.5
@@ -14,7 +14,7 @@ stue_dagtid_temperatur:
 
 stue_natt_temperatur:
   name: Stue natt temperatur
-  initial: 18
+  initial: 20
   min: 15
   max: 25
   step: 0.5

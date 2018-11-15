@@ -259,3 +259,46 @@
         {% else %}
             not_home
         {%- endif %}
+
+
+    elecricity_price_percent:
+      friendly_name: 'Strømpris prosent'
+      unit_of_measurement: '%'
+      value_template: >-
+        {% set min = float(states.sensor.electricity_price_romolslia_78.attributes.min_price) %}
+        {% set max = float(states.sensor.electricity_price_romolslia_78.attributes.max_price) %}
+        {% set current = float(states.sensor.electricity_price_romolslia_78.state) %}
+        {% if min is not number or max is not number or current is not number %}
+          None
+        {% else %}
+          {{ ((0.672 - min) / (max - min) * 100) | round(1) }}
+        {% endif %}
+
+
+    elecricity_price_percent_above:
+      friendly_name: 'Strømpris prosent'
+      unit_of_measurement: '%'
+      value_template: >-
+        {% set min = float(states.sensor.electricity_price_romolslia_78.attributes.min_price) %}
+        {% set max = float(states.sensor.electricity_price_romolslia_78.attributes.max_price) %}
+        {% if min is not number or max is not number %}
+          None
+        {% else %}
+          {{ ((max / min) * 100) | round(1) }}
+        {% endif %}
+
+
+    electricity_temperature:
+      friendly_name: 'Temperatur korrigering'
+      unit_of_measurement: '°C'
+      value_template: >-
+        {% set min = float(states.sensor.electricity_price_romolslia_78.attributes.min_price) %}
+        {% set max = float(states.sensor.electricity_price_romolslia_78.attributes.max_price) %}
+        {% set current = float(states.sensor.electricity_price_romolslia_78.state) %}
+        {% set value = ((((current - min) / (max - min)) - 0.5) * -1) %}
+        {% set percent = float(states.sensor.elecricity_price_percent_above.state) %}
+        {% if min is not number or max is not number or current is not number or value is not number or percent is not number %}
+          None
+        {% else %}
+          {{ (value * (percent / 100)) | round(1) }}
+        {% endif %}

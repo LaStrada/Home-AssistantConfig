@@ -7,9 +7,26 @@
     - platform: homeassistant
       event: start
   condition:
-    - condition: time
-      after: '09:30:00'
-      before: '12:00:00'
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+            # Lørdag
+            - condition: time
+              after: '07:30:00'
+              before: '12:00:00'
+            - condition: state
+              entity_id: 'binary_sensor.workday_yesterday'
+              state: 'on'
+        - condition: and
+          conditions:
+            # Søndag
+            - condition: time
+              after: '09:30:00'
+              before: '12:00:00'
+            - condition: state
+              entity_id: 'binary_sensor.workday_tomorrow'
+              state: 'on'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
       state: 'off'
@@ -29,7 +46,7 @@
 - alias: Soverom dag helg
   trigger:
     - platform: time
-      at: "12:00:00"
+      at: '12:00:00'
     - platform: homeassistant
       event: start
   condition:

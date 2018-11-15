@@ -59,6 +59,7 @@ hue: !include devices/hue.yaml
 sensor: !include_dir_merge_list input/sensors/
 apple_tv: !include devices/apple_tv.yaml
 tradfri: !include devices/tradfri.yaml
+tibber: !include devices/tibber.yaml
 
 ### Scenes
 scene: !include_dir_merge_list scenes/

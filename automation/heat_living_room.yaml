@@ -1,7 +1,8 @@
 - alias: Stue natt ukedag
   trigger:
     - platform: time
-      at: '22:00:00'
+      minutes: '/15'
+      seconds: '1'
     - platform: homeassistant
       event: start
   condition:
@@ -18,12 +19,22 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
+        temperature: >-
+          {% set temp = states.input_number.stue_natt_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ temp + el_comp }}
+    - service: climate.mill_set_room_temperature
+      data_template:
+        room_name: "Kitchen"
+        away_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
+        comfort_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
+        sleep_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
 
 - alias: Stue natt helg
   trigger:
     - platform: time
-      at: '23:30:00'
+      minutes: '/15'
+      seconds: '1'
     - platform: homeassistant
       event: start
   condition:
@@ -40,12 +51,22 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_number.stue_natt_temperatur.state | float }}"
+        temperature: >-
+          {% set temp = states.input_number.stue_natt_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ temp + el_comp }}
+    - service: climate.mill_set_room_temperature
+      data_template:
+        room_name: "Kitchen"
+        away_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
+        comfort_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
+        sleep_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
 
 - alias: Stue morgen ukedag
   trigger:
     - platform: time
-      at: '07:00:00'
+      minutes: '/15'
+      seconds: '1'
     - platform: homeassistant
       event: start
   condition:
@@ -62,12 +83,22 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_number.stue_morgen_temperatur.state | float }}"
+        temperature: >-
+          {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ temp + el_comp }}
+    - service: climate.mill_set_room_temperature
+      data_template:
+        room_name: "Kitchen"
+        away_temp: "{{ (states.input_number.stue_morgen_temperatur.state - 1) | int }}"
+        comfort_temp: "{{ (states.input_number.stue_morgen_temperatur.state - 1) | int }}"
+        sleep_temp: "{{ (states.input_number.stue_morgen_temperatur.state - 1) | int }}"
 
 - alias: Stue ettermiddag ukedag
   trigger:
     - platform: time
-      at: '14:00:00'
+      minutes: '/15'
+      seconds: '1'
     - platform: homeassistant
       event: start
   condition:
@@ -84,12 +115,22 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
+        temperature: >-
+          {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ temp + el_comp }}
+    - service: climate.mill_set_room_temperature
+      data_template:
+        room_name: "Kitchen"
+        away_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
+        comfort_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
+        sleep_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
 
 - alias: Stue morgen helg
   trigger:
     - platform: time
-      at: '08:30:00'
+      minutes: '/15'
+      seconds: '1'
     - platform: homeassistant
       event: start
   condition:
@@ -106,7 +147,16 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.stue_termostat
-        temperature: "{{ states.input_number.stue_dagtid_temperatur.state | float }}"
+        temperature: >-
+          {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ temp + el_comp }}
+    - service: climate.mill_set_room_temperature
+      data_template:
+        room_name: "Kitchen"
+        away_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
+        comfort_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
+        sleep_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
 
 
 # Door state changed

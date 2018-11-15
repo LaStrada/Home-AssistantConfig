@@ -57,6 +57,7 @@
       event: start
     - platform: time
       minutes: '/5'
+      seconds: 00
   condition:
     - condition: time
       after: '20:00:00'
