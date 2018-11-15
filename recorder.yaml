@@ -121,7 +121,7 @@ include:
     - input_boolean.plant_4_moisture_notifications
 
     # Power
-    - sensor.power_offset
+    - sensor.electricity_price_romolslia_78
 
     - sensor.stale_home_bluetooth
     - sensor.stale_home_confidence

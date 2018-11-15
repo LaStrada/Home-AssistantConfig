@@ -2,13 +2,13 @@
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '3'
+      seconds: '5'
     - platform: homeassistant
       event: start
   condition:
     - condition: time
       after: '22:00:00'
-      before: '10:00:00'
+      before: '5:00:00'
     - condition: state
       entity_id: binary_sensor.workday_tomorrow
       state: 'on'
@@ -35,7 +35,7 @@
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '5'
+      seconds: '10'
     - platform: homeassistant
       event: start
   condition:
@@ -68,12 +68,12 @@
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '1'
+      seconds: '15'
     - platform: homeassistant
       event: start
   condition:
     - condition: time
-      after: '07:00:00'
+      after: '05:00:00'
       before: '14:00:00'
     - condition: state
       entity_id: 'binary_sensor.workday_today'
@@ -101,7 +101,7 @@
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '1'
+      seconds: '20'
     - platform: homeassistant
       event: start
   condition:
@@ -134,7 +134,7 @@
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '1'
+      seconds: '25'
     - platform: homeassistant
       event: start
   condition:

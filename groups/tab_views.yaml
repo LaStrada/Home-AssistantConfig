@@ -73,6 +73,7 @@ diverse:
   view: yes
   icon: mdi:settings
   entities:
+    - sensor.electricity_price_romolslia_78
     - group.ferie_stuff
     - group.rpi_monitor
     - group.guest_mode
