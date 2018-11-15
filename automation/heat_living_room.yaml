@@ -2,7 +2,7 @@
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '1'
+      seconds: '3'
     - platform: homeassistant
       event: start
   condition:
@@ -23,18 +23,19 @@
           {% set temp = states.input_number.stue_natt_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
           {{ temp + el_comp }}
-    - service: climate.mill_set_room_temperature
+    - service: climate.set_temperature
       data_template:
-        room_name: "Kitchen"
-        away_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
-        comfort_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
-        sleep_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
+        entity_id: climate.kja_kken
+        temperature: >-
+          {% set temp = states.input_number.stue_natt_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ (temp + el_comp - 0.5) | int }}
 
 - alias: Stue natt helg
   trigger:
     - platform: time
       minutes: '/15'
-      seconds: '1'
+      seconds: '5'
     - platform: homeassistant
       event: start
   condition:
@@ -55,12 +56,13 @@
           {% set temp = states.input_number.stue_natt_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
           {{ temp + el_comp }}
-    - service: climate.mill_set_room_temperature
+    - service: climate.set_temperature
       data_template:
-        room_name: "Kitchen"
-        away_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
-        comfort_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
-        sleep_temp: "{{ (states.input_number.stue_natt_temperatur.state - 1) | int }}"
+        entity_id: climate.kja_kken
+        temperature: >-
+          {% set temp = states.input_number.stue_natt_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ (temp + el_comp - 0.5) | int }}
 
 - alias: Stue morgen ukedag
   trigger:
@@ -87,12 +89,13 @@
           {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
           {{ temp + el_comp }}
-    - service: climate.mill_set_room_temperature
+    - service: climate.set_temperature
       data_template:
-        room_name: "Kitchen"
-        away_temp: "{{ (states.input_number.stue_morgen_temperatur.state - 1) | int }}"
-        comfort_temp: "{{ (states.input_number.stue_morgen_temperatur.state - 1) | int }}"
-        sleep_temp: "{{ (states.input_number.stue_morgen_temperatur.state - 1) | int }}"
+        entity_id: climate.kja_kken
+        temperature: >-
+          {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ (temp + el_comp - 0.5) | int }}
 
 - alias: Stue ettermiddag ukedag
   trigger:
@@ -119,12 +122,13 @@
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
           {{ temp + el_comp }}
-    - service: climate.mill_set_room_temperature
+    - service: climate.set_temperature
       data_template:
-        room_name: "Kitchen"
-        away_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
-        comfort_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
-        sleep_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
+        entity_id: climate.kja_kken
+        temperature: >-
+          {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ (temp + el_comp - 0.5) | int }}
 
 - alias: Stue morgen helg
   trigger:
@@ -151,12 +155,13 @@
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
           {{ temp + el_comp }}
-    - service: climate.mill_set_room_temperature
+    - service: climate.set_temperature
       data_template:
-        room_name: "Kitchen"
-        away_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
-        comfort_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
-        sleep_temp: "{{ (states.input_number.stue_dagtid_temperatur.state - 1) | int }}"
+        entity_id: climate.kja_kken
+        temperature: >-
+          {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
+          {% set el_comp = states.sensor.electricity_temperature.state | float %}
+          {{ (temp + el_comp - 0.5) | int }}
 
 
 # Door state changed
