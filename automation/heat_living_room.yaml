@@ -1,37 +1,4 @@
-- alias: Stue natt ukedag
-  trigger:
-    - platform: time
-      minutes: '/5'
-      seconds: '5'
-    - platform: homeassistant
-      event: start
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '5:00:00'
-    - condition: state
-      entity_id: binary_sensor.workday_tomorrow
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.vacation_mode
-      state: 'off'
-  action:
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.stue_termostat
-        temperature: >-
-          {% set temp = states.input_number.stue_natt_temperatur.state | float %}
-          {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ temp + el_comp }}
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.kja_kken
-        temperature: >-
-          {% set temp = states.input_number.stue_natt_temperatur.state | float %}
-          {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ (temp + el_comp - 0.5) | int }}
-
-- alias: Stue natt helg
+- alias: Stue natt
   trigger:
     - platform: time
       minutes: '/5'
@@ -39,12 +6,44 @@
     - platform: homeassistant
       event: start
   condition:
-    - condition: time
-      after: '23:30:00'
-      before: '08:30:00'
-    - condition: state
-      entity_id: binary_sensor.workday_tomorrow
-      state: 'off'
+    - condition: or
+      conditions:
+        # Natt ukedag
+        - condition: and
+          conditions:
+            - condition: time
+              after: '22:00:00'
+              before: '5:00:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.workday_tomorrow
+              state: 'on'
+        # Fredag
+        - condition: and
+          conditions:
+            - condition: time
+              after: '23:30:00'
+              before: '5:00:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.workday_tomorrow
+              state: 'off'
+        # Natt helg
+        - condition: and
+          conditions:
+            - condition: time
+              after: '23:30:00'
+              before: '08:30:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.workday_tomorrow
+              state: 'off'
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'
@@ -68,7 +67,7 @@
   trigger:
     - platform: time
       minutes: '/5'
-      seconds: '15'
+      seconds: '20'
     - platform: homeassistant
       event: start
   condition:
@@ -101,7 +100,7 @@
   trigger:
     - platform: time
       minutes: '/5'
-      seconds: '20'
+      seconds: '30'
     - platform: homeassistant
       event: start
   condition:
@@ -134,7 +133,7 @@
   trigger:
     - platform: time
       minutes: '/5'
-      seconds: '25'
+      seconds: '40'
     - platform: homeassistant
       event: start
   condition:
@@ -191,3 +190,4 @@
       data:
         entity_id: climate.stue_termostat
         operation_mode: 'heat'
+    # TODO: Add Mill heating
