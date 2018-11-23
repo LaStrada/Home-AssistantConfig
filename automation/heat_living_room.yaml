@@ -32,7 +32,7 @@
             - condition: state
               entity_id: binary_sensor.workday_tomorrow
               state: 'off'
-        # Natt helg
+        # Lørdag
         - condition: and
           conditions:
             - condition: time
@@ -44,6 +44,18 @@
             - condition: state
               entity_id: binary_sensor.workday_tomorrow
               state: 'off'
+        # Søndag
+        - condition: and
+          conditions:
+            - condition: time
+              after: '22:30:00'
+              before: '08:30:00'
+            - condition: state
+              entity_id: binary_sensor.workday_today
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.workday_tomorrow
+              state: 'on'
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'

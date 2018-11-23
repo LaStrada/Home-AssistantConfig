@@ -37,6 +37,9 @@
           entity_id: binary_sensor.tina_jobb_i_dag_sjekk
           state: 'on'
         - condition: state
+          entity_id: binary_sensor.tina_jobb_i_dag_sjekk
+          state: 'True'
+        - condition: state
           entity_id: input_boolean.office_force_morning_heat
           state: 'on'
   action:
