@@ -1,37 +1,48 @@
-project_id: !secret google_assistant_project_id
-# api_key: !secret google_assistant_api_key
-expose_by_default: false
+filter:
+  include_entities:
+    # Lights
+    - light.lys_gangen
+    - light.stua
+    - light.living_room
+    - light.kontoret_2
+
+    # Diverse
+    - input_boolean.guests
+    - input_boolean.guest_living_room
+    - input_boolean.vacation_mode
+    - input_boolean.office_force_morning_heat
+  include_domains:
+    - climate
 entity_config:
   # Diverse
   input_boolean.guests:
-    expose: true
     aliases:
       - Gjestemodus
 
   input_boolean.guest_living_room:
-    expose: true
     room: Kontoret
     aliases:
-      - Gjester overnatter på kontoret
-      - Gjester overnatter på gjesterommet
+      - Gjester overnatter i stua
+      - Gjestemodus stue
+      - Gjestemodus stua
 
   input_boolean.vacation_mode:
-    expose: true
     aliases:
       - Feriemodus
 
   # Tina jobb, varme på morgen
   input_boolean.office_force_morning_heat:
-    expose: true
     room: Kontoret
     aliases:
       - Wakeup heat på kontoret
+      - Tina jobber i morgen
+      - Varme på kontoret i morgen tidlig
+      - Overstyr varme på kontoret
 
 
   # Lights
 
   light.lys_gangen:
-    expose: true
     room: Gangen
     aliases:
       - Taklys gang
@@ -39,7 +50,6 @@ entity_config:
       - Lyset i gangen
 
   light.stua:
-    expose: true
     room: Stua
     aliases:
       - Taklys stue
@@ -49,11 +59,9 @@ entity_config:
       - Lyset i stuen
 
   light.living_room:
-    expose: true
     room: Stua
 
   light.kontoret_2:
-    expose: true
     room: Kontoret
     aliases:
       - Lys kontor
@@ -65,25 +73,21 @@ entity_config:
   # Thermostats
 
   climate.stue_termostat:
-    expose: true
     room: Stua
     aliases:
       - Termostat stue
 
   climate.soverom_termostat:
-    expose: true
     room: Soverommet
     aliases:
       - Termostat soverom
 
   climate.kontor_termostat:
-    expose: true
     room: Kontoret
     aliases:
       - Termostat kontor
 
   climate.gang_termostat:
-    expose: true
     room: Gangen
     aliases:
       - Termostat gang
