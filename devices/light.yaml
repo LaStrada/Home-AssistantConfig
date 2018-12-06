@@ -1,0 +1,5 @@
+- platform: group
+  name: Lys gangen
+  entities:
+    - light.gang_dimmer_level
+    - light.gang_garderobeskap_level

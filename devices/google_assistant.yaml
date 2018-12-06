@@ -1,0 +1,89 @@
+project_id: !secret google_assistant_project_id
+# api_key: !secret google_assistant_api_key
+expose_by_default: false
+entity_config:
+  # Diverse
+  input_boolean.guests:
+    expose: true
+    aliases:
+      - Gjestemodus
+
+  input_boolean.guest_living_room:
+    expose: true
+    room: Kontoret
+    aliases:
+      - Gjester overnatter på kontoret
+      - Gjester overnatter på gjesterommet
+
+  input_boolean.vacation_mode:
+    expose: true
+    aliases:
+      - Feriemodus
+
+  # Tina jobb, varme på morgen
+  input_boolean.office_force_morning_heat:
+    expose: true
+    room: Kontoret
+    aliases:
+      - Wakeup heat på kontoret
+
+
+  # Lights
+
+  light.lys_gangen:
+    expose: true
+    room: Gangen
+    aliases:
+      - Taklys gang
+      - Taklys i gangen
+      - Lyset i gangen
+
+  light.stua:
+    expose: true
+    room: Stua
+    aliases:
+      - Taklys stue
+      - Taklys i stua
+      - Taklys i stuen
+      - Lyset i stua
+      - Lyset i stuen
+
+  light.living_room:
+    expose: true
+    room: Stua
+
+  light.kontoret_2:
+    expose: true
+    room: Kontoret
+    aliases:
+      - Lys kontor
+      - Lys kontoret
+      - Taklys kontor
+      - Taklys kontoret
+
+
+  # Thermostats
+
+  climate.stue_termostat:
+    expose: true
+    room: Stua
+    aliases:
+      - Termostat stue
+
+  climate.soverom_termostat:
+    expose: true
+    room: Soverommet
+    aliases:
+      - Termostat soverom
+
+  climate.kontor_termostat:
+    expose: true
+    room: Kontoret
+    aliases:
+      - Termostat kontor
+
+  climate.gang_termostat:
+    expose: true
+    room: Gangen
+    aliases:
+      - Termostat gang
