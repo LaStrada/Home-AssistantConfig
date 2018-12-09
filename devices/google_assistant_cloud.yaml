@@ -1,6 +1,18 @@
-project_id:
-api_key:
-expose_by_default: false
+filter:
+  include_entities:
+    # Lights
+    - light.lys_gangen
+    - light.stua
+    - light.living_room
+    - light.kontoret_2
+
+    # Diverse
+    - input_boolean.guests
+    - input_boolean.guest_living_room
+    - input_boolean.vacation_mode
+    - input_boolean.office_force_morning_heat
+  include_domains:
+    - climate
 entity_config:
   # Diverse
   input_boolean.guests:
@@ -56,3 +68,26 @@ entity_config:
       - Lys kontoret
       - Taklys kontor
       - Taklys kontoret
+
+
+  # Thermostats
+
+  climate.stue_termostat:
+    room: Stua
+    aliases:
+      - Termostat stue
+
+  climate.soverom_termostat:
+    room: Soverommet
+    aliases:
+      - Termostat soverom
+
+  climate.kontor_termostat:
+    room: Kontoret
+    aliases:
+      - Termostat kontor
+
+  climate.gang_termostat:
+    room: Gangen
+    aliases:
+      - Termostat gang

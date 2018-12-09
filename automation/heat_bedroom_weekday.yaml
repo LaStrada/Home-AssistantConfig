@@ -19,6 +19,9 @@
     - condition: state
       entity_id: input_boolean.soverom_wakeup_heat
       state: 'on'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: disarmed
   action:
     - service: climate.set_temperature
       data_template:
@@ -42,6 +45,9 @@
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: disarmed
   action:
     - service: climate.set_temperature
       data_template:
@@ -65,6 +71,9 @@
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'off'
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: disarmed
   action:
     - service: climate.set_temperature
       data_template:

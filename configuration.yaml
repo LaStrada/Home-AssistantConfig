@@ -61,8 +61,9 @@ apple_tv: !include devices/apple_tv.yaml
 tradfri: !include devices/tradfri.yaml
 tibber: !include devices/tibber.yaml
 light: !include devices/light.yaml
-cloud:
-  google_actions: !include devices/google_assistant.yaml
+google_assistant: !include devices/google_assistant.yaml
+# cloud:
+#   google_actions: !include devices/google_assistant_cloud.yaml
 
 
 ### Scenes

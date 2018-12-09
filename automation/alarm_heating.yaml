@@ -1,0 +1,20 @@
+- alias: Stue alarm aktivert
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: armed_away
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.soverom_termostat
+        temperature: "{{ states.input_number.soverom_dagtid_temperatur.state | float }}"
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.kontor_termostat
+        temperature: "{{ states.input_number.kontor_temperatur.state | float }}"
