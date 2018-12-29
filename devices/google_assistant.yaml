@@ -7,6 +7,7 @@ entity_config:
     expose: true
     aliases:
       - Gjestemodus
+      - Gjester overnatter
 
   input_boolean.guest_living_room:
     expose: true
@@ -31,9 +32,18 @@ entity_config:
       - Varme på kontoret i morgen tidlig
       - Overstyr varme på kontoret
 
+  # Fireplace
+  input_boolean.living_room_fireplace:
+    expose: true
+    room: Kjøkkenet
+    aliases:
+      - Peis
+      - Vedovn
+
 
   # Lights
 
+  ## Gangen
   light.lys_gangen:
     expose: true
     room: Gangen
@@ -42,6 +52,7 @@ entity_config:
       - Taklys i gangen
       - Lyset i gangen
 
+  ## Stua
   light.stua:
     expose: true
     room: Stua
@@ -56,6 +67,7 @@ entity_config:
     expose: true
     room: Stua
 
+  ## Kontoret
   light.kontoret_2:
     expose: true
     room: Kontoret
@@ -64,3 +76,54 @@ entity_config:
       - Lys kontoret
       - Taklys kontor
       - Taklys kontoret
+
+  ## Kjøkkenet
+  switch.kitchen_bardisk_switch:
+    expose: true
+    room: Kjøkkenet
+    aliases:
+      - Kjøkken bardisk
+      - Bardisk
+      - Bardisken
+
+  light.kjkkenet:
+    expose: true
+    aliases:
+      - Taklys kjøkkenet
+      - Kjøkkenet taklys
+      - Taklyset på kjøkkenet
+
+  light.kitchen_table_dimmer_level:
+    expose: true
+    room: Kjøkkenet
+    aliases:
+      - Kjøkkenbord
+
+  ## Soverom
+  light.soverom_taklys:
+    expose: true
+    room: Soverommet
+    aliases:
+      - Taklys soverom
+      - Taklys soverommet
+      - Taklyset på soverommet
+      - Soverom taklys
+
+  light.stale_nattbordslampe:
+    expose: true
+    room: Soverommet
+    aliases:
+      - Ståle nattbordslampe
+      - Ståles nattbordslampe
+      - Nattbordslampe Ståle
+
+  light.tina_nattbordslampe:
+    expose: true
+    room: Soverommet
+    aliases:
+      - Tina nattbordslampe
+      - Tinas nattbordslampe
+      - Nattbordslampe Tina
+
+  ## Bod
+  ### Temperatur
