@@ -4,7 +4,16 @@
     - light.gang_dimmer_level
     - light.gang_garderobeskap_level
 
-- platform: group
-  name: Bardisk kjøkken
-  entities:
-    - switch.kitchen_bardisk_switch
+- platform: template
+  lights:
+    bardisk_light:
+      friendly_name: "Bardisk kjøkken"
+      value_template: "{{ states.switch.kitchen_bardisk_switch.state }}"
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.kitchen_bardisk_switch
+      turn_off:
+        service: switch.turn_off
+        data:
+          entity_id: switch.kitchen_bardisk_switch
