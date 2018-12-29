@@ -68,7 +68,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_natt_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {% set fireplace = states.living_room_fireplace_living_room.state | float %}
           {{ (temp + el_comp - fireplace) }}
     - service: climate.set_temperature
       data_template:
@@ -76,7 +76,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_natt_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {% set fireplace = states.living_room_fireplace_kitchen.state | float %}
           {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 - alias: Stue morgen ukedag
@@ -107,7 +107,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {% set fireplace = states.living_room_fireplace_living_room.state | float %}
           {{ (temp + el_comp - fireplace) }}
     - service: climate.set_temperature
       data_template:
@@ -115,7 +115,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {% set fireplace = states.living_room_fireplace_kitchen.state | float %}
           {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 - alias: Stue ettermiddag ukedag
@@ -146,7 +146,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {% set fireplace = states.living_room_fireplace_living_room.state | float %}
           {{ (temp + el_comp - 0.5 - fireplace) }}
     - service: climate.set_temperature
       data_template:
@@ -154,7 +154,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {% set fireplace = states.living_room_fireplace_kitchen.state | float %}
           {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 - alias: Stue morgen helg
@@ -185,7 +185,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {% set fireplace = states.living_room_fireplace_living_room.state | float %}
           {{ (temp + el_comp - 0.5 - fireplace) }}
     - service: climate.set_temperature
       data_template:
@@ -193,7 +193,7 @@
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {% set fireplace = states.living_room_fireplace_kitchen.state | float %}
           {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 
