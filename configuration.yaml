@@ -62,8 +62,10 @@ tradfri: !include devices/tradfri.yaml
 tibber: !include devices/tibber.yaml
 light: !include devices/light.yaml
 google_assistant: !include devices/google_assistant.yaml
-# cloud:
-#   google_actions: !include devices/google_assistant_cloud.yaml
+weather: !include devices/weather.yaml
+tts:
+  - platform: google
+    language: 'no'
 
 
 ### Scenes

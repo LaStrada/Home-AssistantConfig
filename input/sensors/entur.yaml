@@ -1,0 +1,6 @@
+- platform: entur_public_transport
+  name: Transport
+  expand_platforms: true
+  show_on_map: true
+  stop_ids:
+    - !secret entur_bus_stopp
