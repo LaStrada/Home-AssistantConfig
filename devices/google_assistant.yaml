@@ -78,7 +78,7 @@ entity_config:
       - Taklys kontoret
 
   ## Kjøkkenet
-  switch.kitchen_bardisk_switch:
+  light.bardisk_kjkken:
     expose: true
     room: Kjøkkenet
     aliases:
@@ -87,6 +87,7 @@ entity_config:
       - Bardisken
 
   light.kjkkenet:
+    room: Kjøkkenet
     expose: true
     aliases:
       - Taklys kjøkkenet

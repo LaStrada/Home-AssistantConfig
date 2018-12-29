@@ -3,3 +3,8 @@
   entities:
     - light.gang_dimmer_level
     - light.gang_garderobeskap_level
+
+- platform: group
+  name: Bardisk kjøkken
+  entities:
+    - switch.kitchen_bardisk_switch
