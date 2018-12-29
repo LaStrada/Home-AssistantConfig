@@ -53,7 +53,23 @@
 - alias: Kontor ettermiddag ukedag
   trigger:
     - platform: time
-      at: "11:00:00"
+      at: "12:00:00"
+    - platform: time
+      at: "13:00:00"
+    - platform: time
+      at: "14:00:00"
+    - platform: time
+      at: "15:00:00"
+    - platform: time
+      at: "16:00:00"
+    - platform: time
+      at: "17:00:00"
+    - platform: time
+      at: "18:00:00"
+    - platform: time
+      at: "19:00:00"
+    - platform: time
+      at: "20:00:00"
   condition:
     - condition: state
       entity_id: input_boolean.vacation_mode
@@ -62,11 +78,36 @@
       entity_id: input_boolean.guests
       state: 'off'
     - condition: state
-      entity_id: 'binary_sensor.workday_today'
-      state: 'on'
-    - condition: state
-      entity_id: 'binary_sensor.hjemmekontor'
-      state: 'off'
+      entity_id: alarm_control_panel.ha_alarm
+      state: disarmed
+    - condition: or
+      conditions:
+
+      # Hjemmekontor - ingen bevegelse på 4 timer
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: 'binary_sensor.hjemmekontor'
+          state: 'off'
+        - condition: template
+          value_state: '{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.multi_kontor_sensor.last_changed)) > (60*60*4)}}'
+
+      # Ingen bevegelse på 3 timer
+      - condition: and
+        conditions:
+        - condition: template
+          value_state: '{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.multi_kontor_sensor.last_changed)) > (60*60*4)}}'
+
+      # Alt annet - TODO: NEED MORE WORK
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: 'binary_sensor.hjemmekontor'
+          state: 'off'
+        - condition: state
+          entity_id: 'binary_sensor.hjemmekontor'
+          state: 'off'
+
   action:
     - service: climate.set_temperature
       data_template:

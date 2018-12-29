@@ -4,10 +4,12 @@ expose_by_default: false
 entity_config:
   # Diverse
   input_boolean.guests:
+    expose: true
     aliases:
       - Gjestemodus
 
   input_boolean.guest_living_room:
+    expose: true
     room: Kontoret
     aliases:
       - Gjester overnatter i stua
@@ -15,11 +17,13 @@ entity_config:
       - Gjestemodus stua
 
   input_boolean.vacation_mode:
+    expose: true
     aliases:
       - Feriemodus
 
   # Tina jobb, varme på morgen
   input_boolean.office_force_morning_heat:
+    expose: true
     room: Kontoret
     aliases:
       - Wakeup heat på kontoret
@@ -31,6 +35,7 @@ entity_config:
   # Lights
 
   light.lys_gangen:
+    expose: true
     room: Gangen
     aliases:
       - Taklys gang
@@ -38,6 +43,7 @@ entity_config:
       - Lyset i gangen
 
   light.stua:
+    expose: true
     room: Stua
     aliases:
       - Taklys stue
@@ -47,9 +53,11 @@ entity_config:
       - Lyset i stuen
 
   light.living_room:
+    expose: true
     room: Stua
 
   light.kontoret_2:
+    expose: true
     room: Kontoret
     aliases:
       - Lys kontor

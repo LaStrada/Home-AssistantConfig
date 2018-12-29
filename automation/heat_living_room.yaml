@@ -5,6 +5,8 @@
       seconds: '10'
     - platform: homeassistant
       event: start
+    - platform: state
+      entity_id: input_boolean.living_room_fireplace
   condition:
     - condition: or
       conditions:
@@ -66,14 +68,16 @@
         temperature: >-
           {% set temp = states.input_number.stue_natt_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ temp + el_comp }}
+          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {{ (temp + el_comp - fireplace) }}
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kja_kken
         temperature: >-
           {% set temp = states.input_number.stue_natt_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ (temp + el_comp - 0.5) | int }}
+          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 - alias: Stue morgen ukedag
   trigger:
@@ -82,6 +86,10 @@
       seconds: '20'
     - platform: homeassistant
       event: start
+    - platform: state
+      entity_id: input_boolean.living_room_fireplace
+    - platform: state
+      entity_id: input_number.stue_morgen_temperatur
   condition:
     - condition: time
       after: '04:00:00'
@@ -99,14 +107,16 @@
         temperature: >-
           {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ temp + el_comp }}
+          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {{ (temp + el_comp - fireplace) }}
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kja_kken
         temperature: >-
           {% set temp = states.input_number.stue_morgen_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ (temp + el_comp - 0.5) | int }}
+          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 - alias: Stue ettermiddag ukedag
   trigger:
@@ -115,6 +125,10 @@
       seconds: '30'
     - platform: homeassistant
       event: start
+    - platform: state
+      entity_id: input_boolean.living_room_fireplace
+    - platform: state
+      entity_id: input_number.stue_dagtid_temperatur
   condition:
     - condition: time
       after: '14:00:00'
@@ -132,14 +146,16 @@
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ temp + el_comp }}
+          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {{ (temp + el_comp - 0.5 - fireplace) }}
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kja_kken
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ (temp + el_comp - 0.5) | int }}
+          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 - alias: Stue morgen helg
   trigger:
@@ -148,6 +164,10 @@
       seconds: '40'
     - platform: homeassistant
       event: start
+    - platform: state
+      entity_id: input_boolean.living_room_fireplace
+    - platform: state
+      entity_id: input_number.stue_dagtid_temperatur
   condition:
     - condition: time
       after: '08:30:00'
@@ -165,14 +185,16 @@
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ temp + el_comp }}
+          {% set fireplace = states.living_room_fireplace_living_room.state %}
+          {{ (temp + el_comp - 0.5 - fireplace) }}
     - service: climate.set_temperature
       data_template:
         entity_id: climate.kja_kken
         temperature: >-
           {% set temp = states.input_number.stue_dagtid_temperatur.state | float %}
           {% set el_comp = states.sensor.electricity_temperature.state | float %}
-          {{ (temp + el_comp - 0.5) | int }}
+          {% set fireplace = states.living_room_fireplace_kitchen.state %}
+          {{ (temp + el_comp - 0.5 - fireplace) | int }}
 
 
 # Door state changed
@@ -203,3 +225,23 @@
         entity_id: climate.stue_termostat
         operation_mode: 'heat'
     # TODO: Add Mill heating
+
+
+- alias: Living room fireplace reset
+  trigger:
+    - platform: time
+      minutes: 1
+      seconds: 00
+    - platform: state
+      entity_id: input_boolean.living_room_fireplace
+      to: 'on'
+      for:
+        hours: 4
+  condition:
+    - condition: state
+      state: 'on'
+      for:
+        hours: 3
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.living_room_fireplace

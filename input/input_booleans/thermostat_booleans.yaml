@@ -5,3 +5,7 @@ soverom_wakeup_heat:
 office_force_morning_heat:
   name: Varme morning kontor
   initial: off
+
+living_room_fireplace:
+  name: Fyrer i peisen
+  initial: off

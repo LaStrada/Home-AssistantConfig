@@ -2,6 +2,7 @@ temperature_control_panel_living_room:
   name: Stue temperaturinnstillinger
   control: hidden
   entities:
+    - input_boolean.living_room_fireplace
     - input_number.stue_morgen_temperatur
     - input_number.stue_dagtid_temperatur
     - input_number.stue_natt_temperatur
