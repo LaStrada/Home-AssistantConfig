@@ -1,4 +1,4 @@
 - platform: met
-	latitude: !secret home_latitude
-	longitude: !secret home_longitude
-	altitude: 82
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  altitude: 82
