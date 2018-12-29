@@ -90,13 +90,13 @@
           entity_id: 'binary_sensor.hjemmekontor'
           state: 'off'
         - condition: template
-          value_state: '{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.multi_kontor_sensor.last_changed)) > (60*60*4)}}'
+          value_template: '{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.multi_kontor_sensor.last_changed)) > (60*60*4)}}'
 
       # Ingen bevegelse på 3 timer
       - condition: and
         conditions:
         - condition: template
-          value_state: '{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.multi_kontor_sensor.last_changed)) > (60*60*4)}}'
+          value_template: '{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.multi_kontor_sensor.last_changed)) > (60*60*4)}}'
 
       # Alt annet - TODO: NEED MORE WORK
       - condition: and

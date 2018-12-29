@@ -239,6 +239,7 @@
         hours: 4
   condition:
     - condition: state
+      entity_id: input_boolean.living_room_fireplace
       state: 'on'
       for:
         hours: 3
