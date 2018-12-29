@@ -3,4 +3,4 @@
   expand_platforms: true
   show_on_map: true
   stop_ids:
-    - !secret entur_bus_stopp
+    - !secret entur_bus_stop
