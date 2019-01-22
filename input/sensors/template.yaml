@@ -305,7 +305,7 @@
 
 
     living_room_fireplace_kitchen:
-      value_template: '{% if is_state("living_room_fireplace", "on") %}0{% else %}1.5{% endif %}'
+      value_template: '{% if is_state("input_boolean.living_room_fireplace", "off") %}0{% else %}1.5{% endif %}'
 
     living_room_fireplace_living_room:
-      value_template: '{% if is_state("living_room_fireplace", "on") %}0{% else %}2{% endif %}'
+      value_template: '{% if is_state("input_boolean.living_room_fireplace", "off") %}0{% else %}2{% endif %}'
