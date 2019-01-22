@@ -39,13 +39,7 @@ python_script:
 history:
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
-logger:
-  default: warning
-  logs:
-    homeassistant.components.media_player: error
-    homeassistant.components.sensor.template: error
-    homeassistant.components.tibber: error
-    homeassistant.components.sensor.tibber: error
+logger: !include logger.yaml
 
 automation: !include_dir_merge_list automation/
 group: !include_dir_merge_named groups/

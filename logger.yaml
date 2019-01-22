@@ -1,0 +1,7 @@
+default: warning
+logs:
+homeassistant.components.media_player: error
+homeassistant.components.sensor.template: error
+homeassistant.components.tibber: error
+homeassistant.components.sensor.tibber: error
+homeassistant.components.sensor.netatmo: error
