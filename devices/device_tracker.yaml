@@ -27,3 +27,5 @@
   hosts:
     - 10.0.0.30   # heracam_nc260
     - 10.0.0.31   # heracam_nc250
+
+- platform: huesensor
