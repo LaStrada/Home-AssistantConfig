@@ -19,11 +19,9 @@ homeassistant:
 #auth:
 
 frontend: !include ui/frontend.yaml
-
 http: !include http.yaml
-
 config:
-
+system_health:
 updater:
   include_used_components: true
 
@@ -45,6 +43,8 @@ automation: !include_dir_merge_list automation/
 group: !include_dir_merge_named groups/
 
 ### Devices
+air_quality:
+  - platform: nilu
 alarm_control_panel: !include devices/alarm.yaml
 camera: !include devices/camera.yaml
 climate: !include devices/climate.yaml
@@ -62,6 +62,7 @@ weather: !include devices/weather.yaml
 tts:
   - platform: google
     language: 'no'
+    base_url: !secret my_domain
 
 
 ### Scenes
