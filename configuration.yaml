@@ -44,7 +44,7 @@ group: !include_dir_merge_named groups/
 
 ### Devices
 air_quality:
-  - platform: nilu
+  - platform: norway_air
 alarm_control_panel: !include devices/alarm.yaml
 camera: !include devices/camera.yaml
 climate: !include devices/climate.yaml
