@@ -1,4 +1,3 @@
-api_password: !secret http_password
 base_url: !secret my_domain
 server_port: 8123
 ip_ban_enabled: True
