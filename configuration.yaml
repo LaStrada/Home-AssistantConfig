@@ -44,15 +44,14 @@ automation: !include_dir_merge_list automation/
 group: !include_dir_merge_named groups/
 
 ### Devices
-air_quality:
-  - platform: norway_air
+air_quality: !include devices/air_quality.yaml
 alarm_control_panel: !include devices/alarm.yaml
 camera: !include devices/camera.yaml
 climate: !include devices/climate.yaml
 device_tracker: !include devices/device_tracker.yaml
+hue: !include devices/hue.yaml
 ios: !include devices/ios.yaml
 mqtt: !include devices/mqtt.yaml
-hue: !include devices/hue.yaml
 sensor: !include_dir_merge_list input/sensors/
 apple_tv: !include devices/apple_tv.yaml
 tradfri: !include devices/tradfri.yaml
