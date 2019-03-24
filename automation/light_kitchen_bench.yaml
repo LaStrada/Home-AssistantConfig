@@ -23,7 +23,7 @@
       entity_id: input_number.kitchen_bench_lights
     - platform: time_pattern
       minutes: '/2'
-      seconds: 00
+      seconds: 0
   action:
     - service_template: >
         {% if is_state('input_number.kitchen_bench_lights', '2.0') %}

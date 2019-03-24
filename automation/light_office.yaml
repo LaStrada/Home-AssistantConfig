@@ -4,8 +4,8 @@
     - platform: state
       entity_id: input_boolean.guests
     - platform: time_pattern
-      minutes: 00
-      seconds: 00
+      minutes: 0
+      seconds: 0
   action:
     - service: group.set_visibility
       data_template:

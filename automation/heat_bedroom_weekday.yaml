@@ -63,7 +63,7 @@
       event: start
     - platform: time_pattern
       minutes: '/5'
-      seconds: 00
+      seconds: 0
   condition:
     - condition: time
       after: '20:30:00'

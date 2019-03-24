@@ -231,7 +231,7 @@
   trigger:
     - platform: time_pattern
       minutes: 1
-      seconds: 00
+      seconds: 0
     - platform: state
       entity_id: input_boolean.living_room_fireplace
       to: 'on'
