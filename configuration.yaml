@@ -9,12 +9,12 @@ homeassistant:
     "*":
       custom_ui_state_card: state-card-custom-ui
   customize: !include_dir_merge_named ui/customize/
-  # whitelist_external_dirs:
-  #   - /home/homeassistant/heracam/fullsize
-  #   - /home/homeassistant/heracam/thumbnail
- auth_providers:
-  - type: homeassistant
-  - type: legacy_api_password
+  whitelist_external_dirs:
+    - /home/homeassistant/heracam/fullsize
+    - /home/homeassistant/heracam/thumbnail
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
 
 #auth:
 
