@@ -4,7 +4,7 @@ rpi_monitor:
     - sensor.cpu_temp
     - sensor.processor_use
     - sensor.memory_use_percent
-    - sensor.disk_use_percent_
+    - sensor.disk_use_percent
     - sensor.retropie_cpu_temp
 
 receiver_monitor:

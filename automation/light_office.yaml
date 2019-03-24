@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id: input_boolean.guests
-    - platform: time
+    - platform: time_pattern
       minutes: 00
       seconds: 00
   action:

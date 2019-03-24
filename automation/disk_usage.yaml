@@ -1,7 +1,7 @@
 - alias: Disk usage alert warning
   trigger:
     - platform: numeric_state
-      entity_id: sensor.disk_use_percent_
+      entity_id: sensor.disk_use_percent
       above: 85
   action:
     - service: notify.ios_lolphone_x
@@ -12,10 +12,10 @@
 - alias: Disk usage alert critical
   trigger:
     - platform: numeric_state
-      entity_id: sensor.disk_use_percent_
+      entity_id: sensor.disk_use_percent
       above: 95
   action:
     - service: notify.ios_lolphone_x
       data:
         title: 'Critical disk usage!'
-        message: "Diskforbruk nå: {{ states('sensor.sensor.disk_use_percent_') }}"
+        message: "Diskforbruk nå: {{ states('sensor.sensor.disk_use_percent') }}"

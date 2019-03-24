@@ -1,6 +1,6 @@
 - alias: Ferie modus off (date trigger)
   trigger:
-    - platform: time
+    - platform: time_pattern
       hours: '/2'
       minutes: 1
       seconds: 0

@@ -1,6 +1,6 @@
 - alias: Stue natt
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/5'
       seconds: 10
     - platform: homeassistant
@@ -81,7 +81,7 @@
 
 - alias: Stue morgen ukedag
   trigger:
-    - platform: time
+    - platform: time_patterns
       minutes: '/5'
       seconds: 20
     - platform: homeassistant
@@ -120,7 +120,7 @@
 
 - alias: Stue ettermiddag ukedag
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/5'
       seconds: 30
     - platform: homeassistant
@@ -159,7 +159,7 @@
 
 - alias: Stue morgen helg
   trigger:
-    - platform: time
+    - platform: v
       minutes: '/5'
       seconds: 40
     - platform: homeassistant
@@ -229,7 +229,7 @@
 
 - alias: Living room fireplace reset
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: 1
       seconds: 00
     - platform: state

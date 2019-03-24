@@ -6,7 +6,7 @@
       entity_id: input_number.vitrineskap_dimmer
     - platform: state
       entity_id: light.stua
-    - platform: time
+    - platform: time_pattern
       minutes: '/2'
       seconds: 00
   action:

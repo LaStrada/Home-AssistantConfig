@@ -21,7 +21,7 @@
   trigger:
     - platform: state
       entity_id: input_number.kitchen_bench_lights
-    - platform: time
+    - platform: time_pattern
       minutes: '/2'
       seconds: 00
   action:
