@@ -19,7 +19,7 @@ switch.kitchen_bardisk_switch:
 light.kitchen_table_dimmer_level:
   homebridge_visible: true
   friendly_name: Kjøkkenbord
-light.kjkkenet:
+light.kjokkenet:
   homebridge_visible: true
   homebridge_name: Taklys kjøkkenet
 

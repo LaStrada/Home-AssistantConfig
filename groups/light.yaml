@@ -8,7 +8,7 @@ lys_soverom:
 lys_kitchen:
   name: Kjøkken
   entities:
-    - light.kjkkenet # tak
+    - light.kjokkenet # tak
     - switch.kitchen_bardisk_switch # bardisk
     - light.kitchen_table_dimmer_level # spisebord
 

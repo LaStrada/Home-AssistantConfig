@@ -246,7 +246,7 @@
     bod_temperature:
       friendly_name: 'Bod temperatur'
       unit_of_measurement: '°C'
-      value_template: '{{ states.sensor.bod_temperature.attributes.temperature }}'
+      value_template: '{{ states.binary_sensor.bevegelse_motion_bod.attributes.temperature }}'
       icon_template: mdi:thermometer
 
 

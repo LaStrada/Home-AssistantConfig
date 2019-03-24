@@ -20,7 +20,7 @@
   action:
     - service: light.turn_off
       data:
-        entity_id: light.kjkkenet
+        entity_id: light.kjokkenet
         transition: 600
 
 - alias: Light kitchen dim on (daytime)
@@ -52,7 +52,7 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.kjkkenet
+        entity_id: light.kjokkenet
         brightness: 254
         transition: 1
 
@@ -85,7 +85,7 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.kjkkenet
+        entity_id: light.kjokkenet
         brightness: 85
         transition: 1
 
@@ -96,12 +96,12 @@
       entity_id: switch.kitchen_bardisk_switch_2
   condition:
     - condition: state
-      entity_id: light.kjkkenet
+      entity_id: light.kjokkenet
       state: 'off'
   action:
     - service: light.turn_on
       data:
-        entity_id: light.kjkkenet
+        entity_id: light.kjokkenet
         brightness: 254
         transition: 1
 
@@ -114,10 +114,10 @@
       to: 'off'
   condition:
     - condition: state
-      entity_id: light.kjkkenet
+      entity_id: light.kjokkenet
       state: 'on'
   action:
     - service: light.turn_off
       data:
-        entity_id: light.kjkkenet
+        entity_id: light.kjokkenet
         transition: 0

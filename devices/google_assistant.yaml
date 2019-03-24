@@ -86,7 +86,7 @@ entity_config:
       - Bardisk
       - Bardisken
 
-  light.kjkkenet:
+  light.kjokkenet:
     room: Kjøkkenet
     expose: true
     aliases:
