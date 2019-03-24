@@ -4,9 +4,10 @@
   port: 587
   timeout: 20
   sender: !secret gmail_username
-  starttls: true
+  encryption: starttls
   username: !secret gmail_username
   password: !secret gmail_password
+  sender_name: "HASS h0me.no"
   recipient:
     - !secret stale_email
     - !secret tina_email
