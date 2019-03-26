@@ -297,8 +297,10 @@
         {% set current = float(states.sensor.electricity_price_romolslia_78.state) %}
         {% set value = ((((current - min) / (max - min)) - 0.5) * -1) %}
         {% set percent = float(states.sensor.elecricity_price_percent_above.state) %}
-        {% if min is not number or max is not number or current is not number or value is not number or percent is not number %}
-          None
+        {% if is_state('input_boolean.brewing', 'off') %}
+          0.0
+        {% elif min is not number or max is not number or current is not number or value is not number or percent is not number %}
+          0.0
         {% else %}
           {{ (value * (percent / 100)) | round(1) }}
         {% endif %}

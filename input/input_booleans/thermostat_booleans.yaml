@@ -9,3 +9,7 @@ office_force_morning_heat:
 living_room_fireplace:
   name: Fyrer i peisen
   initial: off
+
+el_comp_activated:
+  name: Temperatur korrigering
+  initial: off
