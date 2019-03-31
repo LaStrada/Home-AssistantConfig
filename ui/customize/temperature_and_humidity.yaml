@@ -1,11 +1,11 @@
 # Living room
 sensor.average_living_room_temperature:
-  friendly_name: 'Temperatur stue'
+  friendly_name: 'Temperatur Stua'
   icon: mdi:percent
   unit_of_measurement: '°C'
 
 sensor.average_living_room_humidity:
-  friendly_name: 'Luftfuktighet'
+  friendly_name: 'Luftfuktighet Soverommet'
   icon: mdi:percent
   unit_of_measurement: '%'
 
@@ -14,6 +14,23 @@ sensor.netatmo_stue_co2:
 
 # Bedroom
 sensor.median_bedroom_humidity:
-  friendly_name: 'Luftfuktighet'
+  friendly_name: 'Luftfuktighet Soverommet'
   icon: mdi:percent
   unit_of_measurement: '%'
+
+sensor.median_bedroom_temperature:
+  friendly_name: 'Temperatur Soverommet'
+  icon: mdi:percent
+  unit_of_measurement: '°C'
+
+# Office
+sensor.average_office_temperature:
+  friendly_name: 'Temperatur Kontor'
+  icon: mdi:percent
+  unit_of_measurement: '°C'
+
+# Entrance
+sensor.temp_gang_temperature:
+  friendly_name: 'Temperatur Gangen'
+  icon: mdi:percent
+  unit_of_measurement: '°C'

@@ -46,3 +46,7 @@ filter:
     - sensor.average_office_temperature
     - sensor.average_office_humidity
     - binary_sensor.multi_kontor_sensor
+
+    # Bathroom
+    - sensor.temp_bad_humidity
+    - sensor.temp_bad_temperature
