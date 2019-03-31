@@ -16,7 +16,7 @@
 - platform: generic_thermostat
   name: 'Kontor termostat'
   heater: switch.panelovn_kontor_switch
-  target_sensor: sensor.temp_kontor_temperature
+  target_sensor: sensor.average_office_temperature
   min_temp: 10
   max_temp: 23
   target_temp: 18

@@ -43,6 +43,6 @@ filter:
     - binary_sensor.freezer_bod_sensor
 
     # Office / guestroom
-    - binary_sensor.average_office_temperature
+    - sensor.average_office_temperature
     - sensor.average_office_humidity
-    - 
+    - binary_sensor.multi_kontor_sensor
