@@ -1,7 +1,7 @@
 name: HASS Bridge
 auto_start: false
 filter:
-  include_enteties:
+  include_entities:
     # Outdoor
     - sensor.median_outdoor_temperature
 
