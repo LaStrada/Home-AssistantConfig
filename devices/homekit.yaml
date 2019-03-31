@@ -1,0 +1,48 @@
+name: HASS Bridge
+auto_start: false
+filter:
+  include_enteties:
+    # Outdoor
+    - sensor.median_outdoor_temperature
+
+    # Kitchen
+    ## Lights
+    - light.bardisk_light
+    - light.kjokkenet
+    - light.kitchen_table_dimmer_level
+    ## Temp / humidity
+    - sensor.multi_kitchen_bottom_relative_humidity
+    - sensor.multi_kitchen_bottom_temperature
+    ## Doors
+    - binary_sensor.door_back_sensor
+    - binary_sensor.freezer_kitchen_sensor
+    ## Motion
+    - binary_sensor.multi_kitchen_bottom_sensor
+    - binary_sensor.multi_kitchen_top_sensor
+
+    # Living room
+    - average_living_room_temerature
+    - sensor.average_living_room_humidity
+    - sensor.average_living_room_temperature
+    - binary_sensor.door_front_sensor
+
+    # Bedroom
+    - sensor.median_bedroom_humidity
+    - sensor.median_bedroom_temperature
+
+    # Entrance
+    - sensor.temp_gang_humidity
+    - sensor.temp_gang_temperature
+    - sensor.multi_gang_temperature
+    - light.lys_gangen
+    - binary_sensor.multi_gang_sensor
+
+    # "Bod"
+    - sensor.bod_temperature
+    - binary_sensor.bevegelse_motion_bod
+    - binary_sensor.freezer_bod_sensor
+
+    # Office / guestroom
+    - binary_sensor.average_office_temperature
+    - sensor.average_office_humidity
+    - 

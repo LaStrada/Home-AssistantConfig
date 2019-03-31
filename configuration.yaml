@@ -5,9 +5,6 @@ homeassistant:
   elevation: 82
   unit_system: metric
   time_zone: Europe/Oslo
-  customize_glob:
-    "*":
-      custom_ui_state_card: state-card-custom-ui
   customize: !include_dir_merge_named ui/customize/
   whitelist_external_dirs:
     - /home/homeassistant/heracam/fullsize
@@ -49,6 +46,7 @@ alarm_control_panel: !include devices/alarm.yaml
 camera: !include devices/camera.yaml
 climate: !include devices/climate.yaml
 device_tracker: !include devices/device_tracker.yaml
+homekit: !include devices/homekit.yaml
 hue: !include devices/hue.yaml
 ios: !include devices/ios.yaml
 mqtt: !include devices/mqtt.yaml
@@ -86,7 +84,7 @@ history_graph:
     hours_to_show: 48
     refresh: 120
     entities:
-      - sensor.temp_ute_temperature
+      - sensor.median_outdoor_temperature
 
 ### Connected devices
 rfxtrx: !include devices/rfxtrx.yaml

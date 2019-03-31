@@ -1,7 +1,7 @@
 - platform: generic_thermostat
   name: 'Stue termostat'
   heater: switch.panelovn_stue_switch
-  target_sensor: sensor.average_living_room_temerature
+  target_sensor: sensor.average_living_room_temperature
   min_temp: 10
   max_temp: 25
   target_temp: 22

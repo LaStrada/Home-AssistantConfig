@@ -62,7 +62,7 @@ temp_bad:
 ute:
   name: Ute
   entities:
-    - sensor.temp_ute_temperature
+    - sensor.median_outdoor_temperature
     - sensor.yr_humidity
     - sensor.yr_cloudiness
     - sensor.yr_dewpoint_temperature

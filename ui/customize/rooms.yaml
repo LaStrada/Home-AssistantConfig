@@ -34,7 +34,7 @@ sensor.temp_stue_humidity:
 
 
 # Outdoor (ute)
-sensor.temp_ute_temperature:
+sensor.median_outdoor_temperature:
   homebridge_visible: true
   friendly_name: Temperatur ute
 sensor.yr_symbol:

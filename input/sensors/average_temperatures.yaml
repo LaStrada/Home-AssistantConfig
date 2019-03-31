@@ -1,4 +1,13 @@
-# Median
+# Outdoor
+
+- platform: min_max
+  name: median_outdoor_temperature
+  type: mean
+  entity_ids:
+    - sensor.temp_ute_temperature
+    - sensor.netatmo_bakside_temperature
+
+# Bedroom
 
 - platform: min_max
   name: median_bedroom_temperature
@@ -16,7 +25,7 @@
     - sensor.mqtt_bedroom_humidity
     - sensor.bedroom_netatmo_co2_humidity
 
-# Min / max / mean
+# Living room
 
 - platform: min_max
   name: 'average_living_room_humidity'
@@ -26,8 +35,26 @@
     - sensor.netatmo_stue_humidity
 
 - platform: min_max
-  name: 'average_living_room_temerature'
+  name: 'average_living_room_temperature'
   type: mean
   entity_ids:
     - sensor.temp_stue_temperature # 433mhz
     - sensor.netatmo_stue_temperature
+
+# Office
+
+- platform: min_max
+  name: 'average_office_humidity'
+  type: mean
+  entity_ids:
+    - sensor.temp_kontor_humidity # 433mhz
+    - sensor.multi_kontor_relative_humidity
+    - sensor.netatmo_kontoret_humidity
+
+- platform: min_max
+  name: 'average_office_temperature'
+  type: mean
+  entity_ids:
+    - sensor.temp_kontor_temperature # 433mhz
+    - sensor.multi_kontor_temperature
+    - sensor.netatmo_kontoret_temperature

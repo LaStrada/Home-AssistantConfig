@@ -6,7 +6,7 @@ default_view:
   entities:
     - group.alarm
     - group.heracam
-    - sensor.temp_ute_temperature
+    - sensor.median_outdoor_temperature
     - sensor.yr_humidity
     - sun.sun
     - sensor.yr_symbol

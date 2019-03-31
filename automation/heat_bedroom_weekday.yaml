@@ -81,11 +81,11 @@
         temperature: >-
           {% if states.input_number.soverom_natt_temperatur.state == unknown %}
             19
-          {% elif states.sensor.temp_ute_temperature.state == unknown %}
+          {% elif states.sensor.median_outdoor_temperature.state == unknown %}
             {{ states.input_number.soverom_natt_temperatur.state | float }}
           {% else %}
             {% set new_temp = states.input_number.soverom_natt_temperatur.state | float %}
-            {% set outdoor_temp = states.sensor.temp_ute_temperature.state | float | round(0) %}
+            {% set outdoor_temp = states.sensor.median_outdoor_temperature.state | float | round(0) %}
             {% if outdoor_temp >= 10 %}
               {{ new_temp }}
             {% elif outdoor_temp > -20 %}

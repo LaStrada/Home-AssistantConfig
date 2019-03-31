@@ -49,6 +49,7 @@ include:
 
     # Outside
     - sensor.temp_ute_temperature
+    - sensor.median_outdoor_temperature
     - sensor.yr_humidity
     - sensor.yr_wind_speed
 
