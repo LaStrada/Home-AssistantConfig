@@ -21,7 +21,7 @@ filter:
     - binary_sensor.multi_kitchen_top_sensor
 
     # Living room
-    - sensor.average_living_room_temerature
+    - sensor.average_living_room_temperature
     - sensor.average_living_room_humidity
     - sensor.average_living_room_temperature
     - binary_sensor.door_front_sensor
